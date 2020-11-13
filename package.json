@@ -1,0 +1,22 @@
+{
+  "name": "bohemica-studio-website-2020",
+  "author": "Bohemica Studio",
+  "version": "0.1.0",
+  "description": "New website for Bohemica Studio",
+  "scripts": {
+    "serve": "eleventy --serve & postcss source/tailwind.css --o temporary/style.css --watch",
+    "build": "npm run copyjs && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss source/tailwind.css --o build/style.css",
+    "copyjs": "copyfiles --flat node_modules/alpinejs/dist/alpine.js source/script & copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.js source/script"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@ryangjchandler/spruce": "^2.0.1",
+    "alpinejs": "^2.7.3",
+    "tailwindcss": "^1.9.6",
+    "postcss-cli": "^8.2.0",
+    "html-minifier-terser": "^5.1.1",
+    "terser": "^5.3.8",
+    "prettier": "^2.1.2",
+    "copyfiles": "^2.4.0"
+  }
+}

@@ -1,0 +1,20 @@
+{% extends "includes/default.njk" %}
+
+{% block title %}It does work{% endblock %}
+
+{% block content %}
+	<div class="fixed inset-0 flex items-center justify-center">
+		<div x-data="{ load: false }">
+			<span class="text-change">Good design</span><br/>
+			<span class="change">is<br/>as little design<br/>as possible</span><br/>
+			<span x-data="{message:'🤖 Hello World 🤓'}" x-text="message"></span>
+			<br><br>
+
+			<button x-on:click="load = true">Load</button>
+
+			<template x-if="load">
+			<script async defer src="./script/main.js" crossorigin></script>
+			</template>
+		</div>
+	</div>
+{% endblock %}
