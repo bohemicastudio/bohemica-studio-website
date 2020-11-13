@@ -5,8 +5,8 @@
   "description": "New website for Bohemica Studio",
   "scripts": {
     "serve": "eleventy --serve & postcss source/tailwind.css --o temporary/style.css --watch",
-    "build": "npm run copyjs && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss source/tailwind.css --o build/style.css",
-    "copyjs": "copyfiles --flat node_modules/alpinejs/dist/alpine.js source/script & copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.js source/script"
+    "build": "trash build && npm run copyjs && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss source/tailwind.css --o build/style.css",
+    "copyjs": "copyfiles --flat node_modules/alpinejs/dist/alpine.js source/script & copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.umd.js source/script"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -17,6 +17,7 @@
     "html-minifier-terser": "^5.1.1",
     "terser": "^5.3.8",
     "prettier": "^2.1.2",
-    "copyfiles": "^2.4.0"
+    "copyfiles": "^2.4.0",
+    "trash-cli": "^3.1.0"
   }
 }
