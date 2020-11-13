@@ -1,4 +1,4 @@
-{% extends "includes/default.njk" %}
+{% extends "./includes/default.njk" %}
 
 {% block title %}Bohemica Studio{% endblock %}
 
@@ -6,7 +6,7 @@
 	<div class="fixed inset-0 flex items-center justify-center">
 		<div x-data="{ load: false }" class="space-y-4">
 
-			<button x-on:click="load = true" class="bg-blue-200">Load</button>
+			<button x-on:click="load = true" class="bg-blue-200">Load JS file</button>
 
 			<template x-if="load">
 				<script async defer src="./script/main.js" crossorigin></script>
@@ -18,30 +18,62 @@
 					name: 'MMT',
 					html: '<div>Init</div>',
 					get firstName() {
-						return this.name.split(' ')[0]
+						return this.name
 					},
 					set setHTML(data) {
 						this.html = data;
+					},
+					initHTML() {
+						fetch('./projects/mmt.html')
+							.then(response => response.text())
+							.then(html => {
+								console.log('html', html)
+								Spruce.store('project').setHTML = html
+							})
 					}
 				})
 
-				async function init() {
-					console.log('init')
-					fetch('./projects/mmt.html')
-						.then(response => response.text())
-						.then(html => {
-							console.log(html)
-							Spruce.store('project').setHTML = html
-						})
+				const getTranslation = async (lang) => {
+					const response = await fetch(`./langs/${ lang }.json`)
+					const json = await response.json();
+					console.log('json:', json);
+					return json
 				}
+
+				Spruce.store('home', {
+					data: { lang: 'en' },
+					set setData(data) {
+						this.data = data;
+					},
+					async switchTranslation(lang) {
+						let translation = await getTranslation(lang)
+						console.log('translation', translation)
+						this.setData = translation
+					}
+				})
 
 			</script>
 
-			<div x-data="project()" x-init="init()">
+
+			<div x-data class="flex flex-col space-y-3"> {# x-init="init()" #}
+
 				<div x-html="$store.project.html">
 				</div>
-			</div>
 
+				<button x-on:click="$store.project.initHTML()" class="bg-red-200">Load HTML file (project)</button>
+
+				<div x-text="$store.home.data.lang">
+				</div>
+
+				<button x-on:click="$store.home.switchTranslation('cs')" class="bg-red-200">Switch translation (to
+				                                                                            'cs')
+				</button>
+
+				<button x-on:click="$store.home.switchTranslation('en')" class="bg-red-200">Switch translation (to
+				                                                                            'en')
+				</button>
+
+			</div>
 		</div>
 	</div>
 {% endblock %}

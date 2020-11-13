@@ -1,6 +1,7 @@
 module.exports = {
 	purge: [
-		'./build/index.html',
+		'./source/*.njk',
+		'./includes/*.njk',
 	],
 	variants: {},
 	plugins: [],
