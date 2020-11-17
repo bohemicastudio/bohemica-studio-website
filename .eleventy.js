@@ -12,9 +12,9 @@ module.exports = function (config) {
 	config.addPassthroughCopy({ "./temporary/style.css": "./style.css" })
 	config.addPassthroughCopy("./source/langs")
 
-	/*config.addPassthroughCopy({
-		"./node_modules/alpinejs/dist/alpine.js": "../script/alpine.js",
-	})*/
+/*	config.addPassthroughCopy({ "./node_modules/@ryangjchandler/spruce/dist/spruce.umd.js": "./script/spruce.js" })
+	config.addPassthroughCopy({ "./node_modules/alpinejs/dist/alpine.js": "./script/alpine.js" })
+	config.addPassthroughCopy({ "./node_modules/animejs/lib/anime.es.js": "./script/anime.js" })*/
 
 	// Shortcodes
 	config.addShortcode("version", function () {

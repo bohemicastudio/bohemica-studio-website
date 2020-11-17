@@ -75,5 +75,79 @@
 
 			</div>
 		</div>
+
+		<script>
+
+			function slideover() {
+				return {
+					processFiles: function (event) {
+						console.log(this.$refs, this.fieldName);
+						if (event.dataTransfer.files.length > 0) {
+							this.$refs[this.fieldName + '-file'].files = event.dataTransfer.files;
+							this.$refs[this.fieldName + '-file'].dispatchEvent(new Event('change', { 'bubbles': true }));
+
+							return true;
+						}
+
+						return false;
+					},
+					animate: function (event, element) {
+						console.log(event.detail)
+						console.log(this.$refs.slideover)
+
+						if (event.detail.open === true) {
+							anime({
+								targets: this.$refs.slideover,
+								translateY: '0%',
+								duration: 320,
+								easing: 'easeOutQuart'
+							});
+						}
+						else if (event.detail.open === false) {
+							anime({
+								targets: this.$refs.slideover,
+								translateY: '100%',
+								duration: 320,
+								easing: 'easeInQuart'
+							});
+						}
+					}
+				};
+			}
+
+			const handleClick = function (e, el) {
+				console.log(e, el)
+			}
+
+			/*const handleSlideover = function (event, element) {
+				console.log(event.detail)
+				console.log(this)
+			}*/
+
+			const slideoverAnim = anime({
+				targets: '.play-pause-demo .el',
+				translateX: 270,
+				delay: function (el, i) {
+					return i * 100;
+				},
+				direction: 'alternate',
+				loop: true,
+				autoplay: false,
+				easing: 'easeInOutSine'
+			});
+		</script>
+
+		<div class="absolute inset-0 z-50 flex flex-col items-end bg-black bg-opacity-25" x-data="slideover()" x-on:slideover="animate($event, $refs.slideover)">
+			<div class="mt-12 mb-6 mr-12 space-x-2">
+				<button class="p-2 bg-white" x-on:click="$dispatch('slideover', { open: true })">
+					Open
+				</button>
+				<button class="p-2 bg-white" x-on:click="$dispatch('slideover', { open: false })">
+					Close
+				</button>
+			</div>
+			<div x-ref="slideover" class="flex-grow w-full transform bg-gray-200 rounded-t-4xl" style="top: 10%; transform: translateY(100%)" x-on:click="handleClick($event, $el)"></div>
+		</div>
+
 	</div>
 {% endblock %}
