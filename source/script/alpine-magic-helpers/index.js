@@ -1750,6 +1750,97 @@
       alpine$3(callback);
     };
 
+    var Config = /*#__PURE__*/function () {
+      function Config() {
+        var _this = this;
+
+        this.values = {
+          breakpoints: {
+            xs: 0,
+            sm: 640,
+            md: 768,
+            lg: 1024,
+            xl: 1280,
+            '2xl': 1536
+          }
+        }; // After all assets are loaded but before the page is actually ready when ALpine will kick in
+
+        document.addEventListener('readystatechange', function () {
+          if (document.readyState === 'interactive' && window.AlpineMagicHelpersConfig) {
+            for (var index in window.AlpineMagicHelpersConfig) {
+              _this.values[index] = window.AlpineMagicHelpersConfig[index];
+            }
+          }
+        });
+      }
+
+      var _proto = Config.prototype;
+
+      _proto.get = function get(property) {
+        return this.values[property] ? this.values[property] : null;
+      };
+
+      return Config;
+    }();
+
+    var config = new Config();
+
+    var screenComponents = []; // Debounce `updateElements` method to prevent memory leak
+
+    var debouncedScreensUpdate = function debouncedScreensUpdate() {
+      var update; // Update component if $el is in `screenComponents`
+
+      var updateScreens = function updateScreens() {
+        clearTimeout(update);
+        update = setTimeout(function () {
+          screenComponents.forEach(function ($el) {
+            return $el && $el.__x && $el.__x.updateElements($el);
+          });
+        }, 150);
+      };
+
+      return updateScreens;
+    };
+
+    var AlpineScreenMagicMethod = {
+      start: function start() {
+        // Bind `debouncedScreensUpdate` to resize event on window
+        // Note that `resize` event will be triggered on `orientationchange` event as well
+        window.addEventListener('resize', debouncedScreensUpdate());
+        Alpine.addMagicProperty('screen', function ($el) {
+          // Push $el if it's not in the `screenComponents`
+          if (!screenComponents.includes($el)) {
+            screenComponents.push($el);
+          }
+
+          return function (breakpoint) {
+            // Get current window width
+            var width = window.innerWidth; // Early return if breakpoint is provided as number
+
+            if (Number.isInteger(breakpoint)) return breakpoint <= width; // Get breakpoints from Config
+
+            var configBreakpoints = config.get('breakpoints'); // Check if breakpoint exists
+
+            if (configBreakpoints[breakpoint] === undefined) {
+              throw Error('Undefined $screen property: ' + breakpoint);
+            } // Finally compare breakpoint with window width and return as boolean
+
+
+            return configBreakpoints[breakpoint] <= width;
+          };
+        });
+      }
+    };
+
+    var alpine$4 = window.deferLoadingAlpine || function (alpine) {
+      return alpine();
+    };
+
+    window.deferLoadingAlpine = function (callback) {
+      AlpineScreenMagicMethod.start();
+      alpine$4(callback);
+    };
+
     function createCommonjsModule(fn, basedir, module) {
     	return module = {
     		path: basedir,
@@ -2199,7 +2290,7 @@
     smoothscroll.polyfill();
     var AlpineScrollMagicMethod = {
       start: function start() {
-        Alpine.addMagicProperty('scroll', function ($el) {
+        Alpine.addMagicProperty('scroll', function () {
           return function (target, options) {
             if (options === void 0) {
               options = {};
@@ -2224,7 +2315,7 @@
 
 
             if (target instanceof Element) {
-              target = target.getBoundingClientRect().top + window.pageYOffset;
+              target = Math.floor(target.getBoundingClientRect().top + window.pageYOffset);
             } // If target has been converted to the y coordinate or was an object to begin with
             // we transform it to a ScrollToOptions dictionary
 
@@ -2252,17 +2343,19 @@
       }
     };
 
-    var alpine$4 = window.deferLoadingAlpine || function (alpine) {
+    var alpine$5 = window.deferLoadingAlpine || function (alpine) {
       return alpine();
     };
 
     window.deferLoadingAlpine = function (callback) {
       AlpineScrollMagicMethod.start();
-      alpine$4(callback);
+      alpine$5(callback);
     };
 
     var AlpineTruncateMagicMethod = {
       start: function start() {
+        var _this = this;
+
         checkForAlpine();
         Alpine.addMagicProperty('truncate', function () {
           return function () {
@@ -2270,46 +2363,42 @@
               parameters[_key] = arguments[_key];
             }
 
-            if (typeof parameters[0] !== 'string') return parameters[0];
-            var ellipsis = '…'; // If the second parameter isn't truthy, return the full string
+            if (typeof parameters[0] !== 'string') return parameters[0]; // If the second parameter isn't truthy, return the full string
 
             if (!parameters[1]) return parameters[0]; // if only a number or string is passed in, keep it simple
 
             if (typeof parameters[1] !== 'object') {
-              if (typeof parameters[2] !== 'undefined') {
-                ellipsis = parameters[2];
-              }
-
-              return parameters[0].slice(0, parameters[1]) + ellipsis;
-            } // Customize the …
-
-
-            if (Object.prototype.hasOwnProperty.call(parameters[1], 'ellipsis')) {
-              ellipsis = parameters[1].ellipsis;
+              return _this.appendEllipsis(parameters[0].slice(0, parameters[1]), parameters);
             } // If words or characters is set, also check that they are truthy. Setting to 0, for example, shoudld show all
 
 
             if (Object.prototype.hasOwnProperty.call(parameters[1], 'words') && parameters[1].words) {
-              return parameters[0].split(' ').splice(0, parameters[1].words).join(' ') + ellipsis;
+              return _this.appendEllipsis(parameters[0].split(' ').splice(0, parameters[1].words).join(' '), parameters);
             }
 
             if (Object.prototype.hasOwnProperty.call(parameters[1], 'characters') && parameters[1].characters) {
-              return parameters[0].slice(0, parameters[1].characters) + ellipsis;
+              return _this.appendEllipsis(parameters[0].slice(0, parameters[1].characters), parameters);
             }
 
             return parameters[0];
           };
         });
+      },
+      appendEllipsis: function appendEllipsis(string, parameters) {
+        if (parameters[0].length <= string.length) return string;
+        var ellipsis = '…'; // 3rd parameter is an optional '…' override (soon to be deprecated)
+
+        if (typeof parameters[2] !== 'undefined') {
+          ellipsis = parameters[2];
+        } // If the second parameter is an object
+
+
+        if (Object.prototype.hasOwnProperty.call(parameters[1], 'ellipsis')) {
+          ellipsis = parameters[1].ellipsis;
+        }
+
+        return string + ellipsis;
       }
-    };
-
-    var alpine$5 = window.deferLoadingAlpine || function (alpine) {
-      return alpine();
-    };
-
-    window.deferLoadingAlpine = function (callback) {
-      AlpineTruncateMagicMethod.start();
-      alpine$5(callback);
     };
 
     var alpine$6 = window.deferLoadingAlpine || function (alpine) {
@@ -2317,11 +2406,6 @@
     };
 
     window.deferLoadingAlpine = function (callback) {
-      AlpineComponentMagicMethod.start();
-      AlpineFetchMagicMethod.start();
-      AlpineIntervalMagicMethod.start();
-      AlpineRangeMagicMethod.start();
-      AlpineScrollMagicMethod.start();
       AlpineTruncateMagicMethod.start();
       alpine$6(callback);
     };
@@ -2331,6 +2415,7 @@
       AlpineFetchMagicMethod: AlpineFetchMagicMethod,
       AlpineIntervalMagicMethod: AlpineIntervalMagicMethod,
       AlpineRangeMagicMethod: AlpineRangeMagicMethod,
+      AlpineScreenMagicMethod: AlpineScreenMagicMethod,
       AlpineScrollMagicMethod: AlpineScrollMagicMethod,
       AlpineTruncateMagicMethod: AlpineTruncateMagicMethod
     };

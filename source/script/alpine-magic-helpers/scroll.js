@@ -453,7 +453,7 @@
 	smoothscroll.polyfill();
 	var AlpineScrollMagicMethod = {
 	  start: function start() {
-	    Alpine.addMagicProperty('scroll', function ($el) {
+	    Alpine.addMagicProperty('scroll', function () {
 	      return function (target, options) {
 	        if (options === void 0) {
 	          options = {};
@@ -478,7 +478,7 @@
 
 
 	        if (target instanceof Element) {
-	          target = target.getBoundingClientRect().top + window.pageYOffset;
+	          target = Math.floor(target.getBoundingClientRect().top + window.pageYOffset);
 	        } // If target has been converted to the y coordinate or was an object to begin with
 	        // we transform it to a ScrollToOptions dictionary
 
