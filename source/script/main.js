@@ -1,3 +1,5 @@
+// Initial setup
+
 const projects = [
 	{
 		name: 'Project 1',

@@ -3,6 +3,7 @@
 {% block title %}Bohemica Studio{% endblock %}
 
 {% block content %}
+
 	<div class="fixed inset-0 flex items-center justify-center">
 		<div x-data="{ load: false }" class="space-y-4">
 
@@ -11,182 +12,6 @@
 			<template x-if="load">
 				<script async defer src="./script/main.js" crossorigin></script>
 			</template>
-
-			<script>
-
-				// Spruce (store)
-
-				Spruce.store('project', {
-					name: 'MMT',
-					html: '<div>Init</div>',
-					get firstName() {
-						return this.name
-					},
-					set setHTML(data) {
-						this.html = data
-					},
-					initHTML() {
-						fetch('./projects/mmt.html')
-							.then(response => response.text())
-							.then(html => {
-								console.log('html', html)
-								Spruce.store('project').setHTML = html
-							})
-					}
-				})
-
-				const getTranslation = async (lang) => {
-					const response = await fetch(`./langs/${ lang }.json`)
-					const json = await response.json()
-					console.log('json:', json)
-					return json
-				}
-
-				Spruce.store('home', {
-					data: { lang: 'en' },
-					set setData(data) {
-						this.data = data
-					},
-					async switchTranslation(lang) {
-						let translation = await getTranslation(lang)
-						console.log('translation', translation)
-						this.setData = translation
-					}
-				})
-
-			</script>
-
-			<script>
-
-				/*const router = franxx.createBrowserRouter()*/
-
-				/*// Routes
-				let title = document.querySelector('title'),
-					iso = document.querySelector('html')
-
-				var router = new Navigo(location.origin, false)
-
-				router.on(() => {
-					HTML('naxi')
-					HB('naxi')
-					Stations()
-					Facebook('sr_RS')
-					i18n('sr')
-				})
-
-				router.on(':iso', params => {
-					let slug = params.iso
-					title.textContent = `${title.text} | Naxi`
-
-					// Grab the query
-					iso.lang = slug
-
-					Stations()
-
-					// Load the view
-					if (slug === 'topfm') {
-						HTML('topfm')
-						HB('topfm')
-					} else {
-						HTML('naxi')
-						HB('naxi')
-					}
-
-					// Load the language
-					i18n(slug)
-
-					// Facebook
-					if (slug === 'en')
-						Facebook('en_GB')
-					else if (slug === 'sr')
-						Facebook('sr_RS')
-					else if (slug === 'ru')
-						Facebook('ru_RU')
-					else if (slug === 'nl')
-						Facebook('nl_NL')
-					else if (slug === 'hu')
-						Facebook('hu_HU')
-				}).resolve()
-
-				router.notFound(() => {
-					HTML('notfound')
-				}).resolve()*/
-
-				// Navigo (router)
-
-				const root = location.origin
-				const useHash = false
-				const hash = '#!'
-				const router = new Navigo(root, useHash, hash)
-
-				/*router.on(':lang', params => {
-					let lang = params.lang
-
-					/!*title.textContent = `${ title.text } | Naxi`;*!/
-
-					console.log('lang', lang, params)
-				}).resolve()*/
-
-				let lang = 'en'
-
-				router.hooks({
-					before: function (done, params) {
-						console.log('before', params)
-						done()
-					},
-					after: function (params) {
-						console.log('after', params)
-						console.log(router)
-					}
-				})
-
-				console.log(location.origin)
-
-				router.on({
-					':lang': function (params) {
-
-						console.log('Root - has param;', 'params:', params, !params)
-
-						const langList = ['en', 'cs']
-
-						// check if language param is in the list + redirect to the right language
-						if (langList.some(langItem => langItem === params.lang)) {
-							lang = params.lang
-						}
-						else {
-							router.historyAPIUpdateMethod('replaceState');
-							router.navigate('/' + lang);
-							router.historyAPIUpdateMethod('pushState');
-						}
-
-					},
-					'*': function (params) {
-						console.log('Root - no lang;', 'params:', params, !params)
-
-						if (!params) {
-							console.log('redirecting..')
-							/*router.pause();
-							router.navigate('/en/something');
-							router.resume();*/
-
-							router.historyAPIUpdateMethod('replaceState');
-							router.navigate('/en');
-							router.historyAPIUpdateMethod('pushState');
-						}
-					},
-					':lang/*': function (params) {
-						console.log('Root;', 'params:', params)
-					},
-					':lang/projects/:name': function (params) {
-						console.log('Project detail;', 'params:', params)
-					},
-					':lang/projects': function () {
-						console.log('Projects;')
-					}
-				}).resolve()
-
-			</script>
-
 
 			<div x-data class="flex flex-col space-y-3"> {# x-init="init()" #}
 
@@ -209,80 +34,307 @@
 			</div>
 		</div>
 
-		<script>
+	</div>
 
-			// Anime (animation)
+	<div x-data="slideover()"> {# x-on:slideover="showSlideover ? animateSlideover($event, $refs.slideover) : $nextTick(() => { animateSlideover($event, $refs.slideover) })" #}
 
-			function slideover() {
-				return {
-					processFiles: function (event) {
-						console.log(this.$refs, this.fieldName)
-						if (event.dataTransfer.files.length > 0) {
-							this.$refs[this.fieldName + '-file'].files = event.dataTransfer.files
-							this.$refs[this.fieldName + '-file'].dispatchEvent(new Event('change', { 'bubbles': true }))
+		<div class="absolute z-50 mt-12 mb-6 mr-12 space-x-2">
+			<button class="p-2 bg-white" x-on:click="openSlideover()"> {# x-on:click="$dispatch('slideover', { showSlideover: true }), showSlideover = true" #}
+				Open slideover
+			</button>
+			<span x-text="showSlideover"></span>
+			<span x-text="showSlideoverUnderlay"></span>
+			<button class="p-2 bg-white" x-on:click="closeSlideover()"> {# x-on:click="$dispatch('slideover', { showSlideover: false })" #}
+				Close
+			</button>
+		</div>
 
-							return true
-						}
+		<div x-show="showSlideoverUnderlay"
+		     class="absolute inset-0 z-20 flex flex-col items-end bg-black bg-opacity-25 pointer-events-auto"
+		     x-transition:enter="transition ease-linear duration-300"
+		     x-transition:enter-start="opacity-0"
+		     x-transition:enter-end="opacity-100"
+		     x-transition:leave="transition ease-linear duration-300"
+		     x-transition:leave-start="opacity-100"
+		     x-transition:leave-end="opacity-0"></div> {# x-show.transition.opacity.duration.320ms="showSlideoverUnderlay" #}
+		<template x-if="showSlideover">
+			<div x-ref="slideover" x-on:click.away="showSlideover ? $dispatch('slideover', { showSlideover: false }) : false" class="absolute bottom-0 z-50 flex-grow w-full transition-none transform bg-gray-200 rounded-t-4xl" style="height: 75%; transform: translateY(100%)" x-on:click="handleClick($event, $el)"></div>
+		</template>
+	</div>
 
-						return false
-					},
-					animate: function (event, element) {
-						console.log(event.detail)
-						console.log(this.$refs.slideover)
 
-						if (event.detail.open === true) {
-							anime({
-								targets: this.$refs.slideover,
-								translateY: '0%',
-								duration: 640,
-								easing: 'easeOutQuart'
+
+	<script>
+		// Spruce (store)
+		Spruce.store('project', {
+			name: 'MMT',
+			html: '<div>Init</div>',
+			get firstName() {
+				return this.name
+			},
+			set setHTML(data) {
+				this.html = data
+			},
+			initHTML() {
+				fetch('./projects/mmt.html')
+					.then(response => response.text())
+					.then(html => {
+						console.log('html', html)
+						Spruce.store('project').setHTML = html
+					})
+			}
+		})
+
+		const getTranslation = async (lang) => {
+			const response = await fetch(`./langs/${ lang }.json`)
+			const json = await response.json()
+			console.log('json:', json)
+			return json
+		}
+
+		Spruce.store('home', {
+			data: { lang: 'en' },
+			set setData(data) {
+				this.data = data
+			},
+			async switchTranslation(lang) {
+				let translation = await getTranslation(lang)
+				console.log('translation', translation)
+				this.setData = translation
+			}
+		})
+	</script>
+
+	<script>
+
+		/*const router = franxx.createBrowserRouter()*/
+
+		/*// Routes
+		let title = document.querySelector('title'),
+			iso = document.querySelector('html')
+
+		var router = new Navigo(location.origin, false)
+
+		router.on(() => {
+			HTML('naxi')
+			HB('naxi')
+			Stations()
+			Facebook('sr_RS')
+			i18n('sr')
+		})
+
+		router.on(':iso', params => {
+			let slug = params.iso
+			title.textContent = `${title.text} | Naxi`
+
+			// Grab the query
+			iso.lang = slug
+
+			Stations()
+
+			// Load the view
+			if (slug === 'topfm') {
+				HTML('topfm')
+				HB('topfm')
+			} else {
+				HTML('naxi')
+				HB('naxi')
+			}
+
+			// Load the language
+			i18n(slug)
+
+			// Facebook
+			if (slug === 'en')
+				Facebook('en_GB')
+			else if (slug === 'sr')
+				Facebook('sr_RS')
+			else if (slug === 'ru')
+				Facebook('ru_RU')
+			else if (slug === 'nl')
+				Facebook('nl_NL')
+			else if (slug === 'hu')
+				Facebook('hu_HU')
+		}).resolve()
+
+		router.notFound(() => {
+			HTML('notfound')
+		}).resolve()*/
+
+		// Navigo (router)
+
+		const root = location.origin
+		const useHash = false
+		const hash = '#!'
+		const router = new Navigo(root, useHash, hash)
+
+		/*router.on(':lang', params => {
+			let lang = params.lang
+
+			/!*title.textContent = `${ title.text } | Naxi`;*!/
+
+			console.log('lang', lang, params)
+		}).resolve()*/
+
+		let lang = 'en'
+
+		router.hooks({
+			before: function (done, params) {
+				console.log('before', params)
+				done()
+			},
+			after: function (params) {
+				console.log('after', params)
+				console.log(router)
+			}
+		})
+
+		console.log(location.origin)
+
+		router.on({
+			':lang': function (params) {
+
+				console.log('Root - has param;', 'params:', params, !params)
+
+				const langList = ['en', 'cs']
+
+				// check if language param is in the list + redirect to the right language
+				if (langList.some(langItem => langItem === params.lang)) {
+					lang = params.lang
+				}
+				else {
+					router.historyAPIUpdateMethod('replaceState');
+					router.navigate('/' + lang);
+					router.historyAPIUpdateMethod('pushState');
+				}
+
+			},
+			'*': function (params) {
+				console.log('Root - no lang;', 'params:', params, !params)
+
+				if (!params) {
+					console.log('redirecting..')
+					/*router.pause();
+					router.navigate('/en/something');
+					router.resume();*/
+
+					router.historyAPIUpdateMethod('replaceState');
+					router.navigate('/en');
+					router.historyAPIUpdateMethod('pushState');
+				}
+			},
+			':lang/*': function (params) {
+				console.log('Root;', 'params:', params)
+			},
+			':lang/projects/:name': function (params) {
+				console.log('Project detail;', 'params:', params)
+			},
+			':lang/projects': function () {
+				console.log('Projects;')
+			}
+		}).resolve()
+
+	</script>
+
+	<script>
+		// Anime (animation)
+
+		function slideover() {
+			return {
+				showSlideover: false,
+				showSlideoverUnderlay: false,
+				processFiles: function (event) {
+					console.log(this.$refs, this.fieldName)
+					if (event.dataTransfer.files.length > 0) {
+						this.$refs[this.fieldName + '-file'].files = event.dataTransfer.files
+						this.$refs[this.fieldName + '-file'].dispatchEvent(new Event('change', { 'bubbles': true }))
+
+						return true
+					}
+
+					return false
+				},
+				openSlideover() {
+					this.showSlideover = true
+					this.$nextTick(() => {
+						anime({
+							targets: this.$refs.slideover,
+							translateY: '0%',
+							duration: 640,
+							easing: 'easeOutQuart',
+							begin: (() => {
+								this.showSlideoverUnderlay = true
 							})
-						}
-						else if (event.detail.open === false) {
-							anime({
-								targets: this.$refs.slideover,
-								translateY: '100%',
-								duration: 320,
-								easing: 'easeInQuart'
+						})
+					})
+				},
+				closeSlideover() {
+					anime({
+						targets: this.$refs.slideover,
+						translateY: '100%',
+						duration: 320,
+						easing: 'easeInQuart',
+						begin: (() => {
+							this.showSlideoverUnderlay = false
+						}),
+						complete: (() => {
+							this.showSlideover = false
+						})
+					})
+				},
+				animateSlideover: function (event, element) {
+					/*console.log(element, this.$refs.slideover)*/
+					console.log(event.detail)
+
+					if (event.detail.showSlideover === true) {
+						anime({
+							targets: element,
+							translateY: '0%',
+							duration: 640,
+							easing: 'easeOutQuart',
+							begin: (() => {
+								this.showSlideoverUnderlay = true
 							})
-						}
+						})
+					}
+					else if (event.detail.showSlideover === false) {
+						anime({
+							targets: element,
+							translateY: '100%',
+							duration: 320,
+							easing: 'easeInQuart',
+							begin: (() => {
+								this.showSlideoverUnderlay = false
+							}),
+							complete: (() => {
+								this.showSlideover = false
+							})
+						})
 					}
 				}
 			}
+		}
 
-			const handleClick = function (e, el) {
-				console.log(e, el)
-			}
 
-			/*const handleSlideover = function (event, element) {
-				console.log(event.detail)
-				console.log(this)
-			}*/
+		const handleClick = function (e, el) {
+			console.log(e, el)
+		}
 
-			const slideoverAnim = anime({
-				targets: '.play-pause-demo .el',
-				translateX: 270,
-				delay: function (el, i) {
-					return i * 100
-				},
-				direction: 'alternate',
-				loop: true,
-				autoplay: false,
-				easing: 'easeInOutSine'
-			})
-		</script>
+		/*const handleSlideover = function (event, element) {
+			console.log(event.detail)
+			console.log(this)
+		}*/
 
-		<div class="absolute inset-0 z-50 flex flex-col items-end bg-black bg-opacity-25" x-data="slideover()" x-on:slideover="animate($event, $refs.slideover)">
-			<div class="mt-12 mb-6 mr-12 space-x-2">
-				<button class="p-2 bg-white" x-on:click="$dispatch('slideover', { open: true })">
-					Open
-				</button>
-				<button class="p-2 bg-white" x-on:click="$dispatch('slideover', { open: false })">
-					Close
-				</button>
-			</div>
-			<div x-ref="slideover" class="flex-grow w-full transform bg-gray-200 rounded-t-4xl" style="top: 10% transform: translateY(100%)" x-on:click="handleClick($event, $el)"></div>
-		</div>
-
-	</div>
+		const slideoverAnim = anime({
+			targets: '.play-pause-demo .el',
+			translateX: 270,
+			delay: function (el, i) {
+				return i * 100
+			},
+			direction: 'alternate',
+			loop: true,
+			autoplay: false,
+			easing: 'easeInOutSine'
+		})
+	</script>
 {% endblock %}

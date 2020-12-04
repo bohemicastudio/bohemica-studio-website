@@ -7,9 +7,17 @@ module.exports = {
 	variants: {},
 	theme: {
 		extend: {
+			fontFamily: {
+				'dm-sans': 'DM Sans',
+				'dm-mono': 'DM Mono',
+			},
 			borderRadius: {
 				'4xl': "3rem",
 				'5xl': "6rem"
+			},
+			transitionDuration: {
+				'320': '320ms',
+				'640': '640ms',
 			}
 		}
 	}

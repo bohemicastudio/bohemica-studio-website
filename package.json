@@ -11,9 +11,9 @@
     "copy:franxx": "copyfiles --flat node_modules/franxx/dist/franxx.umd.js source/script",
     "copy:navigo": "copyfiles --flat node_modules/navigo/lib/navigo.js source/script",
     "copy:files": "run-p copy:alpine copy:spruce copy:alpine-magic-helpers copy:animejs copy:franxx copy:navigo",
-    "serve": "npm run copy:files && eleventy --serve & postcss source/tailwind.css --o temporary/style.css --watch",
+    "serve": "npm run copy:files && postcss source/style/style.css --o temporary/style.css --watch & eleventy --serve",
     "build": "trash build && npm run copy:files && ELEVENTY_PRODUCTION=true eleventy && npm run build:tailwind",
-    "build:tailwind": "NODE_ENV=production postcss source/tailwind.css --o build/style.css"
+    "build:tailwind": "NODE_ENV=production postcss source/style/style.css --o build/style.css"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -32,6 +32,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.1.13",
     "postcss-cli": "^8.3.0",
+    "postcss-import": "^13.0.0",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.0.1",
     "terser": "^5.5.1",
