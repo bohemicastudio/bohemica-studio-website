@@ -10,7 +10,7 @@
     "copy:spruce": "copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.umd.js source/script/libs",
     "copy:navigo": "copyfiles --flat node_modules/navigo/lib/navigo.js source/script/libs",
     "copy:files": "run-p copy:alpine copy:spruce copy:alpine-magic-helpers copy:animejs copy:navigo",
-    "serve": "npm run copy:files && postcss source/style/style.css --o temporary/style.css --watch & eleventy --serve",
+    "serve": "npm run copy:files && eleventy --serve & postcss source/style/style.css --o temporary/style.css --watch",
     "build": "trash build && npm run copy:files && ELEVENTY_PRODUCTION=true eleventy && npm run build:tailwind",
     "build:tailwind": "NODE_ENV=production postcss source/style/style.css --o build/style.css"
   },

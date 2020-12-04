@@ -51,7 +51,9 @@ router.on({
 
 		if (!params) {
 			console.log('redirecting..')
-			/*router.pause();
+
+			/*TODO test this again
+			router.pause();
 			router.navigate('/en/something');
 			router.resume();*/
 
@@ -62,6 +64,8 @@ router.on({
 	},
 	':lang/*': function (params) {
 		console.log('Root;', 'params:', params)
+
+		/* TODO Call functions */
 	},
 	':lang/projects/:name': function (params) {
 		console.log('Project detail;', 'params:', params)

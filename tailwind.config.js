@@ -10,6 +10,7 @@ module.exports = {
 			fontFamily: {
 				'dm-sans': 'DM Sans',
 				'dm-mono': 'DM Mono',
+				'optician-sans': 'Optician Sans',
 			},
 			borderRadius: {
 				'4xl': "3rem",
