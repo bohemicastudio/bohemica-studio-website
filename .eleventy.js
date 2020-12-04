@@ -17,8 +17,9 @@ module.exports = function (config) {
 	config.setUseGitIgnore(false)
 
 	// Watch targets
-	config.addWatchTarget("./includes/")
-	config.addWatchTarget("./temporary/style.css")
+	/*config.addWatchTarget("./includes/")
+	config.addWatchTarget("./temporary/style.css")*/
+	config.addWatchTarget("./")
 
 	// Pass-through files
 	config.addPassthroughCopy({ "./temporary/style.css": "./style.css" })
