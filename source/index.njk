@@ -4,6 +4,8 @@
 
 {% block content %}
 
+	<div x-data x-init="() => { console.log('init') }"></div>
+
 	<div class="fixed inset-0 flex items-center justify-center">
 		<div x-data="{ load: false }" class="space-y-4">
 
@@ -13,24 +15,45 @@
 				<script async defer src="./script/main.js" crossorigin></script>
 			</template>
 
+			<div x-data x-init="$nextTick(() => { console.log('Helloooo') })"></div>
+
 			<div x-data class="flex flex-col space-y-3"> {# x-init="init()" #}
 
+				{#<script>
+					Spruce.stores.project.initHTML()
+				</script>#}
+
+				<script>
+					window.test = function project() {}
+				</script>
+
 				<div x-html="$store.project.html">
+				</div>
+
+				<div x-text="$store.project.html">
 				</div>
 
 				<button x-on:click="$store.project.initHTML()" class="bg-red-200">Load HTML file (project)</button>
 
 				<div x-text="$store.home.data.lang">
 				</div>
-				 TODO Initial load
+				TODO Initial load
 
-				<button x-on:click="$store.home.switchTranslation('cs')" class="bg-red-200">Switch translation (to
-				                                                                            'cs')
+				<button x-on:click="$store.home.switchTranslation('cs')" class="bg-red-200">
+					Switch translation (to
+					'cs')
 				</button>
 
-				<button x-on:click="$store.home.switchTranslation('en')" class="bg-red-200">Switch translation (to
-				                                                                            'en')
+				<button x-on:click="$store.home.switchTranslation('en')" class="bg-red-200">
+					Switch translation (to
+					'en')
 				</button>
+
+				<span x-show="localStorage.lang === 'cs'">CS</span>
+
+				<template x-if="localStorage.lang === 'en'">
+					<span>EN</span>
+				</template>
 
 				<h1 class="text-6xl font-optician-sans">Bohemica Studio ěščřžýáíé</h1>
 

@@ -1,7 +1,11 @@
 const minifiers = require("./transforms/minify")
+const moment = require("moment")
 const historyFallback = require("connect-history-api-fallback")
 
 module.exports = function (config) {
+
+	// Merge data instead of overriding
+	config.setDataDeepMerge(true);
 
 	// BrowserSync config (with SPA routing)
 	// https://thomastuts.com/blog/browsersync-spa-routing-pretty-urls.html
@@ -13,6 +17,13 @@ module.exports = function (config) {
 			]
 		}
 	})
+
+	/* TODO support for responsive images https://github.com/11ty/eleventy-img
+	* https://mahmoudashraf.dev/blog/how-to-optimize-and-lazyloading-images-on-eleventy/
+	* */
+
+	/*// Copy Image Folder to /_site
+	  eleventyConfig.addPassthroughCopy("./src/static/img");*/
 
 	config.setUseGitIgnore(false)
 
@@ -34,6 +45,13 @@ module.exports = function (config) {
 		return String(Date.now())
 	})
 
+	// Filters
+	config.addNunjucksFilter("date", function (date, format, locale) {
+		locale = locale ? locale : "en";
+		moment.locale(locale);
+		return moment(date).format(format);
+	});
+
 	// Transforms
 	config.addTransform("minify", minifiers);
 
@@ -44,6 +62,6 @@ module.exports = function (config) {
 			includes: "./includes",
 			/*data: "./data",*/
 			output: "./build",
-		}
+		},
 	}
 }

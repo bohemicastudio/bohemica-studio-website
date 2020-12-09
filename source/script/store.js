@@ -18,12 +18,14 @@ Spruce.store('project', {
 	}
 })
 
-const getTranslation = async (lang) => {
+const getTranslationFile = async (lang) => {
 	const response = await fetch(`./langs/${ lang }.json`)
 	const json = await response.json()
 	console.log('json:', json)
 	return json
 }
+
+
 
 console.log('hello', lang)
 // Internationalization
@@ -33,8 +35,9 @@ Spruce.store('home', {
 		this.data = data
 	},
 	async switchTranslation(lang) {
-		let translation = await getTranslation(lang)
+		let translation = await getTranslationFile(lang)
 		console.log('translation', translation)
 		this.setData = translation
+		localStorage.setItem('lang', lang)
 	}
 })

@@ -2,6 +2,64 @@
 permalink: /projects/mmt.html
 ---
 
-<div class="text-blue-600 font-semibold p-5">
-	MMT s.r.o. test
+{# <div x-data="{ loadComp: false }" x-init="loadComp = true">
+	<template x-if="loadComp">
+		<div> #}
+
+
+<script>
+	function project_mmt() {
+		return {
+			title: 'test',
+			messages: {
+				en: {
+					title: 'MMT - English'
+				},
+				cs: {
+					title: 'MMT - Čeština'
+				}
+			}
+		}
+	}
+
+
+	/*window.data =*/
+
+	/*Spruce.store('project_mmt', {
+		messages: {
+			en: {
+				title: 'MMT - English'
+			},
+			cs: {
+				title: 'MMT - Čeština'
+			}
+		}
+	})*/
+</script>
+
+<div x-data x-init="() => { console.log(window.test), window.test = function project() {
+		return {
+			title: 'test',
+			messages: {
+				en: {
+					title: 'MMT - English'
+				},
+				cs: {
+					title: 'MMT - Čeština'
+				}
+			}
+		}
+	}  }"></div>
+
+{# <template x-if="$nextTick(() => { return true })"> #}
+<span x-text="localStorage.lang"></span>
+
+<div class="p-5 font-semibold text-blue-600" x-data="window.test()"> {# #}
+	<span x-text="messages[localStorage.lang].title"></span> {# $store.project_mmt.messages.en.title #}
 </div>
+
+
+{# </div>
+	</template>
+</div> #}
+

@@ -13,7 +13,10 @@ const router = new Navigo(root, useHash, hash)
 	console.log('lang', lang, params)
 }).resolve()*/
 
-let lang = 'en'
+let lang = localStorage.lang || 'en'
+
+console.log('lang', lang)
+localStorage.setItem('lang', lang)
 
 router.hooks({
 	before: function (done, params) {
@@ -38,6 +41,7 @@ router.on({
 		// check if language param is in the list + redirect to the right language
 		if (langList.some(langItem => langItem === params.lang)) {
 			lang = params.lang
+			localStorage.setItem('lang', lang)
 		}
 		else {
 			router.historyAPIUpdateMethod('replaceState');
