@@ -15,7 +15,7 @@
 				<script async defer src="./script/main.js" crossorigin></script>
 			</template>
 
-			<div x-data x-init="$nextTick(() => { console.log('Helloooo') })"></div>
+			{#<div x-data x-init="$nextTick(() => { console.log('Helloooo') })"></div>#}
 
 			<div x-data class="flex flex-col space-y-3"> {# x-init="init()" #}
 
@@ -30,8 +30,8 @@
 				<div x-html="$store.project.html">
 				</div>
 
-				<div x-text="$store.project.html">
-				</div>
+				{#<div x-text="$store.project.html">
+				</div>#}
 
 				<button x-on:click="$store.project.initHTML()" class="bg-red-200">Load HTML file (project)</button>
 

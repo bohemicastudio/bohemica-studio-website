@@ -5,6 +5,20 @@ const useHash = false
 const hash = '#!'
 const router = new Navigo(root, useHash, hash)
 
+// Replace URL without page reload
+router.setPath = (to => {
+	console.log('setPath', to, router._lastRouteResolved.url, router._lastRouteResolved.params)
+
+	router.historyAPIUpdateMethod('replaceState')
+	router.navigate('/' + to)
+	router.historyAPIUpdateMethod('pushState')
+})
+
+router.pushPath = (to => {
+	router.pause()
+	router.navigate('/' + to);
+	router.resume()
+})
 /*router.on(':lang', params => {
 	let lang = params.lang
 
@@ -25,7 +39,6 @@ router.hooks({
 	},
 	after: function (params) {
 		console.log('after', params)
-		console.log(router)
 	}
 })
 
@@ -44,9 +57,7 @@ router.on({
 			localStorage.setItem('lang', lang)
 		}
 		else {
-			router.historyAPIUpdateMethod('replaceState');
-			router.navigate('/' + lang);
-			router.historyAPIUpdateMethod('pushState');
+			router.setPath(lang)
 		}
 
 	},
@@ -56,21 +67,12 @@ router.on({
 		if (!params) {
 			console.log('redirecting..')
 
-			/*TODO test this again
-			router.pause();
-			router.navigate('/en/something');
-			router.resume();*/
-
-			router.historyAPIUpdateMethod('replaceState');
-			router.navigate('/en');
-			router.historyAPIUpdateMethod('pushState');
+			router.setPath('en')
 		}
 	},
-	':lang/*': function (params) {
+	/*':lang/!*': function (params) {
 		console.log('Root;', 'params:', params)
-
-		/* TODO Call functions */
-	},
+	},*/
 	':lang/projects/:name': function (params) {
 		console.log('Project detail;', 'params:', params)
 	},

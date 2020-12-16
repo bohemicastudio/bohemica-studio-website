@@ -25,7 +25,7 @@ const getTranslationFile = async (lang) => {
 	return json
 }
 
-
+/* TODO watcher for localStorage.lang */
 
 console.log('hello', lang)
 // Internationalization
@@ -39,5 +39,21 @@ Spruce.store('home', {
 		console.log('translation', translation)
 		this.setData = translation
 		localStorage.setItem('lang', lang)
+		/*router.setPath(lang)*/
+
+		let url = router._lastRouteResolved.url.split('/').reduce((accumulator, currentValue, index) => {
+			console.log(accumulator + '/' + currentValue, index)
+
+			if (index === 1) {
+				return accumulator + '/' + lang
+			}
+			else {
+				return accumulator + '/' + currentValue
+			}
+		})
+
+		router.historyAPIUpdateMethod('replaceState')
+		router.navigate(url)
+		router.historyAPIUpdateMethod('pushState')
 	}
 })
