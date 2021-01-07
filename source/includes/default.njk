@@ -17,11 +17,15 @@
 	<script src="./script/anime.js?v={% version %}"></script>
 	<script src="./script/alpine.js?v={% version %}"></script>
 	<script src="./script/navigo.js?v={% version %}"></script>
-	<script src="./script/main.js?v={% version %}"></script>
+	<script src="./script/helpers.js?v={% version %}"></script>
+	<script src="./script/router.js?v={% version %}"></script>
+	<script src="./script/store.js?v={% version %}"></script>
 </head>
-<body class="relative min-h-screen font-dm-sans">
+<body class="relative min-h-screen font-dm-sans initialising" >
 {% block content %}
 	{{ content | safe }}
 {% endblock %}
+<script src="./script/parallax.js?v={% version %}"></script>
+<script src="./script/main.js?v={% version %}"></script>
 </body>
 </html>

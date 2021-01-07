@@ -15,7 +15,20 @@ Spruce.store('project', {
 				console.log('html', html)
 				Spruce.store('project').setHTML = html
 			})
-	}
+	},
+	handAnimTest(element) {
+		console.log(element)
+			anime.timeline({
+				targets: element,
+				duration: 2560,
+				opacity: 1,
+				easing: 'linear',
+			}).add({
+				rotate: 15,
+				easing: 'easeOutQuart',
+				duration: 1280
+			})
+	},
 })
 
 const getTranslationFile = async (lang) => {

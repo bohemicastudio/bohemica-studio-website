@@ -33,7 +33,8 @@ module.exports = function (config) {
 
 	// Pass-through files
 	config.addPassthroughCopy({ "./temporary/style.css": "./style.css" })
-	config.addPassthroughCopy("./source/langs")
+	config.addPassthroughCopy("./source/langs") // TODO Keep or delete?
+	config.addPassthroughCopy("./source/images")
 
 	/* Included, but without js formatting/minification (compared to copying via package.json script) */
 	/*config.addPassthroughCopy({ "./node_modules/@ryangjchandler/spruce/dist/spruce.umd.js": "./script/spruce.js" })

@@ -1,2 +1,7 @@
 @import "fonts.css";
 @import "tailwind.css";
+
+.initialising {
+    cursor: wait;
+    overflow: hidden;
+}
