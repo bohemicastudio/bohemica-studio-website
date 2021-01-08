@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html language="en">
 <head>
 	<title>
 		{% block title %}Does it work?{% endblock %}
@@ -18,10 +18,10 @@
 	<script src="./script/alpine.js?v={% version %}"></script>
 	<script src="./script/navigo.js?v={% version %}"></script>
 	<script src="./script/helpers.js?v={% version %}"></script>
-	<script src="./script/router.js?v={% version %}"></script>
 	<script src="./script/store.js?v={% version %}"></script>
+	<script src="./script/router.js?v={% version %}"></script>
 </head>
-<body class="relative min-h-screen font-dm-sans initialising" >
+<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? ($store.slideover.showSlideover ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
 	{{ content | safe }}
 {% endblock %}

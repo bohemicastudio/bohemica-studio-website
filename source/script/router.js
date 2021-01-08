@@ -1,36 +1,13 @@
 // Navigo (router)
+const router = new Navigo('/')
 
-const root = location.origin
-const useHash = false
-const hash = '#!'
-const router = new Navigo(root, useHash, hash)
+// set language in the local storage
+console.log(typeof localStorage.language === 'undefined', localStorage.language === null, !Spruce.stores.global.languages.some(language => language.code === localStorage.language))
 
-// Replace URL without page reload
-router.setPath = (to => {
-	console.log('setPath', to, router._lastRouteResolved.url, router._lastRouteResolved.params)
+Spruce.stores.global.language = typeof localStorage.language === 'undefined' || localStorage.language === null || !Spruce.stores.global.languages.some(language => language.code === localStorage.language) ? 'en' : localStorage.languag
 
-	router.historyAPIUpdateMethod('replaceState')
-	router.navigate('/' + to)
-	router.historyAPIUpdateMethod('pushState')
-})
-
-router.pushPath = (to => {
-	router.pause()
-	router.navigate('/' + to);
-	router.resume()
-})
-/*router.on(':lang', params => {
-	let lang = params.lang
-
-	/!*title.textContent = `${ title.text } | Naxi`;*!/
-
-	console.log('lang', lang, params)
-}).resolve()*/
-
-let lang = localStorage.lang || 'en'
-
-console.log('lang', lang)
-localStorage.setItem('lang', lang)
+console.log('language', Spruce.stores.global.language)
+localStorage.setItem('language', Spruce.stores.global.language)
 
 router.hooks({
 	before: function (done, params) {
@@ -42,43 +19,41 @@ router.hooks({
 	}
 })
 
-console.log(location.origin)
-
 router.on({
-	':lang': function (params) {
+	':language': function ({ data }) {
 
-		console.log('Root - has param;', 'params:', params, !params)
-
-		const langList = ['en', 'cs']
+		console.log('Root - has param;', 'params:', data)
 
 		// check if language param is in the list + redirect to the right language
-		if (langList.some(langItem => langItem === params.lang)) {
-			lang = params.lang
-			localStorage.setItem('lang', lang)
+		if (Spruce.stores.global.languages.some(language => language.code === data.language)) {
+			Spruce.stores.global.language = data.language
+			localStorage.setItem('language', Spruce.stores.global.language)
 		}
 		else {
-			router.setPath(lang)
+			router.navigate(Spruce.stores.global.language, { callHandler: false })
 		}
 
 	},
-	'*': function (params) {
-		console.log('Root - no lang;', 'params:', params, !params)
-
-		if (!params) {
-			console.log('redirecting..')
-
-			router.setPath('en')
-		}
-	},
-	/*':lang/!*': function (params) {
+	/*':language/!*': function (params) {
 		console.log('Root;', 'params:', params)
 	},*/
-	':lang/projects/:name': function (params) {
+	':language/projects/:name': function (params) {
 		console.log('Project detail;', 'params:', params)
 	},
-	':lang/projects': function () {
+	':language/projects': function () {
 		console.log('Projects;')
-	}
+	},
+	'*': function ({ data }) {
+			console.log('Root - no language;', 'data:', data, !data)
+
+			if (!data) {
+				console.log('redirecting..')
+
+				router.navigate('en', { callHandler: false })
+
+				/*router.setPath('en')*/
+			}
+		},
 }).resolve()
 
 
@@ -103,7 +78,7 @@ router.on(':iso', params => {
 	title.textContent = `${title.text} | Naxi`
 
 	// Grab the query
-	iso.lang = slug
+	iso.language = slug
 
 	Stations()
 

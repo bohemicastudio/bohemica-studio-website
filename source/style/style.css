@@ -1,7 +1,13 @@
 @import "fonts.css";
 @import "tailwind.css";
+@import "icons.css";
 
-.initialising {
+[x-cloak] {
+    display: none;
+    visibility: hidden;
+}
+
+.loading {
     cursor: wait;
     overflow: hidden;
 }

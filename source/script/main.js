@@ -17,13 +17,21 @@ if (document.hasFocus()) console.log('Tab is active')
 
 // TODO DELETE ??
 
+window.addEventListener('storage',
+	function (event) {
+		console.log('storage change', event)
+		/*Spruce.stores.global.language*/
+	})
 
 window.addEventListener('load', // the listener here is not necessary as the script is below the code (keeping it here just in case it is put in the <head> again)
 	function () {
 
-		document.querySelector('body').classList.remove('initialising')
+		/*document.querySelector('body').classList.remove('loading')*/
 
-		window.addEventListener ('beforeunload', function (event) {
+		console.log(window.Spruce.stores)
+		window.Spruce.stores.global.loaded = true
+
+		window.addEventListener('beforeunload', function (event) {
 			document.querySelector('body').classList.add('invisible')
 			window.scrollTo(0, 0)
 		})

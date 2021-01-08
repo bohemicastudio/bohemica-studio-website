@@ -5,9 +5,22 @@ module.exports = {
 		'./source/**/*.njk',
 		'./includes/**/*.njk',
 	],
-	plugins: [],
-	variants: {},
+	plugins: [
+		require('@tailwindcss/aspect-ratio'),
+	],
+	variants: {
+		extend: {
+			backgroundColor: ['group-focus'],
+		}
+	},
 	theme: {
+		screens: {
+			xs: '400px',
+			sm: '640px',
+			md: '960px',
+			lg: '1280px',
+			xl: '1600px',
+		},
 		colors: {
 			'transparent': 'transparent',
 			'current': 'currentColor',
@@ -43,8 +56,9 @@ module.exports = {
 				'optician-sans': 'Optician Sans',
 			},
 			borderRadius: {
-				'4xl': "3rem",
-				'5xl': "6rem"
+				'2.5xl': '1.25rem',
+				'4xl': '3rem',
+				'5xl': '6rem'
 			},
 			transitionDuration: {
 				'320': '320ms',

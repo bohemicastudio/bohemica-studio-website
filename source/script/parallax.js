@@ -47,9 +47,11 @@ const parallaxAnimations = [
 ]
 
 /* Callback function for scroll event */
+/* Inspired by https://codepen.io/raineng/pen/bGEMdPy?editors=1111 */
 const scrollHandler = function () {
 
-	console.log(anime.running)
+	// LOG - all currently running animations
+	// console.log(anime.running)
 
 	let windowHeight = window.innerHeight
 	let scrollTop = window.pageYOffset || document.documentElement.scrollTop

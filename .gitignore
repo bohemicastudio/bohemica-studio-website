@@ -2,6 +2,7 @@
 node_modules
 /build
 package-lock.json
+pnpm-lock.yaml
 /temporary
 
 # local env files
