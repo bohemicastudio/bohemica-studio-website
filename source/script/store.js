@@ -18,11 +18,11 @@ Spruce.store('global', {
 		/* TODO What to do about this ?? */
 		let translation = await getTranslationFile(language)
 		console.log('translation', translation)
-		Spruce.stores.global.data = translation
+		this.data = translation
 		/**/
 
 		// set language for the store and local storage
-		Spruce.stores.global.language = language
+		this.language = language
 		localStorage.setItem('language', language)
 
 		let url = router.current[0].url
@@ -43,8 +43,31 @@ Spruce.store('global', {
 			url = language
 		}
 
+		// Re-create the Tippy.js instances on language change
+		tooltips.forEach(instance => {
+			instance.forEach(element => {
+				element.destroy()
+			})
+		})
+		initialiseTooltips()
+
 		router.navigate(url, { callHandler: false })
 	}
+})
+
+
+// Activity store
+Spruce.store('activity', {
+	list: [
+		{
+			content: 'Website project for MMT company completed in Q4/2020',
+			url: 'https://www.mmt.cz/'
+		},
+		{
+			content: 'We are official partners with ApostrophCMS',
+			url: 'https://www.mmt.cz/'
+		},
+	],
 })
 
 const getTranslationFile = async (language) => {
@@ -69,7 +92,7 @@ Spruce.store('project', {
 			.then(response => response.text())
 			.then(html => {
 				console.log('html', html)
-				Spruce.store('project').setHTML = html
+				this.setHTML = html
 			})
 	},
 	handAnimTest(element) {
@@ -103,12 +126,8 @@ Spruce.store('slideover', {
 		return false
 	},
 	openSlideover() {
-		console.log('open slideover', Spruce)
 
-		console.log('window', window)
-
-		Spruce.stores.slideover.showSlideover = true
-		console.log(Spruce)
+		this.showSlideover = true
 
 		anime({
 			targets: document.querySelector('#slideover'),
@@ -119,19 +138,6 @@ Spruce.store('slideover', {
 				this.showSlideoverUnderlay = true
 			})
 		})
-
-		/*this.showSlideover = true*/
-		/*Spruce.stores.slideover.$nextTick(() => {
-			anime({
-				targets: this.$refs.slideover,
-				translateY: '0%',
-				duration: 640,
-				easing: 'easeOutQuart',
-				begin: (() => {
-					this.showSlideoverUnderlay = true
-				})
-			})
-		})*/
 	},
 	closeSlideover() {
 		anime({
@@ -140,47 +146,14 @@ Spruce.store('slideover', {
 			duration: 320,
 			easing: 'easeInQuart',
 			begin: (() => {
-				Spruce.stores.slideover.showSlideoverUnderlay = false
+				this.showSlideoverUnderlay = false
 			}),
 			complete: (() => {
-				Spruce.stores.slideover.showSlideover = false
+				this.showSlideover = false
 			})
 		})
 	},
-	animateSlideover: function (event, element) {
-		/*console.log(element, this.$refs.slideover)*/
-		console.log(event.detail)
-
-		if (event.detail.showSlideover === true) {
-			anime({
-				targets: element,
-				translateY: '0%',
-				duration: 640,
-				easing: 'easeOutQuart',
-				begin: (() => {
-					this.showSlideoverUnderlay = true
-				})
-			})
-		}
-		else if (event.detail.showSlideover === false) {
-			anime({
-				targets: element,
-				translateY: '100%',
-				duration: 320,
-				easing: 'easeInQuart',
-				begin: (() => {
-					this.showSlideoverUnderlay = false
-				}),
-				complete: (() => {
-					this.showSlideover = false
-				})
-			})
-		}
-	}
 })
-
-
-/* TODO watcher for localStorage.language */
 
 
 // Internationalization DELETE

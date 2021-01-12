@@ -1,7 +1,14 @@
 @import "fonts.css";
 @import "tailwind.css";
 @import "icons.css";
+@import "../../node_modules/tippy.js/animations/scale-subtle.css";
 
+/* Tippy.js related styles */
+.tippy-box[data-theme='bohemica'] {
+    @apply bg-blue-gray-200 text-blue-gray-700 border border-blue-gray-50 shadow-tooltip py-0.5 px-1 rounded-md font-medium
+}
+
+/* Alpine.js related styles */
 [x-cloak] {
     display: none;
     visibility: hidden;
@@ -11,3 +18,4 @@
     cursor: wait;
     overflow: hidden;
 }
+

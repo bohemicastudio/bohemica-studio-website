@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html language="en">
 <head>
+	<!-- Title -->
 	<title>
 		{% block title %}Does it work?{% endblock %}
 	</title>
+	<!-- Meta -->
 	<meta charset="UTF-8"/>
 	{% if description %}
 		<meta name="description" content="{{ description }}"/>
@@ -11,15 +13,32 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
 	<base href="/"/>
+	<!-- Favicon generated via https://realfavicongenerator.net/ -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/images/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/images/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!-- CSS Style -->
 	<link rel="stylesheet" href="./style.css?v={% version %}"/>
-	{% block head %}{% endblock %}
+	<!-- Helper JS functions -->
+	<script src="./script/helpers.js?v={% version %}"></script>
+	<!-- External JS libraries -->
 	<script src="./script/spruce.js?v={% version %}"></script>
-	<script src="./script/anime.js?v={% version %}"></script>
 	<script src="./script/alpine.js?v={% version %}"></script>
 	<script src="./script/navigo.js?v={% version %}"></script>
-	<script src="./script/helpers.js?v={% version %}"></script>
+	<script src="./script/anime.js?v={% version %}"></script>
+	<script src="./script/popper.js?v={% version %}"></script>
+	<script src="./script/tippy.js?v={% version %}"></script>
+	<!-- Internal JS scripts -->
+	<script src="./script/tooltip.js?v={% version %}"></script>
 	<script src="./script/store.js?v={% version %}"></script>
 	<script src="./script/router.js?v={% version %}"></script>
+	{% block head %}{% endblock %}
 </head>
 <body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? ($store.slideover.showSlideover ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
@@ -27,5 +46,7 @@
 {% endblock %}
 <script src="./script/parallax.js?v={% version %}"></script>
 <script src="./script/main.js?v={% version %}"></script>
+
+<script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" async></script>
 </body>
 </html>
