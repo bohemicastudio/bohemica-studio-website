@@ -1,7 +1,7 @@
 // Global store
 Spruce.store('global', {
 	loaded: false,
-	language: String,
+	language: null,
 	languages: [
 		{
 			code: 'en',
@@ -58,17 +58,62 @@ Spruce.store('global', {
 
 // Activity store
 Spruce.store('activity', {
-	list: [
+	random: null,
+	activities: [
 		{
-			content: 'Website project for MMT company completed in Q4/2020',
-			url: 'https://www.mmt.cz/'
+			en: {
+				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img src="/images/activity/checkmark-emoji.svg">',
+				url: '/project/mmt',
+			},
+			cs: {
+				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img src="/images/activity/checkmark-emoji.svg">',
+				url: '/projekt/mmt'
+			},
 		},
 		{
-			content: 'We are official partners with ApostrophCMS',
-			url: 'https://www.mmt.cz/'
+			en: {
+				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img src="/images/activity/apostrophecms-logo.svg">',
+				url: 'https://apostrophecms.com/',
+				target: '_blank'
+			},
+			cs: {
+				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img src="/images/activity/apostrophecms-logo.svg">',
+				url: 'https://apostrophecms.com/',
+				target: '_blank'
+			}
 		},
 	],
+	get getContent() {
+		if (!!Spruce.stores.global.language && (!this.random || this.random !== 0)) {
+			return this.activities[this.random][Spruce.stores.global.language].content
+		}
+	},
+	get getUrl() {
+		if (!!Spruce.stores.global.language && (!this.random || this.random !== 0)) {
+			if (this.activities[this.random][Spruce.stores.global.language].url.includes('://')) {
+				return this.activities[this.random][Spruce.stores.global.language].url
+			}
+			else {
+				// LOG
+				console.log(window.router.generate('project-' + Spruce.stores.global.language, {
+					language: Spruce.stores.global.language,
+					name: 'mmt'
+				}))
+				return window.router.generate('project-' + Spruce.stores.global.language, {
+					language: Spruce.stores.global.language,
+					name: 'mmt'
+				})
+			}
+		}
+	}
 })
+
+Spruce.starting(function () {
+	console.log('Spruce starting', Spruce.stores, Math.floor(Math.random() * Spruce.stores.activity.activities.length))
+
+	Spruce.stores.activity.random = Math.floor(Math.random() * Spruce.stores.activity.activities.length)
+})
+
 
 const getTranslationFile = async (language) => {
 	const response = await fetch(`./langs/${ language }.json`)
@@ -125,7 +170,9 @@ Spruce.store('slideover', {
 
 		return false
 	},
-	openSlideover() {
+	openSlideover(file) {
+
+		console.log(file)
 
 		this.showSlideover = true
 
@@ -135,6 +182,7 @@ Spruce.store('slideover', {
 			duration: 640,
 			easing: 'easeOutQuart',
 			begin: (() => {
+				console.log('opening slideover')
 				this.showSlideoverUnderlay = true
 			})
 		})
@@ -153,35 +201,4 @@ Spruce.store('slideover', {
 			})
 		})
 	},
-})
-
-
-// Internationalization DELETE
-Spruce.store('home', {
-	data: { language: 'en' },
-	set setData(data) {
-		this.data = data
-	},
-	async switchTranslation(language) {
-		let translation = await getTranslationFile(language)
-		console.log('translation', translation)
-		this.setData = translation
-		localStorage.setItem('language', language)
-		/*router.setPath(language)*/
-
-		let url = router._lastRouteResolved.url.split('/').reduce((accumulator, currentValue, index) => {
-			console.log(accumulator + '/' + currentValue, index)
-
-			if (index === 1) {
-				return accumulator + '/' + language
-			}
-			else {
-				return accumulator + '/' + currentValue
-			}
-		})
-
-		router.historyAPIUpdateMethod('replaceState')
-		router.navigate(url)
-		router.historyAPIUpdateMethod('pushState')
-	}
 })

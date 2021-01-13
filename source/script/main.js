@@ -17,19 +17,13 @@ window.addEventListener('storage',
 window.addEventListener('load',
 	function () {
 
-		/*document.querySelector('body').classList.remove('loading')*/
-
-		console.log(window.Spruce.stores)
-		window.Spruce.stores.global.loaded = true
-
+		// Scroll to top of the document before page is unloaded
 		window.addEventListener('beforeunload', function (event) {
 			document.querySelector('body').classList.add('invisible')
 			window.scrollTo(0, 0)
 		})
 
-
-		// Initialise tippy.js library
+		// Initialise Tippy.js library
 		initialiseTooltips()
-
 
 	})

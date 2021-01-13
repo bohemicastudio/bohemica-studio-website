@@ -59,7 +59,7 @@
 											<path d="M12.87 15.07L10.33 12.56L10.36 12.53C12.1 10.59 13.34 8.36 14.07 6H17V4H10V2H8V4H1V5.99H12.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8H4.69C5.42 9.63 6.42 11.17 7.67 12.56L2.58 17.58L4 19L9 14L12.11 17.11L12.87 15.07ZM18.5 10H16.5L12 22H14L15.12 19H19.87L21 22H23L18.5 10ZM15.88 17L17.5 12.67L19.12 17H15.88V17Z"></path>
 										</svg>
 
-										<span class="text-lg font-medium leading-none text-blue-gray-100" x-text="$store.global.languages.find(language => language.code === $store.global.language).name"></span>
+										<span class="text-lg font-medium leading-none text-blue-gray-100" x-text="$store.global.languages.find(language => language.code === $store.global.language)?.name"></span>
 
 										<span class="text-blue-gray-100 bg-blue-gray-700 rounded-lg ml-3.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-blue-gray-500 group-focus:bg-blue-gray-500" data-tippy-content="Change language"><i class="gg-chevron-down"></i></span>
 									</div>
@@ -92,7 +92,9 @@
 								<div class="flex items-center px-3 h-8 rounded-lg bg-teal2-200">
 									<span class="text-teal2-800">Current activity:</span>
 								</div>
-								<span class="pr-1 pl-3 text-teal2-700 group-hover:text-teal2-800">Message goes here</span>
+								{# <span x-text="$store.activity.getUrl"></span>
+								<span x-text="!$store.activity.getUrl?.includes('://')"></span> #}
+								<a x-bind:href="$store.activity.getUrl" data-navigo="!$store.activity.getUrl?.includes('://')" target="_blank" class="flex items-center pr-1 pl-3 space-x-2 leading-none text-teal2-700 group-hover:text-teal2-800" x-html="$store.activity.getContent"></a>
 								<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal2-600 group-hover:text-teal2-800 group-hover:translate-x-0.5"></i>
 							</div>
 						</div>
@@ -202,8 +204,6 @@
 		</div>
 	</div>
 
-	<div x-data x-init="() => { console.log('init') }"></div>
-
 	<div class="flex justify-center items-center">
 		<div x-data="{ load: false }" class="space-y-4">
 
@@ -288,14 +288,19 @@
 				     x-transition:leave-end="opacity-0"></div>
 
 				<template x-if="$store.slideover.showSlideover">
+
 					{# TODO x-on:click.away="console.log($store.slideover.showSlideover); $store.slideover.showSlideover ? $store.slideover.closeSlideover()" #}
 					<div x-ref="slideover" id="slideover" class="absolute bottom-0 z-50 flex-grow w-full bg-gray-200 transition-none transform rounded-t-4xl" style="height: 85%; transform: translateY(100%)">
 
-						<div class="overflow-y-scroll relative w-full h-full focus:outline-none" tabindex="1">
-							<div class="container bg-white" style="height: 3000px">
-								Hello
+							<div class="overflow-y-scroll relative w-full h-full focus:outline-none" tabindex="1">
+
+								<div class="container bg-white" style="height: 3000px">
+									Hello
+								</div>
+
+								<div id="slideoverContent" x-html="$store.project.html"></div>
+
 							</div>
-						</div>
 
 					</div>
 				</template>
@@ -303,9 +308,6 @@
 			</div>
 		</template>
 	</div>
-
-	<button id="alpine-devtools-button">Alpine Inline DevTools</button>
-
 
 	<script>
 		Spruce.store('translations.home', {

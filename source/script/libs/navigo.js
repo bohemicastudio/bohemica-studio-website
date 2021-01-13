@@ -405,9 +405,15 @@ function Navigo(appRoute, resolveOptions) {
     return function () {};
   }
 
-  function getRoute(name) {
+  function getRoute(nameOrHandler) {
+    if (typeof nameOrHandler === "string") {
+      return routes.find(function (r) {
+        return r.name === composePathWithRoot(nameOrHandler);
+      });
+    }
+
     return routes.find(function (r) {
-      return r.name === composePathWithRoot(name);
+      return r.handler === nameOrHandler;
     });
   }
 
@@ -882,7 +888,7 @@ var isWindowAvailable = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.windowAvailable)(
 var isPushStateAvailable = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.pushStateAvailable)();
 function updateBrowserURL(context, done) {
   if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "updateBrowserURL")) {
-    var value = ("" + context.to).replace(/\/\//g, "/"); // making sure that we don't have two slashes
+    var value = ("/" + context.to).replace(/\/\//g, "/"); // making sure that we don't have two slashes
 
     var isItUsingHash = isWindowAvailable && context.resolveOptions && context.resolveOptions.hash === true;
 
@@ -1166,4 +1172,4 @@ function accumulateHooks(hooks, result) {
 /******/ })()
 .default;
 });
-//# sourceMappingURL=Navigo.js.map
+//# sourceMappingURL=navigo.js.map
