@@ -3,6 +3,11 @@
 @import "icons.css";
 @import "../../node_modules/tippy.js/animations/scale-subtle.css";
 
+/* Global vars */
+:root {
+  --windowFormula: calc(1% + 0.5vw + 0.25vh + 0.75vmin)
+}
+
 /* Tippy.js related styles */
 .tippy-box[data-theme='bohemica'] {
     @apply bg-blue-gray-200 text-blue-gray-800 border border-blue-gray-50 shadow-tooltip py-0.5 px-1 rounded-md font-medium
@@ -17,5 +22,12 @@
 .loading {
     cursor: wait;
     overflow: hidden;
+}
+
+
+/* Slideover */
+#slideoverContentWrapper::-webkit-scrollbar-track {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
 }
 

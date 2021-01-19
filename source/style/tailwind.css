@@ -5,19 +5,24 @@
 
 @layer components {
 
-    /* Tailwind extension classes */
-    /*.border-tooltip {
-        s '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
-    }*/
-
-    /* Main wrapper/container for responsive width */
+    /* Container for responsive width */
     .container {
-        @apply mx-auto max-w-7xl sm:px-6 lg:px-8
+        @apply px-4 sm:px-8 md:px-16 lg:px-16 xl:px-24 w-full
+    }
+
+    /* Container for responsive width with screen breakpoints */
+    .container-screen {
+        @apply mx-auto xs:max-w-screen-xs sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl
     }
 
     /* Top menu */
     .top-menu__button {
         @apply text-gray-800 text-lg font-normal transition duration-100 ease-linear rounded-lg py-1 px-3 whitespace-nowrap border border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-none cursor-s-resize
+    }
+
+    /* Mobile menu */
+    .mobile-menu__button {
+        @apply py-2 px-4 text-xl font-medium text-gray-800 whitespace-nowrap rounded-lg mx-auto border border-white transition duration-100 ease-linear focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-none
     }
 
 }
