@@ -56,10 +56,10 @@ module.exports = function (config) {
 	// Base config
 	return {
 		dir: {
-			input: "./source",
-			includes: "./includes",
-			/*data: "./data",*/
-			output: "./build",
+			input: "source",
+			includes: "includes",
+			/*data: "data",*/
+			output: "build",
 		},
 	}
 }
