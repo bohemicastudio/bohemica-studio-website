@@ -1,0 +1,80 @@
+{% macro projectExample(project, image, reverse=false) %}
+
+	<div class="flex py-12 {{ 'flex-row-reverse' if reverse else 'flex-row' }}">
+		<div class="flex relative justify-center items-center w-1/2">
+			<div class="aspect-w-4 aspect-h-3"></div>
+
+			<img class="object-contain absolute inset-0 mx-auto h-full" src="/images/projects/{{ project }}/{{ image }}">
+
+		</div>
+
+		<div class="flex justify-center items-center w-1/2">
+			{# <template x-for="(value, key, index) in $store['translation.projectExamples'][window.Spruce.stores.global.language].projects" :key="index" class="text-cool-gray-200">
+				<span x-text="value"></span>
+				<span x-text="key"></span>
+			</template> #}
+			{# TODO Maybe do nested x-fors ? https://github.com/alpinejs/alpine/issues/158#issuecomment-606128323 #}
+
+			<div class="flex flex-col space-y-10 items-start">
+				<div class="grid gap-x-5 gap-y-3 whitespace-nowrap font-medium" style="grid-template-columns: min-content auto">
+					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.client') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].client`)"></span>
+					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.year') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].year`)"></span>
+					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.type') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].type`)"></span>
+					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.stack') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].stack`)"></span>
+				</div>
+
+				<a {#x-bind:href="window.router.getPath('overview')"#} href="javascript:;" class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
+					<span class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900">See the project</span>
+					<i class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
+				</a>
+			</div>
+
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro projectExamplesTranslation() %}
+	<script>
+		Spruce.store('translation.projectExamples', {
+			en: {
+				labels: {
+					client: 'Client',
+					year: 'Year',
+					type: 'Project type',
+					stack: 'Stack'
+				},
+				projects: {
+					'lancaster-maloney': {
+						client: 'Lancaster Maloney, United Kingdom',
+						year: 2020,
+						type: 'Dashboard managament system (FMS/CMMS)',
+						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+					}
+				}
+			},
+			cs: {
+				labels: {
+					client: 'Klient',
+					year: 'Rok',
+					type: 'Typ',
+					stack: 'Technologie'
+				},
+				projects: {
+					'lancaster-maloney': {
+						client: 'Lancaster Maloney, Velká Británie',
+						year: 2020,
+						type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
+						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+					}
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.projectExamples'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+	</script>
+{% endmacro %}

@@ -29,6 +29,7 @@
 	<script src="./script/helpers.js?v={% version %}"></script>
 	<!-- External JS libraries -->
 	<script src="./script/alpine.js?v={% version %}" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
 	<script src="./script/spruce.js?v={% version %}"></script>
 	<script src="./script/navigo.js?v={% version %}"></script>
 	<script src="./script/anime.js?v={% version %}"></script>
@@ -37,10 +38,10 @@
 	<!-- Internal JS scripts -->
 	<script src="./script/tooltip.js?v={% version %}" defer></script>
 	<script src="./script/store.js?v={% version %}"></script>
-	<script src="./script/router.js?v={% version %}" defer></script>
+	<script src="./script/router.js?v={% version %}"></script>
 	{% block head %}{% endblock %}
 </head>
-<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? ($store.slideover.showSlideover ? 'overflow-hidden' : '') : 'loading'" x-data>
+<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.showSlideover || $store.global.showMobileMenu) ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
 	{{ content | safe }}
 {% endblock %}

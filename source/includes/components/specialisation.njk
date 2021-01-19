@@ -1,0 +1,39 @@
+{% from "components/project-badge-group.njk" import projectBadgeGroup %}
+
+{% macro specialisation(name, image, color, order='00') %}
+
+	<img src="/images/specialisations/{{ image }}">
+	<h3 class="mt-6 tracking-widest uppercase font-bold text-{{ color }}-200" x-text="'{{ order }} // ' + $store['translation.specialisation'].return('{{ name }}.title')"></h3>
+	<h4 class="mt-10 mb-6 text-4xl font-medium text-white" x-text="$store['translation.specialisation'].return('{{ name }}.subtitle')"></h4>
+
+	<div class="flex flex-wrap space-x-3 space-x-reverse">
+		<template x-for="(item, index) in $store['translation.specialisation'].return('{{ name }}.keywords')">
+			<span class="select-none text-white bg-{{ color }}-700 px-3.5 py-1.5 rounded-full font-medium" x-text="item"></span>
+		</template>
+	</div>
+
+{% endmacro %}
+
+{% macro specialisationsTranslation() %}
+	<script>
+		Spruce.store('translation.specialisation', {
+			en: {
+				code: {
+					title: 'Web & mobile development',
+					subtitle: 'Websites and mobile apps – done well. From the start to the end.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				}
+			},
+			cs: {
+				code: {
+					title: 'Vývoj webů a aplikací',
+					subtitle: 'Moderní webové a mobilní aplikace - jak mají být.',
+					keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+	</script>
+{% endmacro %}

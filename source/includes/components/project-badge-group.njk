@@ -1,0 +1,9 @@
+{% macro projectBadgeGroup(keywords, color='gray') %}
+
+	<div class="flex flex-wrap space-x-2">
+		{% for item in keywords %}
+			<span class="text-{{ color }}-50 bg-{{ color }}-600 px-3.5 py-1.5 rounded-full font-medium">{{ item }}</span>
+		{% endfor %}
+	</div>
+
+{% endmacro %}
