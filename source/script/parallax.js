@@ -1,9 +1,10 @@
 /* Parallax animations */
 const parallaxAnimations = [
+	/* Desktop */
 	{
 		anime: anime({
 			targets: '#blueHand',
-			translateY: ['32.5vh', '22.5vh'],
+			translateY: ['17.5vh', '22.5vh'],
 			rotate: [12, 0],
 			autoplay: false,
 			easing: 'linear',
@@ -14,7 +15,7 @@ const parallaxAnimations = [
 	{
 		anime: anime({
 			targets: '#greenHand',
-			translateY: ['27.5vh', '17.5vh'],
+			translateY: ['12.5vh', '17.5vh'],
 			rotate: [-12, -24],
 			autoplay: false,
 			easing: 'linear'
@@ -25,7 +26,7 @@ const parallaxAnimations = [
 	{
 		anime: anime({
 			targets: '#purpleHand',
-			translateY: ['27.5vh', '17.5vh'],
+			translateY: ['12.5vh', '17.5vh'],
 			rotate: [18, 32],
 			autoplay: false,
 			easing: 'linear'
@@ -36,8 +37,65 @@ const parallaxAnimations = [
 	{
 		anime: anime({
 			targets: '#yellowHand',
-			translateY: ['22.5vh', '12.5vh'],
+			translateY: ['7.5vh', '12.5vh'],
 			rotate: [-4, 8],
+			autoplay: false,
+			easing: 'linear'
+		}),
+		raf: null,
+		scrollPercent: 0
+	},
+	/* Tablet */
+	{
+		anime: anime({
+			targets: '#blueHandTablet',
+			translateY: ['17.5%', '22.5%'],
+			rotate: [12, 0],
+			autoplay: false,
+			easing: 'linear',
+		}),
+		raf: null,
+		scrollPercent: 0
+	},
+	{
+		anime: anime({
+			targets: '#greenHandTablet',
+			translateY: ['12.5%', '17.5%'],
+			rotate: [-6, -18],
+			autoplay: false,
+			easing: 'linear'
+		}),
+		raf: null,
+		scrollPercent: 0
+	},
+	{
+		anime: anime({
+			targets: '#purpleHandTablet',
+			translateY: ['12.5%', '17.5%'],
+			rotate: [-18, -6],
+			autoplay: false,
+			easing: 'linear'
+		}),
+		raf: null,
+		scrollPercent: 0
+	},
+	/* Mobile */
+	{
+		anime: anime({
+			targets: '#greenHandMobile',
+			translateY: ['27.5vh', '32.5vh'],
+			rotate: [-12, -18],
+			autoplay: false,
+			easing: 'linear'
+		}),
+		raf: null,
+		scrollPercent: 0
+	},
+	{
+		anime: anime({
+			targets: '#purpleHandMobile',
+			translateY: ['27.5vh', '32.5vh'],
+			rotate: [18, 26],
 			autoplay: false,
 			easing: 'linear'
 		}),
@@ -111,4 +169,3 @@ const scrollHandler = function () {
 
 /* Scroll event listener */
 window.addEventListener("scroll", scrollHandler)
-/*window.removeEventListener("scroll", scrollHandler)*/
