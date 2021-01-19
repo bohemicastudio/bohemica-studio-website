@@ -1,3 +1,7 @@
+// initialise Navigo inside window.router
+window.router = new Navigo('/')
+
+
 // Global store
 Spruce.store('global', {
 	loaded: false,
@@ -28,9 +32,9 @@ Spruce.store('global', {
 		let url = router.current[0].url
 
 		if (url.includes('/')) {
-			console.log(url.split('/'))
 			url = url.split('/').reduce((accumulator, currentValue, index) => {
-				console.log(accumulator, currentValue, index)
+				// LOG
+				// console.log(accumulator, currentValue, index)
 				if (index === 0) {
 					return language
 				}
@@ -52,7 +56,52 @@ Spruce.store('global', {
 		initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
-	}
+	},
+	showMobileMenu: false,
+	openMobileMenu() {
+			this.showMobileMenu = true
+			return new Promise((resolve) => {
+				anime({
+					targets: '#mobileMenu',
+					translateY: '0%',
+					duration: 600,
+					easing: 'easeOutQuart',
+					begin: (() => {
+						console.log('opening mobileMenu')
+					}),
+					complete: (() => {
+						anime({
+							targets: '#mobileMenuUnderlay',
+							opacity: 1,
+							duration: 200,
+							easing: 'linear',
+						})
+					})
+				}).finished.then(() => {
+					resolve()
+				})
+			})
+		},
+		closeMobileMenu() {
+			window.router.navigate(Spruce.stores.global.language, { callHandler: false })
+			anime({
+				targets: '#mobileMenu',
+				translateY: '-100%',
+				duration: 400,
+				easing: 'easeInQuart',
+				complete: (() => {
+					anime({
+						targets: '#slideoverUnderlay',
+						opacity: 0,
+						duration: 200,
+						easing: 'linear',
+						complete: (() => {
+							this.showMobileMenu = false
+						})
+					})
+				})
+			})
+		}
 })
 
 
@@ -62,22 +111,22 @@ Spruce.store('activity', {
 	activities: [
 		{
 			en: {
-				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img src="/images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img class="max-w-none" src="/images/activity/checkmark-emoji.svg">',
 				url: '/project/mmt',
 			},
 			cs: {
-				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img src="/images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img class="max-w-none" src="/images/activity/checkmark-emoji.svg">',
 				url: '/projekt/mmt'
 			},
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img src="/images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img class="max-w-none" src="/images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			},
 			cs: {
-				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img src="/images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img class="max-w-none" src="/images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			}
@@ -95,10 +144,10 @@ Spruce.store('activity', {
 			}
 			else {
 				// LOG
-				console.log(window.router.generate('project-' + Spruce.stores.global.language, {
+				/*console.log(window.router.generate('project-' + Spruce.stores.global.language, {
 					language: Spruce.stores.global.language,
 					name: 'mmt'
-				}))
+				}))*/
 				return window.router.generate('project-' + Spruce.stores.global.language, {
 					language: Spruce.stores.global.language,
 					name: 'mmt'
@@ -125,40 +174,26 @@ const getTranslationFile = async (language) => {
 // Project store
 Spruce.store('project', {
 	name: 'MMT',
-	html: '<div>Init</div>',
+	content: '<div>Init</div>',
 	get firstName() {
 		return this.name
 	},
-	set setHTML(data) {
-		this.html = data
+	set setContent(data) {
+		this.content = data
 	},
-	initHTML() {
-		fetch('./projects/mmt.html')
+	loadContent(name) {
+		return fetch(`./projects/${ name }.html`)
 			.then(response => response.text())
 			.then(html => {
-				console.log('html', html)
-				this.setHTML = html
+				this.setContent = html
 			})
-	},
-	handAnimTest(element) {
-		console.log(element)
-		anime.timeline({
-			targets: element,
-			duration: 2560,
-			opacity: 1,
-			easing: 'linear',
-		}).add({
-			rotate: 15,
-			easing: 'easeOutQuart',
-			duration: 1280
-		})
-	},
+	}
 })
 
 // Slideover store
 Spruce.store('slideover', {
 	showSlideover: false,
-	showSlideoverUnderlay: false,
+	slideoverAnimationFinished: false,
 	processFiles: function (event) {
 		console.log(this.$refs, this.fieldName)
 		if (event.dataTransfer.files.length > 0) {
@@ -170,35 +205,53 @@ Spruce.store('slideover', {
 
 		return false
 	},
-	openSlideover(file) {
-
-		console.log(file)
-
+	openSlideover() {
 		this.showSlideover = true
-
-		anime({
-			targets: document.querySelector('#slideover'),
-			translateY: '0%',
-			duration: 640,
-			easing: 'easeOutQuart',
-			begin: (() => {
-				console.log('opening slideover')
-				this.showSlideoverUnderlay = true
+		return new Promise((resolve) => {
+			anime({
+				targets: '#slideover',
+				translateY: '0%',
+				duration: 600,
+				easing: 'easeOutQuart',
+				begin: (() => {
+					console.log('opening slideover')
+				}),
+				complete: (() => {
+					this.slideoverAnimationFinished = true
+					anime({
+						targets: '#slideoverUnderlay',
+						opacity: 1,
+						duration: 200,
+						easing: 'linear',
+					})
+				})
+			}).finished.then(() => {
+				resolve()
 			})
 		})
 	},
 	closeSlideover() {
+		window.router.navigate(Spruce.stores.global.language, { callHandler: false })
 		anime({
-			targets: document.querySelector('#slideover'),
+			targets: '#slideover',
 			translateY: '100%',
-			duration: 320,
+			duration: 400,
 			easing: 'easeInQuart',
 			begin: (() => {
 				this.showSlideoverUnderlay = false
 			}),
 			complete: (() => {
-				this.showSlideover = false
+				this.slideoverAnimationFinished = false
+				anime({
+					targets: '#slideoverUnderlay',
+					opacity: 0,
+					duration: 200,
+					easing: 'linear',
+					complete: (() => {
+						this.showSlideover = false
+					})
+				})
 			})
 		})
-	},
+	}
 })
