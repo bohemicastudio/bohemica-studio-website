@@ -17,13 +17,22 @@ window.addEventListener('storage',
 window.addEventListener('load',
 	function () {
 
+		// Disable cursor loading
+		window.Spruce.stores.global.loaded = true
+
 		// Scroll to top of the document before page is unloaded
-		window.addEventListener('beforeunload', function (event) {
+		/*window.addEventListener('beforeunload', function (event) {
 			document.querySelector('body').classList.add('invisible')
 			window.scrollTo(0, 0)
-		})
+		})*/
 
 		// Initialise Tippy.js library
 		initialiseTooltips()
+
+		// Re-initialise Navigo on links after page is loaded
+		window.router.updatePageLinks()
+
+		// Loading order: 1. Router (Navigo); 2. Store (Spruce - using router); 3. Alpine.js (once page is loaded)
+		// When Navigo is initialized before page/DOM load, the links are not initialised
 
 	})
