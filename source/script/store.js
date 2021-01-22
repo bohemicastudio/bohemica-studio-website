@@ -53,55 +53,55 @@ Spruce.store('global', {
 				element.destroy()
 			})
 		})
-		initialiseTooltips()
+		window.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
 	},
 	showMobileMenu: false,
 	openMobileMenu() {
-			this.showMobileMenu = true
-			return new Promise((resolve) => {
-				anime({
-					targets: '#mobileMenu',
-					translateY: '0%',
-					duration: 600,
-					easing: 'easeOutQuart',
-					begin: (() => {
-						console.log('opening mobileMenu')
-					}),
-					complete: (() => {
-						anime({
-							targets: '#mobileMenuUnderlay',
-							opacity: 1,
-							duration: 200,
-							easing: 'linear',
-						})
-					})
-				}).finished.then(() => {
-					resolve()
-				})
-			})
-		},
-		closeMobileMenu() {
-			window.router.navigate(Spruce.stores.global.language, { callHandler: false })
+		this.showMobileMenu = true
+		return new Promise((resolve) => {
 			anime({
 				targets: '#mobileMenu',
-				translateY: '-100%',
-				duration: 400,
-				easing: 'easeInQuart',
+				translateY: '0%',
+				duration: 600,
+				easing: 'easeOutQuart',
+				begin: (() => {
+					console.log('opening mobileMenu')
+				}),
 				complete: (() => {
 					anime({
-						targets: '#slideoverUnderlay',
-						opacity: 0,
+						targets: '#mobileMenuUnderlay',
+						opacity: 1,
 						duration: 200,
 						easing: 'linear',
-						complete: (() => {
-							this.showMobileMenu = false
-						})
+					})
+				})
+			}).finished.then(() => {
+				resolve()
+			})
+		})
+	},
+	closeMobileMenu() {
+		window.router.navigate(Spruce.stores.global.language, { callHandler: false })
+		anime({
+			targets: '#mobileMenu',
+			translateY: '-100%',
+			duration: 400,
+			easing: 'easeInQuart',
+			complete: (() => {
+				anime({
+					targets: '#slideoverUnderlay',
+					opacity: 0,
+					duration: 200,
+					easing: 'linear',
+					complete: (() => {
+						this.showMobileMenu = false
 					})
 				})
 			})
-		}
+		})
+	}
 })
 
 
@@ -207,26 +207,30 @@ Spruce.store('slideover', {
 	},
 	openSlideover() {
 		this.showSlideover = true
+		console.log('does #slideover exist in the DOM?', document.querySelector('#slideover'))
 		return new Promise((resolve) => {
-			anime({
-				targets: '#slideover',
-				translateY: '0%',
-				duration: 600,
-				easing: 'easeOutQuart',
-				begin: (() => {
-					console.log('opening slideover')
-				}),
-				complete: (() => {
-					this.slideoverAnimationFinished = true
-					anime({
-						targets: '#slideoverUnderlay',
-						opacity: 1,
-						duration: 200,
-						easing: 'linear',
+			// wait for '#slideover' to exist in the DOM
+			document.arrive("#slideover", { existing: true }, function () {
+				anime({
+					targets: '#slideover',
+					translateY: '0%',
+					duration: 600,
+					easing: 'easeOutQuart',
+					begin: (() => {
+						console.log('opening slideover', this)
+					}),
+					complete: (() => {
+						this.slideoverAnimationFinished = true
+						anime({
+							targets: '#slideoverUnderlay',
+							opacity: 1,
+							duration: 200,
+							easing: 'linear',
+						})
 					})
+				}).finished.then(() => {
+					resolve()
 				})
-			}).finished.then(() => {
-				resolve()
 			})
 		})
 	},

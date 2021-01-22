@@ -233,15 +233,21 @@ module.exports = {
 				md: '1600px',
 			},*/
 			maxHeight: {
-				xs: '400px',
-				sm: '640px',
-				md: '960px',
-				lg: '1280px',
-				xl: '1600px',
+				'xs': '400px',
+				'sm': '640px',
+				'md': '960px',
+				'lg': '1280px',
+				'xl': '1600px',
 			},
 			cursor: {
 				'ne-resize': 'ne-resize',
-				's-resize': 's-resize'
+				's-resize': 's-resize',
+				'zoom-in': 'zoom-in',
+				'zoom-out': 'zoom-out',
+				'nesw-resize': 'nesw-resize'
+			},
+			aspectRatio: {
+				'21': '21'
 			}
 		}
 	},

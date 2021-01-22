@@ -21,18 +21,34 @@ window.addEventListener('load',
 		window.Spruce.stores.global.loaded = true
 
 		// Scroll to top of the document before page is unloaded
+		/* TODO Enable for production ??? */
 		/*window.addEventListener('beforeunload', function (event) {
 			document.querySelector('body').classList.add('invisible')
 			window.scrollTo(0, 0)
 		})*/
 
 		// Initialise Tippy.js library
-		initialiseTooltips()
+		window.initialiseTooltips()
 
 		// Re-initialise Navigo on links after page is loaded
 		window.router.updatePageLinks()
 
 		// Loading order: 1. Router (Navigo); 2. Store (Spruce - using router); 3. Alpine.js (once page is loaded)
 		// When Navigo is initialized before page/DOM load, the links are not initialised
+
+		window.mediumZoom = mediumZoom('[data-zoom]', {
+			margin: 24,
+			background: 'rgba(0, 0, 0, 0.75)',
+			scrollOffset: 0
+		})
+
+		/*document.arrive(".medium-zoom-image", function () {
+			console.log('new element with class .medium-zoom-image')
+			let mediumZoom = mediumZoom('img.medium-zoom-image', {
+				margin: 24,
+				background: 'rgba(0, 0, 0, 0.75)',
+				scrollOffset: 0
+			})
+		})*/
 
 	})

@@ -130,7 +130,7 @@ window.router.on({
 
 // helper methods
 function projectHandler(name) {
-	console.log('projectHandler', Spruce.stores.slideover.slideoverAnimationFinished)
+	console.log('projectHandler', name, Spruce.stores.slideover.slideoverAnimationFinished)
 
 	if (Spruce.stores.slideover.slideoverAnimationFinished) {
 		fadeOutContent().then(() => {

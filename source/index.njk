@@ -11,8 +11,8 @@
 {% block content %}
 
 	{% from "components/social-channels.njk" import socialChannels %}
-	{% from "components/project-example.njk" import projectExample, projectExamplesTranslation %}
-	{% from "components/specialisation.njk" import specialisation, specialisationsTranslation %}
+
+	{% from "sections/why.njk" import sectionWhy %}
 
 	<div class="overflow-hidden relative bg-blue-gray-100 select-none">
 
@@ -22,7 +22,7 @@
 				<div class="container flex flex-row justify-between items-center pt-4 space-x-2">
 					<img class="w-auto h-full opacity-0" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
-						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" data-tippy-content="Schedule a call" target="_blank">Available for new projects</a>
+						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" x-bind:data-tippy-content="$store['translation.home'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
 						<div class="hidden items-center space-x-2 md:flex">
 							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do">
 								What
@@ -202,83 +202,11 @@
 
 	</div>
 
-	<div class="bg-blue-400">
-		<div class="container">
-			<div class="overflow-hidden relative">
-				<div class="flex flex-col justify-start" style="height: 125vh">
-					<div class="flex items-center h-screen">
-						<div class="flex flex-col" style="padding-bottom: 25vh">
-							<div class="flex flex-row justify-center items-center">
-								<hr class="w-full border-t border-b border-blue-50">
-								<div class="p-5 text-blue-400 rounded-full border-2 border-blue-50">
-									<svg style="width: 50px; height: 50px" xmlns="http://www.w3.org/2000/svg" width="44" height="50" fill="currentColor" stroke="#EFF6FF" viewBox="0 0 44 50">
-										<path d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"/>
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539zm0 0h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"/>
-										<path d="M4.158 44.738a4.262 4.262 0 014.262-4.262h2.526a4.262 4.262 0 110 8.524H8.42a4.262 4.262 0 01-4.262-4.262z"/>
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M4.158 44.738a4.262 4.262 0 014.262-4.262h2.526a4.262 4.262 0 110 8.524H8.42a4.262 4.262 0 01-4.262-4.262z"/>
-										<path d="M2.576 36.217a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.524H6.838a4.262 4.262 0 01-4.262-4.262z"/>
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M2.576 36.217a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.524H6.838a4.262 4.262 0 01-4.262-4.262z"/>
-										<path d="M2.576 19.225a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.523H6.838a4.261 4.261 0 01-4.262-4.261z"/>
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M2.576 19.225a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.523H6.838a4.261 4.261 0 01-4.262-4.261z"/>
-										<path d="M1 27.745a4.262 4.262 0 014.262-4.262h5.683a4.262 4.262 0 110 8.524H5.262A4.262 4.262 0 011 27.745z"/>
-										<g>
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M1 27.745a4.262 4.262 0 014.262-4.262h5.683a4.262 4.262 0 110 8.524H5.262A4.262 4.262 0 011 27.745z"/>
-										</g>
-									</svg>
-								</div>
-								<hr class="w-full border-t border-b border-blue-50">
-							</div>
-							<p class="font-optician-sans text-2.25xl xl:text-2.5xl text-center text-blue-50 tracking-wider w-10/12 mx-auto mt-14 mb-20">
-								We specialise in crafting smooth and engaging digital experiences. Clean&nbsp;visual&nbsp;design and reliable underlying code are our priority.
-							</p>
-							<hr class="w-full border-t border-b border-blue-50">
-						</div>
-					</div>
-				</div>
+	{{ sectionWhy(title='We specialise in crafting smooth and engaging digital experiences. Clean&nbsp;visual&nbsp;design and reliable underlying code are our priority.') }}
 
-				<div class="absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 aspect-h-1 aspect-w-1" style="background-image: radial-gradient(circle, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 50%);"></div>
+	{# {% include "sections/what.njk" %} #}
 
-			</div>
-		</div>
-	</div>
-
-	<div class="bg-black">
-		<div class="relative w-full transform -translate-y-1/2 md:w-8/12 container-screen">
-			<div class="flex flex-col justify-center items-center text-center bg-gray-legacy-800 rounded-4xl"> {# style="min-height: calc((0.25vw + 0.25vh + 0.5vmin) * 40)" #}
-				<div class="px-16 pt-16 pb-12 space-y-8">
-					<h2 class="text-5xl text-blue-400 lg:text-6xl xl:text-7xl">What we do</h2>
-					<p class="leading-7 text-blue-100 lg:leading-8 lg:text-lg font-dm-mono">
-						Individuals, startups and established firms entrust us with crafting functional web & mobile based applications and eye-catching brand identities that support their specific business aims
-					</p>
-				</div>
-				<div class="flex relative flex-grow justify-center w-full h-28">
-					<hr class="absolute w-px bg-gray-legacy-200" style="bottom: -100%; height: 200%">
-				</div>
-				{# <hr class="absolute w-px bg-gray-legacy-200" style="bottom: -25%; height: 50%"> #}
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="flex flex-col divide-y divide-gray-legacy-500">
-				<div class="pb-16">
-					{{ specialisationsTranslation() }}
-					{{ specialisation(name='code', image='code.svg', color='orange', order='01') }}
-				</div>
-				{{ projectExamplesTranslation() }}
-				{{ projectExample(project='lancaster-maloney', image='screen-desktop-zoom.png') }}
-				{{ projectExample(project='lancaster-maloney', image='screen-desktop-zoom.png', reverse=true) }}
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="flex justify-center items-center py-16 bg-gray-legacy-800 rounded-t-7xl">
-				<a x-bind:href="window.router.getPath('overview')" class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200" data-navigo>
-					<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">Open project library</span>
-					<i class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
-				</a>
-			</div>
-		</div>
-	</div>
+	<div x-data="(function () { return { html: '' }})()" x-init="$fetch('./sections/what.html').then((data) => { html = data })" x-html="html"></div>
 
 	<div class="flex justify-center items-center">
 		<div x-data="{ load: false }" class="space-y-4">
@@ -350,94 +278,95 @@
 		</button>
 	</div>
 
-	<div x-data="{ load: false }" x-init="load = true">
-		<template x-if="load && ($store.global.showMobileMenu || $store.slideover.showSlideover)">
-			<div class="fixed inset-0 z-40"> {# x-bind:class="$store.slideover.showSlideover ? 'block' : 'hidden'" #}
 
-				<div id="slideoverUnderlay" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50 opacity-0"></div>
+	<template x-if="($store.global.showMobileMenu || $store.slideover.showSlideover)">
+		<div class="fixed inset-0 z-40"> {# x-bind:class="$store.slideover.showSlideover ? 'block' : 'hidden'" #}
 
-				<template x-if="$store.slideover.showSlideover">
+			<div id="slideoverUnderlay" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50 opacity-0"></div>
 
-					<div x-ref="slideover" id="slideover" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
+			<template x-if="$store.slideover.showSlideover">
+				{# $nextTick(() => { console.log(window.Spruce.stores.slideover); return window.Spruce.stores.slideover.showSlideover }) #}
+
+				<div id="slideover" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
 
 
-						<div class="flex justify-center py-2.5">
-							<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.slideover.closeSlideover()">
-								<i class="gg-close"></i>
-							</button>
-						</div>
+					<div class="flex justify-center py-2.5">
+						<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-800 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.slideover.closeSlideover()">
+							<i class="gg-close"></i>
+						</button>
+					</div>
 
-						<div id="slideoverContentWrapper" class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl" tabindex="1">
+					<div id="slideoverContentWrapper" class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl" tabindex="1">
 
-							{# <div class="fixed inset-x-0 top-0 z-20 h-24 bg-gradient-to-b from-white" style="--tw-gradient-to: rgba(255, 255, 255, 0)">
+						{# <div class="fixed inset-x-0 top-0 z-20 h-24 bg-gradient-to-b from-white" style="--tw-gradient-to: rgba(255, 255, 255, 0)">
 															<div class="flex flex-row justify-end px-24">
 																<button class="mt-14 -mr-5 w-10 h-10 bg-blue-gray-400 rounded-full" x-on:click="$store.slideover.closeSlideover()"></button>
 															</div>
 														</div> #}
 
 
-							<div class="container relative z-10 mt-24" style="height: 3000px">
+						<div class="container relative z-10 mt-24" style="height: 3000px">
 
-								Hello
+							Hello
 
-								<div id="slideoverContent" x-html="$store.project.content" class="py-4 opacity-0"></div>
+							<div id="slideoverContent" x-html="$store.project.content" class="py-4 opacity-0"></div>
 
-								<a href="en/projects/mmt" data-navigo>MMT</a>
-								<a x-bind:href="router.getPath('overview')" data-navigo>Overview</a>
+							<a href="en/projects/mmt" data-navigo>MMT</a>
+							<a x-bind:href="router.getPath('overview')" data-navigo>Overview</a>
 
-								<div class="w-full h-8 bg-blue-600"></div>
+							<div class="w-full h-8 bg-blue-600"></div>
 
-							</div>
-
-						</div>
-					</div>
-
-				</template>
-
-				<template x-if="$store.global.showMobileMenu">
-
-					<div id="mobileMenu" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-start" style="transform: translateY(-100%)">
-
-						<div id="slideoverContentWrapper" class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none" tabindex="1">
-							<div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
-								<div class="grid grid-flow-row gap-2 items-center">
-									<button class="mobile-menu__button hover:bg-blue-200 focus:ring-blue-400">
-										What
-									</button>
-									<button class="mobile-menu__button hover:bg-amber-200 focus:ring-amber-400">
-										How
-									</button>
-									<button class="mobile-menu__button hover:bg-red-200 focus:ring-red-400">
-										How much
-									</button>
-									<button class="mobile-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400">
-										Why
-									</button>
-									<button class="mobile-menu__button hover:bg-green-200 focus:ring-green-400">
-										Who
-									</button>
-									<button class="mobile-menu__button hover:bg-teal-200 focus:ring-teal-400">
-										Where
-									</button>
-								</div>
-								<div class="grid grid-flow-col gap-2 mx-auto">
-									{{ socialChannels() }}
-								</div>
-							</div>
-						</div>
-
-						<div class="flex justify-center py-2.5 flex-shrink-0">
-							<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
-								<i class="gg-close"></i>
-							</button>
 						</div>
 
 					</div>
-				</template>
+				</div>
 
-			</div>
-		</template>
-	</div>
+			</template>
+
+			<template x-if="$store.global.showMobileMenu">
+
+				<div id="mobileMenu" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-start" style="transform: translateY(-100%)">
+
+					<div id="slideoverContentWrapper" class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none" tabindex="1">
+						<div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
+							<div class="grid grid-flow-row gap-2 items-center">
+								<button class="mobile-menu__button hover:bg-blue-200 focus:ring-blue-400">
+									What
+								</button>
+								<button class="mobile-menu__button hover:bg-amber-200 focus:ring-amber-400">
+									How
+								</button>
+								<button class="mobile-menu__button hover:bg-red-200 focus:ring-red-400">
+									How much
+								</button>
+								<button class="mobile-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400">
+									Why
+								</button>
+								<button class="mobile-menu__button hover:bg-green-200 focus:ring-green-400">
+									Who
+								</button>
+								<button class="mobile-menu__button hover:bg-teal-200 focus:ring-teal-400">
+									Where
+								</button>
+							</div>
+							<div class="grid grid-flow-col gap-2 mx-auto">
+								{{ socialChannels() }}
+							</div>
+						</div>
+					</div>
+
+					<div class="flex justify-center py-2.5 flex-shrink-0">
+						<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
+							<i class="gg-close"></i>
+						</button>
+					</div>
+
+				</div>
+			</template>
+
+		</div>
+	</template>
+
 
 	<script>
 		Spruce.store('translation.home', {
@@ -445,12 +374,18 @@
 				head: {
 					title: 'Hello there!',
 					subtitle: 'We are a friendly team of qualified full-stack programmers and visual designers'
+				},
+				tooltip: {
+					scheduleCall: 'Schedule a call'
 				}
 			},
 			cs: {
 				head: {
 					title: 'Nazdárek!',
 					subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních technologií'
+				},
+				tooltip: {
+					scheduleCall: 'Zarezervovat online schůzku'
 				}
 			},
 			return: function (data) {

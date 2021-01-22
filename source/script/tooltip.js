@@ -1,6 +1,6 @@
 let tooltips
 
-function initialiseTooltips() {
+window.initialiseTooltips = function () {
 	tooltips = [
 		tippy('.top-menu [data-tippy-content]', {
 			placement: 'bottom',
@@ -20,6 +20,14 @@ function initialiseTooltips() {
 			/*animation: 'scale-subtle',
 			inertia: true,
 			duration: [100, 150]*/
+		}),
+		tippy('.what [data-tippy-content]', {
+			placement: 'auto',
+			arrow: false,
+			followCursor: true,
+			offset: [0, 24],
+			theme: 'bohemica',
+			touch: false
 		})
 	]
 }

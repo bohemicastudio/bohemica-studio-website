@@ -1,10 +1,110 @@
-{% macro projectExample(project, image, reverse=false) %}
+{% macro projectExample(project, image='preview.webp', imageWrapper='browser', reverse=false) %}
 
-	<div class="flex py-12 {{ 'flex-row-reverse' if reverse else 'flex-row' }}">
+	<div class="flex py-16 {{ 'flex-row-reverse' if reverse else 'flex-row' }}">
 		<div class="flex relative justify-center items-center w-1/2">
-			<div class="aspect-w-4 aspect-h-3"></div>
 
-			<img class="object-contain absolute inset-0 mx-auto h-full" src="/images/projects/{{ project }}/{{ image }}">
+			{% if imageWrapper === 'browser' %}
+
+				{# <div class="flex flex-col p-6 w-full h-full">
+					<div class="flex justify-between items-center py-2 pr-2 pl-4 rounded-t-lg bg-gray-legacy-600">
+						<div class="flex flex-row space-x-2.5">
+							<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-amber-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-lime-500 rounded-full"></div>
+						</div>
+						<div class="flex flex-grow justify-start items-center px-4 mr-4 ml-6 w-8 h-8 rounded-md bg-gray-legacy-400">
+							<a href="https://bohemica.studio/" target="_blank" class="mt-px text-sm cursor-ne-resize text-gray-legacy-900 font-dm-mono">https://bohemica.studio/</a>
+						</div>
+						<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex justify-center items-center w-8 h-8 text-blue-gray-200 rounded-md transition duration-100 ease-linear bg-gray-legacy-600 focus:outline-none cursor-nesw-resize hover:text-white hover:bg-gray-legacy-500 focus:bg-gray-legacy-500">
+							<i class="gg-arrows-expand-right"></i>
+						</button>
+					</div>
+					<div class="flex-grow rounded-b-lg bg-gray-legacy-600" style="padding: 0px 4px 4px 4px">
+						<div class="overflow-hidden rounded-t-sm aspect-w-16 aspect-h-10" style="border-radius: 3px 3px 5px 5px">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}"> #}{# data-zoom-src="/images/projects/{{ project }}/{{ image }}-large.webp" #}{#
+			</div>
+		</div>
+	</div> #}
+
+				<div class="flex flex-col p-6 w-full h-full">
+					<div class="flex justify-between items-center py-2 pr-2 pl-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500">
+						<div class="flex flex-row space-x-2.5">
+							<div class="w-3 h-3 bg-red-700 rounded-full"></div>
+							<div class="w-3 h-3 bg-amber-700 rounded-full"></div>
+							<div class="w-3 h-3 bg-lime-700 rounded-full"></div>
+						</div>
+						<div class="flex flex-grow justify-start items-center px-4 mr-4 ml-6 w-8 h-8 rounded-md border border-cool-gray-500">
+							<a href="https://bohemica.studio/" target="_blank" class="mt-px text-sm text-cool-gray-400 cursor-ne-resize font-dm-mono">https://bohemica.studio/</a>
+						</div>
+						<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex justify-center items-center w-8 h-8 text-cool-gray-400 bg-cool-gray-900 rounded-md transition duration-100 ease-linear focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-700 focus:bg-cool-gray-700">
+							<i class="gg-arrows-expand-right"></i>
+						</button>
+					</div>
+					<div class="overflow-hidden flex-grow bg-cool-gray-900 rounded-b-lg border border-cool-gray-500">
+						<div class="opacity-80 transition-opacity duration-150 ease-linear aspect-w-16 aspect-h-10 hover:opacity-100">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}"> {# data-zoom-src="/images/projects/{{ project }}/{{ image }}-large.webp" #}
+						</div>
+					</div>
+				</div>
+
+			{% elseif imageWrapper === 'screen' %}
+
+				{# <div class="flex flex-col p-6 w-full h-full">
+					<div class="flex justify-between items-center h-4 rounded-t-md bg-gray-legacy-800"></div>
+					<div class="flex-grow px-2 pb-4 bg-gray-legacy-800">
+						<div class="overflow-hidden relative rounded-sm aspect-w-21 aspect-h-10">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}">
+							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 rounded-md transition duration-100 ease-linear bg-gray-legacy-500 focus:outline-none cursor-nesw-resize hover:text-white hover:bg-gray-legacy-400 focus:bg-gray-legacy-400">
+								<i class="gg-arrows-expand-right"></i>
+							</button>
+						</div>
+					</div>
+					<div class="h-8 rounded-b-lg bg-gray-legacy-700"></div>
+					<div class="self-center w-1/4 h-10 bg-gray-legacy-600"></div>
+					<div class="self-center w-1/2 h-4 bg-gray-legacy-500"></div>
+				</div> #}
+
+				<div class="flex flex-col p-6 w-full h-full">
+					<div class="flex justify-between items-center h-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500"></div>
+					<div class="flex-grow px-2 pb-4 bg-cool-gray-900 border-r border-l border-cool-gray-500">
+						<div class="overflow-hidden relative border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear aspect-w-21 aspect-h-10 hover:opacity-100">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}">
+							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
+								<i class="gg-arrows-expand-right"></i>
+							</button>
+							<div class="flex absolute bottom-0 left-0 justify-start items-end pointer-events-none">
+								<span class="text-cool-gray-50 bg-cool-gray-800 rounded-md px-2.5 py-1 mb-2 ml-2">Commercial use of the application</span>
+							</div>
+						</div>
+					</div>
+					<div class="h-8 bg-cool-gray-800 rounded-b-xl border border-cool-gray-500"></div>
+					<div class="self-center w-1/4 h-10 bg-cool-gray-900 border-r border-l border-cool-gray-500"></div>
+					<div class="self-center w-1/2 h-4 bg-cool-gray-800 rounded-b-sm rounded-t-md border border-cool-gray-500"></div>
+				</div>
+
+			{% elseif imageWrapper === 'phone' %}
+
+				<div class="flex flex-col p-6">
+					<div class="flex justify-center items-center pt-5 pb-4 space-x-1 bg-cool-gray-900 rounded-t-3xl border-t border-r border-l border-cool-gray-500">
+						<span class="w-10 h-1.5 bg-cool-gray-700 rounded-full"></span>
+						<span class="w-1.5 h-1.5 bg-cool-gray-700 rounded-full"></span>
+					</div>
+					<div class="flex-grow px-2 bg-cool-gray-900 border-r border-l border-cool-gray-500">
+						<div class="overflow-hidden relative w-64 rounded-lg border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear hover:opacity-100">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto" data-zoom src="/images/projects/{{ project }}/{{ image }}">
+						</div>
+					</div>
+					<div class="flex justify-center items-center py-4 bg-cool-gray-900 rounded-b-3xl border-r border-b border-l border-cool-gray-500">
+						<span class="w-24 h-1 bg-cool-gray-600 rounded-full"></span>
+					</div>
+				</div>
+
+			{% elseif imageWrapper === 'logo' %}
+
+			{% endif %}
+
+			{# <div class="aspect-w-4 aspect-h-3"></div>
+			<img class="object-contain absolute inset-0 mx-auto h-full medium-zoom-image" src="/images/projects/{{ project }}/{{ image }}"> #}
 
 		</div>
 
@@ -15,8 +115,8 @@
 			</template> #}
 			{# TODO Maybe do nested x-fors ? https://github.com/alpinejs/alpine/issues/158#issuecomment-606128323 #}
 
-			<div class="flex flex-col space-y-10 items-start">
-				<div class="grid gap-x-5 gap-y-3 whitespace-nowrap font-medium" style="grid-template-columns: min-content auto">
+			<div class="flex flex-col items-start space-y-10">
+				<div class="grid gap-y-3 gap-x-5 font-medium whitespace-nowrap" style="grid-template-columns: min-content auto">
 					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.client') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].client`)"></span>
 					<span class="text-cool-gray-400 font-dm-mono" x-text="$store['translation.projectExamples'].return('labels.year') + ':'"></span>
@@ -27,18 +127,61 @@
 					<span class="text-cool-gray-100" x-text="$store['translation.projectExamples'].return(`projects['{{ project }}'].stack`)"></span>
 				</div>
 
-				<a {#x-bind:href="window.router.getPath('overview')"#} href="javascript:;" class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
-					<span class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900">See the project</span>
+				<a {# x-bind:href="window.router.getPath('overview')" #} href="javascript:;" class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
+					<span class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900">See the project</span>
 					<i class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
 				</a>
 			</div>
 
 		</div>
 	</div>
+
 {% endmacro %}
 
 {% macro projectExamplesTranslation() %}
-	<script>
+
+	Spruce.store('translation.projectExamples', {
+	en: {
+	labels: {
+	client: 'Client',
+	year: 'Year',
+	type: 'Project type',
+	stack: 'Stack'
+	},
+	projects: {
+	'lancaster-maloney': {
+	client: 'Lancaster Maloney, United Kingdom',
+	year: 2020,
+	type: 'Dashboard managament system (FMS/CMMS)',
+	stack: 'CoreUI, Vue.js, Strapi, CentOS'
+	}
+	}
+	},
+	cs: {
+	labels: {
+	client: 'Klient',
+	year: 'Rok',
+	type: 'Typ',
+	stack: 'Technologie'
+	},
+	projects: {
+	'lancaster-maloney': {
+	client: 'Lancaster Maloney, Velká Británie',
+	year: 2020,
+	type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
+	stack: 'CoreUI, Vue.js, Strapi, CentOS'
+	}
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.projectExamples'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+
+{% endmacro %}
+
+{# <div class="invisible" x-data="(function () {
+console.log('helooooo')
 		Spruce.store('translation.projectExamples', {
 			en: {
 				labels: {
@@ -76,5 +219,50 @@
 				return Object.getProperty(Spruce.stores['translation.projectExamples'], Spruce.stores.global.language + '.' + data)
 			}
 		})
-	</script>
-{% endmacro %}
+		})()"> #}
+
+
+	{# <script>
+
+		const content = `Spruce.store('translation.projectExamples', {
+		 			en: {
+		 				labels: {
+		 					client: 'Client',
+		 					year: 'Year',
+		 					type: 'Project type',
+		 					stack: 'Stack'
+		 				},
+		 				projects: {
+		 					'lancaster-maloney': {
+		 						client: 'Lancaster Maloney, United Kingdom',
+		 						year: 2020,
+		 						type: 'Dashboard managament system (FMS/CMMS)',
+		 						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+		 					}
+		 				}
+		 			},
+		 			cs: {
+		 				labels: {
+		 					client: 'Klient',
+		 					year: 'Rok',
+		 					type: 'Typ',
+		 					stack: 'Technologie'
+		 				},
+		 				projects: {
+		 					'lancaster-maloney': {
+		 						client: 'Lancaster Maloney, Velká Británie',
+		 						year: 2020,
+		 						type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
+		 						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+		 					}
+		 				}
+		 			},
+		 			return: function (data) {
+		 				return Object.getProperty(Spruce.stores['translation.projectExamples'], Spruce.stores.global.language + '.' + data)
+		 			}
+		 		})`
+
+		let inlineScript = document.createElement('script')
+		inlineScript.innerHTML = content
+		document.head.append(inlineScript)
+	</script> #}

@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 var PARAMETER_REGEXP = /([:*])(\w+)/g;
 var REPLACE_VARIABLE_REGEXP = "([^/]+)";
 var WILDCARD_REGEXP = /\*/g;
-var REPLACE_WILDCARD = "(?:.*)";
+var REPLACE_WILDCARD = "?(?:.*)";
 var NOT_SURE_REGEXP = /\/\?/g;
 var REPLACE_NOT_SURE = "/?([^/]+|)";
 var START_BY_SLASH_REGEXP = "(?:/^|^)";
@@ -191,16 +191,15 @@ function Navigo(appRoute, resolveOptions) {
     return this;
   }
 
-  function resolve(currentLocationPath, options) {
+  function resolve(to, options) {
     var context = {
       instance: self,
-      currentLocationPath: currentLocationPath,
+      currentLocationPath: to ? (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(root) + "/" + (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(to) : undefined,
       navigateOptions: {},
       resolveOptions: options || DEFAULT_RESOLVE_OPTIONS
     };
     (0,_Q__WEBPACK_IMPORTED_MODULE_1__.default)([_middlewares_setLocationPath__WEBPACK_IMPORTED_MODULE_2__.default, _middlewares_matchPathToRegisteredRoutes__WEBPACK_IMPORTED_MODULE_3__.default, _Q__WEBPACK_IMPORTED_MODULE_1__.default.if(function (_ref) {
       var matches = _ref.matches;
-      // console.log(`${currentLocationPath} -> Matches: ${matches.length}`);
       return matches && matches.length > 0;
     }, _middlewares_processMatches__WEBPACK_IMPORTED_MODULE_7__.default, _lifecycles__WEBPACK_IMPORTED_MODULE_8__.notFoundLifeCycle)], context);
     return context.matches ? context.matches : false;
@@ -219,6 +218,17 @@ function Navigo(appRoute, resolveOptions) {
       var matches = _ref2.matches;
       return matches && matches.length > 0;
     }, _middlewares_processMatches__WEBPACK_IMPORTED_MODULE_7__.default, _lifecycles__WEBPACK_IMPORTED_MODULE_8__.notFoundLifeCycle), _middlewares_updateBrowserURL__WEBPACK_IMPORTED_MODULE_6__.default], context);
+  }
+
+  function navigateByName(name, data, options) {
+    var url = generate(name, data);
+
+    if (url !== null) {
+      navigate(url, options);
+      return true;
+    }
+
+    return false;
   }
 
   function off(what) {
@@ -262,8 +272,18 @@ function Navigo(appRoute, resolveOptions) {
   function updatePageLinks() {
     if (!isWindowAvailable) return;
     findLinks().forEach(function (link) {
+      if ("false" === link.getAttribute("data-navigo") || "_blank" === link.getAttribute("target")) {
+        if (link.hasListenerAttached) {
+          link.removeEventListener("click", link.navigoHandler);
+        }
+
+        return;
+      }
+
       if (!link.hasListenerAttached) {
-        link.addEventListener("click", function (e) {
+        link.hasListenerAttached = true;
+
+        link.navigoHandler = function (e) {
           if ((e.ctrlKey || e.metaKey) && e.target.tagName.toLowerCase() === "a") {
             return false;
           }
@@ -289,8 +309,9 @@ function Navigo(appRoute, resolveOptions) {
             e.stopPropagation();
             self.navigate((0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(location), options);
           }
-        });
-        link.hasListenerAttached = true;
+        };
+
+        link.addEventListener("click", link.navigoHandler);
       }
     });
     return self;
@@ -318,20 +339,23 @@ function Navigo(appRoute, resolveOptions) {
   }
 
   function generate(name, data) {
-    var result = routes.reduce(function (result, route) {
-      var key;
+    var route = routes.find(function (r) {
+      return r.name === name;
+    });
 
-      if (route.name === name) {
-        result = route.path;
+    if (route) {
+      var result = route.path;
 
-        for (key in data) {
+      if (data) {
+        for (var key in data) {
           result = result.replace(":" + key, data[key]);
         }
       }
 
-      return result;
-    }, "");
-    return !result.match(/^\//) ? "/" + result : result;
+      return !result.match(/^\//) ? "/" + result : result;
+    }
+
+    return null;
   }
 
   function getLinkPath(link) {
@@ -425,6 +449,7 @@ function Navigo(appRoute, resolveOptions) {
   this.off = off;
   this.resolve = resolve;
   this.navigate = navigate;
+  this.navigateByName = navigateByName;
   this.destroy = destroy;
   this.notFound = notFound;
   this.updatePageLinks = updatePageLinks;
@@ -489,11 +514,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var foundLifecycle = [_middlewares_checkForAlreadyHook__WEBPACK_IMPORTED_MODULE_5__.default, _middlewares_checkForLeaveHook__WEBPACK_IMPORTED_MODULE_1__.default, _middlewares_checkForBeforeHook__WEBPACK_IMPORTED_MODULE_2__.default, _middlewares_callHandler__WEBPACK_IMPORTED_MODULE_3__.default, _middlewares_checkForAfterHook__WEBPACK_IMPORTED_MODULE_4__.default];
-var notFoundLifeCycle = [_middlewares_checkForNotFoundHandler__WEBPACK_IMPORTED_MODULE_6__.default, _Q__WEBPACK_IMPORTED_MODULE_0__.default.if(function (_ref) {
+var foundLifecycle = [_middlewares_checkForAlreadyHook__WEBPACK_IMPORTED_MODULE_5__.default, _middlewares_checkForBeforeHook__WEBPACK_IMPORTED_MODULE_2__.default, _middlewares_callHandler__WEBPACK_IMPORTED_MODULE_3__.default, _middlewares_checkForAfterHook__WEBPACK_IMPORTED_MODULE_4__.default];
+var notFoundLifeCycle = [_middlewares_checkForLeaveHook__WEBPACK_IMPORTED_MODULE_1__.default, _middlewares_checkForNotFoundHandler__WEBPACK_IMPORTED_MODULE_6__.default, _Q__WEBPACK_IMPORTED_MODULE_0__.default.if(function (_ref) {
   var notFoundHandled = _ref.notFoundHandled;
   return notFoundHandled;
-}, foundLifecycle, [_middlewares_errorOut__WEBPACK_IMPORTED_MODULE_7__.default, _middlewares_checkForLeaveHook__WEBPACK_IMPORTED_MODULE_1__.default]), _middlewares_flushCurrent__WEBPACK_IMPORTED_MODULE_8__.default];
+}, foundLifecycle, [_middlewares_errorOut__WEBPACK_IMPORTED_MODULE_7__.default]), _middlewares_flushCurrent__WEBPACK_IMPORTED_MODULE_8__.default];
 
 /***/ }),
 
@@ -510,10 +535,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 
 function callHandler(context, done) {
-  if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "updateState")) {
-    context.instance._setCurrent(context.matches);
-  }
-
   if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "callHandler")) {
     context.match.route.handler(context.match);
   }
@@ -534,8 +555,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => /* binding */ _checkForAfterHook
 /* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+
 function _checkForAfterHook(context, done) {
-  if (context.match.route.hooks && context.match.route.hooks.after) {
+  if (context.match.route.hooks && context.match.route.hooks.after && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "callHooks")) {
     context.match.route.hooks.after.forEach(function (f) {
       return f(context.match);
     });
@@ -556,15 +579,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => /* binding */ checkForAlreadyHook
 /* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+
 function checkForAlreadyHook(context, done) {
   var current = context.instance.lastResolved();
 
   if (current && current[0] && current[0].route === context.match.route && current[0].url === context.match.url && current[0].queryString === context.match.queryString) {
     current.forEach(function (c) {
       if (c.route.hooks && c.route.hooks.already) {
-        c.route.hooks.already.forEach(function (f) {
-          return f(context.match);
-        });
+        if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "callHooks")) {
+          c.route.hooks.already.forEach(function (f) {
+            return f(context.match);
+          });
+        }
       }
     });
     done(false);
@@ -587,9 +614,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => /* binding */ checkForBeforeHook
 /* harmony export */ });
 /* harmony import */ var _Q__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Q */ "./src/Q.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+
 
 function checkForBeforeHook(context, done) {
-  if (context.match.route.hooks && context.match.route.hooks.before) {
+  if (context.match.route.hooks && context.match.route.hooks.before && (0,_utils__WEBPACK_IMPORTED_MODULE_1__.undefinedOrTrue)(context.navigateOptions, "callHooks")) {
     (0,_Q__WEBPACK_IMPORTED_MODULE_0__.default)(context.match.route.hooks.before.map(function (f) {
       // just so we match the Q interface
       return function beforeHookInternal(_, d) {
@@ -664,6 +693,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => /* binding */ checkForLeaveHook
 /* harmony export */ });
 /* harmony import */ var _Q__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Q */ "./src/Q.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+
 
 function checkForLeaveHook(context, done) {
   var instance = context.instance;
@@ -673,20 +704,31 @@ function checkForLeaveHook(context, done) {
     return;
   }
 
-  (0,_Q__WEBPACK_IMPORTED_MODULE_0__.default)([].concat(instance.lastResolved().map(function (oldMatch) {
+  (0,_Q__WEBPACK_IMPORTED_MODULE_0__.default)(instance.lastResolved().map(function (oldMatch) {
     return function (_, leaveLoopDone) {
       // no leave hook
       if (!oldMatch.route.hooks || !oldMatch.route.hooks.leave) {
         leaveLoopDone();
         return;
-      } // no match or different path
+      }
 
+      var runHook = false;
+      var newLocationVSOldMatch = context.instance.matchLocation(oldMatch.route.path, context.currentLocationPath);
 
-      if (!context.match || !instance.matchLocation(oldMatch.route.path, context.match.url)) {
+      if (oldMatch.route.path !== "*") {
+        runHook = !newLocationVSOldMatch;
+      } else {
+        var someOfTheLastOnesMatch = context.matches ? context.matches.find(function (match) {
+          return oldMatch.route.path === match.route.path;
+        }) : false;
+        runHook = !someOfTheLastOnesMatch;
+      }
+
+      if ((0,_utils__WEBPACK_IMPORTED_MODULE_1__.undefinedOrTrue)(context.navigateOptions, "callHooks") && runHook) {
         (0,_Q__WEBPACK_IMPORTED_MODULE_0__.default)(oldMatch.route.hooks.leave.map(function (f) {
           // just so we match the Q interface
           return function (_, d) {
-            return f(d, context.match);
+            return f(d, context.matches && context.matches.length > 0 ? context.matches.length === 1 ? context.matches[0] : context.matches : undefined);
           };
         }).concat([function () {
           return leaveLoopDone();
@@ -696,7 +738,7 @@ function checkForLeaveHook(context, done) {
         leaveLoopDone();
       }
     };
-  })), {}, function () {
+  }), {}, function () {
     return done();
   });
 }
@@ -822,19 +864,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Q__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Q */ "./src/Q.ts");
 /* harmony import */ var _lifecycles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lifecycles */ "./src/lifecycles.ts");
+/* harmony import */ var _updateState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateState */ "./src/middlewares/updateState.ts");
+/* harmony import */ var _checkForLeaveHook__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./checkForLeaveHook */ "./src/middlewares/checkForLeaveHook.ts");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 
-function processMatches(context, done) {
-  var idx = 0; // console.log(
-  //   "_processMatches matches=" +
-  //     (context.matches ? context.matches.length : 0)
-  // );
 
-  (function nextMatch() {
+
+function processMatches(context, done) {
+  var idx = 0;
+
+  function nextMatch() {
     if (idx === context.matches.length) {
-      done();
+      (0,_updateState__WEBPACK_IMPORTED_MODULE_2__.default)(context, done);
       return;
     }
 
@@ -844,7 +887,9 @@ function processMatches(context, done) {
       idx += 1;
       nextMatch();
     });
-  })();
+  }
+
+  (0,_checkForLeaveHook__WEBPACK_IMPORTED_MODULE_3__.default)(context, nextMatch);
 }
 
 /***/ }),
@@ -906,6 +951,28 @@ function updateBrowserURL(context, done) {
     } else if (isWindowAvailable) {
       window.location.href = context.to;
     }
+  }
+
+  done();
+}
+
+/***/ }),
+
+/***/ "./src/middlewares/updateState.ts":
+/*!****************************************!*\
+  !*** ./src/middlewares/updateState.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ callHandler
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+
+function callHandler(context, done) {
+  if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "updateState")) {
+    context.instance._setCurrent(context.matches);
   }
 
   done();
@@ -1022,7 +1089,7 @@ function matchRoute(currentPath, route) {
   }
 
   var regexp = new RegExp(pattern, _constants__WEBPACK_IMPORTED_MODULE_0__.MATCH_REGEXP_FLAGS);
-  var match = current.match(regexp);
+  var match = current.match(regexp); // console.log(current, regexp);
 
   if (match) {
     var data = isString(route.path) ? regExpResultToParams(match, paramNames) : match.slice(1);
