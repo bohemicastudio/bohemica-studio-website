@@ -108,6 +108,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _middlewares_updateBrowserURL__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./middlewares/updateBrowserURL */ "./src/middlewares/updateBrowserURL.ts");
 /* harmony import */ var _middlewares_processMatches__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./middlewares/processMatches */ "./src/middlewares/processMatches.ts");
 /* harmony import */ var _lifecycles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lifecycles */ "./src/lifecycles.ts");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -192,11 +194,13 @@ function Navigo(appRoute, resolveOptions) {
   }
 
   function resolve(to, options) {
+    to = to ? (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(root) + "/" + (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(to) : undefined;
     var context = {
       instance: self,
-      currentLocationPath: to ? (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(root) + "/" + (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(to) : undefined,
+      to: to,
+      currentLocationPath: to,
       navigateOptions: {},
-      resolveOptions: options || DEFAULT_RESOLVE_OPTIONS
+      resolveOptions: _extends({}, DEFAULT_RESOLVE_OPTIONS, options)
     };
     (0,_Q__WEBPACK_IMPORTED_MODULE_1__.default)([_middlewares_setLocationPath__WEBPACK_IMPORTED_MODULE_2__.default, _middlewares_matchPathToRegisteredRoutes__WEBPACK_IMPORTED_MODULE_3__.default, _Q__WEBPACK_IMPORTED_MODULE_1__.default.if(function (_ref) {
       var matches = _ref.matches;
@@ -247,7 +251,9 @@ function Navigo(appRoute, resolveOptions) {
   function listen() {
     if (isPushStateAvailable) {
       this.__popstateListener = function () {
-        resolve();
+        if (!self.__freezeListening) {
+          resolve();
+        }
       };
 
       window.addEventListener("popstate", this.__popstateListener);
@@ -368,10 +374,12 @@ function Navigo(appRoute, resolveOptions) {
         queryString = _extractGETParameters[1];
 
     var params = queryString === "" ? null : (0,_utils__WEBPACK_IMPORTED_MODULE_0__.parseQuery)(queryString);
+    var hashString = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.extractHashFromURL)(path);
     var route = createRoute(url, function () {}, [genericHooks], url);
     return {
       url: url,
       queryString: queryString,
+      hashString: hashString,
       route: route,
       data: null,
       params: params
@@ -386,6 +394,7 @@ function Navigo(appRoute, resolveOptions) {
     var context = {
       instance: self,
       currentLocationPath: path,
+      to: path,
       navigateOptions: {},
       resolveOptions: DEFAULT_RESOLVE_OPTIONS
     };
@@ -396,11 +405,12 @@ function Navigo(appRoute, resolveOptions) {
   function directMatchWithLocation(path, currentLocation) {
     var context = {
       instance: self,
+      to: currentLocation,
       currentLocationPath: currentLocation
     };
     (0,_middlewares_setLocationPath__WEBPACK_IMPORTED_MODULE_2__.default)(context, function () {});
     path = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(path);
-    var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context.currentLocationPath, {
+    var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context, {
       name: path,
       path: path,
       handler: function handler() {},
@@ -445,6 +455,7 @@ function Navigo(appRoute, resolveOptions) {
   this.routes = routes;
   this.destroyed = destroyed;
   this.current = current;
+  this.__freezeListening = false;
   this.on = on;
   this.off = off;
   this.resolve = resolve;
@@ -553,11 +564,11 @@ function callHandler(context, done) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => /* binding */ _checkForAfterHook
+/* harmony export */   "default": () => /* binding */ checkForAfterHook
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 
-function _checkForAfterHook(context, done) {
+function checkForAfterHook(context, done) {
   if (context.match.route.hooks && context.match.route.hooks.after && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "callHooks")) {
     context.match.route.hooks.after.forEach(function (f) {
       return f(context.match);
@@ -767,10 +778,12 @@ function checkForNotFoundHandler(context, done) {
         url = _extractGETParameters[0],
         queryString = _extractGETParameters[1];
 
+    var hashString = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.extractHashFromURL)(context.to);
     notFoundRoute.path = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(url);
     var notFoundMatch = {
       url: notFoundRoute.path,
       queryString: queryString,
+      hashString: hashString,
       data: null,
       route: notFoundRoute,
       params: queryString !== "" ? (0,_utils__WEBPACK_IMPORTED_MODULE_0__.parseQuery)(queryString) : null
@@ -834,7 +847,7 @@ __webpack_require__.r(__webpack_exports__);
 function matchPathToRegisteredRoutes(context, done) {
   for (var i = 0; i < context.instance.routes.length; i++) {
     var route = context.instance.routes[i];
-    var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context.currentLocationPath, route);
+    var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context, route);
 
     if (match) {
       if (!context.matches) context.matches = [];
@@ -902,13 +915,13 @@ function processMatches(context, done) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => /* binding */ _setLocationPath
+/* harmony export */   "default": () => /* binding */ setLocationPath
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 
-function _setLocationPath(context, done) {
+function setLocationPath(context, done) {
   if (typeof context.currentLocationPath === "undefined") {
-    context.currentLocationPath = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCurrentEnvURL)(context.instance.root);
+    context.currentLocationPath = context.to = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCurrentEnvURL)(context.instance.root);
   }
 
   context.currentLocationPath = context.instance._checkForAHash(context.currentLocationPath);
@@ -942,10 +955,12 @@ function updateBrowserURL(context, done) {
       // We set a microtask to update the hash only.
 
       if (location && location.hash) {
+        context.instance.__freezeListening = true;
         setTimeout(function () {
           var tmp = location.hash;
           location.hash = "";
           location.hash = tmp;
+          context.instance.__freezeListening = false;
         }, 1);
       }
     } else if (isWindowAvailable) {
@@ -992,6 +1007,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "clean": () => /* binding */ clean,
 /* harmony export */   "isString": () => /* binding */ isString,
 /* harmony export */   "isFunction": () => /* binding */ isFunction,
+/* harmony export */   "extractHashFromURL": () => /* binding */ extractHashFromURL,
 /* harmony export */   "regExpResultToParams": () => /* binding */ regExpResultToParams,
 /* harmony export */   "extractGETParameters": () => /* binding */ extractGETParameters,
 /* harmony export */   "parseQuery": () => /* binding */ parseQuery,
@@ -1023,6 +1039,13 @@ function isString(s) {
 }
 function isFunction(s) {
   return typeof s === "function";
+}
+function extractHashFromURL(url) {
+  if (url && url.indexOf("#") >= 0) {
+    return url.split("#").pop() || "";
+  }
+
+  return "";
 }
 function regExpResultToParams(match, names) {
   if (names.length === 0) return null;
@@ -1058,8 +1081,8 @@ function parseQuery(queryString) {
 
   return query;
 }
-function matchRoute(currentPath, route) {
-  var _extractGETParameters = extractGETParameters(clean(currentPath)),
+function matchRoute(context, route) {
+  var _extractGETParameters = extractGETParameters(clean(context.currentLocationPath)),
       current = _extractGETParameters[0],
       GETParams = _extractGETParameters[1];
 
@@ -1078,6 +1101,7 @@ function matchRoute(currentPath, route) {
         return {
           url: current,
           queryString: GETParams,
+          hashString: extractHashFromURL(context.to),
           route: route,
           data: null,
           params: params
@@ -1096,6 +1120,7 @@ function matchRoute(currentPath, route) {
     return {
       url: current,
       queryString: GETParams,
+      hashString: extractHashFromURL(context.to),
       route: route,
       data: data,
       params: params

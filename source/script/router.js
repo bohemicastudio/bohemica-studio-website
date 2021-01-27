@@ -80,12 +80,36 @@ window.router.paths = [
 			cs: 'prehled'
 		},
 		route: 'project'
+	},
+	{
+		file: 'mmt',
+		path: {
+			en: 'mmt',
+			cs: 'mmt'
+		},
+		route: 'project'
+	},
+	{
+		file: 'lancaster-maloney',
+		path: {
+			en: 'lancaster-maloney',
+			cs: 'lancaster-maloney'
+		},
+		route: 'project'
 	}
 ]
 
 window.router.getPath = function (file) {
-	let route = router.paths.find(path => path.file === file).route + '-' + Spruce.stores.global.language
-	let path = router.paths.find(path => path.file === file).path[Spruce.stores.global.language]
+
+	let route, path
+
+	if (router.paths.find(path => path.file === file)) {
+		route = router.paths.find(path => path.file === file).route + '-' + Spruce.stores.global.language
+		path = router.paths.find(path => path.file === file).path[Spruce.stores.global.language]
+	}
+	else {
+		/*console.error('getPath:', file, '(Path does not exist)')*/
+	}
 
 	return router.generate(route, { language: Spruce.stores.global.language, name: path })
 }
@@ -94,6 +118,25 @@ window.router.getPath = function (file) {
 window.router.on({
 	':language': function ({ data }) {
 		console.log('Root - has param;', 'params:', data)
+
+		if (Spruce.stores.slideover.open === true) {
+			window.animation.slideoverClose.play()
+			window.animation.slideoverClose.finished.then(() => {
+				Spruce.stores.slideover.open = false
+
+				window.animation.windowUnderlayShow.reverse()
+				window.animation.windowUnderlayShow.play()
+				window.animation.windowUnderlayShow.finished.then(() => {
+					window.animation.windowUnderlayShow.reverse()
+					setTimeout(() => {
+						Spruce.stores.global.windowUnderlayShow = false
+					}, 50)
+				})
+
+				// unset project HTML content
+				Spruce.stores.project.content = ''
+			})
+		}
 	},
 	':language/projects/:name': {
 		as: 'project-en',
@@ -101,16 +144,14 @@ window.router.on({
 			console.log('Project; en', 'params:', data)
 
 			projectHandler(data.name)
-
 		}
 	},
 	':language/projekty/:name': {
 		as: 'project-cs',
-		uses: ({ data, params }) => {
-			console.log('Projekt; cs', 'params:', params, data)
+		uses: ({ data }) => {
+			console.log('Projekt; cs', 'params:', data)
 
 			projectHandler(data.name)
-
 		}
 	},
 	'*': function ({ data }) {
@@ -128,55 +169,44 @@ window.router.on({
 	},
 }).resolve()
 
-// helper methods
+// handler function for slideover router changes
 function projectHandler(name) {
-	console.log('projectHandler', name, Spruce.stores.slideover.slideoverAnimationFinished)
-
-	if (Spruce.stores.slideover.slideoverAnimationFinished) {
-		fadeOutContent().then(() => {
-			Spruce.stores.project.loadContent(name).then(() => {
-				fadeInContent()
-
-				if(name === 'overview' || name ===  'seznam') {
-					// find element by id and begin animation with anime.js + animate font-size
-				}
-
-			})
+	console.log('projectHandler', name)
+	if (Spruce.stores.slideover.open === true) {
+		// switching between pages in the slideover
+		window.animation.slideoverFadeOutContent.play()
+		window.animation.slideoverFadeOutContent.finished.then(() => {
+			document.querySelector('#slideoverContentWrapper').scrollTo(0, 0)
+			setTimeout(() => {
+				Spruce.stores.project.loadContent(name).then(() => {
+					window.animation.slideoverFadeInContent.play()
+					// Re-initialise Navigo links after new content is loaded
+					window.router.updatePageLinks()
+				})
+			}, 50)
 		})
 	}
 	else {
-		Spruce.stores.slideover.openSlideover().then(() => {
-			Spruce.stores.project.loadContent(name).then(() => {
-				fadeInContent()
-			})
+		// open slideover and load content
+		// wait for the slideover element to load and animations initialised
+		waitFor(() => window.animation.ready === true).then(() => {
+			Spruce.stores.slideover.open = true
+			setTimeout(() => {
+				window.animation.slideoverOpen.play()
+				window.animation.slideoverOpen.finished.then(() => {
+					Spruce.stores.global.windowUnderlayShow = true
+					setTimeout(() => {
+						window.animation.windowUnderlayShow.play()
+					}, 50)
+					setTimeout(() => {
+						Spruce.stores.project.loadContent(name).then(() => {
+							window.animation.slideoverFadeInContent.play()
+							// Re-initialise Navigo links after new content is loaded
+							window.router.updatePageLinks()
+						})
+					}, 50)
+				})
+			}, 50)
 		})
 	}
-}
-
-const fadeInContent = function () {
-	anime.timeline({ targets: '#slideoverContent', }).add({
-		translateY: ['-2rem', '0rem'],
-		duration: 400,
-		easing: 'easeOutQuart',
-	}).add({
-		duration: 300,
-		opacity: [0, 1],
-		easing: 'linear',
-	}, '-=300')
-}
-
-const fadeOutContent = function () {
-	return new Promise((resolve) => {
-		anime.timeline({ targets: '#slideoverContent', }).add({
-			translateY: ['0rem', '2rem'],
-			duration: 400,
-			easing: 'easeInQuart',
-		}).add({
-			duration: 300,
-			opacity: [1, 0],
-			easing: 'linear',
-		}, '-=300').finished.then(() => {
-			resolve()
-		})
-	})
 }

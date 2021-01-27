@@ -2,50 +2,48 @@
 permalink: /sections/what.html
 ---
 
-{% from "components/project-example.njk" import projectExample, projectExamplesTranslation %}
+{% from "components/project-example.njk" import projectExample, projectsTranslation %}
 {% from "components/specialisation.njk" import specialisation, specialisationsTranslation %}
+{% from "components/section-intro.njk" import sectionIntro %}
 
 <div class="bg-black what">
-	<div class="relative w-full transform -translate-y-1/2 md:w-8/12 container-screen">
-		<div class="flex flex-col justify-center items-center text-center bg-gray-legacy-800 rounded-4xl"> {# style="min-height: calc((0.25vw + 0.25vh + 0.5vmin) * 40)" #}
-			<div class="px-16 pt-16 pb-12 space-y-8">
-				<h2 class="text-5xl text-blue-400 lg:text-6xl xl:text-7xl">What we do</h2>
-				<p class="leading-7 text-blue-100 lg:leading-8 lg:text-lg font-dm-mono">
-					Individuals, startups and established firms entrust us with crafting functional web & mobile based applications and eye-catching brand identities that support their specific business aims
-				</p>
-			</div>
-			<div class="flex relative flex-grow justify-center w-full h-28">
-				<hr class="absolute w-px bg-gray-legacy-200" style="bottom: -100%; height: 200%">
-			</div>
-			{# <hr class="absolute w-px bg-gray-legacy-200" style="bottom: -25%; height: 50%"> #}
-		</div>
-	</div>
+
+	{{ sectionIntro(name='what') }}
 
 	<div class="container">
-		<div class="flex flex-col divide-y divide-gray-legacy-500" x-data x-init="(function () { {{ specialisationsTranslation() }} {{ projectExamplesTranslation() }} })()">
-			<div class="pb-16">
+		<div class="flex flex-col divide-y divide-gray-legacy-500" x-data x-init="(function () { {{ specialisationsTranslation() }} {{ projectsTranslation() }} })()">
+			<div class="pb-8 md:pb-16">
 				{{ specialisation(name='code', image='code.svg', color='orange', order='01') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
 				{{ projectExample(project='media-server', imageWrapper='screen') }}
 				{{ projectExample(project='lancaster-maloney', imageWrapper='browser', reverse=true) }}
 			</div>
-			<div class="pt-40 pb-16">
+			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
 				{{ specialisation(name='uiux', image='uiux.svg', color='green', order='02') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
 				{{ projectExample(project='superflow', image='preview.svg', imageWrapper='phone') }}
-				{{ projectExample(project='lancaster-maloney', imageWrapper='browser', reverse=true) }}
+			</div>
+			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
+				{{ specialisation(name='branding', image='branding.svg', color='amber', order='03') }}
+			</div>
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample(project='superflow', image='preview.svg', imageWrapper='phone') }}
 			</div>
 		</div>
 	</div>
 
 	<div class="container">
-		<div class="flex justify-center items-center py-16 bg-gray-legacy-800 rounded-t-7xl">
-			<a x-bind:href="window.router.getPath('overview')" class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200" data-navigo>
+		<div class="flex justify-center items-center py-8 mt-24 rounded-t-3xl md:py-16 bg-gray-legacy-800 md:mt-48 md:rounded-t-7xl">
+			<a x-bind:href="window.router.getPath('overview')" data-navigo class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200">
 				<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">Open project library</span>
 				<i class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
 			</a>
+
+			<button x-on:click="console.log(Spruce.stores.slideover.slideoverOpenAnimation); Spruce.stores.slideover.open = true; $store.slideover.slideoverOpenAnimation.play()">Open slideover</button>
+			<button x-on:click="Spruce.stores.global.openMobileMenu()">Open menu</button>
+
 		</div>
 	</div>
 </div>

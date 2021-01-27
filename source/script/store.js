@@ -16,6 +16,7 @@ Spruce.store('global', {
 			name: 'Čeština'
 		}
 	],
+	windowUnderlayShow: false,
 	data: { language: 'en' },
 	async switchTranslation(language) {
 
@@ -71,7 +72,7 @@ Spruce.store('global', {
 				}),
 				complete: (() => {
 					anime({
-						targets: '#mobileMenuUnderlay',
+						targets: '#windowUnderlay',
 						opacity: 1,
 						duration: 200,
 						easing: 'linear',
@@ -91,7 +92,7 @@ Spruce.store('global', {
 			easing: 'easeInQuart',
 			complete: (() => {
 				anime({
-					targets: '#slideoverUnderlay',
+					targets: '#windowUnderlay',
 					opacity: 0,
 					duration: 200,
 					easing: 'linear',
@@ -131,8 +132,21 @@ Spruce.store('activity', {
 				target: '_blank'
 			}
 		},
+		{
+			en: {
+				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img class="max-w-none" src="/images/activity/github-logo.svg">',
+				url: 'https://github.com/',
+				target: '_blank'
+			},
+			cs: {
+				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img class="max-w-none" src="/images/activity/github-logo.svg">',
+				url: 'https://github.com/',
+				target: '_blank'
+			}
+		},
 	],
 	get getContent() {
+		console.log('getContent for activity box')
 		if (!!Spruce.stores.global.language && (!this.random || this.random !== 0)) {
 			return this.activities[this.random][Spruce.stores.global.language].content
 		}
@@ -174,7 +188,7 @@ const getTranslationFile = async (language) => {
 // Project store
 Spruce.store('project', {
 	name: 'MMT',
-	content: '<div>Init</div>',
+	content: '',
 	get firstName() {
 		return this.name
 	},
@@ -192,70 +206,7 @@ Spruce.store('project', {
 
 // Slideover store
 Spruce.store('slideover', {
-	showSlideover: false,
-	slideoverAnimationFinished: false,
-	processFiles: function (event) {
-		console.log(this.$refs, this.fieldName)
-		if (event.dataTransfer.files.length > 0) {
-			this.$refs[this.fieldName + '-file'].files = event.dataTransfer.files
-			this.$refs[this.fieldName + '-file'].dispatchEvent(new Event('change', { 'bubbles': true }))
-
-			return true
-		}
-
-		return false
-	},
-	openSlideover() {
-		this.showSlideover = true
-		console.log('does #slideover exist in the DOM?', document.querySelector('#slideover'))
-		return new Promise((resolve) => {
-			// wait for '#slideover' to exist in the DOM
-			document.arrive("#slideover", { existing: true }, function () {
-				anime({
-					targets: '#slideover',
-					translateY: '0%',
-					duration: 600,
-					easing: 'easeOutQuart',
-					begin: (() => {
-						console.log('opening slideover', this)
-					}),
-					complete: (() => {
-						this.slideoverAnimationFinished = true
-						anime({
-							targets: '#slideoverUnderlay',
-							opacity: 1,
-							duration: 200,
-							easing: 'linear',
-						})
-					})
-				}).finished.then(() => {
-					resolve()
-				})
-			})
-		})
-	},
-	closeSlideover() {
-		window.router.navigate(Spruce.stores.global.language, { callHandler: false })
-		anime({
-			targets: '#slideover',
-			translateY: '100%',
-			duration: 400,
-			easing: 'easeInQuart',
-			begin: (() => {
-				this.showSlideoverUnderlay = false
-			}),
-			complete: (() => {
-				this.slideoverAnimationFinished = false
-				anime({
-					targets: '#slideoverUnderlay',
-					opacity: 0,
-					duration: 200,
-					easing: 'linear',
-					complete: (() => {
-						this.showSlideover = false
-					})
-				})
-			})
-		})
-	}
+	open: false,
+	animationFinished: false,
 })
+

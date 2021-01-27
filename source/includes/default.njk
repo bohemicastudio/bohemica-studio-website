@@ -31,27 +31,25 @@
 	<!-- External JS libraries -->
 	<script src="./script/alpine.js?v={% version %}" defer></script>
 	<script src="./script/arrive.js?v={% version %}"></script>
+	<script src="./script/anime.js?v={% version %}"></script>
 	<script src="./script/spruce.js?v={% version %}"></script>
 	<script src="./script/navigo.js?v={% version %}"></script>
-	<script src="./script/anime.js?v={% version %}"></script>
 	<script src="./script/popper.js?v={% version %}"></script>
 	<script src="./script/tippy.js?v={% version %}"></script>
 	<script src="./script/medium-zoom.js?v={% version %}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/zoom-vanilla.js/dist/zoom-vanilla.min.js" defer></script>
-	<link href="https://cdn.jsdelivr.net/npm/zoom-vanilla.js/dist/zoom.css" rel="stylesheet">
 	<!-- Internal JS scripts -->
-	<script src="./script/tooltip.js?v={% version %}" defer></script>
+	<script src="./script/animation.js?v={% version %}"></script>
 	<script src="./script/store.js?v={% version %}"></script>
 	<script src="./script/router.js?v={% version %}"></script>
+	<script src="./script/tooltip.js?v={% version %}" defer></script>
+	<script src="./script/parallax.js?v={% version %}" defer></script>
+	<script src="./script/main.js?v={% version %}" defer></script>
 	{% block head %}{% endblock %}
 </head>
-<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.showSlideover || $store.global.showMobileMenu) ? 'overflow-hidden' : '') : 'loading'" x-data>
+<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.showMobileMenu) ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
 	{{ content | safe }}
 {% endblock %}
-<script src="./script/parallax.js?v={% version %}" defer></script>
-<script src="./script/main.js?v={% version %}" defer></script>
-
 <script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" defer async></script>
 </body>
 </html>

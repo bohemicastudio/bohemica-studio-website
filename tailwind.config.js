@@ -2,8 +2,10 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
 	purge: [
-		'./source/**/*.njk',
-		'./includes/**/*.njk',
+		'./build/*.html',
+		'./build/**/*.html'
+		/*'./source/!**!/!*.njk',
+		'./includes/!**!/!*.njk',*/
 	],
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
@@ -207,10 +209,7 @@ module.exports = {
 			boxShadow: {
 				'tooltip': '0px 0px 0px 1px ' + colors.blueGray["500"]
 			},
-			transitionDuration: {
-				'320': '320ms',
-				'640': '640ms',
-			},
+			transitionDuration: {},
 			height: {
 				'1/12': '8.333333%',
 				'2/12': '16.666667%',
@@ -223,9 +222,14 @@ module.exports = {
 				'9/12': '75%',
 				'10/12': '83.333333%',
 				'11/12': '91.666667%',
+				'screen-50': '50vh',
+				'screen-75': '75vh',
+				'screen-125': '125vh'
 			},
 			letterSpacing: {
-				'widest': '.25rem'
+				'wide': '0.05em',
+				'wider': '.15em',
+				'widest': '.25em'
 			},
 			/*minHeight: {
 				xs: '600px',

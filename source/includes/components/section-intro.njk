@@ -1,0 +1,37 @@
+{% macro sectionIntro(name) %}
+	<div class="relative mx-auto w-full transform -translate-y-1/3 md:-translate-y-1/2 md:w-8/12 md:container-screen">
+		<div class="flex flex-col justify-center items-center text-center bg-gray-legacy-800 rounded-4xl"> {# style="min-height: calc((0.25vw + 0.25vh + 0.5vmin) * 40)" #}
+			<div class="px-6 pt-10 pb-6 space-y-4 md:px-16 md:pt-16 md:pb-12 md:space-y-8">
+				<h2 class="text-5xl text-blue-400 lg:text-6xl xl:text-7xl" x-text="$store['translation.sectionIntro'].return('{{ name }}.title')"></h2>
+				<p class="leading-7 text-blue-100 lg:leading-8 lg:text-lg font-dm-mono" x-text="$store['translation.sectionIntro'].return('{{ name }}.subtitle')"></p>
+			</div>
+			<div class="flex relative flex-grow justify-center w-full h-20 md:h-28">
+				<hr class="absolute w-px bg-gray-legacy-200" style="bottom: -100%; height: 200%">
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro sectionIntroTranslation() %}
+
+	<script>
+		Spruce.store('translation.sectionIntro', {
+			en: {
+				what: {
+					title: 'What we do',
+					subtitle: 'Individuals, startups and established firms entrust us with crafting functional web & mobile based applications and eye-catching brand identities that support their specific business aims.',
+				},
+			},
+			cs: {
+				what: {
+					title: 'What we do',
+					subtitle: 'Individuals, startups and established firms entrust us with crafting functional web & mobile based applications and eye-catching brand identities that support their specific business aims.',
+				},
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.sectionIntro'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+	</script>
+
+{% endmacro %}

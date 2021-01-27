@@ -1,15 +1,20 @@
-{% macro sectionWhy(title='Title', image='one.svg') %}
+{% macro sectionWhy(name='one', number='?', color='blue', image='one.svg', outline='white') %}
 
-<div class="bg-blue-400">
+	<div class="bg-{{ color }}-400">
 		<div class="container">
 			<div class="overflow-hidden relative">
-				<div class="flex flex-col justify-start" style="height: 125vh">
+				<div class="flex flex-col justify-start h-screen md:h-screen-125">
 					<div class="flex items-center h-screen">
-						<div class="flex flex-col" style="padding-bottom: 25vh">
-							<div class="flex flex-row justify-center items-center">
-								<hr class="w-full border-t border-b border-blue-50">
-								<div class="p-5 text-blue-400 rounded-full border-2 border-blue-50">
-									<svg style="width: 50px; height: 50px" xmlns="http://www.w3.org/2000/svg" width="44" height="50" fill="currentColor" stroke="#EFF6FF" viewBox="0 0 44 50">
+						<div class="flex flex-col w-full" style="padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)">
+							<div class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-{{ outline }} border-2 border-{{ outline }} font-optician-sans md:hidden">
+															<span>
+																{{ number }}
+															</span>
+							</div>
+							<div class="hidden flex-row justify-center items-center md:flex">
+								<hr class="w-full border-t border-b border-{{ outline }}">
+								<div class="p-5 text-{{ color }}-400 rounded-full border-2 border-{{ outline }}">
+									<svg style="width: 50px; height: 50px" xmlns="http://www.w3.org/2000/svg" width="44" height="50" fill="currentColor" stroke="{{ outline }}" viewBox="0 0 44 50">
 										<path d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"/>
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539zm0 0h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"/>
 										<path d="M4.158 44.738a4.262 4.262 0 014.262-4.262h2.526a4.262 4.262 0 110 8.524H8.42a4.262 4.262 0 01-4.262-4.262z"/>
@@ -24,20 +29,41 @@
 										</g>
 									</svg>
 								</div>
-								<hr class="w-full border-t border-b border-blue-50">
+								<hr class="w-full border-t border-b border-{{ outline }}">
 							</div>
-							<p class="font-optician-sans text-2.25xl xl:text-2.5xl text-center text-blue-50 tracking-wider w-10/12 mx-auto mt-14 mb-20">
-								{{ title }}
+							<p class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-{{ outline }} tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20" x-html="$store['translation.why'].return('{{ name }}')">
 							</p>
-							<hr class="w-full border-t border-b border-blue-50">
+							<hr class="hidden w-full border-t border-b border-{{ outline }} md:flex">
 						</div>
 					</div>
 				</div>
-
-				<div class="absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 aspect-h-1 aspect-w-1" style="background-image: radial-gradient(circle, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 50%);"></div>
-
+				<div class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1" style="background-image: radial-gradient(circle, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 50%);"></div>
 			</div>
 		</div>
 	</div>
 
+{% endmacro %}
+
+{% macro sectionWhyTranslation() %}
+	<script>
+		Spruce.store('translation.why', {
+			en: {
+				one: 'We specialise in crafting smooth and engaging digital experiences. Clean&nbsp;visual&nbsp;design and reliable underlying code are our priority.',
+				two: 'We are explorers and pioneers –<br>always striving to learn and adapt new&nbsp;ways. But, we do not forget the fundamentals that brought us here.',
+				three: 'Trust, honesty & transparency. We aim to set the right expectations from the start – our clients are always well informed about deadlines, cost and payments. No BS.',
+				four: 'We love challenge! We are open to any type of project and style of work. We always finish what we start and deliver high-quality results.',
+				five: '???',
+			},
+			cs: {
+				one: 'CS - TODO',
+				two: 'CS - TODO',
+				three: 'CS - TODO',
+				four: 'CS - TODO',
+				five: 'CS - TODO',
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.why'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+	</script>
 {% endmacro %}

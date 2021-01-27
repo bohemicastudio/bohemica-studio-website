@@ -2,13 +2,13 @@
 
 {% macro specialisation(name, image, color, order='00') %}
 
-	<img src="/images/specialisations/{{ image }}">
-	<h3 class="mt-6 tracking-widest uppercase font-bold text-{{ color }}-200" x-text="'{{ order }} // ' + $store['translation.specialisation'].return('{{ name }}.title')"></h3>
-	<h4 class="mt-10 mb-6 text-4xl font-medium text-white" x-text="$store['translation.specialisation'].return('{{ name }}.subtitle')"></h4>
+	<img class="transform origin-bottom-left scale-75 md:scale-100" src="/images/specialisations/{{ image }}">
+	<h3 class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-{{ color }}-200" x-text="'{{ order }} // ' + $store['translation.specialisation'].return('{{ name }}.title')"></h3>
+	<h4 class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl" x-text="$store['translation.specialisation'].return('{{ name }}.subtitle')"></h4>
 
-	<div class="flex flex-wrap space-x-3 space-x-reverse">
+	<div class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3">
 		<template x-for="(item, index) in $store['translation.specialisation'].return('{{ name }}.keywords')">
-			<span class="select-none text-white bg-{{ color }}-700 px-3.5 py-1.5 rounded-full font-medium" x-text="item"></span>
+			<span class="select-none text-white bg-{{ color }}-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap" x-text="item"></span>
 		</template>
 	</div>
 
@@ -17,33 +17,43 @@
 {% macro specialisationsTranslation() %}
 
 	Spruce.store('translation.specialisation', {
-		en: {
-			code: {
-				title: 'Web & mobile development',
-				subtitle: 'Websites and mobile apps – done well. From the start to the end.',
-				keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-			},
-			uiux: {
-				title: 'Visual design & interface interaction',
-				subtitle: 'Intuitive interfaces that bring delight and joy.	Stress-free experience.',
-				keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-			}
-		},
-		cs: {
-			code: {
-				title: 'Vývoj webů a aplikací',
-				subtitle: 'Webové a mobilní aplikace usite na miru.',
-				keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
-			},
-			uiux: {
-				title: 'Web & mobile development',
-				subtitle: 'Websites and mobile apps – done well. From the start to the end.',
-				keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-			}
-		},
-		return: function (data) {
-			return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
-		}
+	en: {
+	code: {
+	title: 'Web & mobile development',
+	subtitle: 'Websites and mobile apps – done well. From the start to the end.',
+	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+	},
+	uiux: {
+	title: 'Visual design & interface interaction',
+	subtitle: 'Intuitive interfaces that bring delight and joy.    Stress-free experience.',
+	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+	},
+	branding: {
+	title: 'Branding & illustration',
+	subtitle: 'Get the right message across. In style.',
+	keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+	}
+	},
+	cs: {
+	code: {
+	title: 'Vývoj webů a aplikací',
+	subtitle: 'Webové a mobilní aplikace usite na miru.',
+	keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
+	},
+	uiux: {
+	title: 'Web & mobile development',
+	subtitle: 'Websites and mobile apps – done well. From the start to the end.',
+	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+	},
+	branding: {
+	title: 'Branding & illustration',
+	subtitle: 'Get the right message across. In style.',
+	keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
+	}
 	})
 
 {% endmacro %}

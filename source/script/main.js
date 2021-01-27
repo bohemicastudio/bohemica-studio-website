@@ -30,9 +30,6 @@ window.addEventListener('load',
 		// Initialise Tippy.js library
 		window.initialiseTooltips()
 
-		// Re-initialise Navigo on links after page is loaded
-		window.router.updatePageLinks()
-
 		// Loading order: 1. Router (Navigo); 2. Store (Spruce - using router); 3. Alpine.js (once page is loaded)
 		// When Navigo is initialized before page/DOM load, the links are not initialised
 
@@ -52,3 +49,14 @@ window.addEventListener('load',
 		})*/
 
 	})
+
+/*
+let updateNavigoLinks = debounce(() => {
+			window.router.updatePageLinks()
+		}, 100)
+*/
+
+document.arrive("[data-navigo]", function () {
+	console.log('new [data-navigo] in the DOM')
+	window.router.updatePageLinks()
+})
