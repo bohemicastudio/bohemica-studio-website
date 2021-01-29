@@ -2,13 +2,13 @@
 permalink: /projects/overview.html
 ---
 
-<h3 class="pb-8 mb-16 text-3xl font-semibold text-cool-gray-900 border-b border-cool-gray-500">
+<h3 class="pb-8 mb-16 text-3xl font-bold text-cool-gray-900 border-b border-cool-gray-700">
 	Project library
 </h3>
 
-<div class="grid grid-cols-2 auto-rows-fr gap-x-4 gap-y-4">
+<div class="grid grid-cols-2 auto-rows-fr gap-6">
 	<template x-for="(entry, index) in Object.entries($store['translation.projects'].return('list'))" :key="entry[0]">
-		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 bg-cool-gray-200 rounded-3xl border border-cool-gray-200 transition duration-100 ease-linear cursor-pointer hover:border-cool-gray-400">
+		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-cool-gray-500 transition duration-100 ease-linear cursor-pointer hover:bg-cool-gray-200 focus:outline-none focus:bg-cool-gray-200"> {# bg-cool-gray-100 rounded-3xl border border-cool-gray-300 hover:border-cool-gray-500 #}
 			<div class="flex flex-grow items-center">
 				<img x-bind:class="'h-'+entry[1].logoHeight" x-bind:src="`/images/projects/${entry[0]}/${entry[1].logo}`">
 			</div>
@@ -22,5 +22,6 @@ permalink: /projects/overview.html
 			</div>
 		</a>
 	</template>
+	<button x-on:click="Spruce.stores.slideover.open = true">sadasdsd</button>
 </div>
 

@@ -2,10 +2,114 @@
 permalink: /sections/how.html
 ---
 
+{% macro sectionHowTranslation() %}
+	Spruce.store('translation.sectionHow', {
+	en: {
+	first: {
+	title: 'Our process. Simplified.',
+	subtitle: 'See below what you can expect.'
+	},
+	second: {
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
+	},
+	cs: {
+	first: {
+	title: 'Our process. Simplified. CS',
+	subtitle: 'See below what you can expect.'
+	},
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+{% endmacro %}
+
 {% from "components/section-intro.njk" import sectionIntro %}
+{% from "components/section-title.njk" import sectionTitle %}
+{% from "components/process-step.njk" import processStep, processStepsTranslation %}
 
-<div class="bg-black what">
+<div id="how">
 
-	{{ sectionIntro(name='how') }}
+	<div class="bg-cool-gray-300">
+
+		{{ sectionIntro(name='how', backgroundColor='gray-legacy-600', textColor='yellow', lineColor='gray-legacy-400') }}
+
+		<div class="container" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
+			{{ sectionTitle(section='sectionHow', name='first', icon='process.svg') }}
+			<div class="mt-24 mb-32 space-y-40">
+				{{ processStep(step='1', color='cyan', imageTop='bubble.png', imageBottom='coffee.png') }}
+				{{ processStep(step='2', color='teal', imageTop='notebook.png', imageBottom='pencil.png') }}
+				{{ processStep(step='3', color='emerald', imageTop='rocket.png', imageBottom='shield.png') }}
+			</div>
+		</div>
+
+		<div class="flex relative flex-grow justify-center mx-auto w-full h-20 md:h-28">
+			<hr class="absolute w-px bg-cool-gray-400" style="bottom: -100%; height: 200%">
+		</div>
+
+	</div>
+
+	<div class="bg-cool-gray-200">
+		<div class="m-auto h-20 md:h-28"></div>
+		<div class="container mt-32" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
+			{{ sectionTitle(section='sectionHow', name='second', icon='code.svg') }}
+			<div class="py-24">
+				<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 to-md:grid-styled-2 only-md:grid-styled-3 lg:grid-styled-4">
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/html5.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">HTML5</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/css3.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">CSS3</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/javascript.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">JavaScript</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/csharp.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">C#</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/swift.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Swift</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/swiftui.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">SwiftUI</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/kotlin.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Kotlin</span>
+					</li>
+
+
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/javascript.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">JavaScript</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/csharp.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">C#</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/swift.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Swift</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/swiftui.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">SwiftUI</span>
+					</li>
+					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
+						<img src="/images/logos/kotlin.svg">
+						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Kotlin</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 </div>

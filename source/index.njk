@@ -10,12 +10,12 @@
 
 {% block content %}
 
-	{% from "components/social-channels.njk" import socialChannels %}
-	{% from "components/section-intro.njk" import sectionIntroTranslation %}
-
 	{% from "sections/why.njk" import sectionWhy, sectionWhyTranslation %}
-
 	{{ sectionWhyTranslation() }}
+
+	{% from "components/social-channels.njk" import socialChannels %}
+
+	{% from "components/section-intro.njk" import sectionIntroTranslation %}
 	{{ sectionIntroTranslation() }}
 
 	<div class="overflow-hidden relative bg-blue-gray-100 select-none">
@@ -24,20 +24,20 @@
 
 			<div class="flex absolute inset-0 z-30 flex-col">
 				<div class="container flex flex-row justify-between items-center pt-4 space-x-2">
-					<img class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
+					<img class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="/images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
 						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" x-bind:data-tippy-content="$store['translation.home'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
 						<div class="hidden items-center space-x-2 md:flex">
-							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do">
+							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="document.querySelector('#whatIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								What
 							</button>
-							<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it">
+							<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it" x-on:click="document.querySelector('#howIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								How
 							</button>
-							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much it costs">
+							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much we charge" x-on:click="document.querySelector('#whatMuchIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								How much
 							</button>
-							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us">
+							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us" x-on:click="$store.global.toggleWhy()">
 								Why
 							</button>
 							<button class="top-menu__button hover:bg-green-200 focus:ring-green-400" data-tippy-content="Who we have worked with">
@@ -86,7 +86,7 @@
 											<button x-on:click="$store.global.switchTranslation(language.code); open = false"
 											        class="flex flex-row items-center py-2 px-3 space-x-4 rounded-md transition duration-75 ease-linear cursor-pointer focus:bg-blue-gray-800 focus:outline-none hover:bg-blue-gray-700">
 										<span class="w-7 h-auto">
-											<img alt="language-icon" x-bind:src="'images/languages/' + language.code + '.svg'">
+											<img alt="language-icon" x-bind:src="'/images/languages/' + language.code + '.svg'">
 										</span>
 												<span class="font-medium leading-none text-blue-gray-100 whitespace-nowrap" x-text="language.name"></span>
 											</button>
@@ -99,6 +99,7 @@
 
 						<div class="flex flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12">
 							<h2 class="text-5xl tracking-tight leading-none text-blue-gray-700 sm:text-6xl md:text-7xl" x-text="$store['translation.home'].return('head.title')"></h2>
+							{# TODO typing effect after load ? #}
 							<span class="text-xl font-medium tracking-tight text-blue-gray-700 md:leading-relaxed md:font-normal xs:text-xl sm:text-2xl md:text-3xl font-dm-mono" x-text="$store['translation.home'].return('head.subtitle')"></span>
 							<div class="flex flex-col items-center space-y-2.5 opacity-0 transition duration-150 ease-linear" x-data x-init="() => { anime({ targets: $el, duration: 200, delay: 2400, opacity: 1, easing: 'linear'}) }">
 								<div class="hidden flex-col items-stretch p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500">
@@ -110,7 +111,7 @@
 										<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 flex-shrink-0"></i>
 									</a>
 								</div>
-								<div class="flex flex-row uppercase space-x-1.5 text-xs font-semibold tracking-wider text-blue-gray-500">
+								<div class="flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
 									<span>Last updated on:</span>
 									<span>00.00.0000</span>
 								</div>
@@ -128,44 +129,44 @@
 
 			<div class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-lg xl:max-h-xl container-screen lg:flex">
 				{# CSS calc() method for dynamic image size based on the viewport size inspired by https://codepen.io/CrocoDillon/pen/jgmwt #}
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0" id="blueHand" src="images/blue-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0" id="blueHand" src="/images/blue-hand.png" onload="
 				anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
 				anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
-				<img class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="greenHand" src="images/green-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="greenHand" src="/images/green-hand.png" onload="
 				anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 				anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="purpleHand" src="images/purple-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="purpleHand" src="/images/purple-hand.png" onload="
 				anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 				anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(7.5vh); translateX(-50%); opacity: 0" id="yellowHand" src="images/yellow-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(7.5vh); translateX(-50%); opacity: 0" id="yellowHand" src="/images/yellow-hand.png" onload="
 				anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
 				anime({ targets: this, duration: 2400, delay: 2000, rotate: [8, -4], easing: 'easeOutQuart', })">
 			</div>
 
 			<div class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-md lg:max-h-lg container-screen md:flex lg:hidden">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" id="blueHandTablet" src="images/blue-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" id="blueHandTablet" src="/images/blue-hand.png" onload="
 											anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
 											anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
-				<img class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="greenHandTablet" src="images/green-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="greenHandTablet" src="/images/green-hand.png" onload="
 											anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 											anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -6], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="purpleHandTablet" src="images/purple-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="purpleHandTablet" src="/images/purple-hand.png" onload="
 											anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 											anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, -18], easing: 'easeOutQuart', })">
 			</div>
 
 			<div class="flex absolute inset-0 z-10 transform -translate-y-20 container-screen md:hidden">
-				<img class="absolute bottom-0 transform origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="greenHandMobile" src="images/green-hand.png" onload="
+				<img class="absolute bottom-0 transform origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="greenHandMobile" src="/images/green-hand.png" onload="
 							anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 							anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="purpleHandMobile" src="images/purple-hand.png" onload="
+				<img class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="purpleHandMobile" src="/images/purple-hand.png" onload="
 							anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 							anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
 			</div>
 
 			{# Warp background #}
 			<div class="absolute inset-0">
-				<img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})">
+				<img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="/images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})">
 			</div>
 		</div>
 
@@ -185,7 +186,7 @@
 		{# <div class="flex absolute inset-0 z-0 justify-center items-end">
 					<div class="relative">
 						<div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-gray-100"></div>
-						<img class="mx-auto" src="images/hands-background.png">
+						<img class="mx-auto" src="/images/hands-background.png">
 					</div>
 				</div> #}
 
@@ -231,7 +232,7 @@
 		<div id="slideoverContentWrapper" class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl" tabindex="1">
 			{# <div class="fixed inset-x-0 top-0 z-20 h-24 bg-gradient-to-b from-white" style="--tw-gradient-to: rgba(255, 255, 255, 0)"></div> #}
 			<div class="container relative z-10 mt-24" style="height: 3000px">
-				<div id="slideoverContent" x-html="$store.project.content" class="py-4" style="transform: translateY(-2rem); opacity: 0;"></div>
+				<div id="slideoverContent" class="py-4" style="transform: translateY(-2rem); opacity: 0;"></div> {# x-html="$store.project.content" #}
 			</div>
 		</div>
 	</div>

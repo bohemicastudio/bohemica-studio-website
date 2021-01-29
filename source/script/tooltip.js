@@ -21,7 +21,7 @@ window.initialiseTooltips = function () {
 			inertia: true,
 			duration: [100, 150]*/
 		}),
-		tippy('.what [data-tippy-content]', {
+		tippy('#what [data-tippy-content]', {
 			placement: 'auto',
 			arrow: false,
 			followCursor: true,

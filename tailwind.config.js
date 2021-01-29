@@ -1,5 +1,28 @@
 const colors = require('tailwindcss/colors')
 
+const screenSizes = { xs: 400, sm: 640, md: 960, lg: 1280, xl: 1600 }
+
+const screens = {
+	// Basic min-width breakpoints (mobile-first)
+	'xs': screenSizes.xs + 'px',
+	'sm': screenSizes.sm + 'px',
+	'md': screenSizes.md + 'px',
+	'lg': screenSizes.lg + 'px',
+	'xl': screenSizes.xl + 'px',
+
+	// Desktop-first breakpoints
+	'to-xs': { max: screenSizes.xs + 'px' },
+	'to-sm': { max: screenSizes.sm + 'px' },
+	'to-md': { max: screenSizes.md + 'px' },
+	'to-lg': { max: screenSizes.lg + 'px' },
+	'to-xl': { max: screenSizes.xl + 'px' },
+
+	// Breakpoints that apply at one breakpoint only
+	'only-sm': { min: screenSizes.sm + 'px', max: screenSizes.md + 1 + 'px' },
+	'only-md': { min: screenSizes.md + 'px', max: screenSizes.lg + 1 + 'px' },
+	'only-lg': { min: screenSizes.lg + 'px', max: screenSizes.xl + 1 + 'px' },
+}
+
 module.exports = {
 	purge: [
 		'./build/*.html',
@@ -18,13 +41,7 @@ module.exports = {
 		}
 	},
 	theme: {
-		screens: {
-			xs: '400px',
-			sm: '640px',
-			md: '960px',
-			lg: '1280px',
-			xl: '1600px',
-		},
+		screens: screens,
 		colors: {
 			'transparent': 'transparent',
 			'current': 'currentColor',

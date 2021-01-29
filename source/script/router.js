@@ -127,6 +127,7 @@ window.router.on({
 				window.animation.windowUnderlayShow.reverse()
 				window.animation.windowUnderlayShow.play()
 				window.animation.windowUnderlayShow.finished.then(() => {
+					window.animation.slideoverFadeOutContent.play()
 					window.animation.windowUnderlayShow.reverse()
 					setTimeout(() => {
 						Spruce.stores.global.windowUnderlayShow = false

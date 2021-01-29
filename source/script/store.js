@@ -187,19 +187,16 @@ const getTranslationFile = async (language) => {
 
 // Project store
 Spruce.store('project', {
-	name: 'MMT',
-	content: '',
-	get firstName() {
-		return this.name
-	},
+	/*content: '',
 	set setContent(data) {
 		this.content = data
-	},
+	},*/
 	loadContent(name) {
 		return fetch(`./projects/${ name }.html`)
 			.then(response => response.text())
 			.then(html => {
-				this.setContent = html
+				document.querySelector('#slideoverContent').innerHTML = html
+				/*this.setContent = html*/
 			})
 	}
 })

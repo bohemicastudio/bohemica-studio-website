@@ -40,9 +40,12 @@
 							<i class="gg-arrows-expand-right"></i>
 						</button>
 					</div>
-					<div class="overflow-hidden flex-grow bg-cool-gray-900 rounded-b-lg border border-cool-gray-500">
+					<div class="overflow-hidden relative flex-grow bg-cool-gray-900 rounded-b-lg border border-cool-gray-500">
 						<div class="opacity-80 transition-opacity duration-150 ease-linear aspect-w-16 aspect-h-10 hover:opacity-100">
 							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}"> {# data-zoom-src="/images/projects/{{ project }}/{{ image }}-large.webp" #}
+							<div class="hidden absolute inset-0 justify-end items-end pointer-events-none md:flex">
+								<span class="text-cool-gray-50 bg-cool-gray-800 rounded-md px-2.5 py-1 mb-2 mr-2">Final product - Dashboard application</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -72,7 +75,7 @@
 							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear md:flex focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
 								<i class="gg-arrows-expand-right"></i>
 							</button>
-							<div class="hidden absolute bottom-0 left-0 justify-start items-end pointer-events-none md:flex">
+							<div class="hidden absolute inset-0 justify-start items-end pointer-events-none md:flex">
 								<span class="text-cool-gray-50 bg-cool-gray-800 rounded-md px-2.5 py-1 mb-2 ml-2">Commercial use of the application</span>
 							</div>
 						</div>

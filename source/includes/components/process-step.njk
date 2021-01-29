@@ -1,0 +1,99 @@
+{% macro processStep(step='0', color='gray', imageTop='bubble.png', imageBottom='coffee.png') %}
+
+	<div class="flex flex-col py-20 pl-14 w-10/12 bg-white">
+		<div class="relative">
+			<img class="absolute top-0 right-0 h-72 transform translate-x-1/2 translate-y-6" src="/images/how/{{ imageTop }}">
+			<img class="absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6" src="/images/how/{{ imageBottom }}">
+			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase" x-text="$store['translation.processSteps'].return('step') + ' {{ step }}'"></span>
+			<h3 class="mt-4 text-7xl text-cool-gray-700" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>
+			<div class="mt-16 w-9/12 prose">
+				<ul class="space-y-8 text-base text-cool-gray-900 font-dm-mono">
+					<template x-for="row in $store['translation.processSteps'].return('{{ step }}.description')">
+						<li x-text="row"></li>
+					</template>
+				</ul>
+			</div>
+			<div class="flex flex-wrap mt-24 space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3">
+				<template x-for="keyword in $store['translation.processSteps'].return('{{ step }}.keywords')">
+					<span class="select-none text-white bg-{{ color }}-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap" x-text="keyword"></span>
+				</template>
+			</div>
+		</div>
+	</div>
+
+{% endmacro %}
+
+
+
+{% macro processStepsTranslation() %}
+
+	Spruce.store('translation.processSteps', {
+	en: {
+	step: 'Step',
+	1: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	2: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	3: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	},
+	cs: {
+	step: 'Krok',
+	1: {
+	name: 'Client',
+	description: [
+	'CS',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	]
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+
+{% endmacro %}

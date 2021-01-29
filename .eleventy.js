@@ -22,21 +22,16 @@ module.exports = function (config) {
 	* https://mahmoudashraf.dev/blog/how-to-optimize-and-lazyloading-images-on-eleventy/
 	* */
 
-	/*// Copy Image Folder to /_site
-	  eleventyConfig.addPassthroughCopy("./src/static/img");*/
-
+	// When .gitignore is disabled, .eleventyignore will be the single source of truth for ignored files
 	config.setUseGitIgnore(false)
 
 	// Watch targets
-	config.addWatchTarget("./temporary/style.css")
-	config.addWatchTarget("./source")
+	config.addWatchTarget("./source/")
+	config.addWatchTarget("./temporary/")
 
 	// Pass-through files
 	config.addPassthroughCopy({ "./temporary/style.css": "./style.css" })
 	config.addPassthroughCopy("./source/images")
-
-	// Pass-through files from node_modules
-	config.addPassthroughCopy("./source/langs") // TODO Keep or delete?
 
 	// Shortcodes
 	config.addShortcode("version", function () {

@@ -5,7 +5,7 @@
 
 /* Global vars */
 :root {
-  --windowFormula: calc(1% + 0.5vw + 0.25vh + 0.75vmin)
+    --windowFormula: calc(1% + 0.5vw + 0.25vh + 0.75vmin)
 }
 
 /* Tippy.js related styles */
@@ -34,4 +34,187 @@
 /* MediumZoom.js related styles */
 .medium-zoom-image--opened {
     @apply rounded-sm
+}
+
+@responsive {
+
+    .grid-styled-4 li {
+        @apply relative border-cool-gray-400
+    }
+
+    .grid-styled-4 li:before {
+        @apply z-10
+    }
+
+    .grid-styled-4 li:first-child {
+        @apply border !important
+    }
+
+    .grid-styled-4 li:first-child:before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top left, top right, bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-4 li:nth-child(n+2):nth-child(-n+5) {
+        @apply border-b border-t border-r border-l-0
+    }
+
+    .grid-styled-4 li:nth-child(n+2):nth-child(-n+5):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top right, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-4 li:nth-child(4n + 1):not(:first-child) {
+        @apply border-b border-l border-t-0 border-r !important
+    }
+
+    .grid-styled-4 li:nth-child(4n + 1):not(:first-child):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top left, top right, bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-4 li:nth-child(n+5) {
+        @apply border-b border-r border-t-0 border-l-0
+    }
+
+    .grid-styled-4 li:nth-child(n+5):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-3 li {
+        @apply relative border-cool-gray-400
+    }
+
+    .grid-styled-3 li:before {
+        @apply z-10
+    }
+
+    .grid-styled-3 li:first-child {
+        @apply border !important
+    }
+
+    .grid-styled-3 li:first-child:before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top left, top right, bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-3 li:nth-child(n+2):nth-child(-n+3) {
+        @apply border-b border-r border-t border-l-0
+    }
+
+    .grid-styled-3 li:nth-child(n+2):nth-child(-n+3):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top right, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-3 li:nth-child(3n + 1):not(:first-child) {
+        @apply border-b border-l border-t-0 border-r !important
+    }
+
+    .grid-styled-3 li:nth-child(3n + 1):not(:first-child):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-3 li:nth-child(n+4) {
+        @apply border-b border-t-0 border-r border-l-0
+    }
+
+    .grid-styled-3 li:nth-child(n+4):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-2 li {
+        @apply relative border-cool-gray-400
+    }
+
+    .grid-styled-2 li:before {
+        @apply z-10
+    }
+
+    .grid-styled-2 li:first-child {
+        @apply border !important
+    }
+
+    .grid-styled-2 li:first-child:before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top left, top right, bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-2 li:nth-child(n+2):nth-child(-n+3) {
+        @apply border-b border-r border-l-0 border-t
+    }
+
+    .grid-styled-2 li:nth-child(n+2):nth-child(-n+3):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top right, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-2 li:nth-child(2n + 1):not(:first-child) {
+        @apply border-b border-l border-t-0 border-r !important
+    }
+
+    .grid-styled-2 li:nth-child(2n + 1):not(:first-child):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: bottom left, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
+
+    .grid-styled-2 li:nth-child(n+2) {
+        @apply border-b border-t-0 border-r border-l-0
+    }
+
+    .grid-styled-2 li:nth-child(n+2):before {
+        content: '';
+        @apply absolute inset-0;
+        margin: -7px;
+        background-repeat: no-repeat;
+        background-position: top right, bottom right;
+        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    }
 }
