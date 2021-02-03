@@ -36,185 +36,201 @@
     @apply rounded-sm
 }
 
+/* Github cards */
+#github-cards {
+    body.ready {
+        @apply border rounded-2xl border-cool-gray-400 shadow-none !important
+    }
+    .repo-card .footer {
+
+    }
+}
+
+/* Grid in how section */
+ul.grid-how {
+    @apply grid grid-cols-2 grid-styled md:grid-cols-3 lg:grid-cols-4 to-md:grid-styled-2 only-md:grid-styled-3 lg:grid-styled-4 auto-rows-fr
+}
+
+ul.grid-how li {
+    @apply flex flex-col items-center pt-10 pb-8 space-y-4 justify-between
+}
+
+ul.grid-how li > div {
+    @apply flex items-center justify-center flex-grow
+}
+
+ul.grid-how li > span {
+    @apply tracking-wide leading-none text-cool-gray-700 font-optician-sans text-center
+}
+
+/* Grid styled */
+.grid-styled__item {
+    @apply relative border-cool-gray-400
+}
+
+.grid-styled__item__before {
+    @apply z-10
+}
+
+.grid-styled__first-row__first-item {
+    @apply border !important
+}
+
+.grid-styled__first-row__first-item__before {
+    @apply absolute inset-0 pointer-events-none;
+    content: '';
+    margin: -7px;
+    background-repeat: no-repeat;
+    background-position: top right, bottom right, bottom left, top left;
+    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+}
+
+.grid-styled__first-row {
+    @apply border-b border-t border-r border-l-0
+}
+
+.grid-styled__first-row__before {
+    @apply absolute inset-0 pointer-events-none;
+    content: '';
+    margin: -7px;
+    background-repeat: no-repeat;
+    background-position: top right, bottom right;
+    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+}
+
+.grid-styled__other-rows__first-item {
+    @apply border-b border-l border-t-0 border-r !important
+}
+
+.grid-styled__other-rows__first-item__before {
+    @apply absolute inset-0 pointer-events-none;
+    content: '';
+    margin: -7px;
+    background-repeat: no-repeat;
+    background-position: bottom left, bottom right;
+    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+}
+
+.grid-styled__other-rows {
+    @apply border-b border-r border-t-0 border-l-0
+}
+
+.grid-styled__other-rows__before {
+    @apply absolute inset-0 pointer-events-none;
+    content: '';
+    margin: -7px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-image: url("/images/grid-cross.svg");
+}
+
+
 @responsive {
 
-    .grid-styled-4 li {
-        @apply relative border-cool-gray-400
+    .grid-styled li {
+        @apply grid-styled__item
     }
 
-    .grid-styled-4 li:before {
-        @apply z-10
+    .grid-styled li:before {
+        @apply grid-styled__item__before
     }
+
 
     .grid-styled-4 li:first-child {
-        @apply border !important
+        @apply grid-styled__first-row__first-item
     }
 
     .grid-styled-4 li:first-child:before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top left, top right, bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__first-row__first-item__before;
     }
 
     .grid-styled-4 li:nth-child(n+2):nth-child(-n+5) {
-        @apply border-b border-t border-r border-l-0
+        @apply grid-styled__first-row
     }
 
     .grid-styled-4 li:nth-child(n+2):nth-child(-n+5):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top right, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__first-row__before;
     }
 
     .grid-styled-4 li:nth-child(4n + 1):not(:first-child) {
-        @apply border-b border-l border-t-0 border-r !important
+        @apply grid-styled__other-rows__first-item
     }
 
     .grid-styled-4 li:nth-child(4n + 1):not(:first-child):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top left, top right, bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__first-item__before
     }
 
     .grid-styled-4 li:nth-child(n+5) {
-        @apply border-b border-r border-t-0 border-l-0
+        @apply grid-styled__other-rows
     }
 
     .grid-styled-4 li:nth-child(n+5):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__before
     }
 
-    .grid-styled-3 li {
-        @apply relative border-cool-gray-400
-    }
-
-    .grid-styled-3 li:before {
-        @apply z-10
-    }
 
     .grid-styled-3 li:first-child {
-        @apply border !important
+        @apply grid-styled__first-row__first-item
     }
 
     .grid-styled-3 li:first-child:before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top left, top right, bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__first-row__first-item__before
     }
 
-    .grid-styled-3 li:nth-child(n+2):nth-child(-n+3) {
-        @apply border-b border-r border-t border-l-0
+    .grid-styled-3 li:nth-child(n+2):nth-child(-n+4) {
+        @apply grid-styled__first-row
     }
 
-    .grid-styled-3 li:nth-child(n+2):nth-child(-n+3):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top right, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    .grid-styled-3 li:nth-child(n+2):nth-child(-n+4):before {
+        @apply grid-styled__first-row__before
     }
 
     .grid-styled-3 li:nth-child(3n + 1):not(:first-child) {
-        @apply border-b border-l border-t-0 border-r !important
+        @apply grid-styled__other-rows__first-item
     }
 
     .grid-styled-3 li:nth-child(3n + 1):not(:first-child):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__first-item__before
     }
 
     .grid-styled-3 li:nth-child(n+4) {
-        @apply border-b border-t-0 border-r border-l-0
+        @apply grid-styled__other-rows
     }
 
     .grid-styled-3 li:nth-child(n+4):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__before
     }
 
-    .grid-styled-2 li {
-        @apply relative border-cool-gray-400
-    }
-
-    .grid-styled-2 li:before {
-        @apply z-10
-    }
 
     .grid-styled-2 li:first-child {
-        @apply border !important
+        @apply grid-styled__first-row__first-item
     }
 
     .grid-styled-2 li:first-child:before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top left, top right, bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__first-row__first-item__before
     }
 
     .grid-styled-2 li:nth-child(n+2):nth-child(-n+3) {
-        @apply border-b border-r border-l-0 border-t
+        @apply grid-styled__first-row
     }
 
     .grid-styled-2 li:nth-child(n+2):nth-child(-n+3):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top right, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__first-row__before
     }
 
     .grid-styled-2 li:nth-child(2n + 1):not(:first-child) {
-        @apply border-b border-l border-t-0 border-r !important
+        @apply grid-styled__other-rows__first-item
     }
 
     .grid-styled-2 li:nth-child(2n + 1):not(:first-child):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: bottom left, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__first-item__before
     }
 
     .grid-styled-2 li:nth-child(n+2) {
-        @apply border-b border-t-0 border-r border-l-0
+        @apply grid-styled__other-rows
     }
 
     .grid-styled-2 li:nth-child(n+2):before {
-        content: '';
-        @apply absolute inset-0;
-        margin: -7px;
-        background-repeat: no-repeat;
-        background-position: top right, bottom right;
-        background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+        @apply grid-styled__other-rows__before
     }
 }

@@ -9,6 +9,13 @@ permalink: /sections/how.html
 	title: 'Our process. Simplified.',
 	subtitle: 'See below what you can expect.'
 	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	},
 	second: {
 	title: 'We speak many languages.',
 	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
@@ -19,6 +26,13 @@ permalink: /sections/how.html
 	title: 'Our process. Simplified. CS',
 	subtitle: 'See below what you can expect.'
 	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	}
 	},
 	return: function (data) {
 	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
@@ -29,6 +43,7 @@ permalink: /sections/how.html
 {% from "components/section-intro.njk" import sectionIntro %}
 {% from "components/section-title.njk" import sectionTitle %}
 {% from "components/process-step.njk" import processStep, processStepsTranslation %}
+{% from "components/badge-feature.njk" import badgeFeature %}
 
 <div id="how">
 
@@ -53,63 +68,192 @@ permalink: /sections/how.html
 
 	<div class="bg-cool-gray-200">
 		<div class="m-auto h-20 md:h-28"></div>
-		<div class="container mt-32" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
+		<div class="container pb-32 mt-32 space-y-24" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
 			{{ sectionTitle(section='sectionHow', name='second', icon='code.svg') }}
-			<div class="py-24">
-				<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 to-md:grid-styled-2 only-md:grid-styled-3 lg:grid-styled-4">
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/html5.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">HTML5</span>
+			<div>
+				<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.first')"></h5>
+				<ul class="grid-how">
+					<li>
+						<div>
+							<img src="/images/logo/javascript.svg">
+						</div>
+						<span>JavaScript</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/css3.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">CSS3</span>
+					<li>
+						<div>
+							<img src="/images/logo/php.svg">
+						</div>
+						<span>PHP</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/javascript.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">JavaScript</span>
+					<li>
+						<div>
+							<img src="/images/logo/laravel.svg">
+						</div>
+						<span>Laravel</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/csharp.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">C#</span>
+					<li>
+						<div>
+							<img src="/images/logo/csharp.svg">
+						</div>
+						<span>C#</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/swift.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Swift</span>
+					<li>
+						<div>
+							<img src="/images/logo/swift.svg">
+						</div>
+						<span>Swift</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/swiftui.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">SwiftUI</span>
+					<li>
+						<div>
+							<img src="/images/logo/swiftui.svg">
+						</div>
+						<span>SwiftUI</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/kotlin.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Kotlin</span>
+					<li>
+						<div>
+							<img src="/images/logo/kotlin.svg">
+						</div>
+						<span>Kotlin</span>
 					</li>
-
-
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/javascript.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">JavaScript</span>
+				</ul>
+			</div>
+			<div>
+				<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.second')"></h5>
+				<ul class="grid-how">
+					<li>
+						<div>
+							<img src="/images/logo/html5.svg">
+						</div>
+						<span>HTML5</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/csharp.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">C#</span>
+					<li>
+						<div>
+							<img src="/images/logo/css3.svg">
+						</div>
+						<span>CSS3</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/swift.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Swift</span>
+					<li>
+						<div>
+							<img src="/images/logo/tailwindcss.svg">
+						</div>
+						<span>Tailwind CSS</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/swiftui.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">SwiftUI</span>
+					<li>
+						<div>
+							<img src="/images/logo/bootstrap.svg">
+						</div>
+						<span>Bootstrap</span>
 					</li>
-					<li class="flex flex-col items-center pt-10 pb-8 space-y-4">
-						<img src="/images/logos/kotlin.svg">
-						<span class="tracking-wide leading-none text-cool-gray-700 font-optician-sans">Kotlin</span>
+				</ul>
+			</div>
+			<div>
+				<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.third')"></h5>
+				<ul class="grid-how">
+					<li>
+						<div>
+							<img src="/images/logo/vuejs.svg">
+						</div>
+						<span>Vue.js</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/nuxtjs.svg">
+						</div>
+						<span>Nuxt.js</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/nodejs.svg">
+						</div>
+						<span>Node.js</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/gridsome.svg">
+						</div>
+						<span>Gridsome</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/alpinejs.svg">
+						</div>
+						<span>Alpine.js</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/jquery.svg">
+						</div>
+						<span>jQuery</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/animejs.svg">
+						</div>
+						<span>Anime.js</span>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.fourth')"></h5>
+				<ul class="mt-12 grid-how">
+					<li>
+						{{ badgeFeature(name='officialPartner', icon='official-partner.svg', link='https://apostrophecms.com/') }}
+						<div>
+							<img src="/images/logo/apostrophecms.svg">
+						</div>
+						<span>
+							Apostrophe CMS
+						</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/strapi.svg">
+						</div>
+						<span>Strapi</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/wordpress.svg">
+						</div>
+						<span>Wordpress</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/elementor.svg">
+						</div>
+						<span>Elementor</span>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.fifth')"></h5>
+				<ul class="mt-12 grid-how">
+					<li>
+						<div>
+							<img src="/images/logo/figma.svg">
+						</div>
+						<span>Figma</span>
+					</li>
+					<li>
+						<div>
+							<img class="w-auto h-20" src="/images/logo/drama.png">
+						</div>
+						<span>Drama</span>
+					</li>
+					<li>
+						<div>
+							<img src="/images/logo/framer.svg">
+						</div>
+						<span>Framer</span>
+					</li>
+					<li>
+						<div>
+							<img class="w-auto h-20" src="/images/logo/spline.png">
+						</div>
+						<span>Spline</span>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 </div>

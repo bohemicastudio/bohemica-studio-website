@@ -1,0 +1,43 @@
+{% macro gitCard(name='tailwindlabs/tailwindcss') %}
+	<div x-on:click="window.open(data.html_url, '_blank')" class="flex flex-col flex-grow justify-start p-4 space-y-3 rounded-lg border border-blue-gray-500 transition duration-100 ease-linear cursor-ne-resize hover:border-blue-gray-300" x-data="{ url: 'https://api.github.com/repos/{{ name }}', data: '' }"
+	     x-init="$fetch(url).then(response => {console.log(response); data = response})">
+
+		<div class="flex flex-row items-center space-x-3">
+			<span class="overflow-hidden relative w-16 h-16 rounded-md cursor-ne-resize">
+				<img class="object-cover absolute" x-bind:src="data.owner?.avatar_url">
+			</span>
+			<span class="text-lg">
+				<span class="text-cool-gray-100 cursor-ne-resize" x-text="data.owner?.login"></span>
+				{# <a class="text-cool-gray-100 cursor-ne-resize" x-bind:href="data.owner?.html_url" target="_blank" x-text="data.owner?.login"></a> #}
+				<span class="text-cool-gray-100">/</span>
+				<span class="font-medium text-white cursor-ne-resize" x-text="data.name"></span>
+			</span>
+		</div>
+
+		<div class="flex flex-col flex-grow justify-start">
+			<div class="leading-relaxed">
+				<span class="text-blue-gray-200" x-text="data.description"></span>
+				<a href="data.homepage" target="_blank" class="font-medium text-white cursor-ne-resize" x-text="data.homepage?.replace(/^\w+:\/\/|\/+$/g, '')"></a>
+			</div>
+		</div>
+
+		<div class="flex flex-row space-x-8 text-sm font-medium tracking-wide font-dm-mono">
+			<div class="flex flex-row items-center space-x-2">
+				<i class="block w-2.5 h-2.5 rounded-full" x-bind:class="{ 'bg-purple-600' : data.language === 'CSS', 'bg-yellow-500' : data.language === 'JavaScript', 'bg-teal-600' : data.language === 'TypeScript' }"></i>
+				<span class="text-blue-gray-200" x-text="data.language"></span>
+			</div>
+			<div class="flex flex-row items-center space-x-2">
+				<svg class="w-4 text-blue-gray-400" width="26" height="24" viewBox="0 0 26 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12.6175 0L15.5961 9.16718H25.2351L17.437 14.8328L20.4156 24L12.6175 18.3344L4.81947 24L7.79807 14.8328L0 9.16718H9.63895L12.6175 0Z"/>
+				</svg>
+				<span class="text-blue-gray-200" x-text="data.stargazers_count"></span>
+			</div>
+			<div class="flex flex-row items-center space-x-2">
+				<span class="w-2 text-blue-gray-400">
+					<i class="gg-git-fork"></i>
+				</span>
+				<span class="text-blue-gray-200" x-text="data.forks_count"></span>
+			</div>
+		</div>
+	</div>
+{% endmacro %}

@@ -5,27 +5,6 @@
 
 			{% if imageWrapper === 'browser' %}
 
-				{# <div class="flex flex-col p-6 w-full h-full">
-					<div class="flex justify-between items-center py-2 pr-2 pl-4 rounded-t-lg bg-gray-legacy-600">
-						<div class="flex flex-row space-x-2.5">
-							<div class="w-3 h-3 bg-red-500 rounded-full"></div>
-							<div class="w-3 h-3 bg-amber-500 rounded-full"></div>
-							<div class="w-3 h-3 bg-lime-500 rounded-full"></div>
-						</div>
-						<div class="flex flex-grow justify-start items-center px-4 mr-4 ml-6 w-8 h-8 rounded-md bg-gray-legacy-400">
-							<a href="https://bohemica.studio/" target="_blank" class="mt-px text-sm cursor-ne-resize text-gray-legacy-900 font-dm-mono">https://bohemica.studio/</a>
-						</div>
-						<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex justify-center items-center w-8 h-8 text-blue-gray-200 rounded-md transition duration-100 ease-linear bg-gray-legacy-600 focus:outline-none cursor-nesw-resize hover:text-white hover:bg-gray-legacy-500 focus:bg-gray-legacy-500">
-							<i class="gg-arrows-expand-right"></i>
-						</button>
-					</div>
-					<div class="flex-grow rounded-b-lg bg-gray-legacy-600" style="padding: 0px 4px 4px 4px">
-						<div class="overflow-hidden rounded-t-sm aspect-w-16 aspect-h-10" style="border-radius: 3px 3px 5px 5px">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}"> #}{# data-zoom-src="/images/projects/{{ project }}/{{ image }}-large.webp" #}{#
-			</div>
-		</div>
-	</div> #}
-
 				<div class="flex flex-col w-full h-full lg:px-12">
 					<div class="flex justify-between items-center py-2 pr-2 pl-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500">
 						<div class="flex flex-row space-x-2.5">
@@ -42,7 +21,7 @@
 					</div>
 					<div class="overflow-hidden relative flex-grow bg-cool-gray-900 rounded-b-lg border border-cool-gray-500">
 						<div class="opacity-80 transition-opacity duration-150 ease-linear aspect-w-16 aspect-h-10 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}"> {# data-zoom-src="/images/projects/{{ project }}/{{ image }}-large.webp" #}
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/project/{{ project }}/{{ image }}">
 							<div class="hidden absolute inset-0 justify-end items-end pointer-events-none md:flex">
 								<span class="text-cool-gray-50 bg-cool-gray-800 rounded-md px-2.5 py-1 mb-2 mr-2">Final product - Dashboard application</span>
 							</div>
@@ -51,21 +30,6 @@
 				</div>
 
 			{% elseif imageWrapper === 'screen' %}
-
-				{# <div class="flex flex-col p-6 w-full h-full">
-					<div class="flex justify-between items-center h-4 rounded-t-md bg-gray-legacy-800"></div>
-					<div class="flex-grow px-2 pb-4 bg-gray-legacy-800">
-						<div class="overflow-hidden relative rounded-sm aspect-w-21 aspect-h-10">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}">
-							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="flex absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 rounded-md transition duration-100 ease-linear bg-gray-legacy-500 focus:outline-none cursor-nesw-resize hover:text-white hover:bg-gray-legacy-400 focus:bg-gray-legacy-400">
-								<i class="gg-arrows-expand-right"></i>
-							</button>
-						</div>
-					</div>
-					<div class="h-8 rounded-b-lg bg-gray-legacy-700"></div>
-					<div class="self-center w-1/4 h-10 bg-gray-legacy-600"></div>
-					<div class="self-center w-1/2 h-4 bg-gray-legacy-500"></div>
-				</div> #}
 
 				<div class="flex flex-col w-full h-full md:p-6">
 					<div class="flex justify-between items-center h-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500"></div>

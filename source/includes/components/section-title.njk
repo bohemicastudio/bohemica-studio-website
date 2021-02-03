@@ -1,13 +1,13 @@
-{% macro sectionTitle(section='sectionHow', name='first', icon='process.svg', subtitle=true, customIcon=false) %}
+{% macro sectionTitle(section='sectionHow', name='first', icon='process.svg', subtitle=true, customIcon=false, color='dark') %}
 	<div class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-1/2">
 		{% if customIcon === false %}
-			<img class="h-full" src="/images/icons/{{ icon }}">
+			<img class="h-full" src="/images/icon/{{ icon }}">
 		{% else %}
 			{{ customIcon }}
 		{% endif %}
-		<h3 class="mt-6 text-4xl font-medium text-cool-gray-900" x-text="$store['translation.{{ section }}'].return('{{ name }}.title')"></h3>
+		<h3 class="mt-6 text-4xl font-medium leading-normal {{ 'text-cool-gray-900' if color === 'dark' else 'text-cool-gray-200' }}" x-text="$store['translation.{{ section }}'].return('{{ name }}.title')"></h3>
 		{% if subtitle %}
-			<h4 class="mt-6 text-base leading-loose text-cool-gray-800 font-dm-mono" x-text="$store['translation.{{ section }}'].return('{{ name }}.subtitle')"></h4>
+			<h4 class="mt-6 text-lg leading-relaxed font-dm-mono {{ 'text-cool-gray-800' if color === 'dark' else 'text-cool-gray-300' }}" x-text="$store['translation.{{ section }}'].return('{{ name }}.subtitle')"></h4>
 		{% endif %}
 	</div>
 {% endmacro %}

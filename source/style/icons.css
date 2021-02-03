@@ -73,55 +73,120 @@
 
 /* Close */
 .gg-close {
-box-sizing: border-box;
-position: relative;
-display: block;
-width: 22px;
-height: 22px;
-border: 2px solid transparent;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
 }
 
 .gg-close::after,
 .gg-close::before {
-content: "";
-display: block;
-box-sizing: border-box;
-position: absolute;
-width: 16px;
-height: 2px;
-background: currentColor;
-transform: rotate(45deg);
-top: 8px;
-left: 1px
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 1px
 }
 
 .gg-close::after {
-transform: rotate(-45deg)
+    transform: rotate(-45deg)
 }
 
 /* Arrows expand right */
 .gg-arrows-expand-right {
-box-sizing: border-box;
-position: relative;
-display: block;
-width: 14px;
-height: 14px;
-margin: 2px;
-box-shadow:
--6px 6px 0 -4px,
-6px -6px 0 -4px
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 2px;
+    box-shadow: -6px 6px 0 -4px,
+    6px -6px 0 -4px
 }
 
 .gg-arrows-expand-right::before {
-content: "";
-display: block;
-box-sizing: border-box;
-position: absolute;
-width: 2px;
-height: 22px;
-top: -4px;
-left: 6px;
-transform: rotate(45deg);
-border-top: 9px solid;
-border-bottom: 9px solid
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 2px;
+    height: 22px;
+    top: -4px;
+    left: 6px;
+    transform: rotate(45deg);
+    border-top: 9px solid;
+    border-bottom: 9px solid
+}
+
+/* Asterisk */
+.gg-asterisk {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    box-shadow: inset 0 0 0 2px
+}
+
+.gg-asterisk::after,
+.gg-asterisk::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 2px;
+    height: 12px;
+    background: currentColor;
+    transform: rotate(55deg)
+}
+
+.gg-asterisk::after {
+    transform: rotate(-55deg)
+}
+
+/* Git fork */
+.gg-git-fork {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 2px;
+    height: 14px;
+    background: currentColor
+}
+
+.gg-git-fork::after,
+.gg-git-fork::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+
+.gg-git-fork::before {
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-bottom-right-radius: 4px;
+    bottom: 4px;
+    width: 8px;
+    height: 6px;
+    left: 0
+}
+
+.gg-git-fork::after {
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    box-shadow: 0 12px 0 0, 6px 2px 0 0;
+    border-radius: 100%;
+    left: -1px;
+    top: -1px
 }

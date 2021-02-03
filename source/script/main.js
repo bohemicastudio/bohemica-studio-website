@@ -48,6 +48,44 @@ window.addEventListener('load',
 			})
 		})*/
 
+		/*document.arrive("[id^='ghcard']", { existing: true }, function () {
+			console.log(this, this.contentWindow)
+
+			let cssLink = document.createElement("link");
+			cssLink.href = "./style.css";
+			cssLink.rel = "stylesheet";
+			cssLink.type = "text/css";
+			this.document.head.appendChild(cssLink);
+		})*/
+
+		/* Intersection observer for parallax animations */
+
+
+		let options = {
+			root: null, // relative to document viewport
+			rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+			threshold: 0 // 0 - as soon as even one pixel is visible, 1 - until every pixel is visible
+		}
+
+		let inView = (entry) => {
+			console.log(entry[0].target.id)
+			if (entry[0].target.id === 'intro') {
+				window.Spruce.stores.global.openSectionClue = false
+			}
+			else {
+				window.Spruce.stores.global.sectionInView = entry[0].target.id
+				window.Spruce.stores.global.openSectionClue = true
+			}
+
+		}
+
+		let observer = new IntersectionObserver((entry) => {
+			inView(entry)
+		}, options)
+
+		observer.observe(document.querySelector('#intro'))
+		observer.observe(document.querySelector('#what'))
+		observer.observe(document.querySelector('#how'))
 	})
 
 /*

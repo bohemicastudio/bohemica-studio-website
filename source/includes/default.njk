@@ -46,10 +46,11 @@
 	<script src="./script/main.js?v={% version %}" defer></script>
 	{% block head %}{% endblock %}
 </head>
-<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.showMobileMenu) ? 'overflow-hidden' : '') : 'loading'" x-data>
+<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.mobileMenuOpen) ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
 	{{ content | safe }}
 {% endblock %}
 <script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" defer async></script>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js" defer async></script>
 </body>
 </html>

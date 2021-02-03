@@ -11,6 +11,10 @@ localStorage.setItem('language', Spruce.stores.global.language)
 window.router.hooks({
 	before: function (done, match) {
 		console.log('before', match, router)
+
+		// hide section clue
+		window.Spruce.stores.global.openSectionClue = false
+
 		// check if language param is in the list + redirect to the right language
 		if (match.data?.language) {
 			if (Spruce.stores.global.languages.some(language => language.code === match.data.language)) {

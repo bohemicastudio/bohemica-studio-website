@@ -6,6 +6,22 @@ window.router = new Navigo('/')
 Spruce.store('global', {
 	loaded: false,
 	language: null,
+	sectionInView: '',
+	openSectionClue: false,
+	windowUnderlayShow: false,
+	sectionInfo: {
+		en: {
+			what: 'What we do',
+			how: 'How we do it'
+		},
+		cs: {
+			what: 'What we do',
+			how: 'How we do it'
+		}
+	},
+	get sectionInViewInfo() {
+		return Spruce.stores['translation.sectionIntro'].return(this.sectionInView + '.title')
+	},
 	languages: [
 		{
 			code: 'en',
@@ -16,8 +32,6 @@ Spruce.store('global', {
 			name: 'Čeština'
 		}
 	],
-	windowUnderlayShow: false,
-	data: { language: 'en' },
 	async switchTranslation(language) {
 
 		/* TODO What to do about this ?? */
@@ -58,9 +72,9 @@ Spruce.store('global', {
 
 		router.navigate(url, { callHandler: false })
 	},
-	showMobileMenu: false,
+	mobileMenuOpen: false,
 	openMobileMenu() {
-		this.showMobileMenu = true
+		this.mobileMenuOpen = true
 		return new Promise((resolve) => {
 			anime({
 				targets: '#mobileMenu',
@@ -97,7 +111,7 @@ Spruce.store('global', {
 					duration: 200,
 					easing: 'linear',
 					complete: (() => {
-						this.showMobileMenu = false
+						this.mobileMenuOpen = false
 					})
 				})
 			})
@@ -173,7 +187,6 @@ Spruce.store('activity', {
 
 Spruce.starting(function () {
 	console.log('Spruce starting', Spruce.stores, Math.floor(Math.random() * Spruce.stores.activity.activities.length))
-
 	Spruce.stores.activity.random = Math.floor(Math.random() * Spruce.stores.activity.activities.length)
 })
 
@@ -187,16 +200,11 @@ const getTranslationFile = async (language) => {
 
 // Project store
 Spruce.store('project', {
-	/*content: '',
-	set setContent(data) {
-		this.content = data
-	},*/
 	loadContent(name) {
 		return fetch(`./projects/${ name }.html`)
 			.then(response => response.text())
 			.then(html => {
 				document.querySelector('#slideoverContent').innerHTML = html
-				/*this.setContent = html*/
 			})
 	}
 })
@@ -205,5 +213,18 @@ Spruce.store('project', {
 Spruce.store('slideover', {
 	open: false,
 	animationFinished: false,
+})
+
+// Badge store
+Spruce.store('translation.badge', {
+	en: {
+		officialPartner: 'Official partner'
+	},
+	cs: {
+		officialPartner: 'Oficiální partner'
+	},
+	return: function (data) {
+		return Object.getProperty(Spruce.stores['translation.badge'], Spruce.stores.global.language + '.' + data)
+	}
 })
 
