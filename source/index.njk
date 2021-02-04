@@ -28,16 +28,16 @@
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
 						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" x-bind:data-tippy-content="$store['translation.home'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
 						<div class="hidden items-center space-x-2 md:flex">
-							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="document.querySelector('#whatIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
+							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#whatIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								What
 							</button>
-							<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it" x-on:click="document.querySelector('#howIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
+							<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								How
 							</button>
-							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much we charge" x-on:click="document.querySelector('#whatMuchIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
+							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much we charge" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howMuchIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								How much
 							</button>
-							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us" x-on:click="$store.global.toggleWhy()">
+							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#whyOne').scrollIntoView({behavior: 'smooth', block: 'center'})">
 								Why
 							</button>
 							<button class="top-menu__button hover:bg-green-200 focus:ring-green-400" data-tippy-content="Who we have worked with">
@@ -104,7 +104,7 @@
 							<div class="flex flex-col items-center space-y-2.5 opacity-0 transition duration-150 ease-linear" x-data x-init="() => { anime({ targets: $el, duration: 200, delay: 2400, opacity: 1, easing: 'linear'}) }">
 								<div class="hidden flex-col items-stretch p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500">
 									<div class="flex items-center px-3 h-8 rounded-lg bg-teal-legacy-200">
-										<span class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left">Current activity:</span>
+										<span class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left">Recent activity [translate]:</span>
 									</div>
 									<a class="flex flex-row items-center py-1 group md:py-0" x-bind:href="$store.activity.getUrl" x-bind:data-navigo="!$store.activity.getUrl?.includes('://')" x-bind:target="$store.activity.getUrl?.includes('://') ? '_blank' : '_self'">
 										<span class="flex items-center pr-1 pl-2.5 md:pl-3 space-x-2 leading-snug md:leading-none text-teal-legacy-700 group-hover:text-teal-legacy-800 md:whitespace-nowrap" x-html="$store.activity.getContent"></span>
@@ -210,33 +210,93 @@
 	</div>
 
 	{# Section Why #1 #}
-	{{ sectionWhy(name='one', number='I', color='blue', image='one.svg') }}
+	{{ sectionWhy(name='one', number='I', color='blue-400') }}
 
 	{# Section What #}
-	{# <div x-data="(function () { return { html: '' }})()" x-init="$fetch('./sections/what.html').then((data) => { html = data })" x-html="html"></div> #}
-
-	<div x-ref="whatSection" x-init="() => { $fetch('./sections/what.html').then((data) => { console.log(this); $refs.whatSection.innerHTML = data }) }" x-data>
+	<div id="what" x-ref="whatSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/what.html').then((data) => { $refs.whatSection.innerHTML = data }) }" x-data>
 		Loading...
 	</div>
 
 	{# Section Why #2 #}
-	{{ sectionWhy(name='two', number='II', color='yellow', image='two.svg', outline='black') }}
+	{{ sectionWhy(name='two', number='II', color='yellow-400', outline='black') }}
 
 	{# Section How #}
-	<div x-ref="howSection" x-init="() => { $fetch('./sections/how.html').then((data) => { console.log(this); $refs.howSection.innerHTML = data }) }" x-data>
+	<div id="how" x-ref="howSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/how.html').then((data) => { $refs.howSection.innerHTML = data }) }" x-data>
 		Loading... {# TODO Placeholder section #}
 	</div>
-
 
 	{# Section GirRepos #}
-	<div x-ref="gitReposSection" x-init="() => { $fetch('./sections/repos.html').then((data) => { console.log(this); $refs.gitReposSection.innerHTML = data }) }" x-data>
+	<div x-ref="gitReposSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/repos.html').then((data) => { $refs.gitReposSection.innerHTML = data }) }" x-data>
 		Loading... {# TODO Placeholder section #}
 	</div>
 
-	{# <div #}{# x-show="($store.global.mobileMenuOpen || $store.slideover.open)" #}{# class="overflow-hidden fixed inset-0 z-50" id="slideoverWrapper" x-bind:class="$store.slideover.open ? 'pointer-events-auto' : 'pointer-events-none'">
-#}
-	<div id="windowUnderlay" x-show="$store.global.windowUnderlayShow" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50" style="opacity: 0"></div>
+	{# Section Why #3 #}
+	{{ sectionWhy(name='three', number='III', color='red-500') }}
 
+	{# Section How much #}
+	<div id="how-much" x-ref="howMuchSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/how-much.html').then((data) => { $refs.howMuchSection.innerHTML = data }) }" x-data>
+		Loading... {# TODO Placeholder section #}
+	</div>
+
+	{# Section Why #4 #}
+	{{ sectionWhy(name='four', number='IV', color='emerald-500') }}
+
+	{# Section Who #}
+	<div id="who" x-ref="whoSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/who.html').then((data) => { $refs.whoSection.innerHTML = data }) }" x-data>
+		Loading... {# TODO Placeholder section #}
+	</div>
+
+	{# Section Why #5 #}
+	{{ sectionWhy(name='five', number='V', color='indigo-500') }}
+
+	{# Section Where #}
+	<div id="where" x-ref="whereSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/where.html').then((data) => { setTimeout(() => { $refs.whereSection.innerHTML = data}, 10000) }) }" x-data>
+		Loading... {# TODO Placeholder section #}
+	</div>
+
+	{# Footer #}
+	<div class="bg-cool-gray-800">
+		<div class="container pt-32 pb-24">
+			<span class="font-medium tracking-tighter leading-none text-cool-gray-700 select-none text-11xl font-dm-mono" x-text="new Date().getFullYear()"></span>
+			<hr class="mt-16 border-cool-gray-600">
+			Scroll to top // OR menu again?
+			<div class="flex flex-row justify-between items-end mt-24">
+				<svg class="text-cool-gray-400" width="350" height="48" viewBox="0 0 350 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M48 0H0V48H48V0ZM24 24L8 33V24L24 15L40 24V33L24 24Z"/>
+					<path d="M68 37.541V10.765H78.297C81.1313 10.765 83.2765 11.4153 84.7326 12.7158C86.1887 14.0164 86.9168 15.6485 86.9168 17.612C86.9168 19.3206 86.4488 20.6849 85.5127 21.7049C84.5766 22.6995 83.4455 23.3752 82.1194 23.7322C83.1595 23.9362 84.0825 24.3443 84.8886 24.9563C85.7207 25.5683 86.3708 26.3333 86.8388 27.2514C87.3069 28.1694 87.5409 29.1639 87.5409 30.235C87.5409 31.612 87.1898 32.8616 86.4878 33.9836C85.8117 35.0801 84.8106 35.9472 83.4845 36.5847C82.1584 37.2222 80.5332 37.541 78.609 37.541H68ZM72.1344 22.2404H77.7899C79.3761 22.2404 80.5852 21.8834 81.4173 21.1694C82.2494 20.4299 82.6654 19.4226 82.6654 18.1475C82.6654 16.898 82.2494 15.9035 81.4173 15.1639C80.6112 14.4244 79.3761 14.0546 77.7119 14.0546H72.1344V22.2404ZM72.1344 34.2131H78.063C79.7271 34.2131 81.0142 33.8306 81.9243 33.0656C82.8604 32.3005 83.3285 31.2295 83.3285 29.8525C83.3285 28.4754 82.8474 27.3916 81.8853 26.6011C80.9232 25.7851 79.6231 25.377 77.985 25.377H72.1344V34.2131Z"/>
+					<path d="M99.0153 38C97.1691 38 95.5049 37.592 94.0228 36.776C92.5667 35.9344 91.4096 34.7741 90.5515 33.2951C89.6934 31.7905 89.2644 30.0437 89.2644 28.0546C89.2644 26.0656 89.6934 24.3315 90.5515 22.8525C91.4356 21.3479 92.6187 20.1876 94.1008 19.3716C95.583 18.5301 97.2341 18.1093 99.0543 18.1093C100.9 18.1093 102.552 18.5301 104.008 19.3716C105.49 20.1876 106.66 21.3479 107.518 22.8525C108.402 24.3315 108.844 26.0656 108.844 28.0546C108.844 30.0437 108.402 31.7905 107.518 33.2951C106.66 34.7741 105.49 35.9344 104.008 36.776C102.526 37.592 100.861 38 99.0153 38ZM99.0153 34.5191C100.003 34.5191 100.913 34.2769 101.746 33.7923C102.604 33.3078 103.293 32.5938 103.813 31.6503C104.333 30.6812 104.593 29.4827 104.593 28.0546C104.593 26.6266 104.333 25.4408 103.813 24.4973C103.319 23.5282 102.643 22.8015 101.785 22.3169C100.952 21.8324 100.042 21.5902 99.0543 21.5902C98.0662 21.5902 97.1431 21.8324 96.285 22.3169C95.4529 22.8015 94.7769 23.5282 94.2568 24.4973C93.7368 25.4408 93.4768 26.6266 93.4768 28.0546C93.4768 29.4827 93.7368 30.6812 94.2568 31.6503C94.7769 32.5938 95.4529 33.3078 96.285 33.7923C97.1171 34.2769 98.0272 34.5191 99.0153 34.5191Z"/>
+					<path d="M111.365 37.541V10H115.5V21.6284C116.15 20.5319 117.047 19.6776 118.191 19.0656C119.361 18.4281 120.648 18.1093 122.052 18.1093C124.366 18.1093 126.187 18.8233 127.513 20.2514C128.839 21.6794 129.502 23.8087 129.502 26.6393V37.541H125.406V27.0601C125.406 23.388 123.911 21.5519 120.921 21.5519C119.361 21.5519 118.061 22.0874 117.021 23.1585C116.007 24.2295 115.5 25.7596 115.5 27.7486V37.541H111.365Z"/>
+					<path d="M141.47 38C139.572 38 137.882 37.592 136.399 36.776C134.943 35.9344 133.799 34.7741 132.967 33.2951C132.135 31.816 131.719 30.0947 131.719 28.1311C131.719 26.1421 132.122 24.3953 132.928 22.8907C133.76 21.3862 134.904 20.2131 136.36 19.3716C137.843 18.5301 139.559 18.1093 141.509 18.1093C143.407 18.1093 145.058 18.5301 146.462 19.3716C147.867 20.1876 148.959 21.2842 149.739 22.6612C150.519 24.0383 150.909 25.5556 150.909 27.2131C150.909 27.4681 150.896 27.7486 150.87 28.0546C150.87 28.3352 150.857 28.6539 150.831 29.0109H135.775C135.905 30.847 136.516 32.2495 137.609 33.2186C138.727 34.1621 140.014 34.6339 141.47 34.6339C142.64 34.6339 143.615 34.3789 144.395 33.8689C145.201 33.3333 145.799 32.6193 146.189 31.7268H150.324C149.804 33.5118 148.764 35.0036 147.203 36.2022C145.669 37.4007 143.758 38 141.47 38ZM141.47 21.4372C140.092 21.4372 138.87 21.8452 137.804 22.6612C136.737 23.4517 136.087 24.6503 135.853 26.2568H146.774C146.696 24.7778 146.163 23.6047 145.175 22.7377C144.187 21.8707 142.952 21.4372 141.47 21.4372Z"/>
+					<path d="M153.248 37.541V18.5683H156.915L157.266 21.2459C157.89 20.2769 158.709 19.5118 159.723 18.9508C160.763 18.3898 161.959 18.1093 163.311 18.1093C166.38 18.1093 168.512 19.2951 169.708 21.6667C170.41 20.5701 171.346 19.7031 172.516 19.0656C173.712 18.4281 175 18.1093 176.378 18.1093C178.796 18.1093 180.694 18.8233 182.072 20.2514C183.45 21.6794 184.139 23.8087 184.139 26.6393V37.541H180.005V27.0601C180.005 23.388 178.575 21.5519 175.715 21.5519C174.258 21.5519 173.062 22.0874 172.126 23.1585C171.216 24.2295 170.761 25.7596 170.761 27.7486V37.541H166.627V27.0601C166.627 23.388 165.184 21.5519 162.297 21.5519C160.867 21.5519 159.684 22.0874 158.748 23.1585C157.838 24.2295 157.383 25.7596 157.383 27.7486V37.541H153.248Z"/>
+					<path d="M189.367 14.9727C188.586 14.9727 187.936 14.7432 187.416 14.2842C186.922 13.7996 186.675 13.2004 186.675 12.4863C186.675 11.7723 186.922 11.1858 187.416 10.7268C187.936 10.2423 188.586 10 189.367 10C190.147 10 190.784 10.2423 191.278 10.7268C191.798 11.1858 192.058 11.7723 192.058 12.4863C192.058 13.2004 191.798 13.7996 191.278 14.2842C190.784 14.7432 190.147 14.9727 189.367 14.9727ZM187.299 37.541V18.5683H191.434V37.541H187.299Z"/>
+					<path d="M204.107 38C202.209 38 200.506 37.5792 198.998 36.7377C197.516 35.8962 196.345 34.7359 195.487 33.2568C194.655 31.7523 194.239 30.0182 194.239 28.0546C194.239 26.0911 194.655 24.3698 195.487 22.8907C196.345 21.3862 197.516 20.2131 198.998 19.3716C200.506 18.5301 202.209 18.1093 204.107 18.1093C206.499 18.1093 208.502 18.7213 210.114 19.9454C211.752 21.1694 212.805 22.827 213.273 24.918H208.944C208.684 23.8725 208.112 23.0565 207.228 22.4699C206.343 21.8834 205.303 21.5902 204.107 21.5902C203.093 21.5902 202.157 21.8452 201.299 22.3552C200.441 22.8397 199.752 23.5665 199.232 24.5355C198.712 25.4791 198.452 26.6521 198.452 28.0546C198.452 29.4572 198.712 30.643 199.232 31.612C199.752 32.5556 200.441 33.2823 201.299 33.7923C202.157 34.3024 203.093 34.5574 204.107 34.5574C205.303 34.5574 206.343 34.2641 207.228 33.6776C208.112 33.0911 208.684 32.2623 208.944 31.1913H213.273C212.831 33.2313 211.791 34.8761 210.153 36.1257C208.515 37.3752 206.499 38 204.107 38Z"/>
+					<path d="M222.359 38C220.721 38 219.369 37.7322 218.303 37.1967C217.237 36.6612 216.444 35.9599 215.924 35.0929C215.404 34.2004 215.144 33.2313 215.144 32.1858C215.144 30.3497 215.872 28.8962 217.328 27.8251C218.784 26.7541 220.864 26.2186 223.569 26.2186H228.639V25.8743C228.639 24.3953 228.223 23.286 227.391 22.5464C226.585 21.8069 225.532 21.4372 224.232 21.4372C223.087 21.4372 222.086 21.7177 221.228 22.2787C220.396 22.8142 219.889 23.6175 219.707 24.6885H215.573C215.703 23.3115 216.171 22.1384 216.977 21.1694C217.809 20.1749 218.849 19.4226 220.097 18.9126C221.371 18.377 222.762 18.1093 224.271 18.1093C226.975 18.1093 229.068 18.8106 230.55 20.2131C232.032 21.5902 232.773 23.4772 232.773 25.8743V37.541H229.185L228.834 34.2896C228.288 35.3352 227.495 36.2149 226.455 36.929C225.415 37.643 224.05 38 222.359 38ZM223.178 34.7104C224.297 34.7104 225.233 34.4554 225.987 33.9454C226.767 33.4098 227.365 32.7086 227.781 31.8415C228.223 30.9745 228.496 30.0182 228.6 28.9727H223.998C222.359 28.9727 221.189 29.2532 220.487 29.8142C219.811 30.3752 219.473 31.0765 219.473 31.918C219.473 32.7851 219.798 33.4736 220.448 33.9836C221.124 34.4681 222.034 34.7104 223.178 34.7104Z"/>
+					<path d="M252.687 38C250.684 38 248.929 37.6557 247.421 36.9672C245.913 36.2787 244.73 35.2969 243.872 34.0219C243.04 32.7468 242.611 31.2295 242.585 29.4699H246.953C246.979 30.898 247.486 32.1093 248.474 33.1038C249.462 34.0984 250.853 34.5956 252.648 34.5956C254.234 34.5956 255.469 34.2259 256.353 33.4863C257.263 32.7213 257.718 31.7523 257.718 30.5792C257.718 29.6357 257.497 28.8707 257.055 28.2842C256.639 27.6976 256.054 27.2131 255.3 26.8306C254.572 26.4481 253.727 26.1038 252.765 25.7978C251.803 25.4918 250.788 25.1603 249.722 24.8033C247.616 24.1148 246.03 23.2222 244.964 22.1257C243.924 21.0291 243.404 19.5883 243.404 17.8033C243.378 16.2987 243.729 14.9854 244.457 13.8634C245.211 12.7413 246.251 11.8743 247.577 11.2623C248.929 10.6248 250.502 10.306 252.297 10.306C254.065 10.306 255.612 10.6248 256.938 11.2623C258.29 11.8998 259.343 12.7923 260.097 13.9399C260.851 15.0619 261.241 16.3752 261.267 17.8798H256.899C256.899 17.1913 256.717 16.541 256.353 15.929C255.989 15.2914 255.456 14.7687 254.754 14.3607C254.052 13.9526 253.194 13.7486 252.18 13.7486C250.88 13.7231 249.8 14.0419 248.942 14.7049C248.11 15.3679 247.694 16.286 247.694 17.459C247.694 18.5046 248.006 19.3078 248.63 19.8689C249.254 20.4299 250.112 20.9016 251.205 21.2842C252.297 21.6412 253.545 22.0619 254.949 22.5464C256.301 22.98 257.51 23.5027 258.576 24.1148C259.642 24.7268 260.487 25.5301 261.111 26.5246C261.762 27.5191 262.087 28.7814 262.087 30.3115C262.087 31.663 261.736 32.9253 261.033 34.0984C260.331 35.2459 259.278 36.1894 257.874 36.929C256.47 37.643 254.741 38 252.687 38Z"/>
+					<path d="M272.613 37.541C270.715 37.541 269.207 37.0947 268.089 36.2022C266.971 35.2842 266.412 33.6648 266.412 31.3443V21.9727H263.096V18.5683H266.412L266.919 13.7486H270.546V18.5683H276.007V21.9727H270.546V31.3443C270.546 32.3898 270.767 33.1166 271.209 33.5246C271.677 33.9071 272.47 34.0984 273.588 34.0984H275.812V37.541H272.613Z"/>
+					<path d="M285.457 38C283.117 38 281.271 37.286 279.919 35.8579C278.592 34.4299 277.929 32.3005 277.929 29.4699V18.5683H282.064V29.0492C282.064 32.7213 283.598 34.5574 286.666 34.5574C288.2 34.5574 289.462 34.0219 290.45 32.9508C291.438 31.8798 291.932 30.3497 291.932 28.3607V18.5683H296.066V37.541H292.4L292.088 34.2131C291.49 35.3862 290.606 36.3169 289.436 37.0055C288.291 37.6685 286.965 38 285.457 38Z"/>
+					<path d="M308.19 38C306.318 38 304.667 37.5665 303.237 36.6995C301.807 35.8324 300.688 34.6466 299.882 33.1421C299.076 31.6375 298.673 29.929 298.673 28.0164C298.673 26.1038 299.076 24.408 299.882 22.929C300.688 21.4244 301.807 20.2514 303.237 19.4098C304.693 18.5428 306.357 18.1093 308.229 18.1093C309.763 18.1093 311.102 18.4025 312.247 18.9891C313.417 19.5756 314.327 20.4044 314.977 21.4754V10H319.111V37.541H315.406L314.977 34.5956C314.353 35.4882 313.495 36.2787 312.403 36.9672C311.311 37.6557 309.906 38 308.19 38ZM308.931 34.4809C310.699 34.4809 312.143 33.8816 313.261 32.6831C314.405 31.4845 314.977 29.9417 314.977 28.0546C314.977 26.1421 314.405 24.5993 313.261 23.4262C312.143 22.2277 310.699 21.6284 308.931 21.6284C307.163 21.6284 305.707 22.2277 304.563 23.4262C303.419 24.5993 302.847 26.1421 302.847 28.0546C302.847 29.3042 303.107 30.4135 303.627 31.3825C304.147 32.3515 304.862 33.1166 305.772 33.6776C306.708 34.2131 307.761 34.4809 308.931 34.4809Z"/>
+					<path d="M324.714 14.9727C323.934 14.9727 323.284 14.7432 322.764 14.2842C322.27 13.7996 322.023 13.2004 322.023 12.4863C322.023 11.7723 322.27 11.1858 322.764 10.7268C323.284 10.2423 323.934 10 324.714 10C325.494 10 326.131 10.2423 326.625 10.7268C327.145 11.1858 327.405 11.7723 327.405 12.4863C327.405 13.2004 327.145 13.7996 326.625 14.2842C326.131 14.7432 325.494 14.9727 324.714 14.9727ZM322.647 37.541V18.5683H326.781V37.541H322.647Z"/>
+					<path d="M339.338 38C337.492 38 335.827 37.592 334.345 36.776C332.889 35.9344 331.732 34.7741 330.874 33.2951C330.016 31.7905 329.587 30.0437 329.587 28.0546C329.587 26.0656 330.016 24.3315 330.874 22.8525C331.758 21.3479 332.941 20.1876 334.423 19.3716C335.905 18.5301 337.557 18.1093 339.377 18.1093C341.223 18.1093 342.874 18.5301 344.33 19.3716C345.812 20.1876 346.982 21.3479 347.841 22.8525C348.725 24.3315 349.167 26.0656 349.167 28.0546C349.167 30.0437 348.725 31.7905 347.841 33.2951C346.982 34.7741 345.812 35.9344 344.33 36.776C342.848 37.592 341.184 38 339.338 38ZM339.338 34.5191C340.326 34.5191 341.236 34.2769 342.068 33.7923C342.926 33.3078 343.615 32.5938 344.135 31.6503C344.655 30.6812 344.915 29.4827 344.915 28.0546C344.915 26.6266 344.655 25.4408 344.135 24.4973C343.641 23.5282 342.965 22.8015 342.107 22.3169C341.275 21.8324 340.365 21.5902 339.377 21.5902C338.389 21.5902 337.466 21.8324 336.607 22.3169C335.775 22.8015 335.099 23.5282 334.579 24.4973C334.059 25.4408 333.799 26.6266 333.799 28.0546C333.799 29.4827 334.059 30.6812 334.579 31.6503C335.099 32.5938 335.775 33.3078 336.607 33.7923C337.44 34.2769 338.35 34.5191 339.338 34.5191Z"/>
+				</svg>
+				<div class="py-4 px-8 rounded-xl border border-cool-gray-600">
+					<svg class="text-cool-gray-300" width="160" height="32" viewBox="0 0 160 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6 7H33V4H3V23.5H0V28H21V23.5H6V7Z"/>
+						<path d="M6 7H33V4H3V23.5H0V28H21V23.5H6V7Z"/>
+						<path d="M36 10H24V28H36V10ZM33 23.5H27V13H33V23.5Z"/>
+						<path d="M74.6426 29.4863C78.0296 29.4863 80.7754 26.7406 80.7754 23.3535C80.7754 19.9665 78.0296 17.2207 74.6426 17.2207C71.2555 17.2207 68.5098 19.9665 68.5098 23.3535C68.5098 26.7406 71.2555 29.4863 74.6426 29.4863Z"/>
+						<path d="M93.0408 13.5488H95.4939V2.50977H84.4548V4.96289H91.3064L81.1345 15.1348L82.8689 16.8691L93.0408 6.69726V13.5488Z"/>
+						<path d="M69.7344 12.8281L73.4141 9.14842L77.0937 12.8281L78.8281 11.0937L75.1484 7.41405L78.8281 3.73436L77.0937 2L73.4141 5.67969L69.7344 2L68 3.73436L71.6797 7.41405L68 11.0937L69.7344 12.8281ZM96 20.9063L94.2656 19.1719L90.5859 22.8516L86.9063 19.1719L85.1719 20.9063L88.8516 24.5859L85.1719 28.2656L86.9063 30L90.5859 26.3203L94.2656 30L96 28.2656L92.3203 24.5859L96 20.9063Z"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M160 24.2697L150.93 15.1992L144.801 9.07048L135.73 0L128 7.73034L137.07 16.8008L143.199 22.9295L152.27 32L160 24.2697ZM132.625 7.73034L139.391 14.4801L142.48 11.3749L140.11 9.00511L138.165 10.9499L135.861 8.64556L137.806 6.70071L135.73 4.62513L132.625 7.73034ZM148.625 17.5036L145.52 20.6088L152.27 27.3585L155.375 24.2533L153.299 22.1777L151.354 24.1226L149.05 21.8182L150.995 19.8733L148.625 17.5036Z"/>
+						<path d="M153.495 12.6326L150.929 15.1985L143.199 22.9288L135.42 30.7082H129.291V24.5795L137.07 16.8001L144.801 9.06979L147.367 6.50391L153.495 12.6326Z"/>
+						<path d="M153.269 0.613033L149.12 4.76172L155.245 10.8865L159.394 6.73783L153.269 0.613033Z"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{# Slideover and mobile menu #}
+	<div id="windowUnderlay" x-show="$store.global.windowUnderlayShow" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50" style="opacity: 0"></div>
 
 	<div id="slideover" x-show="$store.slideover.open" class="flex fixed inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
 		<div class="flex justify-center py-2.5">
@@ -245,19 +305,14 @@
 			</a>
 		</div>
 		<div id="slideoverContentWrapper" class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl" tabindex="1">
-			{# <div class="fixed inset-x-0 top-0 z-20 h-24 bg-gradient-to-b from-white" style="--tw-gradient-to: rgba(255, 255, 255, 0)"></div> #}
 			<div class="container relative z-10 mt-24" style="height: 3000px">
-				<div id="slideoverContent" class="py-4" style="transform: translateY(-2rem); opacity: 0;"></div> {# x-html="$store.project.content" #}
+				<div id="slideoverContent" class="py-4" style="transform: translateY(-2rem); opacity: 0;"></div>
 			</div>
 		</div>
 	</div>
 
-	{# </div> #}
-
 	<template x-if="$store.global.mobileMenuOpen">
-
 		<div id="mobileMenu" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-start" style="transform: translateY(-100%)">
-
 			<div class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none" tabindex="1">
 				<div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
 					<div class="grid grid-flow-row gap-2 items-center">
@@ -285,18 +340,13 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="flex justify-center py-2.5 flex-shrink-0">
 				<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
 					<i class="gg-close"></i>
 				</button>
 			</div>
-
 		</div>
 	</template>
-
-	{# </div> #}
-
 
 	<script>
 		Spruce.store('translation.home', {

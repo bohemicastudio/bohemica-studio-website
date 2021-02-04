@@ -9,6 +9,7 @@ Spruce.store('global', {
 	sectionInView: '',
 	openSectionClue: false,
 	windowUnderlayShow: false,
+	onlyWhySection: false,
 	sectionInfo: {
 		en: {
 			what: 'What we do',

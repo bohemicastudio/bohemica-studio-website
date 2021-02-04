@@ -5,8 +5,9 @@ permalink: /sections/what.html
 {% from "components/project-example.njk" import projectExample, projectsTranslation %}
 {% from "components/specialisation.njk" import specialisation, specialisationsTranslation %}
 {% from "components/section-intro.njk" import sectionIntro %}
+{% from "components/button-library.njk" import buttonLibrary %}
 
-<div class="bg-black" id="what">
+<div class="bg-black">
 
 	{{ sectionIntro(name='what') }}
 
@@ -16,19 +17,33 @@ permalink: /sections/what.html
 				{{ specialisation(name='code', image='code.svg', color='orange', order='01') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
-				{{ projectExample(project='media-server', imageWrapper='screen') }}
-				{{ projectExample(project='lancaster-maloney', imageWrapper='browser', reverse=true) }}
+				{# {{ projectExample(project='media-server', imageWrapper='screen') }} #}
+				{# {{ projectExample(project='lancaster-maloney', imageWrapper='browser', reverse=true) }} #}
+
+				{{ projectExample(project='subtitle-editor', imageWrapper='3d') }}
+				{{ projectExample(project='lancaster-maloney', imageWrapper='3d', reverse=true) }}
+				{{ projectExample(project='mmt', imageWrapper='3d') }}
 			</div>
+
+			{#<div class="pb-8 md:pb-16">
+				{{ specialisation(name='iot', image='iot.svg', color='indigo', order='02') }}
+			</div>#}
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample(project='media-server', imageWrapper='3d') }}
+			</div>
+
 			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
-				{{ specialisation(name='uiux', image='uiux.svg', color='green', order='02') }}
+				{{ specialisation(name='uiux', image='uiux.svg', color='green', order='03') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
-				{{ projectExample(project='superflow', image='preview.svg', imageWrapper='phone') }}
+				{{ projectExample(project='moje-univerzita', imageWrapper='3d', reverse=true) }}
+				{{ projectExample(project='superflow', imageWrapper='3d') }}
 			</div>
 			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
-				{{ specialisation(name='branding', image='branding.svg', color='amber', order='03') }}
+				{{ specialisation(name='branding', image='branding.svg', color='amber', order='04') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample(project='logos', image='preview.svg', imageWrapper='3d') }}
 				{{ projectExample(project='superflow', image='preview.svg', imageWrapper='phone') }}
 			</div>
 		</div>
@@ -36,14 +51,9 @@ permalink: /sections/what.html
 
 	<div class="container">
 		<div class="flex justify-center items-center py-8 mt-24 rounded-t-3xl md:py-16 bg-gray-legacy-800 md:mt-48 md:rounded-t-7xl">
-			<a x-bind:href="window.router.getPath('overview')" data-navigo class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200">
-				<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">Open project library</span>
-				<i class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
-			</a>
-
+			{{ buttonLibrary() }}
 			<button x-on:click="console.log(Spruce.stores.slideover.slideoverOpenAnimation); Spruce.stores.slideover.open = true; $store.slideover.slideoverOpenAnimation.play()">Open slideover</button>
 			<button x-on:click="Spruce.stores.global.openMobileMenu()">Open menu</button>
-
 		</div>
 	</div>
 </div>

@@ -27,11 +27,11 @@ permalink: /sections/repos.html
 {% from "components/section-title.njk" import sectionTitle %}
 
 <div class="bg-blue-gray-800" id="repos" x-data x-init="(function () { {{ sectionReposTranslation() }} })()">
+	<div class="m-auto h-20 md:h-28"></div>
 	<div class="container py-24">
-
 		{{ sectionTitle(section='sectionRepos', name='info', icon='open-source.svg', color='light') }}
 
-		<div id="github-cards" class="grid grid-cols-3 auto-rows-fr gap-6 mt-16 mb-8">
+		<div id="github-cards" class="grid grid-cols-3 auto-rows-fr gap-6 mt-16 mb-12">
 			{{ gitCard(name='11ty/eleventy') }}
 			{{ gitCard(name='alpinejs/alpine') }}
 			{{ gitCard(name='tailwindlabs/tailwindcss') }}
@@ -41,11 +41,15 @@ permalink: /sections/repos.html
 		</div>
 
 		<div class="flex flex-col items-center">
-			<p class="text-2xl text-cool-gray-200">& many more</p>
-			<p class="my-4 text-cool-gray-300">
-				You can find the code repository on GitHub.
+			<p class="text-2xl text-cool-gray-200 mb-16">& many more</p>
+			<p class="mb-4 text-cool-gray-300">
+				You can find the source-code repository on GitHub.
 			</p>
-			<button>Go to the repo</button>
+			<div class="px-32 py-16 rounded-4xl bg-blue-gray-700">
+			<a href="https://github.com/" target="_blank" class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-blue-gray-300 rounded-xl ring-offset-2 transition duration-100 ease-linear cursor-ne-resize hover:bg-blue-gray-100 focus:ring-2 group focus:ring-offset-blue-gray-800 focus:ring-blue-gray-200">
+				<span class="leading-none text-blue-gray-800 whitespace-nowrap transition duration-100 ease-linear group-hover:text-blue-gray-900">Go to the repo</span>
+			</a>
+			</div>
 		</div>
 
 	</div>

@@ -30,13 +30,13 @@
 				<svg class="w-4 text-blue-gray-400" width="26" height="24" viewBox="0 0 26 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					<path d="M12.6175 0L15.5961 9.16718H25.2351L17.437 14.8328L20.4156 24L12.6175 18.3344L4.81947 24L7.79807 14.8328L0 9.16718H9.63895L12.6175 0Z"/>
 				</svg>
-				<span class="text-blue-gray-200" x-text="data.stargazers_count"></span>
+				<span class="text-blue-gray-200" x-text="nFormatter(data.stargazers_count, 1)"></span>
 			</div>
 			<div class="flex flex-row items-center space-x-2">
 				<span class="w-2 text-blue-gray-400">
 					<i class="gg-git-fork"></i>
 				</span>
-				<span class="text-blue-gray-200" x-text="data.forks_count"></span>
+				<span class="text-blue-gray-200" x-text="nFormatter(data.forks_count, 1)"></span>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,43 @@
+---
+permalink: /sections/where.html
+---
+
+{% from "components/section-intro.njk" import sectionIntro %}
+
+<div class="bg-cool-gray-500">
+
+	{{ sectionIntro(name='where') }}
+
+	<div class="container">
+		<div class="grid grid-cols-2">
+			<div class="flex flex-col justify-between items-start space-y-12">
+				<h3 class="text-5xl font-medium leading-tight text-white">Czech Republic,<br>Prague</h3>
+				<img class="" src="/images/icon/prague.svg">
+			</div>
+			<div class="flex flex-col justify-between items-start space-y-12">
+				<h3 class="text-5xl font-medium leading-tight text-white">United Kingdom,<br>Cheltenham</h3>
+				<img class="" src="/images/icon/britain.svg">
+			</div>
+		</div>
+		<hr class="mt-24 mb-48 border-t-2 border-cool-gray-300">
+		<div class="flex flex-col items-center mx-auto">
+			<div class="flex flex-col items-center space-y-8 w-1/2 text-center text-white">
+				<span class="text-5xl font-medium font-dm-mono">That’s all folks!</span>
+				<p class="text-2xl">Just click that button in the right bottom corner to talk to us about your project or to ask any question.</p>
+			</div>
+
+			<div class="relative mt-32 mb-40">
+				<div class="absolute inset-y-0 left-0 z-10 w-1/3 bg-gradient-to-r from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="absolute inset-y-0 right-0 z-10 w-1/3 bg-gradient-to-l from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="flex absolute inset-x-0 top-1/4 z-20 flex-col items-center">
+					<svg width="38" height="32" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.7778 26.6667C17.7778 19.7867 23.3422 14.2222 30.2222 14.2222C32.1422 14.2222 33.9378 14.6667 35.5556 15.4311V0H0V28.4444H17.92C17.8311 27.8578 17.7778 27.2711 17.7778 26.6667ZM3.55556 3.55556L17.7778 12.4444L32 3.55556V7.11111L17.7778 16L3.55556 7.11111V3.55556ZM27.2711 32L20.9778 25.7067L23.4844 23.2L27.2533 26.9689L34.7911 19.4311L37.3333 21.9378L27.2711 32Z" fill="#161E2D"/>
+					</svg>
+					<span class="text-3xl text-cool-gray-700 text-bold">team@bohemicastudio.com</span>
+				</div>
+				<img class="w-full" src="/images/hand/phone.png">
+			</div>
+		</div>
+	</div>
+</div>

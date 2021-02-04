@@ -210,7 +210,8 @@ function Navigo(appRoute, resolveOptions) {
   }
 
   function navigate(to, navigateOptions) {
-    to = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(root) + "/" + (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(to);
+    to = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(root) + "/" + (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(to); // console.log("---->" + to);
+
     var context = {
       instance: self,
       to: to,
@@ -409,9 +410,13 @@ function Navigo(appRoute, resolveOptions) {
       currentLocationPath: currentLocation
     };
     (0,_middlewares_setLocationPath__WEBPACK_IMPORTED_MODULE_2__.default)(context, function () {});
-    path = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(path);
+
+    if (typeof path === "string") {
+      path = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(path);
+    }
+
     var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context, {
-      name: path,
+      name: String(path),
       path: path,
       handler: function handler() {},
       hooks: {}
@@ -516,6 +521,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _middlewares_checkForNotFoundHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./middlewares/checkForNotFoundHandler */ "./src/middlewares/checkForNotFoundHandler.ts");
 /* harmony import */ var _middlewares_errorOut__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./middlewares/errorOut */ "./src/middlewares/errorOut.ts");
 /* harmony import */ var _middlewares_flushCurrent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./middlewares/flushCurrent */ "./src/middlewares/flushCurrent.ts");
+/* harmony import */ var _middlewares_updateState__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./middlewares/updateState */ "./src/middlewares/updateState.ts");
+
 
 
 
@@ -529,7 +536,7 @@ var foundLifecycle = [_middlewares_checkForAlreadyHook__WEBPACK_IMPORTED_MODULE_
 var notFoundLifeCycle = [_middlewares_checkForLeaveHook__WEBPACK_IMPORTED_MODULE_1__.default, _middlewares_checkForNotFoundHandler__WEBPACK_IMPORTED_MODULE_6__.default, _Q__WEBPACK_IMPORTED_MODULE_0__.default.if(function (_ref) {
   var notFoundHandled = _ref.notFoundHandled;
   return notFoundHandled;
-}, foundLifecycle, [_middlewares_errorOut__WEBPACK_IMPORTED_MODULE_7__.default]), _middlewares_flushCurrent__WEBPACK_IMPORTED_MODULE_8__.default];
+}, foundLifecycle.concat([_middlewares_updateState__WEBPACK_IMPORTED_MODULE_9__.default]), [_middlewares_errorOut__WEBPACK_IMPORTED_MODULE_7__.default, _middlewares_flushCurrent__WEBPACK_IMPORTED_MODULE_8__.default])];
 
 /***/ }),
 
@@ -981,11 +988,11 @@ function updateBrowserURL(context, done) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => /* binding */ callHandler
+/* harmony export */   "default": () => /* binding */ updateState
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 
-function callHandler(context, done) {
+function updateState(context, done) {
   if ((0,_utils__WEBPACK_IMPORTED_MODULE_0__.undefinedOrTrue)(context.navigateOptions, "updateState")) {
     context.instance._setCurrent(context.matches);
   }
@@ -1113,10 +1120,10 @@ function matchRoute(context, route) {
   }
 
   var regexp = new RegExp(pattern, _constants__WEBPACK_IMPORTED_MODULE_0__.MATCH_REGEXP_FLAGS);
-  var match = current.match(regexp); // console.log(current, regexp);
+  var match = current.match(regexp);
 
   if (match) {
-    var data = isString(route.path) ? regExpResultToParams(match, paramNames) : match.slice(1);
+    var data = isString(route.path) ? regExpResultToParams(match, paramNames) : match.groups ? match.groups : match.slice(1);
     return {
       url: current,
       queryString: GETParams,

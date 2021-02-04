@@ -1,0 +1,63 @@
+---
+permalink: /sections/who.html
+---
+
+{% macro sectionWhoTranslation() %}
+	Spruce.store('translation.sectionWho', {
+	en: {
+	first: {
+	title: 'Remote-first mindset allows us to work with clients from all around the globe.',
+	subtitle: false
+	},
+	second: {
+	title: 'What our clients have to say about us.',
+	subtitle: false
+	}
+	},
+	cs: {
+	first: {
+	title: 'Our process. Simplified. CS',
+	subtitle: 'See below what you can expect.'
+	},
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+{% endmacro %}
+
+{% from "components/section-intro.njk" import sectionIntro %}
+{% from "components/section-title.njk" import sectionTitle %}
+{% from "components/button-library.njk" import buttonLibrary %}
+{% from "components/testimonial.njk" import testimonial %}
+
+{{ sectionIntro(name='who', backgroundColor='gray-legacy-600', textColor='emerald', lineColor='gray-legacy-400', subtitle=false) }}
+
+<div class="pt-12 pb-24 bg-white">
+	<div class="container flex flex-col items-center" x-data x-init="(function () { {{ sectionWhoTranslation() }} })()">
+		{{ sectionTitle(section='sectionWho', name='first', icon='globe.svg', subtitle=false) }}
+		<img src="/images/map.svg" class="my-32 w-full max-w-full h-auto lg:px-24 xl:px-40">
+		<p class="mb-4 text-cool-gray-700">
+			You can read more about various projects we have done.
+		</p>
+		<div class="py-16 px-32 rounded-4xl bg-teal-legacy-400">
+			{{ buttonLibrary() }}
+		</div>
+		<hr class="mt-32 mb-24 h-64 border-t-0 border-l border-cool-gray-400">
+		{{ sectionTitle(section='sectionWho', name='second', icon='stars.svg', subtitle=false) }}
+		<div class="grid grid-cols-2 mt-12 bg-cool-gray-400" style="grid-gap: 1px;">
+			<div class="p-16 bg-white">
+				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='blue') }}
+			</div>
+			<div class="p-16 bg-white">
+				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='amber') }}
+			</div>
+			<div class="p-16 bg-white">
+				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='yellow') }}
+			</div>
+			<div class="p-16 bg-white">
+				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='rose') }}
+			</div>
+		</div>
+	</div>
+</div>

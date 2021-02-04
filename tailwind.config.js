@@ -38,6 +38,8 @@ module.exports = {
 		extend: {
 			backgroundColor: ['group-focus'],
 			translate: ['group-hover'],
+			maxWidth: ['responsive'],
+			borderWidth: ['first'],
 		}
 	},
 	theme: {
@@ -214,7 +216,9 @@ module.exports = {
 				}],
 				'2.5xl': ['1.75rem', {
 					lineHeight: '2.25rem',
-				}]
+				}],
+				'10xl': '10rem',
+				'11xl': '15rem',
 			},
 			borderRadius: {
 				'2.5xl': '1.25rem',

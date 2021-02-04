@@ -63,7 +63,7 @@ window.addEventListener('load',
 
 		let options = {
 			root: null, // relative to document viewport
-			rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+			rootMargin: '-50% 0% -50% 0%', // margin around root. Values are similar to css property. Unitless values not allowed
 			threshold: 0 // 0 - as soon as even one pixel is visible, 1 - until every pixel is visible
 		}
 
@@ -86,6 +86,9 @@ window.addEventListener('load',
 		observer.observe(document.querySelector('#intro'))
 		observer.observe(document.querySelector('#what'))
 		observer.observe(document.querySelector('#how'))
+		observer.observe(document.querySelector('#how-much'))
+		observer.observe(document.querySelector('#who'))
+		observer.observe(document.querySelector('#where'))
 	})
 
 /*

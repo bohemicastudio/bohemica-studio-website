@@ -1,4 +1,6 @@
-{% macro projectExample(project, image='preview.webp', imageWrapper='browser', reverse=false) %}
+{% from "components/button-project.njk" import buttonProject %}
+
+{% macro projectExample(project, image='preview.png', imageWrapper='browser', reverse=false) %}
 
 	<div class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 {{ 'md:flex-row-reverse' if reverse else 'md:flex-row' }}">
 		<div class="flex relative justify-center items-center w-full md:w-1/2">
@@ -35,7 +37,7 @@
 					<div class="flex justify-between items-center h-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500"></div>
 					<div class="flex-grow px-2 pb-4 bg-cool-gray-900 border-r border-l border-cool-gray-500">
 						<div class="overflow-hidden relative border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear aspect-w-21 aspect-h-10 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/projects/{{ project }}/{{ image }}">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/project/{{ project }}/{{ image }}">
 							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear md:flex focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
 								<i class="gg-arrows-expand-right"></i>
 							</button>
@@ -58,7 +60,7 @@
 					</div>
 					<div class="flex-grow px-2 bg-cool-gray-900 border-r border-l border-cool-gray-500">
 						<div class="overflow-hidden relative w-40 rounded-lg border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear sm:w-56 md:w-64 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto" data-zoom src="/images/projects/{{ project }}/{{ image }}">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto" data-zoom src="/images/project/{{ project }}/{{ image }}">
 						</div>
 					</div>
 					<div class="flex justify-center items-center py-4 bg-cool-gray-900 rounded-b-3xl border-r border-b border-l border-cool-gray-500">
@@ -68,7 +70,11 @@
 
 			{% elseif imageWrapper === 'logo' %}
 
+			{% elseif imageWrapper === '3d' %}
+				<img id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 50)" data-zoom src="/images/project/{{ project }}/preview-3d.png" data-zoom-src="/images/project/{{ project }}/preview-3d-zoom.png">
+
 			{% endif %}
+
 
 		</div>
 
@@ -91,10 +97,7 @@
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 				</div>
 
-				<button {# x-bind:href="window.router.getPath('overview')" #} x-on:click="Spruce.stores.slideover.open = false" class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
-					<span class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900">See the project</span>
-					<i class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
-				</button>
+				{{ buttonProject() }}
 			</div>
 
 		</div>
