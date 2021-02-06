@@ -26,74 +26,111 @@
 
 
 {% macro processStepsTranslation() %}
-
-	Spruce.store('translation.processSteps', {
-	en: {
-	step: 'Step',
-	1: {
-	title: 'Meet & Plan',
-	description: [
-	'It all starts with a project brief.',
-	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-	'Our team put heads together to come up with the best strategy.',
-	'We let you know the options you have in terms of how we intend to approach the project.'
-	],
-	keywords: [
-	'Communication channel',
-	'Project brief',
-	'Estimate',
-	'Milestones',
-	'Deliverables'
-	]
-	},
-	2: {
-	title: 'Meet & Plan',
-	description: [
-	'It all starts with a project brief.',
-	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-	'Our team put heads together to come up with the best strategy.',
-	'We let you know the options you have in terms of how we intend to approach the project.'
-	],
-	keywords: [
-	'Communication channel',
-	'Project brief',
-	'Estimate',
-	'Milestones',
-	'Deliverables'
-	]
-	},
-	3: {
-	title: 'Meet & Plan',
-	description: [
-	'It all starts with a project brief.',
-	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-	'Our team put heads together to come up with the best strategy.',
-	'We let you know the options you have in terms of how we intend to approach the project.'
-	],
-	keywords: [
-	'Communication channel',
-	'Project brief',
-	'Estimate',
-	'Milestones',
-	'Deliverables'
-	]
-	},
-	},
-	cs: {
-	step: 'Krok',
-	1: {
-	name: 'Client',
-	description: [
-	'CS',
-	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-	'Our team put heads together to come up with the best strategy.',
-	'We let you know the options you have in terms of how we intend to approach the project.'
-	]
-	}
-	},
-	return: function (data) {
-	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
-	}
-	})
-
+		Spruce.store('translation.processSteps', {
+			en: {
+				step: 'Step',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				3: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				}
+			},
+			cs: {
+				step: 'Krok',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				3: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+			}
+		})
 {% endmacro %}

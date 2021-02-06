@@ -1,7 +1,5 @@
-let tooltips
-
 window.initialiseTooltips = function () {
-	tooltips = [
+	window.tooltips = [
 		tippy('.top-menu [data-tippy-content]', {
 			placement: 'bottom',
 			arrow: false,

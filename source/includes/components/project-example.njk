@@ -1,6 +1,6 @@
 {% from "components/button-project.njk" import buttonProject %}
 
-{% macro projectExample(project, image='preview.png', imageWrapper='browser', reverse=false) %}
+{% macro projectExample(project, image='preview.png', imageWrapper='browser', reverse=false, imageSize='50') %}
 
 	<div class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 {{ 'md:flex-row-reverse' if reverse else 'md:flex-row' }}">
 		<div class="flex relative justify-center items-center w-full md:w-1/2">
@@ -71,7 +71,7 @@
 			{% elseif imageWrapper === 'logo' %}
 
 			{% elseif imageWrapper === '3d' %}
-				<img id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 50)" data-zoom src="/images/project/{{ project }}/preview-3d.png" data-zoom-src="/images/project/{{ project }}/preview-3d-zoom.png">
+				<img id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom src="/images/project/{{ project }}/preview-3d.png" data-zoom-src="/images/project/{{ project }}/preview-3d-zoom.png">
 
 			{% endif %}
 
@@ -79,11 +79,6 @@
 		</div>
 
 		<div class="flex justify-start items-center w-full md:justify-center md:w-1/2">
-			{# <template x-for="(value, key, index) in $store['translation.projects'][window.Spruce.stores.global.language].projects" :key="index" class="text-cool-gray-200">
-				<span x-text="value"></span>
-				<span x-text="key"></span>
-			</template> #}
-			{# TODO Maybe do nested x-fors ? https://github.com/alpinejs/alpine/issues/158#issuecomment-606128323 #}
 
 			<div class="flex flex-col items-start space-y-10">
 				<div class="grid gap-y-3 gap-x-5 text-sm font-medium md:text-base" style="grid-template-columns: min-content auto">

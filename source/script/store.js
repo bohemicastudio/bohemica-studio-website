@@ -10,18 +10,50 @@ Spruce.store('global', {
 	openSectionClue: false,
 	windowUnderlayShow: false,
 	onlyWhySection: false,
-	sectionInfo: {
+	translation: {
 		en: {
-			what: 'What we do',
-			how: 'How we do it'
+			sections: {
+				'what': 'What we do',
+				'how': 'How we do it',
+				'how-much': 'How much we charge',
+				'who': 'Who we worked with',
+				'where': 'Where to reach us'
+			},
+			head: {
+				title: 'Hello there!',
+				subtitle: 'We are a friendly team of qualified full-stack programmers and visual designers'
+			},
+			tooltip: {
+				scheduleCall: 'Schedule a call',
+				changeLanguage: 'Change language'
+			},
+			recentActivity: 'Recent activity',
+			lastUpdated: 'Last updated',
+			loading: 'Loading...'
 		},
 		cs: {
-			what: 'What we do',
-			how: 'How we do it'
+			sections: {
+				'what': 'What we do',
+				'how': 'How we do it',
+				'how-much': 'How much we charge',
+				'who': 'Who we worked with',
+				'where': 'Where to reach us'
+			},
+			head: {
+				title: 'Nazdárek!',
+				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních technologií'
+			},
+			tooltip: {
+				scheduleCall: 'Zarezervovat online schůzku',
+				changeLanguage: 'Změnit jazyk'
+			},
+			recentActivity: 'Nedávná aktivita',
+			lastUpdated: 'Naposledy aktualizováno',
+			loading: 'Načítám...'
 		}
 	},
-	get sectionInViewInfo() {
-		return Spruce.stores['translation.sectionIntro'].return(this.sectionInView + '.title')
+	return: function (data) {
+		return Object.getProperty(Spruce.stores['global'], 'translation.' + Spruce.stores.global.language + '.' + data)
 	},
 	languages: [
 		{
@@ -34,13 +66,6 @@ Spruce.store('global', {
 		}
 	],
 	async switchTranslation(language) {
-
-		/* TODO What to do about this ?? */
-		let translation = await getTranslationFile(language)
-		console.log('translation', translation)
-		this.data = translation
-		/**/
-
 		// set language for the store and local storage
 		this.language = language
 		localStorage.setItem('language', language)
@@ -64,7 +89,7 @@ Spruce.store('global', {
 		}
 
 		// Re-create the Tippy.js instances on language change
-		tooltips.forEach(instance => {
+		window.tooltips.forEach(instance => {
 			instance.forEach(element => {
 				element.destroy()
 			})
@@ -72,7 +97,8 @@ Spruce.store('global', {
 		window.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
-	},
+	}
+	,
 	mobileMenuOpen: false,
 	openMobileMenu() {
 		this.mobileMenuOpen = true
@@ -97,7 +123,8 @@ Spruce.store('global', {
 				resolve()
 			})
 		})
-	},
+	}
+	,
 	closeMobileMenu() {
 		window.router.navigate(Spruce.stores.global.language, { callHandler: false })
 		anime({
@@ -190,14 +217,6 @@ Spruce.starting(function () {
 	console.log('Spruce starting', Spruce.stores, Math.floor(Math.random() * Spruce.stores.activity.activities.length))
 	Spruce.stores.activity.random = Math.floor(Math.random() * Spruce.stores.activity.activities.length)
 })
-
-
-const getTranslationFile = async (language) => {
-	const response = await fetch(`./langs/${ language }.json`)
-	const json = await response.json()
-	console.log('json:', json)
-	return json
-}
 
 // Project store
 Spruce.store('project', {

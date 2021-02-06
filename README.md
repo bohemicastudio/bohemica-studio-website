@@ -1,1 +1,10 @@
-# Bohemica Studio Website 2020/21
+# Bohemica Studio Website 2021
+
+## Main technology stack
+
+* [Eleventy]()
+* [Alpine.js]()
+* [Spruce]()
+* [Tailwind CSS]()
+* [Navigo]()
+* [Anime]()

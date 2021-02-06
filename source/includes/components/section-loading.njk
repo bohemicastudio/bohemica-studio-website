@@ -1,0 +1,5 @@
+{% macro sectionLoading() %}
+	<div class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50">
+		<span class="text-xl text-white" x-text="$store['global'].return('loading')"></span>
+	</div>
+{% endmacro %}
