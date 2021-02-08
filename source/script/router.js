@@ -1,5 +1,5 @@
 // initialise Navigo inside window.router
-window.router = new Navigo('/')
+window.router = new Navigo('/', { strategy: 'ONE', hash: false, noMatchWarning: false })
 
 // set language in Spruce for global use
 Spruce.stores.global.language = typeof localStorage.language === 'undefined' || localStorage.language === null || !Spruce.stores.global.languages.some(language => language.code === localStorage.language) ? 'en' : localStorage.language
@@ -128,13 +128,13 @@ window.router.on({
 			window.animation.slideoverClose.finished.then(() => {
 				Spruce.stores.slideover.open = false
 
-				window.animation.windowUnderlayShow.reverse()
-				window.animation.windowUnderlayShow.play()
-				window.animation.windowUnderlayShow.finished.then(() => {
+				window.animation.showWindowUnderlay.reverse()
+				window.animation.showWindowUnderlay.play()
+				window.animation.showWindowUnderlay.finished.then(() => {
 					window.animation.slideoverFadeOutContent.play()
-					window.animation.windowUnderlayShow.reverse()
+					window.animation.showWindowUnderlay.reverse()
 					setTimeout(() => {
-						Spruce.stores.global.windowUnderlayShow = false
+						Spruce.stores.global.showWindowUnderlay = false
 					}, 50)
 				})
 
@@ -165,7 +165,6 @@ window.router.on({
 		if (!data && Spruce.stores.global.language) {
 			console.log('redirecting with language from local storage')
 			window.router.navigate(Spruce.stores.global.language, { callHandler: false })
-
 		}
 		else {
 			console.log('redirecting without language from local storage')
@@ -199,9 +198,9 @@ function projectHandler(name) {
 			setTimeout(() => {
 				window.animation.slideoverOpen.play()
 				window.animation.slideoverOpen.finished.then(() => {
-					Spruce.stores.global.windowUnderlayShow = true
+					Spruce.stores.global.showWindowUnderlay = true
 					setTimeout(() => {
-						window.animation.windowUnderlayShow.play()
+						window.animation.showWindowUnderlay.play()
 					}, 50)
 					setTimeout(() => {
 						Spruce.stores.project.loadContent(name).then(() => {

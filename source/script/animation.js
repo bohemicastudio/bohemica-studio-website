@@ -6,7 +6,7 @@
 
 	document.arrive("#slideover", { existing: true }, function () {
 
-		window.animation.windowUnderlayShow = anime({
+		window.animation.showWindowUnderlay = anime({
 			targets: '#windowUnderlay',
 			opacity: [0, 1],
 			duration: 200,

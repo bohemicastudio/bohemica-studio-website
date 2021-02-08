@@ -11,12 +11,10 @@
 {% block content %}
 
 	{% from "sections/why.njk" import sectionWhy, sectionWhyTranslation %}
-	{% from "components/section-intro.njk" import sectionIntroTranslation %}
 	{% from "components/section-loading.njk" import sectionLoading %}
 	{% from "components/social-channels.njk" import socialChannels %}
 
 	{{ sectionWhyTranslation() }}
-	{{ sectionIntroTranslation() }}
 
 	<div class="overflow-hidden relative bg-blue-gray-100" id="intro">
 
@@ -28,24 +26,12 @@
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
 						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
 						<div class="hidden items-center space-x-2 md:flex">
-							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#whatIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-								What
-							</button>
-							<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-								How
-							</button>
-							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much we charge" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howMuchIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-								How much
-							</button>
-							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#whyOne').scrollIntoView({behavior: 'smooth', block: 'center'})">
-								Why
-							</button>
-							<button class="top-menu__button hover:bg-green-200 focus:ring-green-400" data-tippy-content="Who we have worked with">
-								Who
-							</button>
-							<button class="top-menu__button hover:bg-teal-200 focus:ring-teal-400" data-tippy-content="Where to reach us">
-								Where
-							</button>
+							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" x-text="$store['global'].return('sections.what.name')" x-bind:data-tippy-content="$store['global'].return('sections.what.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+							<button class="top-menu__button hover:bg-yellow-200 focus:ring-yellow-400" x-text="$store['global'].return('sections.how.name')" x-bind:data-tippy-content="$store['global'].return('sections.how.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+							<button class="top-menu__button hover:bg-indigo-200 focus:ring-indigo-400" x-text="$store['global'].return(`sections['how-much'].name`)" x-bind:data-tippy-content="$store['global'].return(`sections['how-much'].title`)" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+							<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" x-text="$store['global'].return('sections.why.name')" x-bind:data-tippy-content="$store['global'].return('sections.why.title')" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+							<button class="top-menu__button hover:bg-emerald-200 focus:ring-emerald-400" x-text="$store['global'].return('sections.who.name')" x-bind:data-tippy-content="$store['global'].return('sections.who.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" x-text="$store['global'].return('sections.where.name')" x-bind:data-tippy-content="$store['global'].return('sections.where.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 						</div>
 						<button x-on:click="$store.global.openMobileMenu()" class="flex p-1.5 md:hidden top-menu__button hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-md cursor-pointer">
 							<span class="flex justify-center items-center w-5 h-5 text-blue-gray-800">
@@ -110,9 +96,9 @@
 										<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 flex-shrink-0"></i>
 									</a>
 								</div>
-								<div class="flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
+								<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
 									<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
-									<a href="" target="_blank" class="cursor-ne-resize">00.00.0000</a>
+									<a href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" class="cursor-ne-resize" x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }" x-init="$fetch(url).then(response => data = response)" x-text="dayjs(data[0]?.commit?.author?.date).format('DD/MM/YYYY HH:mm:ss')">00.00.0000</a>
 								</div>
 							</div>
 						</div>
@@ -185,9 +171,8 @@
 
 	</div>
 
-
-	<div class="fixed top-5 right-5 z-40 py-1 px-3 text-lg font-medium text-white bg-cool-gray-600 rounded-lg select-none" x-text="$store['global'].return('sections.' + $store.global.sectionInView)"
-	     x-show="$store.global.openSectionClue"
+	<div class="fixed top-2.5 right-2.5 z-40 py-1 px-3 text-lg font-medium text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5" x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"
+	     x-cloak x-show="$store.global.openSectionClue"
 	     x-transition:enter="transition ease-out duration-150"
 	     x-transition:enter-start="opacity-0 transform scale-75"
 	     x-transition:enter-end="opacity-100 transform scale-100"
@@ -218,7 +203,7 @@
 	</div>
 
 	{# Section Why #3 #}
-	{{ sectionWhy(name='three', number='III', color='red-500') }}
+	{{ sectionWhy(name='three', number='III', color='indigo-500') }}
 
 	{# Section How much #}
 	<div id="how-much" x-ref="howMuchSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/how-much.html').then((data) => { $refs.howMuchSection.innerHTML = data }) }" x-data>
@@ -234,45 +219,36 @@
 	</div>
 
 	{# Section Why #5 #}
-	{{ sectionWhy(name='five', number='V', color='indigo-500') }}
+	{{ sectionWhy(name='five', number='V', color='red-500') }}
 
 	{# Section Where #}
 	<div id="where" x-ref="whereSection" x-show="!$store.global.onlyWhySection" x-init="() => { $fetch('./sections/where.html').then((data) => { $refs.whereSection.innerHTML = data }) }" x-data>
 		{{ sectionLoading() }}
 	</div>
 
-	{# Footer #}
-	<div class="bg-cool-gray-800">
-		<div class="container pt-16 pb-24">
+	{# Bottom #}
+	<div id="bottom" class="bg-cool-gray-800">
+		<div class="container pt-16 pb-16 md:pb-24">
 
-			<div class="flex flex-row items-center mb-24 space-x-2">
-				<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#intro').scrollIntoView({behavior: 'smooth', block: 'start'})">
-					Back to top
-				</button>
-				<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" data-tippy-content="What we do" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#whatIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-					What
-				</button>
-				<button class="top-menu__button hover:bg-amber-200 focus:ring-amber-400" data-tippy-content="How we do it" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-					How
-				</button>
-				<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" data-tippy-content="How much we charge" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#howMuchIntro').scrollIntoView({behavior: 'smooth', block: 'center'})">
-					How much
-				</button>
-				<button class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" data-tippy-content="Why to work with us" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#whyOne').scrollIntoView({behavior: 'smooth', block: 'center'})">
-					Why
-				</button>
-				<button class="top-menu__button hover:bg-green-200 focus:ring-green-400" data-tippy-content="Who we have worked with">
-					Who
-				</button>
-				<button class="top-menu__button hover:bg-teal-200 focus:ring-teal-400" data-tippy-content="Where to reach us">
-					Where
-				</button>
+			<div class="flex flex-row justify-between items-start mb-16 md:mb-24">
+				<div class="flex flex-col items-start space-y-4 md:space-y-0 md:items-center md:flex-row md:space-x-4">
+					{# <button class="bottom-menu__button hover:bg-blue-900 hover:text-blue-100 focus:ring-blue-400" x-text="$store['global'].return('backToTop')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#intro').scrollIntoView({behavior: 'smooth', block: 'start'})"></button> #}
+					<button class="bottom-menu__button" x-text="$store['global'].return('sections.what.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="bottom-menu__button" x-text="$store['global'].return('sections.how.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="bottom-menu__button" x-text="$store['global'].return(`sections['how-much'].name`)" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="bottom-menu__button" x-text="$store['global'].return('sections.why.name')" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="bottom-menu__button" x-text="$store['global'].return('sections.who.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="bottom-menu__button" x-text="$store['global'].return('sections.where.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+				</div>
+				<div class="flex flex-col space-y-2">
+					{{ socialChannels(tippy=false, backgroundColorHover='cool-gray-500', textColor='cool-gray-400', textColorHover='cool-gray-100') }}
+				</div>
 			</div>
 			<hr class="mb-6 border-cool-gray-600">
-			<span class="font-medium tracking-tighter leading-none text-cool-gray-700 pointer-events-none select-none text-11xl font-dm-mono" x-text="new Date().getFullYear()"></span>
+			<span class="text-9xl font-medium tracking-tighter leading-none text-cool-gray-700 pointer-events-none select-none md:text-11xl font-dm-mono" x-text="new Date().getFullYear()"></span>
 			<hr class="mt-4 border-cool-gray-600">
-			<div class="flex flex-row justify-between items-end mt-24">
-				<svg class="text-cool-gray-300" width="350" height="48" viewBox="0 0 350 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<div class="flex flex-col justify-between items-start mt-16 space-y-12 md:items-end md:mt-24 md:space-y-0 md:flex-row">
+				<svg class="w-auto h-11 text-cool-gray-300 md:h-full" width="350" height="48" viewBox="0 0 350 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M48 0H0V48H48V0ZM24 24L8 33V24L24 15L40 24V33L24 24Z"/>
 					<path d="M68 37.541V10.765H78.297C81.1313 10.765 83.2765 11.4153 84.7326 12.7158C86.1887 14.0164 86.9168 15.6485 86.9168 17.612C86.9168 19.3206 86.4488 20.6849 85.5127 21.7049C84.5766 22.6995 83.4455 23.3752 82.1194 23.7322C83.1595 23.9362 84.0825 24.3443 84.8886 24.9563C85.7207 25.5683 86.3708 26.3333 86.8388 27.2514C87.3069 28.1694 87.5409 29.1639 87.5409 30.235C87.5409 31.612 87.1898 32.8616 86.4878 33.9836C85.8117 35.0801 84.8106 35.9472 83.4845 36.5847C82.1584 37.2222 80.5332 37.541 78.609 37.541H68ZM72.1344 22.2404H77.7899C79.3761 22.2404 80.5852 21.8834 81.4173 21.1694C82.2494 20.4299 82.6654 19.4226 82.6654 18.1475C82.6654 16.898 82.2494 15.9035 81.4173 15.1639C80.6112 14.4244 79.3761 14.0546 77.7119 14.0546H72.1344V22.2404ZM72.1344 34.2131H78.063C79.7271 34.2131 81.0142 33.8306 81.9243 33.0656C82.8604 32.3005 83.3285 31.2295 83.3285 29.8525C83.3285 28.4754 82.8474 27.3916 81.8853 26.6011C80.9232 25.7851 79.6231 25.377 77.985 25.377H72.1344V34.2131Z"/>
 					<path d="M99.0153 38C97.1691 38 95.5049 37.592 94.0228 36.776C92.5667 35.9344 91.4096 34.7741 90.5515 33.2951C89.6934 31.7905 89.2644 30.0437 89.2644 28.0546C89.2644 26.0656 89.6934 24.3315 90.5515 22.8525C91.4356 21.3479 92.6187 20.1876 94.1008 19.3716C95.583 18.5301 97.2341 18.1093 99.0543 18.1093C100.9 18.1093 102.552 18.5301 104.008 19.3716C105.49 20.1876 106.66 21.3479 107.518 22.8525C108.402 24.3315 108.844 26.0656 108.844 28.0546C108.844 30.0437 108.402 31.7905 107.518 33.2951C106.66 34.7741 105.49 35.9344 104.008 36.776C102.526 37.592 100.861 38 99.0153 38ZM99.0153 34.5191C100.003 34.5191 100.913 34.2769 101.746 33.7923C102.604 33.3078 103.293 32.5938 103.813 31.6503C104.333 30.6812 104.593 29.4827 104.593 28.0546C104.593 26.6266 104.333 25.4408 103.813 24.4973C103.319 23.5282 102.643 22.8015 101.785 22.3169C100.952 21.8324 100.042 21.5902 99.0543 21.5902C98.0662 21.5902 97.1431 21.8324 96.285 22.3169C95.4529 22.8015 94.7769 23.5282 94.2568 24.4973C93.7368 25.4408 93.4768 26.6266 93.4768 28.0546C93.4768 29.4827 93.7368 30.6812 94.2568 31.6503C94.7769 32.5938 95.4529 33.3078 96.285 33.7923C97.1171 34.2769 98.0272 34.5191 99.0153 34.5191Z"/>
@@ -289,8 +265,8 @@
 					<path d="M324.714 14.9727C323.934 14.9727 323.284 14.7432 322.764 14.2842C322.27 13.7996 322.023 13.2004 322.023 12.4863C322.023 11.7723 322.27 11.1858 322.764 10.7268C323.284 10.2423 323.934 10 324.714 10C325.494 10 326.131 10.2423 326.625 10.7268C327.145 11.1858 327.405 11.7723 327.405 12.4863C327.405 13.2004 327.145 13.7996 326.625 14.2842C326.131 14.7432 325.494 14.9727 324.714 14.9727ZM322.647 37.541V18.5683H326.781V37.541H322.647Z"/>
 					<path d="M339.338 38C337.492 38 335.827 37.592 334.345 36.776C332.889 35.9344 331.732 34.7741 330.874 33.2951C330.016 31.7905 329.587 30.0437 329.587 28.0546C329.587 26.0656 330.016 24.3315 330.874 22.8525C331.758 21.3479 332.941 20.1876 334.423 19.3716C335.905 18.5301 337.557 18.1093 339.377 18.1093C341.223 18.1093 342.874 18.5301 344.33 19.3716C345.812 20.1876 346.982 21.3479 347.841 22.8525C348.725 24.3315 349.167 26.0656 349.167 28.0546C349.167 30.0437 348.725 31.7905 347.841 33.2951C346.982 34.7741 345.812 35.9344 344.33 36.776C342.848 37.592 341.184 38 339.338 38ZM339.338 34.5191C340.326 34.5191 341.236 34.2769 342.068 33.7923C342.926 33.3078 343.615 32.5938 344.135 31.6503C344.655 30.6812 344.915 29.4827 344.915 28.0546C344.915 26.6266 344.655 25.4408 344.135 24.4973C343.641 23.5282 342.965 22.8015 342.107 22.3169C341.275 21.8324 340.365 21.5902 339.377 21.5902C338.389 21.5902 337.466 21.8324 336.607 22.3169C335.775 22.8015 335.099 23.5282 334.579 24.4973C334.059 25.4408 333.799 26.6266 333.799 28.0546C333.799 29.4827 334.059 30.6812 334.579 31.6503C335.099 32.5938 335.775 33.3078 336.607 33.7923C337.44 34.2769 338.35 34.5191 339.338 34.5191Z"/>
 				</svg>
-				<div class="py-4 px-8 rounded-xl border border-cool-gray-600">
-					<svg class="text-cool-gray-300" width="228" height="36" viewBox="0 0 228 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<div class="py-3 px-5 rounded-xl border border-cool-gray-600 md:py-4 md:px-8">
+					<svg class="w-auto h-7 text-cool-gray-300 md:h-full" width="228" height="36" viewBox="0 0 228 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path d="M6 9H33V6H3V25.5H0V30H21V25.5H6V9Z"/>
 						<path d="M6 9H33V6H3V25.5H0V30H21V25.5H6V9Z"/>
 						<path d="M36 12H24V30H36V12ZM33 25.5H27V15H33V25.5Z"/>
@@ -310,7 +286,7 @@
 	</div>
 
 	{# Slideover and mobile menu #}
-	<div id="windowUnderlay" x-show="$store.global.windowUnderlayShow" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50" style="opacity: 0"></div>
+	<div id="windowUnderlay" x-show="$store.global.showWindowUnderlay" class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50" style="opacity: 0"></div>
 
 	<div id="slideover" x-show="$store.slideover.open" class="flex fixed inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
 		<div class="flex justify-center py-2.5">
@@ -325,40 +301,27 @@
 		</div>
 	</div>
 
-	<template x-if="$store.global.mobileMenuOpen">
-		<div id="mobileMenu" class="flex overflow-hidden absolute inset-0 z-50 flex-col justify-start" style="transform: translateY(-100%)">
-			<div class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none" tabindex="1">
-				<div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
-					<div class="grid grid-flow-row gap-2 items-center">
-						<button class="mobile-menu__button hover:bg-blue-200 focus:ring-blue-400">
-							What
-						</button>
-						<button class="mobile-menu__button hover:bg-amber-200 focus:ring-amber-400">
-							How
-						</button>
-						<button class="mobile-menu__button hover:bg-red-200 focus:ring-red-400">
-							How much
-						</button>
-						<button class="mobile-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400">
-							Why
-						</button>
-						<button class="mobile-menu__button hover:bg-green-200 focus:ring-green-400">
-							Who
-						</button>
-						<button class="mobile-menu__button hover:bg-teal-200 focus:ring-teal-400">
-							Where
-						</button>
-					</div>
-					<div class="grid grid-flow-col gap-2 mx-auto">
-						{{ socialChannels() }}
-					</div>
+	<div id="mobileMenu" x-show="$store.global.mobileMenuOpen" class="flex fixed inset-0 z-50 flex-col justify-end" style="transform: translateY(-100%)">
+		<div class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none" tabindex="1">
+			<div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
+				<div class="grid grid-flow-row gap-2 items-center">
+					<button class="mobile-menu__button hover:bg-blue-200 focus:ring-blue-400" x-text="$store['global'].return('sections.what.name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="mobile-menu__button hover:bg-yellow-200 focus:ring-yellow-400" x-text="$store['global'].return('sections.how.name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="mobile-menu__button hover:bg-indigo-200 focus:ring-indigo-400" x-text="$store['global'].return('sections[\'how-much\'].name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="mobile-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400" x-text="$store['global'].return('sections.why.name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="mobile-menu__button hover:bg-emerald-200 focus:ring-emerald-400" x-text="$store['global'].return('sections.who.name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="mobile-menu__button hover:bg-red-200 focus:ring-red-400" x-text="$store['global'].return('sections.where.name')" x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+				</div>
+				<div class="grid grid-flow-col gap-2 mx-auto">
+					{{ socialChannels() }}
 				</div>
 			</div>
-			<div class="flex justify-center py-2.5 flex-shrink-0">
-				<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
-					<i class="gg-close"></i>
-				</button>
-			</div>
 		</div>
-	</template>
+		<div class="flex justify-center py-2.5 flex-shrink-0">
+			<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
+				<i class="gg-close"></i>
+			</button>
+		</div>
+	</div>
+
 {% endblock %}

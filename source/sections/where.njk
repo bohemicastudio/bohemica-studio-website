@@ -2,41 +2,63 @@
 permalink: /sections/where.html
 ---
 
+{% macro sectionWhereTranslation() %}
+		Spruce.store('translation.sectionWhere', {
+			en: {
+				czech: 'Czech Republic,<br>Prague',
+				britain: 'United Kingdom,<br>Cheltenham',
+				title: 'That’s all folks!',
+				subtitle: 'Just click that button in the right bottom corner to talk to us about your project or to ask any question.'
+			},
+			cs: {
+				czech: 'Czech Republic,<br>Prague',
+				britain: 'United Kingdom,<br>Cheltenham',
+				title: 'That’s all folks!',
+				subtitle: 'Just click that button in the right bottom corner to talk to us about your project or to ask any question.'
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.sectionWhere'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+{% endmacro %}
+
 {% from "components/section-intro.njk" import sectionIntro %}
 
-<div class="bg-cool-gray-500">
+<div class="bg-cool-gray-500" x-data x-init="(function () { {{ sectionWhereTranslation() }} })()">
 
-	{{ sectionIntro(name='where') }}
+	{{ sectionIntro(name='where', textColor='red') }}
 
 	<div class="container">
-		<div class="grid grid-cols-2">
-			<div class="flex flex-col justify-between items-start space-y-12">
-				<h3 class="text-5xl font-medium leading-tight text-white">Czech Republic,<br>Prague</h3>
-				<img class="" src="/images/icon/prague.svg">
+		<div class="grid gap-y-16 md:grid-cols-2 md:gap-0">
+			<div class="flex flex-col justify-center items-center space-y-8 md:justify-between md:items-start md:space-y-12">
+				<h3 class="text-3xl font-medium leading-tight text-white sm:text-4xl md:text-5xl" x-html="$store['translation.sectionWhere'].return('czech')"></h3>
+				<img class="h-48 sm:h-80 md:h-auto" src="/images/icon/prague.svg">
 			</div>
-			<div class="flex flex-col justify-between items-start space-y-12">
-				<h3 class="text-5xl font-medium leading-tight text-white">United Kingdom,<br>Cheltenham</h3>
-				<img class="" src="/images/icon/britain.svg">
+			<div class="flex flex-col justify-center items-center space-y-8 md:justify-between md:items-start md:space-y-12">
+				<h3 class="text-3xl font-medium leading-tight text-white sm:text-4xl md:text-5xl" x-html="$store['translation.sectionWhere'].return('czech')"></h3>
+				<img class="h-48 sm:h-80 md:h-auto" src="/images/icon/britain.svg">
 			</div>
 		</div>
 		<hr class="mt-24 mb-48 border-t-2 border-cool-gray-300">
 		<div class="flex flex-col items-center mx-auto">
-			<div class="flex flex-col items-center space-y-8 w-1/2 text-center text-white">
-				<span class="text-5xl font-medium font-dm-mono">That’s all folks!</span>
-				<p class="text-2xl">Just click that button in the right bottom corner to talk to us about your project or to ask any question.</p>
+			<div class="flex flex-col items-center space-y-8 w-full text-center text-white md:w-1/2">
+				<span class="text-3xl font-medium md:text-5xl font-dm-mono" x-text="$store['translation.sectionWhere'].return('title')"></span>
+				<p class="text-2xl" x-text="$store['translation.sectionWhere'].return('subtitle')"></p>
 			</div>
 
-			<div class="relative mt-32 mb-40">
-				<div class="absolute inset-y-0 left-0 z-10 w-1/3 bg-gradient-to-r from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
-				<div class="absolute inset-y-0 right-0 z-10 w-1/3 bg-gradient-to-l from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
-				<div class="absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-cool-gray-500" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
-				<div class="flex absolute inset-x-0 top-1/4 z-20 flex-col items-center">
-					<svg width="38" height="32" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M17.7778 26.6667C17.7778 19.7867 23.3422 14.2222 30.2222 14.2222C32.1422 14.2222 33.9378 14.6667 35.5556 15.4311V0H0V28.4444H17.92C17.8311 27.8578 17.7778 27.2711 17.7778 26.6667ZM3.55556 3.55556L17.7778 12.4444L32 3.55556V7.11111L17.7778 16L3.55556 7.11111V3.55556ZM27.2711 32L20.9778 25.7067L23.4844 23.2L27.2533 26.9689L34.7911 19.4311L37.3333 21.9378L27.2711 32Z" fill="#161E2D"/>
-					</svg>
-					<span class="text-3xl text-cool-gray-700 text-bold">team@bohemicastudio.com</span>
+			<div class="overflow-hidden relative mt-32 mb-40">
+				<div class="absolute inset-y-0 left-0 z-10 w-1/4 bg-gradient-to-r from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-cool-gray-500 md:h-1/2" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
+				<div class="flex absolute inset-x-0 top-16 z-20 flex-col items-center md:top-28">
+					<div class="flex flex-col items-center pl-6 space-y-2 md:pl-12 md:space-y-4">
+						<svg class="w-auto h-8 text-cool-gray-800 md:h-full" width="38" height="32" viewBox="0 0 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M17.7778 26.6667C17.7778 19.7867 23.3422 14.2222 30.2222 14.2222C32.1422 14.2222 33.9378 14.6667 35.5556 15.4311V0H0V28.4444H17.92C17.8311 27.8578 17.7778 27.2711 17.7778 26.6667ZM3.55556 3.55556L17.7778 12.4444L32 3.55556V7.11111L17.7778 16L3.55556 7.11111V3.55556ZM27.2711 32L20.9778 25.7067L23.4844 23.2L27.2533 26.9689L34.7911 19.4311L37.3333 21.9378L27.2711 32Z"/>
+						</svg>
+						<span class="text-xl text-cool-gray-700 md:text-3xl text-bold">team@bohemicastudio.com</span>
+					</div>
 				</div>
-				<img class="w-full" src="/images/hand/phone.png">
+				<img class="w-full transform origin-top scale-150 md:scale-125 lg:scale-100" src="/images/hand/phone.png">
 			</div>
 		</div>
 	</div>

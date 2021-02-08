@@ -159,7 +159,7 @@
     position: relative;
     display: block;
     width: 2px;
-    height: 14px;
+    height: 15px;
     background: currentColor
 }
 
@@ -174,8 +174,7 @@
 .gg-git-fork::before {
     border-right: 2px solid;
     border-bottom: 2px solid;
-    border-bottom-right-radius: 4px;
-    bottom: 4px;
+    bottom: 6px;
     width: 8px;
     height: 6px;
     left: 0
@@ -186,7 +185,6 @@
     height: 4px;
     background: currentColor;
     box-shadow: 0 12px 0 0, 6px 2px 0 0;
-    border-radius: 100%;
     left: -1px;
     top: -1px
 }

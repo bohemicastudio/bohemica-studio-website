@@ -20,7 +20,7 @@ permalink: /sections/what.html
 				{# {{ projectExample(project='media-server', imageWrapper='screen') }} #}
 				{# {{ projectExample(project='lancaster-maloney', imageWrapper='browser', reverse=true) }} #}
 
-				{{ projectExample(project='subtitle-editor', imageWrapper='3d', imageSize='40') }}
+				{{ projectExample(project='subtitle-editor', imageWrapper='3d', imageSize='40', badges=[{name:'sourceCode', icon:'source-code.svg', link:false}]) }}
 				{{ projectExample(project='lancaster-maloney', imageWrapper='3d', imageSize='50', reverse=true) }}
 				{{ projectExample(project='mmt', imageWrapper='3d', imageSize='45') }}
 			</div>
@@ -29,7 +29,7 @@ permalink: /sections/what.html
 				{{ specialisation(name='iot', image='iot.svg', color='indigo', order='02') }}
 			</div>
 			<div class="divide-y divide-gray-legacy-500">
-				{{ projectExample(project='media-server', imageWrapper='3d', imageSize='50') }}
+				{{ projectExample(project='media-server', imageWrapper='3d', imageSize='50', badges=[{name:'latestProject', icon:'latest-project.svg', link:false}, {name:'sourceCode', icon:'source-code.svg', link:false}]) }}
 			</div>
 
 			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
@@ -51,8 +51,6 @@ permalink: /sections/what.html
 	<div class="container">
 		<div class="flex justify-center items-center py-8 mt-24 rounded-t-3xl md:py-16 bg-gray-legacy-800 md:mt-48 md:rounded-t-7xl">
 			{{ buttonLibrary() }}
-			<button x-on:click="console.log(Spruce.stores.slideover.slideoverOpenAnimation); Spruce.stores.slideover.open = true; $store.slideover.slideoverOpenAnimation.play()">Open slideover</button>
-			<button x-on:click="Spruce.stores.global.openMobileMenu()">Open menu</button>
 		</div>
 	</div>
 </div>

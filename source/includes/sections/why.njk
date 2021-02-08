@@ -1,6 +1,6 @@
 {% macro sectionWhy(name='one', number='?', color='blue-400', outline='white') %}
 
-	<div id="why{{ name | capitalize }}" class="bg-{{ color }}">
+	<div id="why-{{ name }}" class="bg-{{ color }}">
 		<div class="container">
 			<div class="overflow-hidden relative">
 				<div class="flex flex-col justify-start h-screen md:h-screen-125">
@@ -57,6 +57,21 @@
 											<path d="M12.8121 48.9633H18.2168C20.1387 48.9633 21.9362 48.4272 23.4665 47.4962C24.1486 47.0805 24.7695 46.5711 25.335 46.0075L37.4676 33.9042C38.8012 32.5713 38.8012 30.4103 37.4676 29.0773C36.1347 27.7451 33.9724 27.7451 32.6408 29.0773L28.3637 33.3576C26.7461 31.3608 24.2737 30.0845 21.5036 30.0845C16.6285 30.0845 12.6772 34.0365 12.6772 38.9109" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 									{% elseif name === 'four' %}
+										<svg style="width: 50px; height: 50px" width="37" height="50" viewBox="0 0 37 50" fill="currentColor" stroke="{{ outline }}" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.3236 5.30273C12.0436 5.30273 13.4372 6.69701 13.4372 8.41637V28.4247H7.20996V8.41637C7.20996 6.69701 8.60364 5.30273 10.3236 5.30273Z"/>
+											<path d="M10.3236 5.30273C12.0436 5.30273 13.4372 6.69701 13.4372 8.41637V28.4247H7.20996V8.41637C7.20996 6.69701 8.60364 5.30273 10.3236 5.30273Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M16.5826 1C18.3026 1 19.6963 2.39427 19.6963 4.11305V28.331H13.469V4.11305C13.469 2.39427 14.8627 1 16.5826 1Z"/>
+											<path d="M16.5826 1C18.3026 1 19.6963 2.39427 19.6963 4.11305V28.331H13.469V4.11305C13.469 2.39427 14.8627 1 16.5826 1Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M22.7926 5.30273C24.5126 5.30273 25.9062 6.69701 25.9062 8.41637V28.4247H19.679V8.41637C19.679 6.69701 21.0726 5.30273 22.7926 5.30273Z"/>
+											<path d="M22.7926 5.30273C24.5126 5.30273 25.9062 6.69701 25.9062 8.41637V28.4247H19.679V8.41637C19.679 6.69701 21.0726 5.30273 22.7926 5.30273Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M21.0637 24.0801H1V39.2976C1 44.6507 5.33913 48.9898 10.6922 48.9898H16.2176C21.5706 48.9898 25.9097 44.6507 25.9097 39.2976V28.9262C25.9097 26.2499 23.7399 24.0801 21.0637 24.0801Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M11.7339 48.9998H16.6637C19.0024 48.9998 21.1372 48.1297 22.7633 46.6962L34.2253 35.2615C35.4419 34.0461 35.4419 32.0748 34.2253 30.8588C33.0099 29.6434 31.038 29.6434 29.8226 30.8588L25.9209 34.7635C24.4446 32.9419 22.1897 31.7776 19.6621 31.7776C15.2154 31.7776 11.6108 35.3828 11.6108 39.8289"/>
+											<path d="M11.7339 48.9998H16.6637C19.0024 48.9998 21.1372 48.1297 22.7633 46.6962L34.2253 35.2615C35.4419 34.0461 35.4419 32.0748 34.2253 30.8588C33.0099 29.6434 31.038 29.6434 29.8226 30.8588L25.9209 34.7635C24.4446 32.9419 22.1897 31.7776 19.6621 31.7776C15.2154 31.7776 11.6108 35.3828 11.6108 39.8289" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M4.11364 20.5586C5.83361 20.5586 7.22729 21.9529 7.22729 23.6722V25.6906C7.22729 27.4099 5.83361 28.8042 4.11364 28.8042C2.39368 28.8042 1 27.4099 1 25.6906V23.6722C1 21.9529 2.39368 20.5586 4.11364 20.5586Z"/>
+											<path d="M4.11364 20.5586C5.83361 20.5586 7.22729 21.9529 7.22729 23.6722V25.6906C7.22729 27.4099 5.83361 28.8042 4.11364 28.8042C2.39368 28.8042 1 27.4099 1 25.6906V23.6722C1 21.9529 2.39368 20.5586 4.11364 20.5586Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+
+									{% elseif name === 'five' %}
 										<svg style="width: 50px; height: 50px" width="40" height="50" viewBox="0 0 40 50" fill="currentColor" stroke="{{ outline }}" xmlns="http://www.w3.org/2000/svg">
 											<path d="M3.45129 10.4874C5.12541 10.1288 6.77349 11.1946 7.1327 12.8687L10.1774 27.0718L4.11407 28.3719L1.06941 14.1688C0.710797 12.4947 1.77717 10.846 3.45129 10.4874Z"/>
 											<path d="M3.45129 10.4874C5.12541 10.1288 6.77349 11.1946 7.1327 12.8687L10.1774 27.0718L4.11407 28.3719L1.06941 14.1688C0.710797 12.4947 1.77717 10.846 3.45129 10.4874Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,20 +84,6 @@
 											<path d="M24.3285 24.1055H8.94361C6.27945 24.1055 4.1189 26.2654 4.1189 28.9302V39.2572C4.1189 44.5873 8.43942 48.9078 13.7695 48.9078H19.2712C24.6007 48.9078 28.9218 44.5873 28.9218 39.2572V28.6988C28.9218 26.1619 26.8648 24.1055 24.3285 24.1055Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 											<path d="M14.8239 49.0001H19.7327C22.0613 49.0001 24.1875 48.1344 25.806 46.7064L37.2189 35.3214C38.4303 34.1106 38.4303 32.1477 37.2189 30.9369C36.0087 29.7268 34.0452 29.7268 32.8351 30.9369L28.9501 34.8249C27.4801 33.0111 25.2344 31.8518 22.7181 31.8518C18.2905 31.8518 14.7014 35.4415 14.7014 39.8691"/>
 											<path d="M14.8239 49.0001H19.7327C22.0613 49.0001 24.1875 48.1344 25.806 46.7064L37.2189 35.3214C38.4303 34.1106 38.4303 32.1477 37.2189 30.9369C36.0087 29.7268 34.0452 29.7268 32.8351 30.9369L28.9501 34.8249C27.4801 33.0111 25.2344 31.8518 22.7181 31.8518C18.2905 31.8518 14.7014 35.4415 14.7014 39.8691" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									{% elseif name === 'five' %}
-										<svg style="width: 50px; height: 50px" width="37" height="50" viewBox="0 0 37 50" fill="currentColor" stroke="{{ outline }}" xmlns="http://www.w3.org/2000/svg">
-											<path d="M4.11656 9.39062C5.83813 9.39062 7.23312 10.7862 7.23312 12.5072V28.3791H1V12.5072C1 10.7862 2.39499 9.39062 4.11656 9.39062Z"/>
-											<path d="M4.11656 9.39062C5.83813 9.39062 7.23312 10.7862 7.23312 12.5072V28.3791H1V12.5072C1 10.7862 2.39499 9.39062 4.11656 9.39062Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M22.8128 5.24219C24.5344 5.24219 25.9294 6.63777 25.9294 8.35875V28.3859H19.6963V8.35875C19.6963 6.63777 21.0913 5.24219 22.8128 5.24219Z"/>
-											<path d="M22.8128 5.24219C24.5344 5.24219 25.9294 6.63777 25.9294 8.35875V28.3859H19.6963V8.35875C19.6963 6.63777 21.0913 5.24219 22.8128 5.24219Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M10.3487 5.24219C12.0703 5.24219 13.4653 6.63777 13.4653 8.35875V28.3859H7.23218V8.35875C7.23218 6.63777 8.62716 5.24219 10.3487 5.24219Z"/>
-											<path d="M10.3487 5.24219C12.0703 5.24219 13.4653 6.63777 13.4653 8.35875V28.3859H7.23218V8.35875C7.23218 6.63777 8.62716 5.24219 10.3487 5.24219Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M16.5809 1C18.3019 1 19.6975 2.39558 19.6975 4.11596V28.3566H13.4644V4.11596C13.4644 2.39558 14.8593 1 16.5809 1Z"/>
-											<path d="M16.5809 1C18.3019 1 19.6975 2.39558 19.6975 4.11596V28.3566H13.4644V4.11596C13.4644 2.39558 14.8593 1 16.5809 1Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M21.0824 24.0469H5.85062C3.17189 24.0469 1 26.2188 1 28.8975V39.2787C1 44.6367 5.34319 48.9799 10.7007 48.9799H16.2318C21.5899 48.9799 25.9331 44.6367 25.9331 39.2787V28.8975C25.9331 26.2188 23.7612 24.0469 21.0824 24.0469Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M11.7672 49.0001H16.7017C19.0425 49.0001 21.1793 48.1292 22.8069 46.6943L34.2797 35.2489C35.4974 34.0324 35.4974 32.0592 34.2797 30.8421C33.0632 29.6256 31.0888 29.6256 29.8728 30.8421L25.9675 34.7504C24.4898 32.9271 22.2323 31.7618 19.7028 31.7618C15.252 31.7618 11.644 35.3703 11.644 39.8206"/>
-											<path d="M11.7672 49.0001H16.7017C19.0425 49.0001 21.1793 48.1292 22.8069 46.6943L34.2797 35.2489C35.4974 34.0324 35.4974 32.0592 34.2797 30.8421C33.0632 29.6256 31.0888 29.6256 29.8728 30.8421L25.9675 34.7504C24.4898 32.9271 22.2323 31.7618 19.7028 31.7618C15.252 31.7618 11.644 35.3703 11.644 39.8206" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 									{% endif %}
 								</div>
@@ -107,8 +108,8 @@
 			en: {
 				one: 'We specialise in crafting smooth and engaging digital experiences. Clean&nbsp;visual&nbsp;design and reliable underlying code are our priority.',
 				two: 'We are explorers and pioneers –<br>always striving to learn and adapt new&nbsp;ways. But, we do not forget the fundamentals that brought us here.',
-				three: 'Trust, honesty & transparency. We aim to set the right expectations from the start – our clients are always well informed about deadlines, cost and payments. No BS.',
-				four: 'We love challenge! We are open to any type of project and style of work. We always finish what we start and deliver high-quality results.',
+				three: 'We love challenge! We are open to any type of project and style of work. We always finish what we start and deliver high-quality results.',
+				four: 'Trust, honesty & transparency. We aim to set the right expectations from the start – our clients are always well informed about deadlines, cost and payments. No BS.',
 				five: '???',
 			},
 			cs: {

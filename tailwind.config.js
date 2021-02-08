@@ -40,6 +40,8 @@ module.exports = {
 			translate: ['group-hover'],
 			maxWidth: ['responsive'],
 			borderWidth: ['first'],
+			scale: ['responsive'],
+			fontWeight: ['responsive']
 		}
 	},
 	theme: {
@@ -265,6 +267,7 @@ module.exports = {
 				'xl': '1600px',
 			},
 			cursor: {
+				'n-resize': 'n-resize',
 				'ne-resize': 'ne-resize',
 				's-resize': 's-resize',
 				'zoom-in': 'zoom-in',
@@ -273,6 +276,9 @@ module.exports = {
 			},
 			aspectRatio: {
 				'21': '21'
+			},
+			inset: {
+				'1/5': '20%',
 			}
 		}
 	},

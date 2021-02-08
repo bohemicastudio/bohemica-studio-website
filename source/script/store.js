@@ -8,16 +8,42 @@ Spruce.store('global', {
 	language: null,
 	sectionInView: '',
 	openSectionClue: false,
-	windowUnderlayShow: false,
+	showWindowUnderlay: false,
 	onlyWhySection: false,
+	showRepos: true,
 	translation: {
 		en: {
 			sections: {
-				'what': 'What we do',
-				'how': 'How we do it',
-				'how-much': 'How much we charge',
-				'who': 'Who we worked with',
-				'where': 'Where to reach us'
+				'what': {
+					name: 'What',
+					title: 'What we do',
+					subtitle: 'Individuals, startups and established firms entrust us with crafting functional web & mobile based applications and eye-catching brand identities that support their specific business aims.'
+				},
+				'how': {
+					name: 'How',
+					title: 'How we do it',
+					subtitle: 'Every client & project have a unique set of requirements and priorities.There is no universal process or workflow. Clear communication, personal experience and reliable technological stack are part of our tested formula for finding the right solution.'
+				},
+				'how-much': {
+					name: 'How much',
+					title: 'How much we charge',
+					subtitle: '???',
+				},
+				'why': {
+					name: 'Why',
+					title: 'Why to work with us',
+					subtitle: false
+				},
+				'who': {
+					name: 'Who',
+					title: 'Who we worked with',
+					subtitle: false
+				},
+				'where': {
+					name: 'Where',
+					title: 'Where to reach us',
+					subtitle: 'We are a small team of hard-working geeks & nerds scattered across the European continent, although we operate in any corner of the internet space.'
+				}
 			},
 			head: {
 				title: 'Hello there!',
@@ -25,19 +51,47 @@ Spruce.store('global', {
 			},
 			tooltip: {
 				scheduleCall: 'Schedule a call',
-				changeLanguage: 'Change language'
+				changeLanguage: 'Change language',
+				twitter: 'See what we have to say on Twitter',
+				linkedin: 'Connect with us on LinkedIn'
 			},
 			recentActivity: 'Recent activity',
 			lastUpdated: 'Last updated',
-			loading: 'Loading...'
+			loading: 'Loading...',
+			backToTop: 'Back to top'
 		},
 		cs: {
 			sections: {
-				'what': 'What we do',
-				'how': 'How we do it',
-				'how-much': 'How much we charge',
-				'who': 'Who we worked with',
-				'where': 'Where to reach us'
+				'what': {
+					name: 'Co',
+					title: 'Co umíme',
+					subtitle: ''
+				},
+				'how': {
+					name: 'Jak',
+					title: 'Jak pracujeme',
+					subtitle: ''
+				},
+				'how-much': {
+					name: 'Kolik',
+					title: 'Kolik to stojí',
+					subtitle: ''
+				},
+				'why': {
+					name: 'Proč',
+					title: 'Proč si vybrat nás',
+					subtitle: false
+				},
+				'who': {
+					name: 'Kdo',
+					title: 'Kdo s námi spolupracuje',
+					subtitle: false
+				},
+				'where': {
+					name: 'Kde',
+					title: 'Kde se nacházíme',
+					subtitle: ''
+				}
 			},
 			head: {
 				title: 'Nazdárek!',
@@ -45,11 +99,14 @@ Spruce.store('global', {
 			},
 			tooltip: {
 				scheduleCall: 'Zarezervovat online schůzku',
-				changeLanguage: 'Změnit jazyk'
+				changeLanguage: 'Změnit jazyk',
+				twitter: 'Koukni, co máme na srdci na Twitteru',
+				linkedin: 'Spoj se s námi na LinkedIn'
 			},
 			recentActivity: 'Nedávná aktivita',
 			lastUpdated: 'Naposledy aktualizováno',
-			loading: 'Načítám...'
+			loading: 'Načítám...',
+			backToTop: 'Zpět nahoru'
 		}
 	},
 	return: function (data) {
@@ -70,6 +127,7 @@ Spruce.store('global', {
 		this.language = language
 		localStorage.setItem('language', language)
 
+		console.log('router', router)
 		let url = router.current[0].url
 
 		if (url.includes('/')) {
@@ -97,8 +155,7 @@ Spruce.store('global', {
 		window.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
-	}
-	,
+	},
 	mobileMenuOpen: false,
 	openMobileMenu() {
 		this.mobileMenuOpen = true
@@ -112,19 +169,14 @@ Spruce.store('global', {
 					console.log('opening mobileMenu')
 				}),
 				complete: (() => {
-					anime({
-						targets: '#windowUnderlay',
-						opacity: 1,
-						duration: 200,
-						easing: 'linear',
-					})
+					Spruce.stores.global.showWindowUnderlay = true
+					window.animation.showWindowUnderlay.play()
 				})
 			}).finished.then(() => {
 				resolve()
 			})
 		})
-	}
-	,
+	},
 	closeMobileMenu() {
 		window.router.navigate(Spruce.stores.global.language, { callHandler: false })
 		anime({
@@ -133,14 +185,14 @@ Spruce.store('global', {
 			duration: 400,
 			easing: 'easeInQuart',
 			complete: (() => {
-				anime({
-					targets: '#windowUnderlay',
-					opacity: 0,
-					duration: 200,
-					easing: 'linear',
-					complete: (() => {
-						this.mobileMenuOpen = false
-					})
+				window.animation.showWindowUnderlay.reverse()
+				window.animation.showWindowUnderlay.play()
+				window.animation.showWindowUnderlay.finished.then(() => {
+					window.animation.showWindowUnderlay.reverse()
+					this.mobileMenuOpen = false
+					setTimeout(() => {
+						Spruce.stores.global.showWindowUnderlay = false
+					}, 50)
 				})
 			})
 		})
@@ -188,7 +240,6 @@ Spruce.store('activity', {
 		},
 	],
 	get getContent() {
-		console.log('getContent for activity box')
 		if (!!Spruce.stores.global.language && (!this.random || this.random !== 0)) {
 			return this.activities[this.random][Spruce.stores.global.language].content
 		}
@@ -238,10 +289,14 @@ Spruce.store('slideover', {
 // Badge store
 Spruce.store('translation.badge', {
 	en: {
-		officialPartner: 'Official partner'
+		officialPartner: 'Official partner',
+		sourceCode: 'Source code available',
+		latestProject: 'Latest project'
 	},
 	cs: {
-		officialPartner: 'Oficiální partner'
+		officialPartner: 'Oficiální partner',
+		sourceCode: 'Zdrojový kód k dostání',
+		latestProject: 'Nejnovější project'
 	},
 	return: function (data) {
 		return Object.getProperty(Spruce.stores['translation.badge'], Spruce.stores.global.language + '.' + data)

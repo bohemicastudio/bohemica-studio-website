@@ -20,6 +20,11 @@
         @apply text-gray-800 text-lg font-normal transition duration-100 ease-linear rounded-lg py-1 px-3 whitespace-nowrap border border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-none cursor-s-resize
     }
 
+    /* Bottom menu */
+    .bottom-menu__button {
+        @apply text-gray-300 text-lg font-normal transition bg-cool-gray-700 hover:text-white hover:bg-cool-gray-500 focus:ring-cool-gray-400 duration-100 ease-linear rounded-lg py-1 px-3 whitespace-nowrap border border-cool-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-offset-cool-gray-800 focus:outline-none cursor-n-resize
+    }
+
     /* Mobile menu */
     .mobile-menu__button {
         @apply py-2 px-4 text-xl font-medium text-gray-800 whitespace-nowrap rounded-lg mx-auto border border-white transition duration-100 ease-linear focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-none

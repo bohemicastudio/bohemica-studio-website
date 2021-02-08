@@ -51,7 +51,7 @@ permalink: /sections/how.html
 
 	<div class="container" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
 		{{ sectionTitle(section='sectionHow', name='first', icon='process.svg') }}
-		<div class="mt-24 mb-32 space-y-40">
+		<div class="mt-12 md:mt-24 mb-16 md:mb-32 space-y-12 md:space-y-40">
 			{{ processStep(step='1', color='cyan', imageTop='bubble.png', imageBottom='coffee.png') }}
 			{{ processStep(step='2', color='teal', imageTop='notebook.png', imageBottom='pencil.png') }}
 			{{ processStep(step='3', color='emerald', imageTop='rocket.png', imageBottom='shield.png') }}
@@ -66,7 +66,7 @@ permalink: /sections/how.html
 
 <div class="bg-cool-gray-100">
 	<div class="m-auto h-20 md:h-28"></div>
-	<div class="container pb-32 mt-32 space-y-24" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
+	<div class="container pb-16 md:pb-32 mt-12 md:mt-32 space-y-24" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
 		{{ sectionTitle(section='sectionHow', name='second', icon='code.svg') }}
 		<div>
 			<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.first')"></h5>

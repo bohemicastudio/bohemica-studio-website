@@ -1,4 +1,5 @@
 {% from "components/button-project.njk" import buttonProject %}
+{% from "components/badge-feature.njk" import badgeFeature %}
 
 {% macro projectExample(project, image='preview.png', imageWrapper='browser', reverse=false, imageSize='50') %}
 
@@ -81,7 +82,14 @@
 		<div class="flex justify-start items-center w-full md:justify-center md:w-1/2">
 
 			<div class="flex flex-col items-start space-y-10">
-				<div class="grid gap-y-3 gap-x-5 text-sm font-medium md:text-base" style="grid-template-columns: min-content auto">
+
+				<div class="flex flex-row space-x-4">
+					{% for badge in badges %}
+						{{ badgeFeature(name=badge.name, icon=badge.icon, link=badge.link) }}
+					{% endfor %}
+				</div>
+
+				<div class="grid gap-y-3 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>

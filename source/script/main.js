@@ -39,28 +39,7 @@ window.addEventListener('load',
 			scrollOffset: 0
 		})
 
-		/*document.arrive(".medium-zoom-image", function () {
-			console.log('new element with class .medium-zoom-image')
-			let mediumZoom = mediumZoom('img.medium-zoom-image', {
-				margin: 24,
-				background: 'rgba(0, 0, 0, 0.75)',
-				scrollOffset: 0
-			})
-		})*/
-
-		/*document.arrive("[id^='ghcard']", { existing: true }, function () {
-			console.log(this, this.contentWindow)
-
-			let cssLink = document.createElement("link");
-			cssLink.href = "./style.css";
-			cssLink.rel = "stylesheet";
-			cssLink.type = "text/css";
-			this.document.head.appendChild(cssLink);
-		})*/
-
-		/* Intersection observer for parallax animations */
-
-
+		/* Intersection observer */
 		let options = {
 			root: null, // relative to document viewport
 			rootMargin: '-50% 0% -50% 0%', // margin around root. Values are similar to css property. Unitless values not allowed
@@ -72,11 +51,14 @@ window.addEventListener('load',
 			if (entry[0].target.id === 'intro') {
 				window.Spruce.stores.global.openSectionClue = false
 			}
+			/*else if (entry[0].target.id === 'bottom') {
+				window.Spruce.stores.global.openSectionClue = false
+				window.Spruce.stores.global.onlyWhySection = false
+			}*/
 			else {
 				window.Spruce.stores.global.sectionInView = entry[0].target.id
 				window.Spruce.stores.global.openSectionClue = true
 			}
-
 		}
 
 		let observer = new IntersectionObserver((entry) => {
@@ -97,7 +79,14 @@ let updateNavigoLinks = debounce(() => {
 		}, 100)
 */
 
+/* Update Navigo links when new [data-navigo] element is in the DOM */
 document.arrive("[data-navigo]", function () {
 	console.log('new [data-navigo] in the DOM')
 	window.router.updatePageLinks()
 })
+
+/* Update Navigo links when new [data-navigo] element is in the DOM */
+/*document.arrive("[data-tippy-content]", function () {
+	console.log('new [data-tippy-content] in the DOM')
+	window.initialiseTooltips()
+})*/

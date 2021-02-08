@@ -12,10 +12,23 @@ permalink: /sections/repos.html
 	second: {
 	title: 'We speak many languages.',
 	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
-	}
+	},
+	manyMore: '& many more',
+	buttonTitle: 'You can find the source-code repository on GitHub.',
+	buttonText: 'Go to the repo'
 	},
 	cs: {
-
+	info: {
+	title: 'Built with joy and open-source technologies.',
+	subtitle: 'We built this website with the help of lightweight and dare-to-say pioneering libraries.',
+	},
+	second: {
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	},
+	manyMore: '& many more',
+	buttonTitle: 'You can find the source-code repository on GitHub.',
+	buttonText: 'Go to the repo'
 	},
 	return: function (data) {
 	return Object.getProperty(Spruce.stores['translation.sectionRepos'], Spruce.stores.global.language + '.' + data)
@@ -29,9 +42,12 @@ permalink: /sections/repos.html
 <div class="bg-blue-gray-800" id="repos" x-data x-init="(function () { {{ sectionReposTranslation() }} })()">
 	<div class="m-auto h-20 md:h-28"></div>
 	<div class="container py-24">
-		{{ sectionTitle(section='sectionRepos', name='info', icon='open-source.svg', color='light') }}
 
-		<div id="github-cards" class="grid grid-cols-3 auto-rows-fr gap-6 mt-16 mb-12">
+		<div class="mb-16">
+			{{ sectionTitle(section='sectionRepos', name='info', icon='open-source.svg', color='light') }}
+		</div>
+
+		<div x-show="$store.global.showRepos" id="github-cards" class="grid auto-rows-fr gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3" x-cloak>
 			{{ gitCard(name='11ty/eleventy') }}
 			{{ gitCard(name='alpinejs/alpine') }}
 			{{ gitCard(name='tailwindlabs/tailwindcss') }}
@@ -40,16 +56,15 @@ permalink: /sections/repos.html
 			{{ gitCard(name='juliangarnier/anime') }}
 		</div>
 
+		<p x-show="$store.global.showRepos" class="mb-16 text-2xl text-cool-gray-200" x-text="$store['translation.sectionRepos'].return('manyMore')"></p>
+
 		<div class="flex flex-col items-center">
-			<p class="text-2xl text-cool-gray-200 mb-16">& many more</p>
-			<p class="mb-4 text-cool-gray-300">
-				You can find the source-code repository on GitHub.
-			</p>
-			<div class="px-32 py-16 rounded-4xl bg-blue-gray-700">
-			<a href="https://github.com/" target="_blank" class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-blue-gray-300 rounded-xl ring-offset-2 transition duration-100 ease-linear cursor-ne-resize hover:bg-blue-gray-100 focus:ring-2 group focus:ring-offset-blue-gray-800 focus:ring-blue-gray-200">
-				<span class="leading-none text-blue-gray-800 whitespace-nowrap transition duration-100 ease-linear group-hover:text-blue-gray-900">Go to the repo</span>
-			</a>
+			<p class="mb-4 font-medium text-center text-cool-gray-300 sm:font-normal" x-text="$store['translation.sectionRepos'].return('buttonTitle')"></p>
+			<div class="flex justify-center items-center py-16 w-full bg-blue-gray-700 md:px-32 rounded-4xl">
+				<a href="https://github.com/" target="_blank" class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-blue-gray-300 rounded-xl ring-offset-2 transition duration-100 ease-linear cursor-ne-resize hover:bg-blue-gray-100 focus:ring-2 group focus:ring-offset-blue-gray-800 focus:ring-blue-gray-200">
+					<span class="leading-none text-blue-gray-800 whitespace-nowrap transition duration-100 ease-linear group-hover:text-blue-gray-900" x-text="$store['translation.sectionRepos'].return('buttonText')"></span>
+				</a>
 			</div>
 		</div>
-
 	</div>
+</div>

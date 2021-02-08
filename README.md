@@ -1,4 +1,4 @@
-# Bohemica Studio Website 2021
+# Bohemica Studio Website
 
 ## Main technology stack
 

@@ -15,8 +15,8 @@
 
 /* Alpine.js related styles */
 [x-cloak] {
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
 }
 
 .loading {
@@ -57,6 +57,10 @@ ul.grid-how li {
 
 ul.grid-how li > div {
     @apply flex items-center justify-center flex-grow
+}
+
+ul.grid-how li > div > img {
+    @apply transform scale-75 md:scale-100
 }
 
 ul.grid-how li > span {
