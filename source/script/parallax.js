@@ -4,7 +4,7 @@ const parallaxAnimations = [
 	{
 		anime: anime({
 			targets: '#blueHand',
-			translateY: ['17.5vh', '22.5vh'],
+			translateY: ['17.5', '22.5vh'],
 			rotate: [12, 0],
 			autoplay: false,
 			easing: 'linear',
@@ -37,7 +37,7 @@ const parallaxAnimations = [
 	{
 		anime: anime({
 			targets: '#yellowHand',
-			translateY: ['7.5vh', '12.5vh'],
+			translateY: ['8.5vh', '13.5vh'],
 			rotate: [-4, 8],
 			autoplay: false,
 			easing: 'linear'

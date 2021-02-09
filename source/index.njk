@@ -115,39 +115,87 @@
 
 			<div class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-lg xl:max-h-xl container-screen lg:flex">
 				{# CSS calc() method for dynamic image size based on the viewport size inspired by https://codepen.io/CrocoDillon/pen/jgmwt #}
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0" id="blueHand" src="/images/hand/purple.png" onload="
-				anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
-				anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
-				<img class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="greenHand" src="/images/hand/green.png" onload="
-				anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" id="purpleHand" src="/images/hand/purple.png" onload="
-				anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(7.5vh); translateX(-50%); opacity: 0" id="yellowHand" src="/images/hand/yellow.png" onload="
-				anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 2400, delay: 2000, rotate: [8, -4], easing: 'easeOutQuart', })">
+
+				<picture>
+					<source srcset="/images/hand/blue.webp" type="image/webp">
+					<source srcset="/images/hand/blue.png" type="image/png">
+					<img src="/images/hand/blue.png" id="blueHand" class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
+						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/green.webp" type="image/webp">
+					<source srcset="/images/hand/green.png" type="image/png">
+					<img src="/images/hand/green.png" id="greenHand" class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/purple.webp" type="image/webp">
+					<source srcset="/images/hand/purple.png" type="image/png">
+					<img src="/images/hand/purple.png" id="purpleHand" class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/yellow.webp" type="image/webp">
+					<source srcset="/images/hand/yellow.png" type="image/png">
+					<img src="/images/hand/yellow.png" class="absolute bottom-0 origin-bottom-right" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(8.5vh); translateX(-50%); opacity: 0" id="yellowHand" onload="
+						anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 2400, delay: 2000, rotate: [8, -4], easing: 'easeOutQuart', })">
+				</picture>
+
 			</div>
 
 			<div class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-md lg:max-h-lg container-screen md:flex lg:hidden">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" id="blueHandTablet" src="/images/hand/purple.png" onload="
-				anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
-				anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
-				<img class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="greenHandTablet" src="/images/hand/green.png" onload="
-				anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -6], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" id="purpleHandTablet" src="/images/hand/purple.png" onload="
-				anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, -18], easing: 'easeOutQuart', })">
+
+				<picture>
+					<source srcset="/images/hand/blue.webp" type="image/webp">
+					<source srcset="/images/hand/blue.png" type="image/png">
+					<img src="/images/hand/blue.png" id="blueHandTablet" class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
+						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/green.webp" type="image/webp">
+					<source srcset="/images/hand/green.png" type="image/png">
+					<img src="/images/hand/green.png" id="greenHandTablet" class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -6], easing: 'easeOutQuart', })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/purple.webp" type="image/webp">
+					<source srcset="/images/hand/purple.png" type="image/png">
+					<img src="/images/hand/purple.png" id="purpleHandTablet" class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, -18], easing: 'easeOutQuart', })">
+				</picture>
+
 			</div>
 
 			<div class="flex absolute inset-0 z-10 transform -translate-y-20 container-screen md:hidden">
-				<img class="absolute bottom-0 transform origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="greenHandMobile" src="/images/hand/green.png" onload="
-				anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
-				<img class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" id="purpleHandMobile" src="/images/hand/purple.png" onload="
-				anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
-				anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
+
+				<picture>
+					<source srcset="/images/hand/green.webp" type="image/webp">
+					<source srcset="/images/hand/green.png" type="image/png">
+					<img src="/images/hand/green.png" id="greenHandMobile" class="absolute bottom-0 origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
+				</picture>
+
+				<picture>
+					<source srcset="/images/hand/purple.webp" type="image/webp">
+					<source srcset="/images/hand/purple.png" type="image/png">
+					<img src="/images/hand/purple.png" id="purpleHandMobile" class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
+				</picture>
+
 			</div>
 
 			{# Warp background #}
@@ -295,7 +343,7 @@
 			</a>
 		</div>
 		<div id="slideoverContentWrapper" class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl" tabindex="1">
-			<div class="container relative z-10 mt-24" style="height: 3000px">
+			<div class="container relative z-10 my-24">
 				<div id="slideoverContent" class="py-4" style="transform: translateY(-2rem); opacity: 0;"></div>
 			</div>
 		</div>

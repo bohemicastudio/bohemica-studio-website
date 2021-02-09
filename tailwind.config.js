@@ -27,8 +27,6 @@ module.exports = {
 	purge: [
 		'./build/*.html',
 		'./build/**/*.html'
-		/*'./source/!**!/!*.njk',
-		'./includes/!**!/!*.njk',*/
 	],
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
@@ -248,7 +246,8 @@ module.exports = {
 				'11/12': '91.666667%',
 				'screen-50': '50vh',
 				'screen-75': '75vh',
-				'screen-125': '125vh'
+				'screen-125': '125vh',
+				'18': '4.5rem'
 			},
 			letterSpacing: {
 				'wide': '0.05em',

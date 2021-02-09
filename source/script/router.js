@@ -12,6 +12,8 @@ window.router.hooks({
 	before: function (done, match) {
 		console.log('before', match, router)
 
+		done(false) // <-- this will make dirty=false and will allow the subsequent navigation
+
 		// hide section clue
 		window.Spruce.stores.global.openSectionClue = false
 

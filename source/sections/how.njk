@@ -51,10 +51,10 @@ permalink: /sections/how.html
 
 	<div class="container" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
 		{{ sectionTitle(section='sectionHow', name='first', icon='process.svg') }}
-		<div class="mt-12 md:mt-24 mb-16 md:mb-32 space-y-12 md:space-y-40">
-			{{ processStep(step='1', color='cyan', imageTop='bubble.png', imageBottom='coffee.png') }}
-			{{ processStep(step='2', color='teal', imageTop='notebook.png', imageBottom='pencil.png') }}
-			{{ processStep(step='3', color='emerald', imageTop='rocket.png', imageBottom='shield.png') }}
+		<div class="mt-12 mb-16 space-y-12 md:mt-24 md:mb-32 md:space-y-40">
+			{{ processStep(step='1', color='cyan', imageTop='bubble', imageBottom='coffee') }}
+			{{ processStep(step='2', color='teal', imageTop='notebook', imageBottom='pencil') }}
+			{{ processStep(step='3', color='emerald', imageTop='rocket', imageBottom='shield') }}
 		</div>
 	</div>
 
@@ -66,50 +66,50 @@ permalink: /sections/how.html
 
 <div class="bg-cool-gray-100">
 	<div class="m-auto h-20 md:h-28"></div>
-	<div class="container pb-16 md:pb-32 mt-12 md:mt-32 space-y-24" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
+	<div class="container pb-16 mt-12 space-y-24 md:pb-32 md:mt-32" x-data x-init="(function () { {{ sectionHowTranslation() }} {{ processStepsTranslation() }} })()">
 		{{ sectionTitle(section='sectionHow', name='second', icon='code.svg') }}
 		<div>
 			<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.first')"></h5>
 			<ul class="grid-how">
 				<li>
 					<div>
-						<img src="/images/logo/javascript.svg">
+						<img src="/images/logo/javascript.svg" loading="lazy">
 					</div>
 					<span>JavaScript</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/php.svg">
+						<img src="/images/logo/php.svg" loading="lazy">
 					</div>
 					<span>PHP</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/laravel.svg">
+						<img src="/images/logo/laravel.svg" loading="lazy">
 					</div>
 					<span>Laravel</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/csharp.svg">
+						<img src="/images/logo/csharp.svg" loading="lazy">
 					</div>
 					<span>C#</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/swift.svg">
+						<img src="/images/logo/swift.svg" loading="lazy">
 					</div>
 					<span>Swift</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/swiftui.svg">
+						<img src="/images/logo/swiftui.svg" loading="lazy">
 					</div>
 					<span>SwiftUI</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/kotlin.svg">
+						<img src="/images/logo/kotlin.svg" loading="lazy">
 					</div>
 					<span>Kotlin</span>
 				</li>
@@ -120,25 +120,25 @@ permalink: /sections/how.html
 			<ul class="grid-how">
 				<li>
 					<div>
-						<img src="/images/logo/html5.svg">
+						<img src="/images/logo/html5.svg" loading="lazy">
 					</div>
 					<span>HTML5</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/css3.svg">
+						<img src="/images/logo/css3.svg" loading="lazy">
 					</div>
 					<span>CSS3</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/tailwindcss.svg">
+						<img src="/images/logo/tailwindcss.svg" loading="lazy">
 					</div>
 					<span>Tailwind CSS</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/bootstrap.svg">
+						<img src="/images/logo/bootstrap.svg" loading="lazy">
 					</div>
 					<span>Bootstrap</span>
 				</li>
@@ -149,43 +149,43 @@ permalink: /sections/how.html
 			<ul class="grid-how">
 				<li>
 					<div>
-						<img src="/images/logo/vuejs.svg">
+						<img src="/images/logo/vuejs.svg" loading="lazy">
 					</div>
 					<span>Vue.js</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/nuxtjs.svg">
+						<img src="/images/logo/nuxtjs.svg" loading="lazy">
 					</div>
 					<span>Nuxt.js</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/nodejs.svg">
+						<img src="/images/logo/nodejs.svg" loading="lazy">
 					</div>
 					<span>Node.js</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/gridsome.svg">
+						<img src="/images/logo/gridsome.svg" loading="lazy">
 					</div>
 					<span>Gridsome</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/alpinejs.svg">
+						<img src="/images/logo/alpinejs.svg" loading="lazy">
 					</div>
 					<span>Alpine.js</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/jquery.svg">
+						<img src="/images/logo/jquery.svg" loading="lazy">
 					</div>
 					<span>jQuery</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/animejs.svg">
+						<img src="/images/logo/animejs.svg" loading="lazy">
 					</div>
 					<span>Anime.js</span>
 				</li>
@@ -197,7 +197,7 @@ permalink: /sections/how.html
 				<li>
 					{{ badgeFeature(name='officialPartner', icon='official-partner.svg', link='https://apostrophecms.com/') }}
 					<div>
-						<img src="/images/logo/apostrophecms.svg">
+						<img src="/images/logo/apostrophecms.svg" loading="lazy">
 					</div>
 					<span>
 							Apostrophe CMS
@@ -205,19 +205,19 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/strapi.svg">
+						<img src="/images/logo/strapi.svg" loading="lazy">
 					</div>
 					<span>Strapi</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/wordpress.svg">
+						<img src="/images/logo/wordpress.svg" loading="lazy">
 					</div>
 					<span>Wordpress</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/elementor.svg">
+						<img src="/images/logo/elementor.svg" loading="lazy">
 					</div>
 					<span>Elementor</span>
 				</li>
@@ -228,25 +228,25 @@ permalink: /sections/how.html
 			<ul class="mt-12 grid-how">
 				<li>
 					<div>
-						<img src="/images/logo/figma.svg">
+						<img src="/images/logo/figma.svg" loading="lazy">
 					</div>
 					<span>Figma</span>
 				</li>
 				<li>
 					<div>
-						<img class="w-auto h-20" src="/images/logo/drama.png">
+						<img class="w-auto h-20" src="/images/logo/drama.png" loading="lazy">
 					</div>
 					<span>Drama</span>
 				</li>
 				<li>
 					<div>
-						<img src="/images/logo/framer.svg">
+						<img src="/images/logo/framer.svg" loading="lazy">
 					</div>
 					<span>Framer</span>
 				</li>
 				<li>
 					<div>
-						<img class="w-auto h-20" src="/images/logo/spline.png">
+						<img class="w-auto h-20" src="/images/logo/spline.png" loading="lazy">
 					</div>
 					<span>Spline</span>
 				</li>

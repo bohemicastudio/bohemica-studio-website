@@ -10,10 +10,10 @@ permalink: /sections/who.html
 	subtitle: false
 	},
 	second: {
-	title: 'What our clients have to say about us.',
+	title: 'This is what some of our clients have to say about us.',
 	subtitle: false
 	},
-	buttonTitle: 'You can read more about various projects we have done.'
+	buttonTitle: 'You can read more about the various projects we have done.'
 	},
 	cs: {
 	first: {
@@ -41,28 +41,36 @@ permalink: /sections/who.html
 
 <div class="pt-12 pb-24 bg-white">
 	<div class="container flex flex-col items-center" x-data x-init="(function () { {{ sectionWhoTranslation() }} })()">
+		{{ sectionTitle(section='sectionWho', name='second', icon='stars.svg', subtitle=false) }}
+		<hr class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24">
+		<div class="grid bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px;">
+			<div class="p-8 bg-white lg:p-16">
+				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='18', color='blue') }}
+			</div>
+			<div class="p-8 bg-white lg:p-16">
+				{{ testimonial(project='lancaster-maloney', logo='logo.png', logoHeight='12', color='amber') }}
+			</div>
+			<div class="p-8 bg-white lg:p-16">
+				{{ testimonial(project='media-server', logo='logo.svg', logoHeight='10', color='yellow') }}
+			</div>
+			<div class="p-8 bg-white lg:p-16">
+				{{ testimonial(project='subtitle-editor', logo='logo.svg', logoHeight='11', color='rose') }}
+			</div>
+		</div>
+		<hr class="mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48">
 		{{ sectionTitle(section='sectionWho', name='first', icon='globe.svg', subtitle=false) }}
-		<img src="/images/map.svg" class="hidden my-32 w-full max-w-full h-auto md:block lg:px-24 xl:px-40">
-		<img src="/images/map-mobile.svg" class="block my-16 w-10 md:hidden">
+		<picture>
+			<source srcset="/images/map.webp" type="image/webp">
+			<source srcset="/images/map.png" type="image/png">
+			<img src="/images/map.png" class="hidden my-20 w-full max-w-full h-auto md:block lg:px-12 xl:px-28" media="(min-width: 960px)" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/map-mobile.svg" type="image/svg">
+			<img src="/images/map-mobile.svg" class="block my-16 w-10 md:hidden" media="(max-width: 960px)" loading="lazy">
+		</picture>
 		<p class="mb-4 font-medium text-center text-cool-gray-700 sm:font-normal" x-text="$store['translation.sectionWho'].return('buttonTitle')"></p>
 		<div class="flex justify-center items-center py-16 w-full md:w-auto md:px-32 rounded-4xl bg-teal-legacy-400">
 			{{ buttonLibrary() }}
-		</div>
-		<hr class="mt-16 mb-12 h-48 border-t-0 border-l border-cool-gray-400 md:mt-32 md:mb-24 md:h-64">
-		{{ sectionTitle(section='sectionWho', name='second', icon='stars.svg', subtitle=false) }}
-		<div class="grid mt-12 bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px;">
-			<div class="p-8 bg-white lg:p-16">
-				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='blue') }}
-			</div>
-			<div class="p-8 bg-white lg:p-16">
-				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='amber') }}
-			</div>
-			<div class="p-8 bg-white lg:p-16">
-				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='yellow') }}
-			</div>
-			<div class="p-8 bg-white lg:p-16">
-				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='16', color='rose') }}
-			</div>
 		</div>
 	</div>
 </div>

@@ -69,13 +69,13 @@
 					</div>
 				</div>
 
-			{% elseif imageWrapper === 'logo' %}
-
 			{% elseif imageWrapper === '3d' %}
-				<img id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom src="/images/project/{{ project }}/preview-3d.png" data-zoom-src="/images/project/{{ project }}/preview-3d-zoom.png">
-
+				<picture>
+					<source srcset="/images/project/{{ project }}/preview-3d.webp" type="image/webp">
+					<source srcset="/images/project/{{ project }}/preview-3d.png" type="image/png" >
+					<img src="/images/project/{{ project }}/preview-3d-zoom.png" id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom loading="lazy">
+				</picture>
 			{% endif %}
-
 
 		</div>
 
@@ -109,9 +109,9 @@
 {% endmacro %}
 
 {% macro projectsTranslation() %}
-
 	Spruce.store('translation.projects', {
 	en: {
+	projectLibrary: 'Project library',
 	labels: {
 	client: 'Client',
 	year: 'Year',
@@ -119,14 +119,14 @@
 	stack: 'Stack'
 	},
 	list: {
-	'lancaster-maloney': {
-	client: 'Lancaster Maloney, United Kingdom',
-	logo: 'logo.png',
+	'media-server': {
+	client: 'T-Mobile',
+	logo: 'logo.svg',
 	logoHeight: '12',
-	year: 2020,
-	type: 'Dashboard managament system (FMS/CMMS)',
-	categories: ['Dashboard', 'CORS', 'Property management'],
-	stack: 'CoreUI, Vue.js, Strapi, CentOS'
+	year: 2021,
+	type: 'Company website',
+	categories: ['Website', 'UI/UX', 'CMS'],
+	stack: 'Apostrophe CMS ...'
 	},
 	'mmt': {
 	client: 'MMT s.r.o., Czech Republic',
@@ -137,11 +137,47 @@
 	categories: ['Website', 'UI/UX', 'CMS'],
 	stack: 'Apostrophe CMS ...'
 	},
-	'mmt-2': {
-	client: 'MMT s.r.o., Czech Republic',
-	logo: 'logo.svg',
-	logoHeight: '16',
+	'lancaster-maloney': {
+	client: 'Lancaster Maloney, United Kingdom',
+	logo: 'logo.png',
+	logoHeight: '12',
 	year: 2020,
+	type: 'Dashboard management system (FMS/CMMS)',
+	categories: ['Dashboard', 'CORS', 'Property management'],
+	stack: 'CoreUI, Vue.js, Strapi, CentOS'
+	},
+	'subtitle-editor': {
+	client: 'SlidesLive',
+	logo: 'logo.svg',
+	logoHeight: '12',
+	year: 2020,
+	type: 'Company website',
+	categories: ['Website', 'UI/UX', 'CMS'],
+	stack: 'Apostrophe CMS ...'
+	},
+	'superflow': {
+	client: 'Superflow',
+	logo: 'logo.svg',
+	logoHeight: '10',
+	year: 2020,
+	type: 'Company website',
+	categories: ['Website', 'UI/UX', 'CMS'],
+	stack: 'Apostrophe CMS ...'
+	},
+	'landing-library': {
+	client: 'Various',
+	logo: 'logo.svg',
+	logoHeight: '10',
+	year: false,
+	type: 'Company website',
+	categories: ['Website', 'UI/UX', 'CMS'],
+	stack: 'Apostrophe CMS ...'
+	},
+	'logos': {
+	client: 'Various',
+	logo: 'logo.svg',
+	logoHeight: '10',
+	year: false,
 	type: 'Company website',
 	categories: ['Website', 'UI/UX', 'CMS'],
 	stack: 'Apostrophe CMS ...'
@@ -149,6 +185,7 @@
 	}
 	},
 	cs: {
+	projectLibrary: 'Knihovna projektu',
 	labels: {
 	client: 'Klient',
 	year: 'Rok',
@@ -168,5 +205,4 @@
 	return Object.getProperty(Spruce.stores['translation.projects'], Spruce.stores.global.language + '.' + data)
 	}
 	})
-
 {% endmacro %}

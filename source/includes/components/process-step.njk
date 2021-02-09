@@ -1,13 +1,21 @@
-{% macro processStep(step='0', color='gray', imageTop='bubble.png', imageBottom='coffee.png') %}
+{% macro processStep(step='0', color='gray', imageTop='bubble', imageBottom='coffee') %}
 
-	<div class="flex flex-col p-5 sm:py-8 sm:px-10 w-full bg-white md:py-20 md:pl-14 md:w-10/12">
+	<div class="flex flex-col p-5 w-full bg-white sm:py-8 sm:px-10 md:py-20 md:pl-14 md:w-10/12">
 		<div class="relative">
-			<img class="hidden absolute top-0 right-0 h-72 transform translate-x-1/2 translate-y-6 md:block" src="/images/step/{{ imageTop }}">
-			<img class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block" src="/images/step/{{ imageBottom }}">
+			<picture>
+				<source srcset="/images/step/{{ imageTop }}.webp" type="image/webp">
+				<source srcset="/images/step/{{ imageTop }}.png" type="image/png">
+				<img src="/images/step/{{ imageTop }}.png" class="hidden absolute top-0 right-0 h-72 transform translate-x-1/2 translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
+			</picture>
+			<picture>
+				<source srcset="/images/step/{{ imageBottom }}.webp" type="image/webp">
+				<source srcset="/images/step/{{ imageBottom }}.png" type="image/png">
+				<img src="/images/step/{{ imageBottom }}.png" class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
+			</picture>
 			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase" x-text="$store['translation.processSteps'].return('step') + ' {{ step }}'"></span>
-			<h3 class="mt-4 text-4xl sm:text-5xl text-cool-gray-700 md:text-7xl" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>
+			<h3 class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>
 			<div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
-				<ul class="space-y-8 text-cool-gray-900 text-base font-dm-mono">
+				<ul class="space-y-8 text-base text-cool-gray-900 font-dm-mono">
 					<template x-for="row in $store['translation.processSteps'].return('{{ step }}.description')">
 						<li x-text="row"></li>
 					</template>
