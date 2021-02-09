@@ -38,6 +38,7 @@ module.exports = {
 		extend: {
 			backgroundColor: ['group-focus'],
 			translate: ['group-hover'],
+			width: ['responsive'],
 			maxWidth: ['responsive'],
 			borderWidth: ['first'],
 			scale: ['responsive'],

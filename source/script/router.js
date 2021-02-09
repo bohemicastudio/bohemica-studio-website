@@ -27,6 +27,7 @@ window.router.hooks({
 			done()
 		}
 		else {
+			console.log('NO PARAM')
 			window.router.navigate('en', { callHandler: false })
 		}
 	},
@@ -41,40 +42,6 @@ window.router.hooks({
 		}
 	}
 })
-
-/*
-
-Idea for multilang router
-
-paths:
-	{ name_path_lang1
-	name_path_lang2
-	route_name
-	file_name }
-
-getPath(file_name) {
-
-	route_name according to currentLang (= lang1)
-	name_path_ to currentLang (= lang1)
-
-	window.router.generate(route_name + '-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: name_path_lang1} )
-
-	?? add file_name into the router for later retriaval - window.Navigo / router.matched ??
-
-	return route_name/name_path_lang1
-}
-
-getFile() {
-	may not be necessary
-}
-
-???
-
-end - router.navigate(getPath(file_name)) -> router.navigate('generated/url')
-
-*/
-
-console.log(window, router)
 
 window.router.paths = [
 	{

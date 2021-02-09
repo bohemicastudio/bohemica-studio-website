@@ -98,7 +98,7 @@
 								</div>
 								<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
 									<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
-									<a href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" class="cursor-ne-resize" x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }" x-init="$fetch(url).then(response => data = response)" x-text="dayjs(data[0]?.commit?.author?.date).format('DD/MM/YYYY HH:mm:ss')">00.00.0000</a>
+									<a href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" class="cursor-ne-resize" x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }" x-init="$fetch(url).then(response => data = response)" x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
 								</div>
 							</div>
 						</div>
