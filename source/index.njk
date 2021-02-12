@@ -1,19 +1,13 @@
 {% extends "./includes/default.njk" %}
 
-{% block title %}Bohemica Studio{% endblock %}
-
-{% block head %}
-	<script>
-
-	</script>
-{% endblock %}
-
 {% block content %}
 
 	{% from "sections/why.njk" import sectionWhy, sectionWhyTranslation %}
+	{% from "./projects/overview.njk" import projectsTranslation %}
 	{% from "components/section-loading.njk" import sectionLoading %}
 	{% from "components/social-channels.njk" import socialChannels %}
 
+	{{ projectsTranslation() }}
 	{{ sectionWhyTranslation() }}
 
 	<div class="overflow-hidden relative bg-blue-gray-100" id="intro">

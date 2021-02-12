@@ -55,6 +55,14 @@ window.router.paths = [
 		route: 'project'
 	},
 	{
+		file: 'media-server',
+		path: {
+			en: 't-mobile',
+			cs: 't-mobile'
+		},
+		route: 'project'
+	},
+	{
 		file: 'mmt',
 		path: {
 			en: 'mmt',
@@ -69,6 +77,38 @@ window.router.paths = [
 			cs: 'lancaster-maloney'
 		},
 		route: 'project'
+	},
+	{
+		file: 'subtitle-editor',
+		path: {
+			en: 'slideslive',
+			cs: 'slideslive'
+		},
+		route: 'project'
+	},
+	{
+		file: 'superflow',
+		path: {
+			en: 'superflow',
+			cs: 'superflow'
+		},
+		route: 'project'
+	},
+	{
+		file: 'landing-pages',
+		path: {
+			en: 'landing-pages',
+			cs: 'webove-stranky'
+		},
+		route: 'project'
+	},
+	{
+		file: 'branding',
+		path: {
+			en: 'branding',
+			cs: 'firemni-identita'
+		},
+		route: 'project'
 	}
 ]
 
@@ -81,7 +121,7 @@ window.router.getPath = function (file) {
 		path = router.paths.find(path => path.file === file).path[Spruce.stores.global.language]
 	}
 	else {
-		/*console.error('getPath:', file, '(Path does not exist)')*/
+		console.error('getPath:', file, '(Path does not exist)')
 	}
 
 	return router.generate(route, { language: Spruce.stores.global.language, name: path })

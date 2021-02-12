@@ -279,7 +279,19 @@ module.exports = {
 			},
 			inset: {
 				'1/5': '20%',
-			}
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						hr: {
+							borderColor: '#A1A1AA'
+						},
+						strong: {
+							fontWeight: '800',
+						},
+					},
+				},
+			},
 		}
 	},
 	corePlugins: {

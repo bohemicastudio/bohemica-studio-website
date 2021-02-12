@@ -2,7 +2,7 @@
 permalink: /sections/what.html
 ---
 
-{% from "components/project-example.njk" import projectExample, projectsTranslation %}
+{% from "components/project-example.njk" import projectExample %}
 {% from "components/specialisation.njk" import specialisation, specialisationsTranslation %}
 {% from "components/section-intro.njk" import sectionIntro %}
 {% from "components/button-library.njk" import buttonLibrary %}
@@ -12,7 +12,7 @@ permalink: /sections/what.html
 	{{ sectionIntro(name='what') }}
 
 	<div class="container">
-		<div class="flex flex-col divide-y divide-gray-legacy-500" x-data x-init="(function () { {{ specialisationsTranslation() }} {{ projectsTranslation() }} })()">
+		<div class="flex flex-col divide-y divide-gray-legacy-500" x-data x-init="(function () { {{ specialisationsTranslation() }} })()">
 			<div class="pb-8 md:pb-16">
 				{{ specialisation(name='code', image='code.svg', color='orange', order='01') }}
 			</div>

@@ -2,19 +2,19 @@
 permalink: /projects/overview.html
 ---
 
-<h3 class="pb-8 mb-16 text-3xl font-bold text-cool-gray-900 border-b border-cool-gray-600" x-text="$store['translation.projects'].return('projectLibrary')"></h3>
+<h3 class="pb-8 mb-16 text-3xl font-bold text-gray-900 border-b border-gray-600" x-text="$store['translation.projects'].return('projectLibrary')"></h3>
 
 <div class="grid grid-cols-2 auto-rows-fr gap-6">
 	<template x-for="(entry, index) in Object.entries($store['translation.projects'].return('list'))" :key="entry[0]">
-		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-cool-gray-500 transition duration-100 ease-linear cursor-pointer hover:border-cool-gray-800 hover:bg-cool-gray-200 focus:outline-none focus:bg-cool-gray-200"> {# bg-cool-gray-100 rounded-3xl border border-cool-gray-300 hover:border-cool-gray-500 #}
+		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear cursor-pointer hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"> {# bg-gray-100 rounded-3xl border border-gray-300 hover:border-gray-500 #}
 			<div class="flex flex-grow items-center">
 				<img x-bind:class="'h-'+entry[1].logoHeight" x-bind:src="`/images/project/${entry[0]}/${entry[1].logo}`">
 			</div>
 			<div class="flex flex-col space-y-3 text-2xl">
-				<span class="text-cool-gray-800" x-text="entry[1].client + (entry[1].year ? ' | ' + entry[1].year : '')"></span>
+				<span class="text-gray-800" x-text="entry[1].client + (entry[1].year ? ' | ' + entry[1].year : '')"></span>
 				<div class="flex flex-wrap space-x-1 space-x-reverse">
 					<template x-for="(category, index) in entry[1].categories">
-						<span class="select-none text-white bg-cool-gray-600 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="category"></span>
+						<span class="select-none text-white bg-gray-600 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="category"></span>
 					</template>
 				</div>
 			</div>
@@ -22,3 +22,107 @@ permalink: /projects/overview.html
 	</template>
 </div>
 
+{% macro projectsTranslation() %}
+	<script>
+		Spruce.store('translation.projects', {
+			en: {
+				projectLibrary: 'Project library',
+				labels: {
+					client: 'Client',
+					year: 'Year',
+					type: 'Project type',
+					industry: 'Industry',
+					platforms: 'Platforms',
+					stack: 'Technology stack'
+				},
+				list: {
+					'media-server': {
+						client: 'T-Mobile',
+						logo: 'logo.svg',
+						logoHeight: '12',
+						year: 2021,
+						type: 'Company website',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'mmt': {
+						client: 'MMT s.r.o., Czech Republic',
+						logo: 'logo.svg',
+						logoHeight: '20',
+						year: 2020,
+						type: 'Company website',
+						industry: 'Automated production lines',
+						platforms: 'Web',
+						categories: ['Website', 'UI/UX', 'CMS', 'Styleguide', 'Mockup', 'SEO'],
+						stack: 'Apostrophe CMS, MongoDB, Alpine.js, Tailwind CSS'
+					},
+					'lancaster-maloney': {
+						client: 'Lancaster Maloney, United Kingdom',
+						logo: 'logo.png',
+						logoHeight: '12',
+						year: 2020,
+						type: 'Dashboard management system (FMS/CMMS)',
+						categories: ['Dashboard', 'CORS', 'Property management'],
+						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+					},
+					'subtitle-editor': {
+						client: 'SlidesLive',
+						logo: 'logo.svg',
+						logoHeight: '12',
+						year: 2020,
+						type: 'Company website',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'superflow': {
+						client: 'Superflow',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: 2020,
+						type: 'Company website',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'landing-pages': {
+						client: 'Various',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: false,
+						type: 'Company website',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'branding': {
+						client: 'Various',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: false,
+						type: 'Company website',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					}
+				}
+			},
+			cs: {
+				projectLibrary: 'Knihovna projektu',
+				labels: {
+					client: 'Klient',
+					year: 'Rok',
+					type: 'Typ',
+					stack: 'Technologie'
+				},
+				list: {
+					'lancaster-maloney': {
+						client: 'Lancaster Maloney, Velká Británie',
+						year: 2020,
+						type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
+						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+					}
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.projects'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+	</script>
+{% endmacro %}

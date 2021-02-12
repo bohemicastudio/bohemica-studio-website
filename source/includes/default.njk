@@ -2,14 +2,10 @@
 <html lang="en"> {# TODO dynamic changes via SPRUCE ??? #}
 <head>
 	<!-- Title -->
-	<title>
-		{% block title %}Does it work?{% endblock %}
-	</title>
+	<title>Bohemica Studio</title>
 	<!-- Meta -->
 	<meta charset="UTF-8"/>
-	{% if description %}
-		<meta name="description" content="{{ description }}"/>
-	{% endif %}
+	<meta name="description" content="We are Bohemica Studio — a friendly team of qualified full-stack programmers and visual designers.">
 	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
 	<base href="/"/>
@@ -23,22 +19,49 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
-	<!-- Hotjar -->
+	<!-- Sentry Lazy Load -->
+	{# <script
+			src="https://js.sentry-cdn.com/8c54f29f7c2a4828bbdf7e23519c491d.min.js"
+			crossorigin="anonymous"
+			data-lazy="no"
+	></script> #}
+	<!-- Sentry with Integrations -->
+	<script
+			src="https://browser.sentry-cdn.com/6.1.0/bundle.tracing.min.js"
+			integrity="sha384-zKY6TGhvvk56kzNuSSpDCYYF5IU+xaSN4YmCDBCq/l98ITbn+9I+2/LZ2clNwe80"
+			crossorigin="anonymous"
+	></script>
+	{# <script>
+		window.onerror = function (errorMsg, url, lineNumber) {
+			console.log(["window.onerror", errorMsg, url, lineNumber].join())
+			return true
+		}
+
+		window.addEventListener("unhandledrejection", function (e) {
+			console.log(["window: Unhandled Rejection", e.reason.message].join())
+		})
+
+		window.addEventListener("rejectionhandled", function (e) {
+			console.log(["window: rejectionhandled", e.reason.message].join())
+		})
+
+		window.addEventListener("error", function (e) {
+			console.log(["window: Error", e.reason.message].join())
+		})
+
+	</script> #}
+	{# <script
+			src="https://browser.sentry-cdn.com/6.1.0/captureconsole.min.js"
+			integrity="sha384-89dz/GJSE9/L79qAtPaRQRjnwsc1X2XTmYK4Ju8MoXVwvcLsF4Yntc4i5y2GZ572"
+			crossorigin="anonymous"
+	></script> #}
 	<script>
-		(function (h, o, t, j, a, r) {
-			h.hj = h.hj || function () {
-				(h.hj.q = h.hj.q || []).push(arguments)
-			};
-			h._hjSettings = { hjid: 2238600, hjsv: 6 };
-			a = o.getElementsByTagName('head')[0];
-			r = o.createElement('script');
-			r.async = 1;
-			r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-			a.appendChild(r);
-		})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+		Sentry.init({
+			dsn: "https://8c54f29f7c2a4828bbdf7e23519c491d@o522246.ingest.sentry.io/5633405",
+			integrations: [new Sentry.Integrations.BrowserTracing()/*, new Sentry.Integrations.CaptureConsole({ levels: ['error', 'warn']})*/],
+			tracesSampleRate: 1.0,
+		})
 	</script>
-	<!-- Splitbee -->
-	<script async src="https://cdn.splitbee.io/sb.js"></script>
 	<!-- CSS style & fonts -->
 	<link rel="stylesheet" href="./style.css?v={% version %}"/>
 	<!-- Helper JS functions -->
@@ -68,6 +91,23 @@
 {% block content %}
 	{{ content | safe }}
 {% endblock %}
-<script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" defer async></script>
+<!-- Hotjar -->
+<script async defer>
+	(function (h, o, t, j, a, r) {
+		h.hj = h.hj || function () {
+			(h.hj.q = h.hj.q || []).push(arguments)
+		}
+		h._hjSettings = { hjid: 2238600, hjsv: 6 }
+		a = o.getElementsByTagName('head')[0]
+		r = o.createElement('script')
+		r.async = 1
+		r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+		a.appendChild(r)
+	})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+</script>
+<!-- Splitbee -->
+<script src="https://cdn.splitbee.io/sb.js" async defer></script>
+<!-- Smallchat -->
+<script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" async defer></script>
 </body>
 </html>

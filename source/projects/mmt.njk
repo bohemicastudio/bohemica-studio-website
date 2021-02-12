@@ -2,22 +2,74 @@
 permalink: /projects/mmt.html
 ---
 
+{% from "components/button-overview-library.njk" import buttonBackLibrary %}
+
 <div x-data="(function () { return {
-			title: 'test',
-			messages: {
+			name: 'mmt',
+			text: {
 				en: {
-					title: 'MMT - English'
+					1: '<strong>Bohemica Studio was chosen to revamp website of a Czech company specialising in industrial automation and robotics.</strong> MMT is well established in the European market. They are providing assembly lines and other machinery for major car manufacturers and supplying components of renowned brands across the continent and beyond.',
+					2: ''
 				},
 				cs: {
-					title: 'MMT - Čeština'
+					1: 'Jsme ryze česká firma, máme za sebou 20 let zkušeností, zaměstnáváme odborníky na problematiku v daném oboru, používáme komponenty od výrobců renomovaných značek.'
 				}
 			}
 		}
 		})()">
 
-	<span x-text="messages[$store.global.language].title"></span>
+	<div class="flex flex-row items-center pb-8 mb-16 space-x-6 border-b border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
+	</div>
 
-	<div class="prose mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl" style="max-width: none !important;">
+
+		<div class="flex flex-grow items-center">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['${name}'].logoHeight`)}`" x-bind:src="`/images/project/${name}/${$store['translation.projects'].return(`list['${name}'].logo`)}`">
+		</div>
+
+		<div class="grid gap-y-1 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].client`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].year`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].type`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].industry`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].platforms`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['${name}'].stack`)"></span>
+		</div>
+
+		<hr class="border-gray-500">
+		<p x-html="text[$store.global.language][1]"></p>
+		<p>After a thorough discussion with the management team, we established a few key targets:</p>
+		<ol>
+			<li>Professional and modern look of the site</li>
+			<li>Emphasis on the content (including text, pictures and videos)</li>
+			<li>Simple content management system with internationalisation</li>
+		</ol>
+		<p>Now we're going to try out another header style.</p>
+
+		Other services:
+			Domain and hosting management
+			Search engine optimization
+			Copywriting
+
+		<figure>
+			<figcaption>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</figcaption>
+			<picture>
+				<source srcset="/images/project/mmt/1.webp" type="image/webp">
+				<source srcset="/images/project/mmt/1.png" type="image/png">
+				<img src="/images/project/mmt/2.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+
+
 		<p class="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
 		<p>By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you
 			<em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
@@ -60,7 +112,7 @@ permalink: /projects/mmt.html
 		<ol>
 			<li>We want everything to look good out of the box.</li>
 			<li>Really just the first reason, that's the whole point of the plugin.</li>
-			<li>Here's a third pretend reason though a list with three items looks more realistic than a list with two items.</li>
+			<li>Here's a third pretenere list items have hd reason though a list with three items looks more realistic than a list with two items.</li>
 		</ol>
 		<p>Now we're going to try out another header style.</p>
 		<h3>Typography should be easy</h3>
@@ -226,7 +278,5 @@ permalink: /projects/mmt.html
 
 
 </div>
-
-<a x-bind:href="router.getPath('overview')" data-navigo>Overview</a>
 
 

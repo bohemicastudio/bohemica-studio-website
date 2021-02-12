@@ -101,7 +101,7 @@ Spruce.store('global', {
 				scheduleCall: 'Zarezervovat online schůzku',
 				changeLanguage: 'Změnit jazyk',
 				twitter: 'Koukni, co máme na srdci na Twitteru',
-				linkedin: 'Spoj se s námi na LinkedIn'
+				linkedin: 'Spoj se s námi na síti LinkedIn'
 			},
 			recentActivity: 'Nedávná aktivita',
 			lastUpdated: 'Naposledy aktualizováno',

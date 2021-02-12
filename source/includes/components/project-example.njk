@@ -72,7 +72,7 @@
 			{% elseif imageWrapper === '3d' %}
 				<picture>
 					<source srcset="/images/project/{{ project }}/preview-3d.webp" type="image/webp">
-					<source srcset="/images/project/{{ project }}/preview-3d.png" type="image/png" >
+					<source srcset="/images/project/{{ project }}/preview-3d.png" type="image/png">
 					<img src="/images/project/{{ project }}/preview-3d-zoom.png" id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom loading="lazy">
 				</picture>
 			{% endif %}
@@ -96,6 +96,10 @@
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
+					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
+					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
+					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 				</div>
@@ -106,103 +110,4 @@
 		</div>
 	</div>
 
-{% endmacro %}
-
-{% macro projectsTranslation() %}
-	Spruce.store('translation.projects', {
-	en: {
-	projectLibrary: 'Project library',
-	labels: {
-	client: 'Client',
-	year: 'Year',
-	type: 'Project type',
-	stack: 'Stack'
-	},
-	list: {
-	'media-server': {
-	client: 'T-Mobile',
-	logo: 'logo.svg',
-	logoHeight: '12',
-	year: 2021,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	},
-	'mmt': {
-	client: 'MMT s.r.o., Czech Republic',
-	logo: 'logo.svg',
-	logoHeight: '20',
-	year: 2020,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	},
-	'lancaster-maloney': {
-	client: 'Lancaster Maloney, United Kingdom',
-	logo: 'logo.png',
-	logoHeight: '12',
-	year: 2020,
-	type: 'Dashboard management system (FMS/CMMS)',
-	categories: ['Dashboard', 'CORS', 'Property management'],
-	stack: 'CoreUI, Vue.js, Strapi, CentOS'
-	},
-	'subtitle-editor': {
-	client: 'SlidesLive',
-	logo: 'logo.svg',
-	logoHeight: '12',
-	year: 2020,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	},
-	'superflow': {
-	client: 'Superflow',
-	logo: 'logo.svg',
-	logoHeight: '10',
-	year: 2020,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	},
-	'landing-library': {
-	client: 'Various',
-	logo: 'logo.svg',
-	logoHeight: '10',
-	year: false,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	},
-	'logos': {
-	client: 'Various',
-	logo: 'logo.svg',
-	logoHeight: '10',
-	year: false,
-	type: 'Company website',
-	categories: ['Website', 'UI/UX', 'CMS'],
-	stack: 'Apostrophe CMS ...'
-	}
-	}
-	},
-	cs: {
-	projectLibrary: 'Knihovna projektu',
-	labels: {
-	client: 'Klient',
-	year: 'Rok',
-	type: 'Typ',
-	stack: 'Technologie'
-	},
-	list: {
-	'lancaster-maloney': {
-	client: 'Lancaster Maloney, Velká Británie',
-	year: 2020,
-	type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
-	stack: 'CoreUI, Vue.js, Strapi, CentOS'
-	}
-	}
-	},
-	return: function (data) {
-	return Object.getProperty(Spruce.stores['translation.projects'], Spruce.stores.global.language + '.' + data)
-	}
-	})
 {% endmacro %}
