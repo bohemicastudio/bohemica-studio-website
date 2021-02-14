@@ -3,29 +3,29 @@ window.initialiseTooltips = function () {
 		tippy('.top-menu [data-tippy-content]', {
 			placement: 'bottom',
 			arrow: false,
-			followCursor: true,
-			offset: [0, 32],
+			followCursor: false,
+			offset: [0, 16],
 			theme: 'bohemica',
 			touch: false,
 		}),
 		tippy('.hero [data-tippy-content]', {
 			placement: 'auto',
 			arrow: false,
-			followCursor: true,
-			offset: [0, 24],
+			followCursor: false,
+			offset: [0, 12],
 			theme: 'bohemica',
 			touch: false,
 			/*animation: 'scale-subtle',
 			inertia: true,
 			duration: [100, 150]*/
 		}),
-		tippy('#what [data-tippy-content]', {
+		/*tippy('#what [data-tippy-content]', {
 			placement: 'auto',
 			arrow: false,
-			followCursor: true,
+			followCursor: false,
 			offset: [0, 24],
 			theme: 'bohemica',
 			touch: false
-		})
+		})*/
 	]
 }

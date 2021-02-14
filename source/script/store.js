@@ -36,7 +36,7 @@ Spruce.store('global', {
 				},
 				'who': {
 					name: 'Who',
-					title: 'Who we worked with',
+					title: 'Who we have worked with',
 					subtitle: false
 				},
 				'where': {

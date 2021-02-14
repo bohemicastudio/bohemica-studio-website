@@ -18,7 +18,7 @@
 				<div class="container flex flex-row justify-between items-center pt-4 space-x-2">
 					<img class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="/images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
-						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl cursor-ne-resize text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
+						<a href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl  text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank">Available for new projects</a>
 						<div class="hidden items-center space-x-2 md:flex">
 							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" x-text="$store['global'].return('sections.what.name')" x-bind:data-tippy-content="$store['global'].return('sections.what.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 							<button class="top-menu__button hover:bg-yellow-200 focus:ring-yellow-400" x-text="$store['global'].return('sections.how.name')" x-bind:data-tippy-content="$store['global'].return('sections.how.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
@@ -92,7 +92,7 @@
 								</div>
 								<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
 									<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
-									<a href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" class="cursor-ne-resize" x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }" x-init="$fetch(url).then(response => data = response)" x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
+									<a href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }" x-init="$fetch(url).then(response => data = response)" x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
 								</div>
 							</div>
 						</div>
@@ -194,7 +194,12 @@
 
 			{# Warp background #}
 			<div class="absolute inset-0">
-				<img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="/images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})">
+				<picture>
+					<source srcset="/images/warp-background.webp" type="image/webp">
+					<source srcset="/images/warp-background.png" type="image/png">
+					<img src="/images/warp-background.png" class="object-cover top-0 left-0 z-0 h-full">
+				</picture>
+				{# <img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="/images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})"> #}
 			</div>
 		</div>
 

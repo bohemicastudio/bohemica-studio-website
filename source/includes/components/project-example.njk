@@ -18,7 +18,7 @@
 						<div class="hidden flex-grow justify-start items-center px-4 mr-4 ml-6 w-8 h-8 rounded-md border border-cool-gray-500 md:flex">
 							<a href="https://bohemica.studio/" target="_blank" class="mt-px text-sm text-cool-gray-400 cursor-ne-resize font-dm-mono">https://bohemica.studio/</a>
 						</div>
-						<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden justify-center items-center w-8 h-8 text-cool-gray-400 bg-cool-gray-900 rounded-md transition duration-100 ease-linear md:flex focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-700 focus:bg-cool-gray-700">
+						<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden justify-center items-center w-8 h-8 text-cool-gray-400 bg-cool-gray-900 rounded-md transition duration-100 ease-linear md:flex focus:outline-none hover:text-white hover:bg-cool-gray-700 focus:bg-cool-gray-700">
 							<i class="gg-arrows-expand-right"></i>
 						</button>
 					</div>
@@ -39,7 +39,7 @@
 					<div class="flex-grow px-2 pb-4 bg-cool-gray-900 border-r border-l border-cool-gray-500">
 						<div class="overflow-hidden relative border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear aspect-w-21 aspect-h-10 hover:opacity-100">
 							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/project/{{ project }}/{{ image }}">
-							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear md:flex focus:outline-none cursor-nesw-resize hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
+							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear md:flex focus:outline-none hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
 								<i class="gg-arrows-expand-right"></i>
 							</button>
 							<div class="hidden absolute inset-0 justify-start items-end pointer-events-none md:flex">

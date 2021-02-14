@@ -2,9 +2,12 @@
 permalink: /projects/branding.html
 ---
 
+{% set project = "branding" %}
+
+{% from "components/button-overview-library.njk" import buttonBackLibrary %}
+
 <div x-data="(function () { return {
-			title: 'test',
-			messages: {
+			translation: {
 				en: {
 					title: 'MMT - English'
 				},
@@ -15,9 +18,74 @@ permalink: /projects/branding.html
 		}
 		})()">
 
-	<span x-text="messages[$store.global.language].title"></span>
+	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+			<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
+	</div>
 
-	<div class="prose mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
+
+		<div class="flex flex-grow items-center">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`/images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
+		</div>
+
+		<div class="grid gap-y-2 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].platforms`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
+		</div>
+
+		<h3>Logos</h3>
+		<picture>
+			<source srcset="/images/project/{{ project }}/1.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/1.png" type="image/png">
+			<img src="/images/project/{{ project }}/1.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/project/{{ project }}/2.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/2.png" type="image/png">
+			<img src="/images/project/{{ project }}/2.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/project/{{ project }}/3.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/3.png" type="image/png">
+			<img src="/images/project/{{ project }}/3.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/project/{{ project }}/4.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/4.png" type="image/png">
+			<img src="/images/project/{{ project }}/4.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/project/{{ project }}/5.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/5.png" type="image/png">
+			<img src="/images/project/{{ project }}/5.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<h3>Messy processes</h3>
+		<p>...that lead to beautiful results</p>
+		<picture>
+			<source srcset="/images/project/{{ project }}/6.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/6.png" type="image/png">
+			<img src="/images/project/{{ project }}/6.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+		<picture>
+			<source srcset="/images/project/{{ project }}/7.webp" type="image/webp">
+			<source srcset="/images/project/{{ project }}/7.png" type="image/png">
+			<img src="/images/project/{{ project }}/7.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+		</picture>
+	</div>
+
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
 		<p class="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
 		<p>By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you
 			<em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
