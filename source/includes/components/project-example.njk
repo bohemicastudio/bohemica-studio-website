@@ -1,7 +1,7 @@
 {% from "components/button-project.njk" import buttonProject %}
 {% from "components/badge-feature.njk" import badgeFeature %}
 
-{% macro projectExample(project, image='preview.png', imageWrapper='browser', reverse=false, imageSize='50') %}
+{% macro projectExample(project='overview', image='preview.png', imageWrapper='browser', reverse=false, imageSize='50', badges) %}
 
 	<div class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 {{ 'md:flex-row-reverse' if reverse else 'md:flex-row' }}">
 		<div class="flex relative justify-center items-center w-full md:w-1/2">
@@ -104,7 +104,7 @@
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 				</div>
 
-				{{ buttonProject() }}
+				{{ buttonProject(path=project) }}
 			</div>
 
 		</div>

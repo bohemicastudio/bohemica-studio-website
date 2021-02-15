@@ -15,55 +15,53 @@
 {% endmacro %}
 
 {% macro specialisationsTranslation() %}
-
-	Spruce.store('translation.specialisation', {
-	en: {
-	code: {
-	title: 'Software development',
-	subtitle: 'Web, mobile, desktop applications – done well. From the start to the end.',
-	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-	},
-	iot: {
-	title: 'IoT solutions',
-	subtitle: 'Hardware and software solutions. Automated and scalable.',
-	keywords: ['Arduino', 'Raspberry Pie']
-	},
-	uiux: {
-	title: 'Visual design & interface interaction',
-	subtitle: 'Intuitive interfaces that bring delight and joy. Stress-free experience.',
-	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-	},
-	branding: {
-	title: 'Branding & illustration',
-	subtitle: 'Get the right message across. In style.',
-	keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
-	}
-	},
-	cs: {
-	code: {
-	title: 'Vývoj webů a aplikací',
-	subtitle: 'Webové a mobilní aplikace usite na miru.',
-	keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
-	},
-	iot: {
-	title: 'IoT solutions',
-	subtitle: 'Hardware and software solutions. Automated and scalable.',
-	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-	},
-	uiux: {
-	title: 'Web & mobile development',
-	subtitle: 'Websites and mobile apps – done well. From the start to the end.',
-	keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-	},
-	branding: {
-	title: 'Branding & illustration',
-	subtitle: 'Get the right message across. In style.',
-	keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
-	}
-	},
-	return: function (data) {
-	return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
-	}
-	})
-
+		Spruce.store('translation.specialisation', {
+			en: {
+				code: {
+					title: 'Software development',
+					subtitle: 'Web, mobile, desktop applications – done well. From the start to the end.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'API', 'iOS', 'Android', 'SEO', 'Hosting', 'CI/CD', 'Unit testing']
+				},
+				iot: {
+					title: 'IoT solutions',
+					subtitle: 'Hardware and software solutions. Automated and scalable.',
+					keywords: ['Arduino', 'Raspberry Pi', 'SocketIO']
+				},
+				uiux: {
+					title: 'Visual design & interface interaction',
+					subtitle: 'Intuitive interfaces that bring delight and joy. Stress-free experience.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				branding: {
+					title: 'Branding & illustration',
+					subtitle: 'Get the right message across. In style.',
+					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+				}
+			},
+			cs: {
+				code: {
+					title: 'Vývoj webů a aplikací',
+					subtitle: 'Webové, mobilní a desktopové aplikace ušité na míru.',
+					keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
+				},
+				iot: {
+					title: 'Internet of things (IoT)',
+					subtitle: 'Hardwarová a softwarová řešení. Automatizované a škálovatelné.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				uiux: {
+					title: 'Vizuální design a interakce s rozhraním',
+					subtitle: 'Intuitivní a funkční rozhraní, která přinášejí radost a potěšení.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				branding: {
+					title: 'Branding a ilustrace',
+					subtitle: 'Pošlete tu správnou zprávu do světa. Ve stylu.',
+					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
+			}
+		})
 {% endmacro %}

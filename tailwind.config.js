@@ -40,7 +40,8 @@ module.exports = {
 			maxWidth: ['responsive'],
 			borderWidth: ['first'],
 			scale: ['responsive'],
-			fontWeight: ['responsive']
+			fontWeight: ['responsive'],
+			lineHeight: ['responsive']
 		}
 	},
 	theme: {

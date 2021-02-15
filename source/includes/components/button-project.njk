@@ -1,6 +1,6 @@
-{% macro buttonProject() %}
-	<button {# x-bind:href="window.router.getPath('overview')" #} x-on:click="Spruce.stores.slideover.open = false" class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
+{% macro buttonProject(path='overview') %}
+	<a x-bind:href="window.router.getPath('{{ path }}')" {# x-on:click="Spruce.stores.slideover.open = false" #} class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200" data-navigo>
 		<span class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900">See the project</span>
 		<i class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
-	</button>
+	</a>
 {% endmacro %}

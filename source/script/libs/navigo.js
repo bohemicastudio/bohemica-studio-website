@@ -426,7 +426,11 @@ function Navigo(appRoute, resolveOptions) {
     return context.matches ? context.matches : false;
   }
 
-  function directMatchWithLocation(path, currentLocation) {
+  function directMatchWithLocation(path, currentLocation, annotatePathWithRoot) {
+    if (typeof currentLocation !== "undefined" && (typeof annotatePathWithRoot === "undefined" || annotatePathWithRoot)) {
+      currentLocation = composePathWithRoot(currentLocation);
+    }
+
     var context = {
       instance: self,
       to: currentLocation,
@@ -435,7 +439,7 @@ function Navigo(appRoute, resolveOptions) {
     (0,_middlewares_setLocationPath__WEBPACK_IMPORTED_MODULE_2__.default)(context, function () {});
 
     if (typeof path === "string") {
-      path = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.clean)(path);
+      path = typeof annotatePathWithRoot === "undefined" || annotatePathWithRoot ? composePathWithRoot(path) : path;
     }
 
     var match = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.matchRoute)(context, {
@@ -762,7 +766,7 @@ function checkForLeaveHook(context, done) {
       }
 
       var runHook = false;
-      var newLocationVSOldMatch = context.instance.matchLocation(oldMatch.route.path, context.currentLocationPath);
+      var newLocationVSOldMatch = context.instance.matchLocation(oldMatch.route.path, context.currentLocationPath, false);
 
       if (oldMatch.route.path !== "*") {
         runHook = !newLocationVSOldMatch;
@@ -1182,7 +1186,7 @@ function matchRoute(context, route) {
   if (match) {
     var data = isString(route.path) ? regExpResultToParams(match, paramNames) : match.groups ? match.groups : match.slice(1);
     return {
-      url: current,
+      url: clean(current.replace(new RegExp("^" + context.instance.root), "")),
       queryString: GETParams,
       hashString: extractHashFromURL(context.to),
       route: route,
