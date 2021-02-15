@@ -7,7 +7,7 @@
 	<meta charset="UTF-8"/>
 	<meta name="description" content="We are Bohemica Studio — a friendly team of qualified full-stack programmers and visual designers.">
 	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+	<meta name="viewport" content="width=400, shrink-to-fit=yes, viewport-fit=cover, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"/>
 	<base href="/"/>
 	<!-- Favicon generated via https://realfavicongenerator.net/ -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
@@ -87,7 +87,7 @@
 	<script src="./script/main.js?v={% version %}" defer></script>
 	{% block head %}{% endblock %}
 </head>
-<body class="relative min-h-screen font-dm-sans" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.mobileMenuOpen) ? 'overflow-hidden' : '') : 'loading'" x-data>
+<body class="relative min-h-screen font-dm-sans" style="min-width: 400px !important;" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.mobileMenuOpen) ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
 	{{ content | safe }}
 {% endblock %}
