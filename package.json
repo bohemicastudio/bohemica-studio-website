@@ -28,13 +28,13 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-img": "^0.7.8",
+    "@11ty/eleventy-img": "^0.8.0",
     "@popperjs/core": "^2.6.0",
     "@ryangjchandler/alpine-toggle": "^0.1.0",
     "@ryangjchandler/spruce": "2.6.3",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/typography": "^0.4.0",
-    "alpine-magic-helpers": "^0.6.0",
+    "alpine-magic-helpers": "^1.0.0",
     "alpinejs": "^2.8.0",
     "animejs": "^3.2.1",
     "arrive": "^2.4.1",
@@ -48,7 +48,7 @@
     "html-minifier-terser": "^5.1.1",
     "medium-zoom": "^1.0.6",
     "moment": "^2.29.1",
-    "navigo": "8.8.9",
+    "navigo": "8.8.11",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "postcss": "^8.2.6",
@@ -57,7 +57,7 @@
     "postcss-nested": "^5.0.3",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.0.3",
-    "terser": "^5.5.1",
+    "terser": "^5.6.0",
     "tippy.js": "^6.2.7",
     "trash-cli": "^4.0.0"
   }
