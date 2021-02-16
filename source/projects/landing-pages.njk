@@ -1,22 +1,20 @@
 ---
-permalink: /projects/branding.html
+permalink: /projects/landing-pages.html
 ---
 
-{% set project = "branding" %}
+{% set project = "landing-pages" %}
 
 {% from "components/button-overview-library.njk" import buttonBackLibrary %}
 
 <div x-data="(function () { return {
 			translation: {
 				en: {
-					'logos': 'Logos',
-					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'old': 'Old',
+					'new': 'New'
 				},
 				cs: {
-					'logos': 'Loga',
-					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'old': 'Předchozí verze',
+					'new': 'Aktuální verze'
 				}
 			}
 		}
@@ -24,6 +22,8 @@ permalink: /projects/branding.html
 
 	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
 		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+			<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 
 	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
@@ -43,7 +43,6 @@ permalink: /projects/branding.html
 			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 		</div>
 
-		<h3 x-text="translation[$store.global.language]['logos']"></h3>
 		<picture>
 			<source srcset="/images/project/{{ project }}/1.webp" type="image/webp">
 			<source srcset="/images/project/{{ project }}/1.png" type="image/png">
@@ -54,34 +53,24 @@ permalink: /projects/branding.html
 			<source srcset="/images/project/{{ project }}/2.png" type="image/png">
 			<img src="/images/project/{{ project }}/2.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
-		<picture>
-			<source srcset="/images/project/{{ project }}/3.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/3.png" type="image/png">
-			<img src="/images/project/{{ project }}/3.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
-		</picture>
-		<picture>
-			<source srcset="/images/project/{{ project }}/4.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/4.png" type="image/png">
-			<img src="/images/project/{{ project }}/4.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
-		</picture>
-		<picture>
-			<source srcset="/images/project/{{ project }}/5.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/5.png" type="image/png">
-			<img src="/images/project/{{ project }}/5.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
-		</picture>
-		<h3>Messy processes</h3>
-		<p>...that lead to beautiful results</p>
-		<picture>
-			<source srcset="/images/project/{{ project }}/6.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/6.png" type="image/png">
-			<img src="/images/project/{{ project }}/6.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
-		</picture>
-		<picture>
-			<source srcset="/images/project/{{ project }}/7.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/7.png" type="image/png">
-			<img src="/images/project/{{ project }}/7.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
-		</picture>
+
+	</div>
+	<div class="grid grid-cols-2 gap-x-8 my-8">
+		<div class="flex flex-col space-y-4">
+			<span class="text-xl font-medium text-gray-600" x-text="translation[$store.global.language]['old']"></span>
+			<picture>
+				<source srcset="/images/project/{{ project }}/3a.webp" type="image/webp">
+				<source srcset="/images/project/{{ project }}/3a.png" type="image/png">
+				<img src="/images/project/{{ project }}/3a.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			</picture>
+		</div>
+		<div class="flex flex-col space-y-4">
+			<span class="text-xl font-medium text-gray-600" x-text="translation[$store.global.language]['new']"></span>
+			<picture>
+				<source srcset="/images/project/{{ project }}/3b.webp" type="image/webp">
+				<source srcset="/images/project/{{ project }}/3b.png" type="image/png">
+				<img src="/images/project/{{ project }}/3b.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			</picture>
+		</div>
 	</div>
 </div>
-
-

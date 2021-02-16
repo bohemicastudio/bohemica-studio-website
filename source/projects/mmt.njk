@@ -9,10 +9,31 @@ permalink: /projects/mmt.html
 <div x-data="(function () { return {
 			translation: {
 				en: {
-					1: '<strong>Bohemica Studio was chosen to revamp a website of Czech company specialising in industrial automation and robotics.</strong> The MMT is a well-established company in the European market – providing assembly lines and other machinery for major car manufacturers and supplying components of renowned brands across the continent and beyond.',
-					2: ''
+					'tldr': '<strong>TLDR</strong> - Check out the live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>',
+					'descriptionTitle': 'Project description',
+					'description': `<p>
+									<strong>Bohemica Studio was chosen to revamp a website of Czech company specialising in industrial automation and robotics.</strong>
+										The MMT is a well-established company in the European market – providing assembly lines and other machinery for major car manufacturers and supplying components of renowned brands across the continent and beyond.
+									</p>
+									<p>After a thorough discussion with the management team, we established a few key targets for the site:</p>
+									<ul>
+										<li>Professional and modern look</li>
+										<li>Emphasis on the content – easy to find and read</li>
+										<li>Simple content management system with an internationalisation option</li>
+									</ul>`,
+					'processTitle': 'Process',
+					'process': `<p>The whole process was fairly straightforward:</p>
+							<ol>
+								<li>Design – wireframes for each page, followed by mock-ups</li>
+								<li>Coding – user-interface in HTML/CSS alongside the CMS integration</li>
+								<li>Finalisation – reponsivity, testing, SEO, etc.</li>
+							</ol>`,
+					'image1': 'We proposed few mock-up alterations of each page',
+					'image2': 'Our client received a detailed explanation of each UI/UX choice',
+					'image3': 'Mock-ups in Figma',
 				},
 				cs: {
+					'tldr': '<strong>TLDR</strong> - Check out the live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>',
 					1: 'Jsme ryze česká firma, máme za sebou 20 let zkušeností, zaměstnáváme odborníky na problematiku v daném oboru, používáme komponenty od výrobců renomovaných značek.'
 				}
 			}
@@ -21,11 +42,9 @@ permalink: /projects/mmt.html
 
 	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
 		{{ buttonBackLibrary() }}
-		{# <hr class="w-40 border-gray-500">
-		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 
-	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
 
 		<div class="flex flex-grow items-center">
 			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`/images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
@@ -48,28 +67,16 @@ permalink: /projects/mmt.html
 
 		<hr class="border-gray-500">
 
-		<p><strong>TLDR</strong> - Check out the live website:
-			<a href="https://mmt.cz" target="_blank">mmt.cz</a>
-		</p>
+		<p x-html="translation[$store.global.language]['tldr']"></p>
 
-		<h3>Project description</h3>
-		<p x-html="translation[$store.global.language][1]"></p>
-		<p>After a thorough discussion with the management team, we established a few key targets for the site:</p>
-		<ul>
-			<li>Professional and modern look of the site</li>
-			<li>Emphasis on the content – easy to find and read</li>
-			<li>Simple content management system with an internationalisation option</li>
-		</ul>
-		<h3>Process</h3>
-		<p>The whole process was fairly straightforward:</p>
-		<ol>
-			<li>Design – wireframes for each page, followed by mock-ups</li>
-			<li>Coding – user-interface in HTML/CSS alongside the CMS integration</li>
-			<li>Finalisation – reponsivity, testing, SEO, etc.</li>
-		</ol>
+		<h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
+		<div x-html="translation[$store.global.language]['description']"></div>
+
+		<h3 x-text="translation[$store.global.language]['processTitle']"></h3>
+		<div x-html="translation[$store.global.language]['process']"></div>
 
 		<figure>
-			<figcaption><strong>We designed few alterations of each page</strong></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['image1']"></strong></figcaption>
 			<picture>
 				<source srcset="/images/project/mmt/1.webp" type="image/webp">
 				<source srcset="/images/project/mmt/1.png" type="image/png">
@@ -78,7 +85,7 @@ permalink: /projects/mmt.html
 		</figure>
 
 		<figure>
-			<figcaption><strong>Our client received a detailed explanation of each UI/UX choice</strong></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['image2']"></strong></figcaption>
 			<picture>
 				<source srcset="/images/project/mmt/2.webp" type="image/webp">
 				<source srcset="/images/project/mmt/2.png" type="image/png">
@@ -87,7 +94,7 @@ permalink: /projects/mmt.html
 		</figure>
 
 		<figure>
-			<figcaption><strong>Mock-ups in Figma</strong></figcaption>
+			<figcaption x-text="translation[$store.global.language]['image3']"><strong></strong></figcaption>
 			<picture>
 				<source srcset="/images/project/mmt/3.webp" type="image/webp">
 				<source srcset="/images/project/mmt/3.png" type="image/png">

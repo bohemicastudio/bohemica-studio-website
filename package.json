@@ -6,8 +6,8 @@
   "scripts": {
     "build": "run-s clean copy:* build:eleventy build:tailwind",
     "build:eleventy": "cross-env ELEVENTY_ENV=production eleventy",
-    "build:style": "node -e \"console.log('build started at: %s', Date())\" && cross-env NODE_ENV=development postcss source/style/style.css --output temporary/style.css && node -e \"console.log('build completed at: %s', Date())\"",
-    "build:tailwind": "node -e \"console.log('build started at: %s', Date())\" && cross-env NODE_ENV=production postcss source/style/style.css --output build/style.css && node -e \"console.log('build completed at: %s', Date())\"",
+    "build:style": "cross-env NODE_ENV=development postcss source/style/style.css --output temporary/style.css -w --verbose",
+    "build:tailwind": "cross-env NODE_ENV=production postcss source/style/style.css --output build/style.css -w --verbose",
     "clean": "trash build",
     "copy:alpine": "copyfiles --flat node_modules/alpinejs/dist/alpine.js source/script/libs",
     "copy:alpine-magic-helpers": "copyfiles --flat node_modules/alpine-magic-helpers/dist/*.js source/script/libs/alpine-magic-helpers",

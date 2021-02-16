@@ -119,12 +119,17 @@ window.router.getPath = function (file) {
 	if (router.paths.find(path => path.file === file)) {
 		route = router.paths.find(path => path.file === file).route + '-' + Spruce.stores.global.language
 		path = router.paths.find(path => path.file === file).path[Spruce.stores.global.language]
+		// console.log('file:', file, 'route:', route, 'path:', path)
 	}
 	else {
 		console.error('getPath:', file, '(Path does not exist)')
 	}
 
 	return router.generate(route, { language: Spruce.stores.global.language, name: path })
+}
+
+window.router.getFile = function (path) {
+	return router.paths.find(paths => paths.path[Spruce.stores.global.language] === path).file
 }
 
 // routes
@@ -185,13 +190,15 @@ window.router.on({
 // handler function for slideover router changes
 function projectHandler(name) {
 	console.log('projectHandler', name)
+	console.log('projectHandler/getFile', window.router.getFile(name))
+
 	if (Spruce.stores.slideover.open === true) {
 		// switching between pages in the slideover
 		window.animation.slideoverFadeOutContent.play()
 		window.animation.slideoverFadeOutContent.finished.then(() => {
 			document.querySelector('#slideoverContentWrapper').scrollTo(0, 0)
 			setTimeout(() => {
-				Spruce.stores.project.loadContent(name).then(() => {
+				Spruce.stores.project.loadContent(window.router.getFile(name)).then(() => {
 					window.animation.slideoverFadeInContent.play()
 					// Re-initialise Navigo links after new content is loaded
 					window.router.updatePageLinks()
@@ -211,8 +218,9 @@ function projectHandler(name) {
 					setTimeout(() => {
 						window.animation.showWindowUnderlay.play()
 					}, 50)
+					document.querySelector('#slideoverContentWrapper').scrollTo(0, 0)
 					setTimeout(() => {
-						Spruce.stores.project.loadContent(name).then(() => {
+						Spruce.stores.project.loadContent(window.router.getFile(name)).then(() => {
 							window.animation.slideoverFadeInContent.play()
 							// Re-initialise Navigo links after new content is loaded
 							window.router.updatePageLinks()

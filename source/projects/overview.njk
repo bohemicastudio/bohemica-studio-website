@@ -6,7 +6,7 @@ permalink: /projects/overview.html
 
 <div class="grid grid-cols-2 auto-rows-fr gap-6">
 	<template x-for="(entry, index) in Object.entries($store['translation.projects'].return('list'))" :key="entry[0]">
-		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear cursor-pointer hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"> {# bg-gray-100 rounded-3xl border border-gray-300 hover:border-gray-500 #}
+		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"> {# bg-gray-100 rounded-3xl border border-gray-300 hover:border-gray-500 #}
 			<div class="flex flex-grow items-center">
 				<img x-bind:class="'h-'+entry[1].logoHeight" x-bind:src="`/images/project/${entry[0]}/${entry[1].logo}`">
 			</div>
@@ -62,6 +62,8 @@ permalink: /projects/overview.html
 						logoHeight: '12',
 						year: 2020,
 						type: 'Dashboard management system (FMS/CMMS)',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
 						categories: ['Dashboard', 'CORS', 'Property management'],
 						stack: 'CoreUI, Vue.js, Strapi, CentOS'
 					},
@@ -71,6 +73,8 @@ permalink: /projects/overview.html
 						logoHeight: '12',
 						year: 2020,
 						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
 						categories: ['Website', 'UI/UX', 'CMS'],
 						stack: 'Apostrophe CMS ...'
 					},
@@ -80,6 +84,8 @@ permalink: /projects/overview.html
 						logoHeight: '10',
 						year: 2020,
 						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
 						categories: ['Website', 'UI/UX', 'CMS'],
 						stack: 'Apostrophe CMS ...'
 					},
@@ -88,27 +94,22 @@ permalink: /projects/overview.html
 						logo: 'logo.svg',
 						logoHeight: '10',
 						year: false,
-						type: 'Company website',
-						categories: ['Website', 'UI/UX', 'CMS'],
-						stack: 'Apostrophe CMS ...'
+						type: 'Landing pages',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Website', 'Mock-ups', 'UI/UX'],
+						stack: 'Sketch, Figma, Illustration, Photoshop, HTML, CSS'
 					},
 					'branding': {
 						client: 'Various',
 						logo: 'logo.svg',
 						logoHeight: '10',
 						year: false,
-						type: 'Company website',
-						categories: ['Website', 'UI/UX', 'CMS'],
-						stack: 'Apostrophe CMS ...'
-					},
-					't-mobile': {
-						client: 'Magenta Experience Center T-Mobile',
-						logo: 'logo.svg',
-						logoHeight: '10',
-						year: 2020,
-						type: 'Signage media server',
-						categories: ['Website', 'UI/UX', 'CMS', 'Desktop application', 'Server solution'],
-						stack: 'Electron.js, Vue.js, Strapi, MySQL, ...'
+						type: 'Brand resources - logos, icons, styleguide, etc.',
+						industry: 'Production automation and robotics',
+						platforms: 'Web, social media, physical products or commercials',
+						categories: ['Branding', 'Styleguide', 'Colour pallets', 'Icons'],
+						stack: 'Sketch, Figma, Illustrator, Photoshop,'
 					}
 				}
 			},
@@ -118,14 +119,87 @@ permalink: /projects/overview.html
 					client: 'Klient',
 					year: 'Rok',
 					type: 'Typ',
+					industry: 'Odvětví',
+					platforms: 'Média',
 					stack: 'Technologie'
 				},
 				list: {
-					'lancaster-maloney': {
-						client: 'Lancaster Maloney, Velká Británie',
+					'media-server': {
+						client: 'T-Mobile',
+						logo: 'logo.svg',
+						logoHeight: '12',
+						year: 2021,
+						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'mmt': {
+						client: 'MMT s.r.o., Czech Republic',
+						logo: 'logo.svg',
+						logoHeight: '20',
 						year: 2020,
-						type: 'Integrovaný systém správy nemovitostí (FMS/CMMS) ??',
+						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Website', 'UI/UX', 'CMS', 'Styleguide', 'Mockup', 'SEO'],
+						stack: 'Apostrophe CMS, MongoDB, Alpine.js, Tailwind CSS'
+					},
+					'lancaster-maloney': {
+						client: 'Lancaster Maloney, United Kingdom',
+						logo: 'logo.png',
+						logoHeight: '12',
+						year: 2020,
+						type: 'Dashboard management system (FMS/CMMS)',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Dashboard', 'CORS', 'Property management'],
 						stack: 'CoreUI, Vue.js, Strapi, CentOS'
+					},
+					'subtitle-editor': {
+						client: 'SlidesLive',
+						logo: 'logo.svg',
+						logoHeight: '12',
+						year: 2020,
+						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'superflow': {
+						client: 'Superflow',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: 2020,
+						type: 'Company website',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Website', 'UI/UX', 'CMS'],
+						stack: 'Apostrophe CMS ...'
+					},
+					'landing-pages': {
+						client: 'Různí',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: false,
+						type: 'Cílové/vstupní stránky',
+						industry: 'Production automation and robotics',
+						platforms: 'Web',
+						categories: ['Webové stránky', 'Návrhy', 'UI/UX'],
+						stack: 'Sketch, Figma, Illustrator, Photoshop, HTML, CSS'
+					},
+					'branding': {
+						client: 'Různí',
+						logo: 'logo.svg',
+						logoHeight: '10',
+						year: false,
+						type: 'Brandové prostředky - loga, ikonky, style manual, atd.',
+						industry: 'Production automation and robotics',
+						platforms: 'Web, sociální média, fyzické produkty či reklamy',
+						categories: ['Branding', 'Style manuály', 'Palety barev', 'Ikonky'],
+						stack: 'Sketch, Figma, Illustration, Photoshop'
 					}
 				}
 			},
