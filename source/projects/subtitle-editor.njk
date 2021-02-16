@@ -1,0 +1,108 @@
+---
+permalink: /projects/subtitle-editor.html
+---
+
+{% set project = "subtitle-editor" %}
+
+{% from "components/button-overview-library.njk" import buttonBackLibrary %}
+
+<div x-data="(function () { return {
+			translation: {
+				en: {
+				},
+				cs: {
+				}
+			}
+		}
+		})()">
+
+	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
+	</div>
+
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+
+		<div class="flex flex-grow items-center">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`/images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
+		</div>
+
+		<div class="grid gap-y-2 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].platforms`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
+			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
+		</div>
+
+		<hr class="border-gray-500">
+
+		<p>Z projektu jsme vyvinuli vlastní platformu - Bohemica Signage
+			<a href="https://bohemicasignage.com" target="_blank">bohemicasignage.com</a>
+		</p>
+
+		<h3>Project description</h3>
+		<p><strong>Pro novou prodejnu v Praze</strong> jsme byli vybráni jako dodavetel řešení pro správu obsahu obrazovek.</p>
+		<p>Během extrémně krátké doby, kterou jsme na vývoj měli, jsme dokázali vyvinout řešení zahrnující následující požadavky:</p>
+		<ul>
+			<li>Správa obsahu v cloudu dostupná odkudkoliv</li>
+			<li>Automatická kontrola kvality dodaného videomateriálu</li>
+			<li>Možnost zobrazit jak video, statický obraz, tak webovou stránku</li>
+			<li>Administrace v několika jazycích</li>
+			<li>Kontinuální podpora 7 dní v týdnu</li>
+		</ul>
+		<h3>Proces</h3>
+		<p>Technické řešení sestává z několika aplikací:</p>
+		<ol>
+			<li>Serverová část: databáze a API, zpracování požadavků, ukládání dat a zálohy</li>
+			<li>Uživatelská část: administrace médií přímo v prohlížeči</li>
+			<li>Přehrávací část: program pro přehrávání přímo na displeji</li>
+		</ol>
+
+		<figure>
+			<figcaption><strong>Pro klienta jsme vytvořili schéma zapojení všech částí v celek</strong></figcaption>
+			<picture>
+				<source srcset="/images/project/media-server/wiring-schema.webp" type="image/webp">
+				<source srcset="/images/project/media-server/wiring-schema.png" type="image/png">
+				<img src="/images/project/media-server/wiring-schema.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+
+		<figure>
+			<figcaption><strong>Navrhli jsme způsob nahrávání médií</strong></figcaption>
+			<picture>
+				<source srcset="/images/project/media-server/playables.webp" type="image/webp">
+				<source srcset="/images/project/media-server/playables.png" type="image/png">
+				<img src="/images/project/media-server/playables.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+
+		<figure>
+			<figcaption><strong>Mock-ups in Figma</strong></figcaption>
+			<picture>
+				<source srcset="/images/project/mmt/3.webp" type="image/webp">
+				<source srcset="/images/project/mmt/3.png" type="image/png">
+				<img src="/images/project/mmt/3.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+
+		<figure>
+			<figcaption><strong>Final result</strong></figcaption>
+			<picture>
+				<source srcset="/images/project/mmt/4.webp" type="image/webp">
+				<source srcset="/images/project/mmt/4.png" type="image/png">
+				<img src="/images/project/mmt/4.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+	</div>
+</div>
+
+
