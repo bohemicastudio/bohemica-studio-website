@@ -58,7 +58,8 @@ Spruce.store('global', {
 			recentActivity: 'Recent activity',
 			lastUpdated: 'Last updated',
 			loading: 'Loading...',
-			backToTop: 'Back to top'
+			backToTop: 'Back to top',
+			backToProjectOverview: 'Back to the project overview',
 		},
 		cs: {
 			sections: {
@@ -106,7 +107,8 @@ Spruce.store('global', {
 			recentActivity: 'Nedávná aktivita',
 			lastUpdated: 'Naposledy aktualizováno',
 			loading: 'Načítám...',
-			backToTop: 'Zpět nahoru'
+			backToTop: 'Zpět nahoru',
+			backToProjectOverview: 'Zpět na přehled projektů',
 		}
 	},
 	return: function (data) {
