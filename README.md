@@ -1,5 +1,3 @@
-# Bohemica Studio Website
-
 <p align="center">
 <a href="https://bohemica.studio" target="_blank">
 	<img src="./source/images/symbol.svg" alt="Bohemica symbol" width="64" align="center" />
@@ -7,8 +5,6 @@
 </p>
 
 <h2 align="center"><a href="https://bohemica.studio" target="_blank"><strong>Bohemica Studio Website</strong></a></h2>
-
----
 
 This site was a bit of an experiment on our behalf as we wanted to trial using Eleventy as a static generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single page website**.
 
