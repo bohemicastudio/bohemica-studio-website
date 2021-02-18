@@ -15,12 +15,12 @@ module related issues.
 
 Nonetheless, there was an exception for the PostCSS preprocessor – in order to build the Tailwind CSS file, handle
 imports and add prefixes. You could also count in the static site generator Eleventy, which was the main driving force.
-This gave us almost full control and transparency over the final or build code.
+This gave us almost full control and transparency over the final code.
 
 Another decision was to only use compiled UMD format (i.e. exported as global variable) for JavaScript libraries. In
 comparison, ES6 version of JavaScript allows us to perform tree shaking on unused code/functions. However, since we
 opted out from using any bundler and all the JS libraries we used were already "lightweight" in size, we stuck to UMD.
-Moreover, some libraries may not even support other module formats, so we did it the old school way.
+Moreover, some libraries may not even support other module formats, so we did it the "old school" way.
 
 We might be stretching the capabilities of Alpine.js here a little, but we implemented i18n capability for two
   languages. It may not be optimal in terms of the code structure (and possibly performance), but so far so good.
