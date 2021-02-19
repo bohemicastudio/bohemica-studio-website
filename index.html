@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Bohemica Studio</title>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="We are Bohemica Studio — a friendly team of qualified full-stack programmers and visual designers."
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=400, shrink-to-fit=yes, viewport-fit=cover, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"
+    />
+    <base href="/" />
+    <!-- Favicon generated via https://realfavicongenerator.net/ -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/images/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="/images/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Sentry Lazy Load -->
+
+    <!-- Sentry with Integrations -->
+    <script
+      src="https://browser.sentry-cdn.com/6.1.0/bundle.tracing.min.js"
+      integrity="sha384-zKY6TGhvvk56kzNuSSpDCYYF5IU+xaSN4YmCDBCq/l98ITbn+9I+2/LZ2clNwe80"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      Sentry.init({
+        dsn:
+          "https://8c54f29f7c2a4828bbdf7e23519c491d@o522246.ingest.sentry.io/5633405",
+        integrations: [
+          new Sentry.Integrations.BrowserTracing() /*, new Sentry.Integrations.CaptureConsole({ levels: ['error', 'warn']})*/,
+        ],
+        tracesSampleRate: 1.0,
+      });
+    </script>
+    <!-- CSS style & fonts -->
+    <link rel="stylesheet" href="./style.css?v=1613743051243" />
+    <!-- Helper JS functions -->
+    <script src="./script/helpers.js?v=1613743051243"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1613743051243"></script>
+    <script src="./script/alpine-toggle.js?v=1613743051243"></script>
+    <!-- External JS libraries -->
+    <script src="./script/alpine.js?v=1613743051243" defer></script>
+    <script src="./script/arrive.js?v=1613743051243"></script>
+    <script src="./script/anime.js?v=1613743051243"></script>
+    <script src="./script/spruce.js?v=1613743051243"></script>
+    <script src="./script/navigo.js?v=1613743051243"></script>
+    <script src="./script/popper.js?v=1613743051243"></script>
+    <script src="./script/tippy.js?v=1613743051243"></script>
+    <script src="./script/medium-zoom.js?v=1613743051243"></script>
+    <script src="./script/dayjs.js?v=1613743051243"></script>
+    <!-- Internal JS scripts -->
+    <script src="./script/animation.js?v=1613743051243"></script>
+    <script src="./script/store.js?v=1613743051243"></script>
+    <script src="./script/router.js?v=1613743051243"></script>
+    <script src="./script/tooltip.js?v=1613743051243" defer></script>
+    <script src="./script/parallax.js?v=1613743051243" defer></script>
+    <script src="./script/main.js?v=1613743051243" defer></script>
+  </head>
+  <body
+    class="relative min-h-screen font-dm-sans"
+    style="min-width: 400px !important"
+    x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.mobileMenuOpen) ? 'overflow-hidden' : '') : 'loading'"
+    x-data
+  >
+    <script>
+      Spruce.store("translation.projects", {
+        en: {
+          projectLibrary: "Project library",
+          labels: {
+            client: "Client",
+            year: "Year",
+            type: "Project type",
+            industry: "Industry",
+            platforms: "Platforms",
+            stack: "Technology stack",
+          },
+          list: {
+            "media-server": {
+              client: "T-Mobile",
+              logo: "logo.svg",
+              logoHeight: "12",
+              year: 2021,
+              type: "Company website",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            mmt: {
+              client: "MMT s.r.o., Czech Republic",
+              logo: "logo.svg",
+              logoHeight: "20",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: [
+                "Website",
+                "UI/UX",
+                "CMS",
+                "Styleguide",
+                "Mockup",
+                "SEO",
+              ],
+              stack: "Apostrophe CMS, MongoDB, Alpine.js, Tailwind CSS",
+            },
+            "lancaster-maloney": {
+              client: "Lancaster Maloney, United Kingdom",
+              logo: "logo.png",
+              logoHeight: "12",
+              year: 2020,
+              type: "Dashboard management system (FMS/CMMS)",
+              industry: "Property care and management",
+              platforms: "Web",
+              categories: ["Dashboard", "CRON", "Property management"],
+              stack: "CoreUI, Vue.js, Strapi, PHP, MySQL, CentOS",
+            },
+            "subtitle-editor": {
+              client: "SlidesLive, Europe",
+              logo: "logo.svg",
+              logoHeight: "12",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            superflow: {
+              client: "Superflow, Europe",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            "landing-pages": {
+              client: "Various",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: false,
+              type: "Landing pages",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "Mock-ups", "UI/UX"],
+              stack: "Sketch, Figma, Illustration, Photoshop, HTML, CSS",
+            },
+            branding: {
+              client: "Various",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: false,
+              type: "Brand resources - logos, icons, styleguide, etc.",
+              industry: "Production automation and robotics",
+              platforms: "Web, social media, physical products or commercials",
+              categories: ["Branding", "Styleguide", "Colour pallets", "Icons"],
+              stack: "Sketch, Figma, Illustrator, Photoshop,",
+            },
+          },
+        },
+        cs: {
+          projectLibrary: "Knihovna projektu",
+          labels: {
+            client: "Klient",
+            year: "Rok",
+            type: "Typ",
+            industry: "Odvětví",
+            platforms: "Média",
+            stack: "Technologie",
+          },
+          list: {
+            "media-server": {
+              client: "T-Mobile",
+              logo: "logo.svg",
+              logoHeight: "12",
+              year: 2021,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            mmt: {
+              client: "MMT s.r.o., Czech Republic",
+              logo: "logo.svg",
+              logoHeight: "20",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: [
+                "Website",
+                "UI/UX",
+                "CMS",
+                "Styleguide",
+                "Mockup",
+                "SEO",
+              ],
+              stack: "Apostrophe CMS, MongoDB, Alpine.js, Tailwind CSS",
+            },
+            "lancaster-maloney": {
+              client: "Lancaster Maloney, United Kingdom",
+              logo: "logo.png",
+              logoHeight: "12",
+              year: 2020,
+              type: "Dashboard management system (FMS/CMMS)",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Dashboard", "CORS", "Property management"],
+              stack: "CoreUI, Vue.js, Strapi, CentOS",
+            },
+            "subtitle-editor": {
+              client: "SlidesLive",
+              logo: "logo.svg",
+              logoHeight: "12",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            superflow: {
+              client: "Superflow",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: 2020,
+              type: "Company website",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Website", "UI/UX", "CMS"],
+              stack: "Apostrophe CMS ...",
+            },
+            "landing-pages": {
+              client: "Různí",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: false,
+              type: "Cílové/vstupní stránky",
+              industry: "Production automation and robotics",
+              platforms: "Web",
+              categories: ["Webové stránky", "Návrhy", "UI/UX"],
+              stack: "Sketch, Figma, Illustrator, Photoshop, HTML, CSS",
+            },
+            branding: {
+              client: "Různí",
+              logo: "logo.svg",
+              logoHeight: "10",
+              year: false,
+              type: "Brandové prostředky - loga, ikonky, style manual, atd.",
+              industry: "Production automation and robotics",
+              platforms: "Web, sociální média, fyzické produkty či reklamy",
+              categories: [
+                "Branding",
+                "Style manuály",
+                "Palety barev",
+                "Ikonky",
+              ],
+              stack: "Sketch, Figma, Illustration, Photoshop",
+            },
+          },
+        },
+        return: function (data) {
+          return Object.getProperty(
+            Spruce.stores["translation.projects"],
+            Spruce.stores.global.language + "." + data
+          );
+        },
+      });
+    </script>
+
+    <script>
+      Spruce.store("translation.why", {
+        en: {
+          one:
+            "We specialise in crafting smooth and engaging digital experiences. Clean&nbsp;visual&nbsp;design and reliable underlying code are our priority.",
+          two:
+            "We are explorers and pioneers –<br>always striving to learn and adapt new&nbsp;ways. But, we do not forget the fundamentals that brought us here.",
+          three:
+            "We love challenge! We are open to any type of project and style of work. We always finish what we start and deliver a high-quality outcome.",
+          four:
+            "Trust, honesty & transparency. We aim to set the right expectations from the start – our clients are always well-informed about deadlines, cost and payments. No BS.",
+          five:
+            "We are friendly and respectful to anyone we work with. We encourage our team as well as our clients to ask questions and share their opinions – being open-minded is crucial as we are all in this together.",
+        },
+        cs: {
+          one:
+            "Specializujeme se ve vytváření plynulých a poutavých digitálních produktů. Čistý&nbsp;vizuální&nbsp; vzhled a spolehlivý zdrojový kód jsou naší prioritou.",
+          two:
+            "Jsme průzkumníci v digitálním světě -<br>neustále se snažíme učit a adaptovat nové způsoby práce. Nezapomínáme však na základní principy, na kterých vše stavíme.",
+          three:
+            "Milujeme výzvu! Jsme otevřeni jakémukoli typu projektu a stylu práce. Vždy dokončíme to, co začneme, a poskytneme vysoce kvalitní výsledky.",
+          four:
+            "Důvěra, upřímnost a transparentnost. Od začátku usilujeme o stanovení správných očekávání - naši klienti jsou vždy dobře informováni o termínech, nákladech a platbách.",
+          five:
+            "Jsme přátelští a ohleduplní ke každému, s kým spolupracujeme. Doporučujeme našemu týmu i našim klientům, aby pravidelně předkládali otázky a sdíleli své názory - jsme všichni jeden tým.",
+        },
+        return: function (data) {
+          return Object.getProperty(
+            Spruce.stores["translation.why"],
+            Spruce.stores.global.language + "." + data
+          );
+        },
+      });
+    </script>
+
+    <div class="overflow-hidden relative bg-blue-gray-100" id="intro">
+      <div class="h-screen">
+        <div class="flex absolute inset-0 z-30 flex-col">
+          <div
+            class="container flex flex-row justify-between items-center pt-4 space-x-2"
+          >
+            <img
+              class="w-auto h-full opacity-0 cursor-pointer"
+              x-on:click="window.router.getPath('brand')"
+              oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))"
+              src="/images/logomark.svg"
+              onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})"
+            />
+            <div
+              class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu"
+            >
+              <a
+                href="https://cal.mixmax.com/bohemicastudio/"
+                class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl text-center"
+                x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')"
+                target="_blank"
+                >Available for new projects</a
+              >
+              <div class="hidden items-center space-x-2 md:flex">
+                <button
+                  class="top-menu__button hover:bg-blue-200 focus:ring-blue-400"
+                  x-text="$store['global'].return('sections.what.name')"
+                  x-bind:data-tippy-content="$store['global'].return('sections.what.title')"
+                  x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+                <button
+                  class="top-menu__button hover:bg-yellow-200 focus:ring-yellow-400"
+                  x-text="$store['global'].return('sections.how.name')"
+                  x-bind:data-tippy-content="$store['global'].return('sections.how.title')"
+                  x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+                <button
+                  class="top-menu__button hover:bg-indigo-200 focus:ring-indigo-400"
+                  x-text="$store['global'].return(`sections['how-much'].name`)"
+                  x-bind:data-tippy-content="$store['global'].return(`sections['how-much'].title`)"
+                  x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+                <button
+                  class="top-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400"
+                  x-text="$store['global'].return('sections.why.name')"
+                  x-bind:data-tippy-content="$store['global'].return('sections.why.title')"
+                  x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+                <button
+                  class="top-menu__button hover:bg-emerald-200 focus:ring-emerald-400"
+                  x-text="$store['global'].return('sections.who.name')"
+                  x-bind:data-tippy-content="$store['global'].return('sections.who.title')"
+                  x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+                <button
+                  class="top-menu__button hover:bg-red-200 focus:ring-red-400"
+                  x-text="$store['global'].return('sections.where.name')"
+                  x-bind:data-tippy-content="$store['global'].return('sections.where.title')"
+                  x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                ></button>
+              </div>
+              <button
+                x-on:click="$store.global.openMobileMenu()"
+                class="flex p-1.5 md:hidden top-menu__button hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-md cursor-pointer"
+              >
+                <span
+                  class="flex justify-center items-center w-5 h-5 text-blue-gray-800"
+                >
+                  <i class="gg-menu"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="container pt-6 h-8/12 sm:h-1/2 hero">
+            <div
+              class="flex relative justify-center items-center w-full h-full"
+            >
+              <div
+                class="absolute top-0 left-0 opacity-0 sm:mt-4"
+                x-data="{ open: false }"
+                x-on:click.away="open = false"
+                x-init="() => { anime({ targets: $el, duration: 200, delay: 2800, opacity: 1, easing: 'linear'}) }"
+              >
+                <div class="relative">
+                  <button
+                    x-on:click="open = !open"
+                    :class="{ 'zoom-0' : open }"
+                    class="flex overflow-hidden relative z-50 py-1.5 pl-3.5 pr-1.5 text-gray-800 bg-blue-gray-700 rounded-xl group focus:outline-none focus:ring-2 ring-offset-2 ring-blue-gray-700 transition duration-100 ease-linear"
+                  >
+                    <div class="flex flex-row justify-between items-center">
+                      <svg
+                        class="mr-2.5 text-blue-gray-100 flex-shrink-0 w-6 h-6"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.87 15.07L10.33 12.56L10.36 12.53C12.1 10.59 13.34 8.36 14.07 6H17V4H10V2H8V4H1V5.99H12.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8H4.69C5.42 9.63 6.42 11.17 7.67 12.56L2.58 17.58L4 19L9 14L12.11 17.11L12.87 15.07ZM18.5 10H16.5L12 22H14L15.12 19H19.87L21 22H23L18.5 10ZM15.88 17L17.5 12.67L19.12 17H15.88V17Z"
+                        ></path>
+                      </svg>
+
+                      <span
+                        class="text-lg font-medium leading-none text-blue-gray-100"
+                        x-text="$store.global.languages.find(language => language.code === $store.global.language)?.name"
+                      ></span>
+
+                      <span
+                        class="text-blue-gray-100 bg-blue-gray-700 rounded-lg ml-3.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-blue-gray-500 group-focus:bg-blue-gray-500"
+                        x-bind:data-tippy-content="$store['global'].return('tooltip.changeLanguage')"
+                        ><i class="gg-chevron-down"></i
+                      ></span>
+                    </div>
+                  </button>
+
+                  <div
+                    class="absolute left-0 top-full z-10 p-1 mt-3 bg-blue-gray-500 rounded-lg origin-left"
+                    x-cloak
+                    :class="open ? 'opacity-1' : 'opacity-0'"
+                    :style="(open ? 'transform: scale(1) translateY(0rem); visibility: visible; transition: 200ms opacity linear 100ms, 200ms transform ease-out 100ms, 0ms visibility linear 0ms, 0ms overflow linear 0ms;' : 'transform: scale(0.85) translateY(-.75rem); visibility: hidden !important; transition: 200ms opacity linear 0ms, 200ms transform ease-out 0ms, 0ms visibility linear 200ms, 0ms overflow linear 150ms;') + ''"
+                  >
+                    <div class="grid gap-2">
+                      <template
+                        x-for="language in $store.global.languages"
+                        :key="language.code"
+                      >
+                        <button
+                          x-on:click="$store.global.switchTranslation(language.code); open = false"
+                          class="flex flex-row items-center py-2 px-3 space-x-4 rounded-md transition duration-75 ease-linear cursor-pointer focus:bg-blue-gray-800 focus:outline-none hover:bg-blue-gray-700"
+                        >
+                          <span class="w-7 h-auto">
+                            <img
+                              alt="language-icon"
+                              x-bind:src="'/images/language/' + language.code + '.svg'"
+                            />
+                          </span>
+                          <span
+                            class="font-medium leading-none text-blue-gray-100 whitespace-nowrap"
+                            x-text="language.name"
+                          ></span>
+                        </button>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12"
+              >
+                <h2
+                  class="text-5xl tracking-tight leading-none text-blue-gray-700 sm:text-6xl md:text-7xl"
+                  x-text="$store['global'].return('head.title')"
+                ></h2>
+                <span
+                  class="text-xl font-medium tracking-tight text-blue-gray-700 md:leading-relaxed md:font-normal xs:text-xl sm:text-2xl md:text-3xl font-dm-mono"
+                  x-text="$store['global'].return('head.subtitle')"
+                ></span>
+                <div
+                  class="flex flex-col items-center space-y-2.5 opacity-0"
+                  x-data
+                  x-init="() => { anime({ targets: $el, duration: 200, delay: 2400, opacity: 1, easing: 'linear'}) }"
+                >
+                  <div
+                    class="hidden flex-col items-stretch p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 transition duration-100 ease-linear md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500"
+                  >
+                    <div
+                      class="flex items-center px-3 h-8 rounded-lg bg-teal-legacy-200"
+                    >
+                      <span
+                        class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left"
+                        x-text="$store['global'].return('recentActivity') + ':'"
+                      ></span>
+                    </div>
+                    <a
+                      class="flex flex-row items-center py-1 select-none group md:py-0"
+                      x-bind:href="$store.activity.getUrl"
+                      x-bind:data-navigo="!$store.activity.getUrl?.includes('://')"
+                      x-bind:target="$store.activity.getUrl?.includes('://') ? '_blank' : '_self'"
+                    >
+                      <span
+                        class="flex items-center pr-1 pl-2.5 md:pl-3 space-x-2 leading-snug md:leading-none text-teal-legacy-700 group-hover:text-teal-legacy-800 md:whitespace-nowrap"
+                        x-html="$store.activity.getContent"
+                      ></span>
+                      <i
+                        class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 flex-shrink-0"
+                      ></i>
+                    </a>
+                  </div>
+                  <div
+                    class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500"
+                  >
+                    <span
+                      x-text="$store['global'].return('lastUpdated') + ':'"
+                    ></span>
+                    <a
+                      href="https://github.com/bohemicastudio/bohemica-studio-website"
+                      target="_blank"
+                      x-data="{ url: 'https://api.github.com/repos/alpinejs/alpine/commits', data: '' }"
+                      x-init="$fetch(url).then(response => data = response)"
+                      x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')"
+                      >00.00.0000</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="hidden md:flex absolute right-0 bottom-0 flex-col space-y-1.5 opacity-0"
+                x-data
+                x-init="() => { anime({ targets: $el, duration: 200, delay: 2600, opacity: 1, easing: 'linear'}) }"
+              >
+                <a
+                  href="https://twitter.com/BohemicaStudio"
+                  target="_blank"
+                  x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.twitter&#39;)"
+                  class="p-3.5 text-blue-gray-500 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-blue-gray-300 hover:text-blue-gray-700"
+                >
+                  <div class="flex justify-center items-center w-7 h-7">
+                    <svg
+                      class="w-full h-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="23"
+                      fill="currentColor"
+                      viewBox="0 0 28 23"
+                    >
+                      <path
+                        d="M28 2.694c-1.03.457-2.136.765-3.299.904A5.76 5.76 0 0027.227.42a11.468 11.468 0 01-3.648 1.394 5.745 5.745 0 00-9.937 3.934c0 .448.052.885.148 1.307A16.313 16.313 0 011.95 1.05a5.742 5.742 0 00-.777 2.888A5.745 5.745 0 003.728 8.72 5.731 5.731 0 011.126 8v.075a5.747 5.747 0 004.608 5.633 5.787 5.787 0 01-2.594.099 5.748 5.748 0 005.366 3.988 11.527 11.527 0 01-7.135 2.46A11.7 11.7 0 010 20.176a16.246 16.246 0 008.805 2.58c10.568 0 16.345-8.752 16.345-16.344 0-.246-.006-.495-.017-.742a11.677 11.677 0 002.864-2.972L28 2.694z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+
+                <a
+                  href="https://linkedin.com/company/bohemicastudio"
+                  target="_blank"
+                  x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.linkedin&#39;)"
+                  class="p-3.5 text-blue-gray-500 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-blue-gray-300 hover:text-blue-gray-700"
+                >
+                  <div class="flex justify-center items-center w-7 h-7">
+                    <svg
+                      class="w-full h-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      fill="currentColor"
+                      viewBox="0 0 28 28"
+                    >
+                      <path
+                        d="M28 2.059V25.94A2.059 2.059 0 0125.941 28H2.06A2.059 2.059 0 010 25.941V2.06A2.059 2.059 0 012.059 0H25.94A2.059 2.059 0 0128 2.059zM8.235 10.706H4.118v13.176h4.117V10.706zm.37-4.53a2.372 2.372 0 00-2.354-2.388h-.075a2.388 2.388 0 100 4.777 2.372 2.372 0 002.43-2.314v-.075zm15.277 9.702c0-3.962-2.52-5.502-5.023-5.502a4.694 4.694 0 00-4.167 2.125h-.116v-1.795h-3.87v13.176h4.117v-7.008a2.734 2.734 0 012.471-2.948h.157c1.309 0 2.28.823 2.28 2.899v7.057h4.118l.033-8.004z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-lg xl:max-h-xl container-screen lg:flex"
+        >
+          <picture>
+            <source srcset="/images/hand/blue.webp" type="image/webp" />
+            <source srcset="/images/hand/blue.png" type="image/png" />
+            <img
+              src="/images/hand/blue.png"
+              id="blueHand"
+              class="absolute bottom-0 origin-bottom-left"
+              style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
+						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/green.webp" type="image/webp" />
+            <source srcset="/images/hand/green.png" type="image/png" />
+            <img
+              src="/images/hand/green.png"
+              id="greenHand"
+              class="absolute bottom-0 origin-bottom-right"
+              style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/purple.webp" type="image/webp" />
+            <source srcset="/images/hand/purple.png" type="image/png" />
+            <img
+              src="/images/hand/purple.png"
+              id="purpleHand"
+              class="absolute bottom-0 origin-bottom-left"
+              style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/yellow.webp" type="image/webp" />
+            <source srcset="/images/hand/yellow.png" type="image/png" />
+            <img
+              src="/images/hand/yellow.png"
+              class="absolute bottom-0 origin-bottom-right"
+              style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(8.5vh); translateX(-50%); opacity: 0"
+              id="yellowHand"
+              onload="
+						anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 2400, delay: 2000, rotate: [8, -4], easing: 'easeOutQuart', })"
+            />
+          </picture>
+        </div>
+
+        <div
+          class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-md lg:max-h-lg container-screen md:flex lg:hidden"
+        >
+          <picture>
+            <source srcset="/images/hand/blue.webp" type="image/webp" />
+            <source srcset="/images/hand/blue.png" type="image/png" />
+            <img
+              src="/images/hand/blue.png"
+              id="blueHandTablet"
+              class="absolute bottom-0 origin-bottom-left"
+              style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
+						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/green.webp" type="image/webp" />
+            <source srcset="/images/hand/green.png" type="image/png" />
+            <img
+              src="/images/hand/green.png"
+              id="greenHandTablet"
+              class="absolute bottom-0 origin-bottom-right"
+              style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -6], easing: 'easeOutQuart', })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/purple.webp" type="image/webp" />
+            <source srcset="/images/hand/purple.png" type="image/png" />
+            <img
+              src="/images/hand/purple.png"
+              id="purpleHandTablet"
+              class="absolute bottom-0 origin-bottom-left"
+              style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0"
+              onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, -18], easing: 'easeOutQuart', })"
+            />
+          </picture>
+        </div>
+
+        <div
+          class="flex absolute inset-0 z-10 transform -translate-y-20 container-screen md:hidden"
+        >
+          <picture>
+            <source srcset="/images/hand/green.webp" type="image/webp" />
+            <source srcset="/images/hand/green.png" type="image/png" />
+            <img
+              src="/images/hand/green.png"
+              id="greenHandMobile"
+              class="absolute bottom-0 origin-bottom-right"
+              style="
+                left: 40%;
+                height: 57.5vh;
+                transform: translateY(27.5vh) translateX(-50%);
+                opacity: 0;
+              "
+              onload="
+						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })"
+            />
+          </picture>
+
+          <picture>
+            <source srcset="/images/hand/purple.webp" type="image/webp" />
+            <source srcset="/images/hand/purple.png" type="image/png" />
+            <img
+              src="/images/hand/purple.png"
+              id="purpleHandMobile"
+              class="absolute bottom-0 origin-bottom-left"
+              style="
+                left: 52.5%;
+                height: 52.5vh;
+                transform: translateY(27.5vh) translateX(-50%);
+                opacity: 0;
+              "
+              onload="
+						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
+						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })"
+            />
+          </picture>
+        </div>
+
+        <div class="absolute inset-0">
+          <picture>
+            <source srcset="/images/warp-background.webp" type="image/webp" />
+            <source srcset="/images/warp-background.png" type="image/png" />
+            <img
+              src="/images/warp-background.png"
+              class="object-cover top-0 left-0 z-0 h-full"
+            />
+          </picture>
+        </div>
+      </div>
+
+      <div class="container-screen">
+        <div class="flex relative z-30 justify-center">
+          <svg
+            class="text-blue-400 -mb-0.5 md:-mb-1.5 w-full h-full hidden sm:block"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 1240 128"
+          >
+            <path
+              d="M0 125.902V3.497h45.412c12.5 0 21.96 2.973 28.382 8.918 6.422 5.946 9.633 13.407 9.633 22.383 0 7.81-2.064 14.047-6.193 18.71-4.128 4.547-9.116 7.636-14.965 9.268 4.587.933 8.658 2.798 12.213 5.596 3.67 2.797 6.537 6.295 8.6 10.491 2.065 4.197 3.097 8.744 3.097 13.64 0 6.295-1.548 12.007-4.644 17.136-2.982 5.013-7.397 8.977-13.245 11.891-5.849 2.914-13.016 4.372-21.502 4.372H0zm18.233-69.946h24.942c6.996 0 12.328-1.632 15.998-4.896 3.67-3.38 5.504-7.985 5.504-13.814 0-5.712-1.835-10.259-5.504-13.64-3.555-3.38-9.002-5.07-16.342-5.07H18.233v37.42zm0 54.733H44.38c7.339 0 13.015-1.749 17.029-5.246 4.128-3.498 6.193-8.394 6.193-14.689s-2.122-11.25-6.365-14.863c-4.243-3.73-9.977-5.596-17.201-5.596H18.233v40.394zM136.783 128c-8.142 0-15.481-1.865-22.017-5.596-6.422-3.847-11.525-9.151-15.31-15.912-3.784-6.878-5.676-14.864-5.676-23.957 0-9.092 1.892-17.02 5.676-23.78 3.899-6.879 9.117-12.183 15.654-15.913 6.536-3.847 13.818-5.771 21.845-5.771 8.142 0 15.424 1.924 21.846 5.77 6.537 3.73 11.697 9.035 15.482 15.913 3.899 6.762 5.848 14.689 5.848 23.782 0 9.092-1.949 17.078-5.848 23.956-3.785 6.761-8.945 12.065-15.482 15.912-6.536 3.731-13.876 5.596-22.018 5.596zm0-15.913c4.358 0 8.372-1.107 12.041-3.322 3.785-2.215 6.824-5.479 9.117-9.792 2.294-4.43 3.44-9.91 3.44-16.438 0-6.528-1.146-11.948-3.44-16.262-2.179-4.43-5.16-7.752-8.945-9.967-3.669-2.215-7.683-3.322-12.041-3.322-4.357 0-8.428 1.107-12.213 3.322-3.669 2.215-6.651 5.537-8.944 9.967-2.294 4.314-3.441 9.734-3.441 16.263 0 6.528 1.147 12.007 3.441 16.437 2.293 4.313 5.275 7.577 8.944 9.792 3.67 2.215 7.684 3.322 12.041 3.322zM191.249 125.902V0h18.233v53.158c2.867-5.012 6.823-8.918 11.869-11.715 5.161-2.915 10.837-4.372 17.03-4.372 10.206 0 18.233 3.264 24.082 9.792 5.848 6.529 8.772 16.263 8.772 29.203v49.836h-18.061V77.989c0-16.787-6.594-25.18-19.782-25.18-6.88 0-12.614 2.448-17.201 7.344-4.473 4.896-6.709 11.89-6.709 20.984v44.765h-18.233zM324.017 128c-8.372 0-15.826-1.865-22.362-5.596-6.422-3.847-11.468-9.151-15.137-15.912-3.67-6.762-5.505-14.63-5.505-23.607 0-9.093 1.778-17.078 5.333-23.956 3.669-6.878 8.715-12.24 15.137-16.087 6.536-3.847 14.105-5.771 22.706-5.771 8.371 0 15.653 1.924 21.846 5.77 6.192 3.73 11.008 8.744 14.449 15.039 3.44 6.295 5.16 13.231 5.16 20.809 0 1.165-.057 2.448-.172 3.847 0 1.282-.057 2.739-.172 4.371h-66.397c.573 8.394 3.268 14.805 8.084 19.235 4.931 4.313 10.608 6.47 17.03 6.47 5.16 0 9.461-1.166 12.901-3.497 3.555-2.448 6.192-5.712 7.912-9.793h18.234c-2.294 8.161-6.881 14.98-13.761 20.459-6.766 5.479-15.195 8.219-25.286 8.219zm0-75.716c-6.078 0-11.468 1.865-16.17 5.596-4.701 3.614-7.568 9.093-8.6 16.437h48.164c-.344-6.761-2.695-12.124-7.053-16.087-4.358-3.964-9.805-5.946-16.341-5.946zM375.962 125.902V39.169h16.17l1.548 12.24c2.752-4.429 6.364-7.926 10.837-10.491 4.587-2.565 9.862-3.847 15.825-3.847 13.532 0 22.935 5.42 28.21 16.262 3.097-5.012 7.225-8.976 12.385-11.89 5.275-2.915 10.952-4.372 17.03-4.372 10.665 0 19.036 3.264 25.114 9.792 6.078 6.529 9.117 16.263 9.117 29.203v49.836h-18.234V77.989c0-16.787-6.307-25.18-18.922-25.18-6.421 0-11.696 2.448-15.825 7.344-4.013 4.896-6.02 11.89-6.02 20.984v44.765h-18.234V77.989c0-16.787-6.364-25.18-19.093-25.18-6.308 0-11.525 2.448-15.654 7.344-4.013 4.896-6.02 11.89-6.02 20.984v44.765h-18.234zM535.25 22.732c-3.44 0-6.307-1.049-8.601-3.147-2.178-2.215-3.268-4.955-3.268-8.219 0-3.264 1.09-5.945 3.268-8.044C528.943 1.107 531.81 0 535.25 0c3.44 0 6.25 1.107 8.429 3.322 2.293 2.099 3.44 4.78 3.44 8.044 0 3.264-1.147 6.004-3.44 8.219-2.179 2.098-4.989 3.147-8.429 3.147zm-9.117 103.17V39.169h18.234v86.733h-18.234zM600.259 128c-8.371 0-15.882-1.924-22.534-5.77-6.536-3.847-11.696-9.152-15.481-15.913-3.669-6.878-5.504-14.805-5.504-23.781 0-8.977 1.835-16.846 5.504-23.607 3.785-6.878 8.945-12.24 15.481-16.087 6.652-3.847 14.163-5.771 22.534-5.771 10.551 0 19.381 2.798 26.491 8.394 7.224 5.595 11.868 13.172 13.933 22.732h-19.094c-1.147-4.78-3.67-8.51-7.569-11.192-3.899-2.68-8.486-4.021-13.761-4.021-4.472 0-8.6 1.165-12.385 3.497-3.784 2.215-6.823 5.537-9.116 9.967-2.294 4.313-3.441 9.676-3.441 16.088 0 6.411 1.147 11.832 3.441 16.262 2.293 4.313 5.332 7.636 9.116 9.967 3.785 2.332 7.913 3.497 12.385 3.497 5.275 0 9.862-1.34 13.761-4.022 3.899-2.681 6.422-6.47 7.569-11.366h19.094c-1.95 9.326-6.537 16.845-13.761 22.558-7.225 5.712-16.112 8.568-26.663 8.568zM680.755 128c-7.224 0-13.188-1.224-17.889-3.672-4.702-2.448-8.2-5.654-10.493-9.618-2.294-4.08-3.44-8.51-3.44-13.289 0-8.394 3.21-15.039 9.632-19.935 6.422-4.896 15.596-7.344 27.523-7.344h22.361v-1.574c0-6.761-1.834-11.832-5.504-15.213-3.555-3.38-8.199-5.07-13.933-5.07-5.046 0-9.461 1.282-13.245 3.846-3.67 2.448-5.906 6.12-6.709 11.016h-18.233c.573-6.295 2.637-11.657 6.192-16.087 3.67-4.546 8.257-7.985 13.761-10.317 5.62-2.448 11.755-3.672 18.406-3.672 11.926 0 21.158 3.206 27.694 9.617 6.537 6.296 9.805 14.922 9.805 25.88v53.334h-15.825l-1.548-14.864c-2.409 4.78-5.906 8.802-10.493 12.066-4.587 3.264-10.608 4.896-18.062 4.896zm3.612-15.038c4.932 0 9.06-1.166 12.386-3.498 3.44-2.448 6.077-5.653 7.912-9.617 1.95-3.964 3.154-8.335 3.613-13.115H687.98c-7.225 0-12.385 1.283-15.481 3.847-2.982 2.565-4.473 5.77-4.473 9.618 0 3.963 1.434 7.111 4.301 9.442 2.981 2.215 6.995 3.323 12.04 3.323zM814.504 128c-8.83 0-16.57-1.574-23.222-4.721-6.651-3.148-11.869-7.636-15.653-13.465-3.67-5.829-5.562-12.765-5.676-20.808h19.265c.115 6.528 2.351 12.065 6.709 16.611 4.357 4.547 10.493 6.82 18.405 6.82 6.995 0 12.443-1.69 16.342-5.071 4.013-3.497 6.02-7.927 6.02-13.29 0-4.313-.975-7.81-2.924-10.491-1.835-2.681-4.415-4.896-7.741-6.645-3.211-1.749-6.938-3.322-11.181-4.721a908.821 908.821 0 01-13.417-4.547c-9.289-3.147-16.284-7.228-20.986-12.24-4.587-5.013-6.88-11.6-6.88-19.76-.115-6.878 1.433-12.881 4.644-18.01 3.326-5.13 7.913-9.094 13.761-11.892 5.964-2.914 12.901-4.371 20.814-4.371 7.798 0 14.621 1.457 20.47 4.371 5.963 2.915 10.607 6.995 13.933 12.24 3.326 5.13 5.046 11.134 5.16 18.012h-19.265c0-3.148-.803-6.12-2.408-8.918-1.606-2.915-3.957-5.304-7.053-7.17-3.096-1.865-6.881-2.797-11.353-2.797-5.734-.117-10.493 1.34-14.277 4.371-3.67 3.031-5.505 7.228-5.505 12.59 0 4.78 1.377 8.452 4.129 11.017 2.752 2.564 6.536 4.721 11.353 6.47a1055.386 1055.386 0 0116.513 5.77c5.963 1.982 11.296 4.372 15.997 7.17 4.702 2.797 8.429 6.47 11.181 11.016 2.867 4.546 4.301 10.317 4.301 17.312 0 6.178-1.548 11.948-4.645 17.311-3.096 5.246-7.74 9.559-13.933 12.94-6.192 3.264-13.818 4.896-22.878 4.896zM902.385 125.902c-8.372 0-15.023-2.04-19.954-6.121-4.931-4.196-7.397-11.599-7.397-22.207V54.732h-14.621V39.17h14.621l2.237-22.032h15.997v22.032h24.082v15.563h-24.082v42.842c0 4.779.975 8.102 2.924 9.967 2.064 1.749 5.562 2.623 10.493 2.623h9.805v15.738h-14.105zM959.028 128c-10.32 0-18.463-3.264-24.426-9.792-5.848-6.529-8.772-16.263-8.772-29.203V39.17h18.233v47.913c0 16.787 6.766 25.18 20.298 25.18 6.766 0 12.327-2.448 16.685-7.344 4.358-4.896 6.537-11.89 6.537-20.984V39.17h18.237v86.733h-16.173l-1.376-15.213c-2.638 5.362-6.537 9.617-11.697 12.765-5.046 3.031-10.894 4.546-17.546 4.546zM1059.29 128c-8.26 0-15.54-1.982-21.85-5.945-6.31-3.964-11.24-9.385-14.79-16.263-3.56-6.878-5.34-14.688-5.34-23.431s1.78-16.496 5.34-23.257c3.55-6.878 8.48-12.24 14.79-16.088 6.42-3.963 13.76-5.945 22.02-5.945 6.76 0 12.67 1.34 17.72 4.022 5.16 2.681 9.17 6.47 12.04 11.366V0h18.23v125.902h-16.34l-1.89-13.465c-2.76 4.08-6.54 7.694-11.36 10.842-4.81 3.147-11.01 4.721-18.57 4.721zm3.26-16.087c7.8 0 14.17-2.74 19.1-8.219 5.04-5.48 7.57-12.532 7.57-21.159 0-8.743-2.53-15.795-7.57-21.158-4.93-5.479-11.3-8.219-19.1-8.219-7.79 0-14.22 2.74-19.26 8.219-5.05 5.363-7.57 12.415-7.57 21.158 0 5.713 1.15 10.784 3.44 15.214s5.45 7.927 9.46 10.491c4.13 2.449 8.77 3.673 13.93 3.673zM1132.16 22.732c-3.44 0-6.31-1.049-8.6-3.147-2.18-2.215-3.27-4.955-3.27-8.219 0-3.264 1.09-5.945 3.27-8.044 2.29-2.215 5.16-3.322 8.6-3.322 3.44 0 6.25 1.107 8.43 3.322 2.29 2.099 3.44 4.78 3.44 8.044 0 3.264-1.15 6.004-3.44 8.219-2.18 2.098-4.99 3.147-8.43 3.147zm-9.12 103.17V39.169h18.24v86.733h-18.24zM1196.65 128c-8.14 0-15.48-1.865-22.02-5.596-6.42-3.847-11.52-9.151-15.3-15.912-3.79-6.878-5.68-14.864-5.68-23.957 0-9.092 1.89-17.02 5.68-23.78 3.89-6.879 9.11-12.183 15.65-15.913 6.54-3.847 13.82-5.771 21.84-5.771 8.15 0 15.43 1.924 21.85 5.77 6.54 3.73 11.7 9.035 15.48 15.913 3.9 6.762 5.85 14.689 5.85 23.782 0 9.092-1.95 17.078-5.85 23.956-3.78 6.761-8.94 12.065-15.48 15.912-6.54 3.731-13.88 5.596-22.02 5.596zm0-15.913c4.36 0 8.37-1.107 12.04-3.322 3.79-2.215 6.83-5.479 9.12-9.792 2.29-4.43 3.44-9.91 3.44-16.438 0-6.528-1.15-11.948-3.44-16.262-2.18-4.43-5.16-7.752-8.94-9.967-3.67-2.215-7.69-3.322-12.05-3.322-4.35 0-8.42 1.107-12.21 3.322-3.67 2.215-6.65 5.537-8.94 9.967-2.3 4.314-3.44 9.734-3.44 16.263 0 6.528 1.14 12.007 3.44 16.437 2.29 4.313 5.27 7.577 8.94 9.792s7.68 3.322 12.04 3.322z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div
+        class="absolute inset-x-0 bottom-0 z-20 h-4/6 bg-gradient-to-t from-blue-gray-100"
+        style="--tw-gradient-to: rgba(241, 245, 249, 0)"
+      ></div>
+    </div>
+
+    <div
+      class="fixed top-2.5 right-2.5 z-40 py-1 px-3 text-lg font-medium text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5"
+      x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"
+      x-cloak
+      x-show="$store.global.openSectionClue"
+      x-transition:enter="transition ease-out duration-150"
+      x-transition:enter-start="opacity-0 transform scale-75"
+      x-transition:enter-end="opacity-100 transform scale-100"
+      x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 transform scale-100"
+      x-transition:leave-end="opacity-0 transform scale-75"
+    ></div>
+
+    <div id="why-one" class="bg-blue-400">
+      <div class="container">
+        <div class="overflow-hidden relative">
+          <div class="flex flex-col justify-start h-screen md:h-screen-125">
+            <div class="flex items-center h-screen">
+              <div
+                class="flex flex-col w-full"
+                x-bind:style="$store.global.onlyWhySection ? 'padding-top: 8rem' : 'padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)'"
+              >
+                <div
+                  class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-white border-2 border-white font-optician-sans md:hidden"
+                >
+                  <span> I </span>
+                </div>
+                <div
+                  class="hidden flex-row justify-center items-center md:flex"
+                >
+                  <hr class="w-full border-t border-b border-white" />
+                  <div
+                    class="p-5 text-blue-400 rounded-full border-2 border-white"
+                  >
+                    <svg
+                      style="width: 50px; height: 50px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="44"
+                      height="50"
+                      fill="currentColor"
+                      stroke="white"
+                      viewBox="0 0 44 50"
+                    >
+                      <path
+                        d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                        d="M30.622 14.904H8.875v30.752A3.345 3.345 0 0012.219 49h17.485c7.327 0 13.267-5.94 13.267-13.267V28.17c.036-4.7-2.25-8.432-3.54-13.266L36.563 4.16a4.262 4.262 0 00-8.232 2.205l2.29 8.539zm0 0h-.001a11 11 0 00-4.087 8.567c0 6.086 4.935 11.02 11.02 11.02"
+                      />
+                      <path
+                        d="M4.158 44.738a4.262 4.262 0 014.262-4.262h2.526a4.262 4.262 0 110 8.524H8.42a4.262 4.262 0 01-4.262-4.262z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                        d="M4.158 44.738a4.262 4.262 0 014.262-4.262h2.526a4.262 4.262 0 110 8.524H8.42a4.262 4.262 0 01-4.262-4.262z"
+                      />
+                      <path
+                        d="M2.576 36.217a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.524H6.838a4.262 4.262 0 01-4.262-4.262z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                        d="M2.576 36.217a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.524H6.838a4.262 4.262 0 01-4.262-4.262z"
+                      />
+                      <path
+                        d="M2.576 19.225a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.523H6.838a4.261 4.261 0 01-4.262-4.261z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                        d="M2.576 19.225a4.262 4.262 0 014.262-4.262h4.104a4.261 4.261 0 110 8.523H6.838a4.261 4.261 0 01-4.262-4.261z"
+                      />
+                      <path
+                        d="M1 27.745a4.262 4.262 0 014.262-4.262h5.683a4.262 4.262 0 110 8.524H5.262A4.262 4.262 0 011 27.745z"
+                      />
+                      <g>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-miterlimit="10"
+                          stroke-width="2"
+                          d="M1 27.745a4.262 4.262 0 014.262-4.262h5.683a4.262 4.262 0 110 8.524H5.262A4.262 4.262 0 011 27.745z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <hr class="w-full border-t border-b border-white" />
+                </div>
+                <p
+                  class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-white tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20"
+                  x-html="$store['translation.why'].return('one')"
+                ></p>
+                <hr
+                  class="hidden w-full border-t border-b border-white md:flex"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            x-show="!$store.global.onlyWhySection"
+            class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1"
+            style="
+              background-image: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.75),
+                rgba(255, 255, 255, 0) 50%
+              );
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="what"
+      x-ref="whatSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/what.html').then((data) => { $refs.whatSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div id="why-two" class="bg-yellow-400">
+      <div class="container">
+        <div class="overflow-hidden relative">
+          <div class="flex flex-col justify-start h-screen md:h-screen-125">
+            <div class="flex items-center h-screen">
+              <div
+                class="flex flex-col w-full"
+                x-bind:style="$store.global.onlyWhySection ? 'padding-top: 8rem' : 'padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)'"
+              >
+                <div
+                  class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-black border-2 border-black font-optician-sans md:hidden"
+                >
+                  <span> II </span>
+                </div>
+                <div
+                  class="hidden flex-row justify-center items-center md:flex"
+                >
+                  <hr class="w-full border-t border-b border-black" />
+                  <div
+                    class="p-5 text-yellow-400 rounded-full border-2 border-black"
+                  >
+                    <svg
+                      style="width: 50px; height: 50px"
+                      width="32"
+                      height="50"
+                      viewBox="0 0 32 50"
+                      fill="currentColor"
+                      stroke="black"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.5914 1C18.3128 1 19.7077 2.39545 19.7077 4.11628V28.3541H13.4751V4.11628C13.4751 2.39545 14.87 1 16.5914 1Z"
+                      />
+                      <path
+                        d="M16.5914 1C18.3128 1 19.7077 2.39545 19.7077 4.11628V28.3541H13.4751V4.11628C13.4751 2.39545 14.87 1 16.5914 1Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M27.514 5.01679C29.2004 5.36119 30.2883 7.00766 29.9433 8.69399L25.9336 28.3136L19.8271 27.0657L23.8369 7.44605C24.1813 5.75973 25.8277 4.67239 27.514 5.01679Z"
+                      />
+                      <path
+                        d="M27.514 5.01679C29.2004 5.36119 30.2883 7.00766 29.9433 8.69399L25.9336 28.3136L19.8271 27.0657L23.8369 7.44605C24.1813 5.75973 25.8277 4.67239 27.514 5.01679Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M25.9308 28.6619V39.2754C25.9308 44.6329 21.588 48.9752 16.2304 48.9752H10.7004C5.3428 48.9752 1 44.6329 1 39.2754V24.0449H21.3138C23.8638 24.0449 25.9308 26.1119 25.9308 28.6619Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.11628 20.4785C5.8377 20.4785 7.23256 21.874 7.23256 23.5948V25.6148C7.23256 27.3356 5.8377 28.7311 4.11628 28.7311C2.39486 28.7311 1 27.3356 1 25.6148V23.5948C1 21.874 2.39486 20.4785 4.11628 20.4785Z"
+                      />
+                      <path
+                        d="M4.11628 20.4785C5.8377 20.4785 7.23256 21.874 7.23256 23.5948V25.6148C7.23256 27.3356 5.8377 28.7311 4.11628 28.7311C2.39486 28.7311 1 27.3356 1 25.6148V23.5948C1 21.874 2.39486 20.4785 4.11628 20.4785Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M10.3477 19.418C12.0691 19.418 13.464 20.8134 13.464 22.5342V25.5637C13.464 27.2851 12.0691 28.68 10.3477 28.68C8.62631 28.68 7.23145 27.2851 7.23145 25.5637V22.5342C7.23145 20.8134 8.62631 19.418 10.3477 19.418Z"
+                      />
+                      <path
+                        d="M10.3477 19.418C12.0691 19.418 13.464 20.8134 13.464 22.5342V25.5637C13.464 27.2851 12.0691 28.68 10.3477 28.68C8.62631 28.68 7.23145 27.2851 7.23145 25.5637V22.5342C7.23145 20.8134 8.62631 19.418 10.3477 19.418Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M25.925 35.0612V39.7668C25.925 44.8668 21.7904 49.0002 16.6916 49.0002H15.4264C14.392 47.1224 13.8049 44.874 13.8049 42.5785C13.8049 39.837 14.6424 37.2905 16.0771 35.1843C16.2246 34.9666 16.3811 34.7524 16.5411 34.5437L16.5447 34.5401L16.5203 34.5175C16.5298 34.5103 16.5375 34.5044 16.547 34.499L11.5553 29.4621C11.331 29.2378 11.149 28.9898 11.0092 28.7245C10.9539 28.6228 10.9051 28.5187 10.8635 28.4128C10.4168 27.291 10.6476 25.9621 11.5553 25.055C12.0157 24.5946 12.5861 24.3085 13.1815 24.1961C13.3719 24.161 13.5658 24.1426 13.7585 24.1426C13.8876 24.1426 14.0179 24.1503 14.1463 24.1676C14.8096 24.2496 15.4532 24.5459 15.9617 25.055L19.2975 28.4128L25.925 35.0612Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <hr class="w-full border-t border-b border-black" />
+                </div>
+                <p
+                  class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-black tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20"
+                  x-html="$store['translation.why'].return('two')"
+                ></p>
+                <hr
+                  class="hidden w-full border-t border-b border-black md:flex"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            x-show="!$store.global.onlyWhySection"
+            class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1"
+            style="
+              background-image: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.75),
+                rgba(255, 255, 255, 0) 50%
+              );
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="how"
+      x-ref="howSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/how.html').then((data) => { $refs.howSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div
+      x-ref="gitReposSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/repos.html').then((data) => { $refs.gitReposSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div id="why-three" class="bg-indigo-500">
+      <div class="container">
+        <div class="overflow-hidden relative">
+          <div class="flex flex-col justify-start h-screen md:h-screen-125">
+            <div class="flex items-center h-screen">
+              <div
+                class="flex flex-col w-full"
+                x-bind:style="$store.global.onlyWhySection ? 'padding-top: 8rem' : 'padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)'"
+              >
+                <div
+                  class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-white border-2 border-white font-optician-sans md:hidden"
+                >
+                  <span> III </span>
+                </div>
+                <div
+                  class="hidden flex-row justify-center items-center md:flex"
+                >
+                  <hr class="w-full border-t border-b border-white" />
+                  <div
+                    class="p-5 text-indigo-500 rounded-full border-2 border-white"
+                  >
+                    <svg
+                      style="width: 50px; height: 50px"
+                      width="40"
+                      height="50"
+                      viewBox="0 0 40 50"
+                      fill="currentColor"
+                      stroke="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.41314 5.54492C6.29854 5.54492 7.82628 7.07266 7.82628 8.95741V26.3397H1V8.95741C1 7.07266 2.52774 5.54492 4.41314 5.54492Z"
+                      />
+                      <path
+                        d="M4.41314 5.54492C6.29854 5.54492 7.82628 7.07266 7.82628 8.95741V26.3397H1V8.95741C1 7.07266 2.52774 5.54492 4.41314 5.54492Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M24.9026 1C26.788 1 28.3158 2.52839 28.3158 4.41314V26.3461H21.4895V4.41314C21.4895 2.52839 23.0172 1 24.9026 1Z"
+                      />
+                      <path
+                        d="M24.9026 1C26.788 1 28.3158 2.52839 28.3158 4.41314V26.3461H21.4895V4.41314C21.4895 2.52839 23.0172 1 24.9026 1Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M28.3058 26.7522V38.3766C28.3058 44.2446 23.5486 49.0004 17.6807 49.0004H11.6244C5.7565 49.0004 1 44.2446 1 38.3766V27.0075C1 24.0739 3.37793 21.6953 6.31157 21.6953H23.2489C26.0412 21.6953 28.3058 23.9592 28.3058 26.7522Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11.243 16.666C13.1277 16.666 14.6555 18.1944 14.6555 20.0792V23.3659C14.6555 25.2513 13.1277 26.779 11.243 26.779C9.35757 26.779 7.82983 25.2513 7.82983 23.3659V20.0792C7.82983 18.1944 9.35757 16.666 11.243 16.666Z"
+                      />
+                      <path
+                        d="M11.243 16.666C13.1277 16.666 14.6555 18.1944 14.6555 20.0792V23.3659C14.6555 25.2513 13.1277 26.779 11.243 26.779C9.35757 26.779 7.82983 25.2513 7.82983 23.3659V20.0792C7.82983 18.1944 9.35757 16.666 11.243 16.666Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.0238 15.4102C19.9092 15.4102 21.437 16.9385 21.437 18.8233V23.3746C21.437 25.2593 19.9092 26.7877 18.0238 26.7877C16.1384 26.7877 14.6113 25.2593 14.6113 23.3746V18.8233C14.6113 16.9385 16.1384 15.4102 18.0238 15.4102Z"
+                      />
+                      <path
+                        d="M18.0238 15.4102C19.9092 15.4102 21.437 16.9385 21.437 18.8233V23.3746C21.437 25.2593 19.9092 26.7877 18.0238 26.7877C16.1384 26.7877 14.6113 25.2593 14.6113 23.3746V18.8233C14.6113 16.9385 16.1384 15.4102 18.0238 15.4102Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.8121 48.9633H18.2168C20.1387 48.9633 21.9362 48.4272 23.4665 47.4962C24.1486 47.0805 24.7695 46.5711 25.335 46.0075L37.4676 33.9042C38.8012 32.5713 38.8012 30.4103 37.4676 29.0773C36.1347 27.7451 33.9724 27.7451 32.6408 29.0773L28.3637 33.3576C26.7461 31.3608 24.2737 30.0845 21.5036 30.0845C16.6285 30.0845 12.6772 34.0365 12.6772 38.9109"
+                      />
+                      <path
+                        d="M12.8121 48.9633H18.2168C20.1387 48.9633 21.9362 48.4272 23.4665 47.4962C24.1486 47.0805 24.7695 46.5711 25.335 46.0075L37.4676 33.9042C38.8012 32.5713 38.8012 30.4103 37.4676 29.0773C36.1347 27.7451 33.9724 27.7451 32.6408 29.0773L28.3637 33.3576C26.7461 31.3608 24.2737 30.0845 21.5036 30.0845C16.6285 30.0845 12.6772 34.0365 12.6772 38.9109"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <hr class="w-full border-t border-b border-white" />
+                </div>
+                <p
+                  class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-white tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20"
+                  x-html="$store['translation.why'].return('three')"
+                ></p>
+                <hr
+                  class="hidden w-full border-t border-b border-white md:flex"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            x-show="!$store.global.onlyWhySection"
+            class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1"
+            style="
+              background-image: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.75),
+                rgba(255, 255, 255, 0) 50%
+              );
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="how-much"
+      x-ref="howMuchSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/how-much.html').then((data) => { $refs.howMuchSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div id="why-four" class="bg-emerald-500">
+      <div class="container">
+        <div class="overflow-hidden relative">
+          <div class="flex flex-col justify-start h-screen md:h-screen-125">
+            <div class="flex items-center h-screen">
+              <div
+                class="flex flex-col w-full"
+                x-bind:style="$store.global.onlyWhySection ? 'padding-top: 8rem' : 'padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)'"
+              >
+                <div
+                  class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-white border-2 border-white font-optician-sans md:hidden"
+                >
+                  <span> IV </span>
+                </div>
+                <div
+                  class="hidden flex-row justify-center items-center md:flex"
+                >
+                  <hr class="w-full border-t border-b border-white" />
+                  <div
+                    class="p-5 text-emerald-500 rounded-full border-2 border-white"
+                  >
+                    <svg
+                      style="width: 50px; height: 50px"
+                      width="37"
+                      height="50"
+                      viewBox="0 0 37 50"
+                      fill="currentColor"
+                      stroke="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.3236 5.30273C12.0436 5.30273 13.4372 6.69701 13.4372 8.41637V28.4247H7.20996V8.41637C7.20996 6.69701 8.60364 5.30273 10.3236 5.30273Z"
+                      />
+                      <path
+                        d="M10.3236 5.30273C12.0436 5.30273 13.4372 6.69701 13.4372 8.41637V28.4247H7.20996V8.41637C7.20996 6.69701 8.60364 5.30273 10.3236 5.30273Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16.5826 1C18.3026 1 19.6963 2.39427 19.6963 4.11305V28.331H13.469V4.11305C13.469 2.39427 14.8627 1 16.5826 1Z"
+                      />
+                      <path
+                        d="M16.5826 1C18.3026 1 19.6963 2.39427 19.6963 4.11305V28.331H13.469V4.11305C13.469 2.39427 14.8627 1 16.5826 1Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M22.7926 5.30273C24.5126 5.30273 25.9062 6.69701 25.9062 8.41637V28.4247H19.679V8.41637C19.679 6.69701 21.0726 5.30273 22.7926 5.30273Z"
+                      />
+                      <path
+                        d="M22.7926 5.30273C24.5126 5.30273 25.9062 6.69701 25.9062 8.41637V28.4247H19.679V8.41637C19.679 6.69701 21.0726 5.30273 22.7926 5.30273Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M21.0637 24.0801H1V39.2976C1 44.6507 5.33913 48.9898 10.6922 48.9898H16.2176C21.5706 48.9898 25.9097 44.6507 25.9097 39.2976V28.9262C25.9097 26.2499 23.7399 24.0801 21.0637 24.0801Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11.7339 48.9998H16.6637C19.0024 48.9998 21.1372 48.1297 22.7633 46.6962L34.2253 35.2615C35.4419 34.0461 35.4419 32.0748 34.2253 30.8588C33.0099 29.6434 31.038 29.6434 29.8226 30.8588L25.9209 34.7635C24.4446 32.9419 22.1897 31.7776 19.6621 31.7776C15.2154 31.7776 11.6108 35.3828 11.6108 39.8289"
+                      />
+                      <path
+                        d="M11.7339 48.9998H16.6637C19.0024 48.9998 21.1372 48.1297 22.7633 46.6962L34.2253 35.2615C35.4419 34.0461 35.4419 32.0748 34.2253 30.8588C33.0099 29.6434 31.038 29.6434 29.8226 30.8588L25.9209 34.7635C24.4446 32.9419 22.1897 31.7776 19.6621 31.7776C15.2154 31.7776 11.6108 35.3828 11.6108 39.8289"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.11364 20.5586C5.83361 20.5586 7.22729 21.9529 7.22729 23.6722V25.6906C7.22729 27.4099 5.83361 28.8042 4.11364 28.8042C2.39368 28.8042 1 27.4099 1 25.6906V23.6722C1 21.9529 2.39368 20.5586 4.11364 20.5586Z"
+                      />
+                      <path
+                        d="M4.11364 20.5586C5.83361 20.5586 7.22729 21.9529 7.22729 23.6722V25.6906C7.22729 27.4099 5.83361 28.8042 4.11364 28.8042C2.39368 28.8042 1 27.4099 1 25.6906V23.6722C1 21.9529 2.39368 20.5586 4.11364 20.5586Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <hr class="w-full border-t border-b border-white" />
+                </div>
+                <p
+                  class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-white tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20"
+                  x-html="$store['translation.why'].return('four')"
+                ></p>
+                <hr
+                  class="hidden w-full border-t border-b border-white md:flex"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            x-show="!$store.global.onlyWhySection"
+            class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1"
+            style="
+              background-image: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.75),
+                rgba(255, 255, 255, 0) 50%
+              );
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="who"
+      x-ref="whoSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/who.html').then((data) => { $refs.whoSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div id="why-five" class="bg-red-500">
+      <div class="container">
+        <div class="overflow-hidden relative">
+          <div class="flex flex-col justify-start h-screen md:h-screen-125">
+            <div class="flex items-center h-screen">
+              <div
+                class="flex flex-col w-full"
+                x-bind:style="$store.global.onlyWhySection ? 'padding-top: 8rem' : 'padding-bottom: calc((0.25vw + 0.5vh + 0.25vmax) * 20)'"
+              >
+                <div
+                  class="flex justify-center items-center self-center px-2.5 py-1 text-xl rounded-lg text-white border-2 border-white font-optician-sans md:hidden"
+                >
+                  <span> V </span>
+                </div>
+                <div
+                  class="hidden flex-row justify-center items-center md:flex"
+                >
+                  <hr class="w-full border-t border-b border-white" />
+                  <div
+                    class="p-5 text-red-500 rounded-full border-2 border-white"
+                  >
+                    <svg
+                      style="width: 50px; height: 50px"
+                      width="40"
+                      height="50"
+                      viewBox="0 0 40 50"
+                      fill="currentColor"
+                      stroke="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.45129 10.4874C5.12541 10.1288 6.77349 11.1946 7.1327 12.8687L10.1774 27.0718L4.11407 28.3719L1.06941 14.1688C0.710797 12.4947 1.77717 10.846 3.45129 10.4874Z"
+                      />
+                      <path
+                        d="M3.45129 10.4874C5.12541 10.1288 6.77349 11.1946 7.1327 12.8687L10.1774 27.0718L4.11407 28.3719L1.06941 14.1688C0.710797 12.4947 1.77717 10.846 3.45129 10.4874Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8.64499 5.14756C10.3191 4.78895 11.9672 5.85473 12.3264 7.52885L16.2374 25.7743L10.1741 27.0739L6.26371 8.82897C5.9045 7.15485 6.97087 5.50618 8.64499 5.14756Z"
+                      />
+                      <path
+                        d="M8.64499 5.14756C10.3191 4.78895 11.9672 5.85473 12.3264 7.52885L16.2374 25.7743L10.1741 27.0739L6.26371 8.82897C5.9045 7.15485 6.97087 5.50618 8.64499 5.14756Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M30.487 6.5081C32.1605 6.86967 33.2239 8.52012 32.8618 10.1942L28.9176 28.4314L22.8567 27.1207L26.8008 8.88288C27.163 7.20935 28.8135 6.14653 30.487 6.5081Z"
+                      />
+                      <path
+                        d="M30.487 6.5081C32.1605 6.86967 33.2239 8.52012 32.8618 10.1942L28.9176 28.4314L22.8567 27.1207L26.8008 8.88288C27.163 7.20935 28.8135 6.14653 30.487 6.5081Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M25.3172 1.07057C26.9907 1.43214 28.0541 3.08259 27.692 4.75671L22.8619 27.0907L16.801 25.78L21.6311 3.44594C21.9932 1.77241 23.6437 0.708998 25.3172 1.07057Z"
+                      />
+                      <path
+                        d="M25.3172 1.07057C26.9907 1.43214 28.0541 3.08259 27.692 4.75671L22.8619 27.0907L16.801 25.78L21.6311 3.44594C21.9932 1.77241 23.6437 0.708998 25.3172 1.07057Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M24.3285 24.1055H8.94361C6.27945 24.1055 4.1189 26.2654 4.1189 28.9302V39.2572C4.1189 44.5873 8.43942 48.9078 13.7695 48.9078H19.2712C24.6007 48.9078 28.9218 44.5873 28.9218 39.2572V28.6988C28.9218 26.1619 26.8648 24.1055 24.3285 24.1055Z"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14.8239 49.0001H19.7327C22.0613 49.0001 24.1875 48.1344 25.806 46.7064L37.2189 35.3214C38.4303 34.1106 38.4303 32.1477 37.2189 30.9369C36.0087 29.7268 34.0452 29.7268 32.8351 30.9369L28.9501 34.8249C27.4801 33.0111 25.2344 31.8518 22.7181 31.8518C18.2905 31.8518 14.7014 35.4415 14.7014 39.8691"
+                      />
+                      <path
+                        d="M14.8239 49.0001H19.7327C22.0613 49.0001 24.1875 48.1344 25.806 46.7064L37.2189 35.3214C38.4303 34.1106 38.4303 32.1477 37.2189 30.9369C36.0087 29.7268 34.0452 29.7268 32.8351 30.9369L28.9501 34.8249C27.4801 33.0111 25.2344 31.8518 22.7181 31.8518C18.2905 31.8518 14.7014 35.4415 14.7014 39.8691"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <hr class="w-full border-t border-b border-white" />
+                </div>
+                <p
+                  class="font-optician-sans text-2xl mt-10 mb-12 md:text-2.25xl xl:text-2.5xl text-center text-white tracking-wide md:w-10/12 mx-auto md:mt-14 md:mb-20"
+                  x-html="$store['translation.why'].return('five')"
+                ></p>
+                <hr
+                  class="hidden w-full border-t border-b border-white md:flex"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            x-show="!$store.global.onlyWhySection"
+            class="hidden absolute inset-x-0 bottom-0 h-1/2 transform translate-y-1/2 md:flex aspect-h-1 aspect-w-1"
+            style="
+              background-image: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.75),
+                rgba(255, 255, 255, 0) 50%
+              );
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="where"
+      x-ref="whereSection"
+      x-show="!$store.global.onlyWhySection"
+      x-init="() => { $fetch('./sections/where.html').then((data) => { $refs.whereSection.innerHTML = data }) }"
+      x-data
+    >
+      <div
+        class="flex justify-center items-center bg-cool-gray-600 border-t-8 border-b-8 border-white h-screen-50"
+      >
+        <span
+          class="text-xl text-white"
+          x-text="$store['global'].return('loading')"
+        ></span>
+      </div>
+    </div>
+
+    <div id="bottom" class="bg-cool-gray-800">
+      <div class="container pt-16 pb-16 md:pb-24">
+        <div class="flex flex-row justify-between items-start mb-16 md:mb-24">
+          <div
+            class="flex flex-col items-start space-y-4 md:space-y-0 md:items-center md:flex-row md:space-x-4"
+          >
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return('sections.what.name')"
+              x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return('sections.how.name')"
+              x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return(`sections['how-much'].name`)"
+              x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return('sections.why.name')"
+              x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return('sections.who.name')"
+              x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="bottom-menu__button"
+              x-text="$store['global'].return('sections.where.name')"
+              x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+          </div>
+          <div class="flex flex-col space-y-2">
+            <a
+              href="https://twitter.com/BohemicaStudio"
+              target="_blank"
+              class="p-3.5 text-cool-gray-400 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-cool-gray-500 hover:text-cool-gray-100"
+            >
+              <div class="flex justify-center items-center w-7 h-7">
+                <svg
+                  class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="23"
+                  fill="currentColor"
+                  viewBox="0 0 28 23"
+                >
+                  <path
+                    d="M28 2.694c-1.03.457-2.136.765-3.299.904A5.76 5.76 0 0027.227.42a11.468 11.468 0 01-3.648 1.394 5.745 5.745 0 00-9.937 3.934c0 .448.052.885.148 1.307A16.313 16.313 0 011.95 1.05a5.742 5.742 0 00-.777 2.888A5.745 5.745 0 003.728 8.72 5.731 5.731 0 011.126 8v.075a5.747 5.747 0 004.608 5.633 5.787 5.787 0 01-2.594.099 5.748 5.748 0 005.366 3.988 11.527 11.527 0 01-7.135 2.46A11.7 11.7 0 010 20.176a16.246 16.246 0 008.805 2.58c10.568 0 16.345-8.752 16.345-16.344 0-.246-.006-.495-.017-.742a11.677 11.677 0 002.864-2.972L28 2.694z"
+                  />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://linkedin.com/company/bohemicastudio"
+              target="_blank"
+              class="p-3.5 text-cool-gray-400 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-cool-gray-500 hover:text-cool-gray-100"
+            >
+              <div class="flex justify-center items-center w-7 h-7">
+                <svg
+                  class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="currentColor"
+                  viewBox="0 0 28 28"
+                >
+                  <path
+                    d="M28 2.059V25.94A2.059 2.059 0 0125.941 28H2.06A2.059 2.059 0 010 25.941V2.06A2.059 2.059 0 012.059 0H25.94A2.059 2.059 0 0128 2.059zM8.235 10.706H4.118v13.176h4.117V10.706zm.37-4.53a2.372 2.372 0 00-2.354-2.388h-.075a2.388 2.388 0 100 4.777 2.372 2.372 0 002.43-2.314v-.075zm15.277 9.702c0-3.962-2.52-5.502-5.023-5.502a4.694 4.694 0 00-4.167 2.125h-.116v-1.795h-3.87v13.176h4.117v-7.008a2.734 2.734 0 012.471-2.948h.157c1.309 0 2.28.823 2.28 2.899v7.057h4.118l.033-8.004z"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+        <hr class="mb-6 border-cool-gray-600" />
+        <span
+          class="text-9xl font-medium tracking-tighter leading-none text-cool-gray-700 pointer-events-none select-none md:text-11xl font-dm-mono"
+          x-text="new Date().getFullYear()"
+        ></span>
+        <hr class="mt-4 border-cool-gray-600" />
+        <div
+          class="flex flex-col justify-between items-start mt-16 space-y-12 md:items-end md:mt-24 md:space-y-0 md:flex-row"
+        >
+          <svg
+            class="w-auto h-11 text-cool-gray-300 md:h-full"
+            width="350"
+            height="48"
+            viewBox="0 0 350 48"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M48 0H0V48H48V0ZM24 24L8 33V24L24 15L40 24V33L24 24Z"
+            />
+            <path
+              d="M68 37.541V10.765H78.297C81.1313 10.765 83.2765 11.4153 84.7326 12.7158C86.1887 14.0164 86.9168 15.6485 86.9168 17.612C86.9168 19.3206 86.4488 20.6849 85.5127 21.7049C84.5766 22.6995 83.4455 23.3752 82.1194 23.7322C83.1595 23.9362 84.0825 24.3443 84.8886 24.9563C85.7207 25.5683 86.3708 26.3333 86.8388 27.2514C87.3069 28.1694 87.5409 29.1639 87.5409 30.235C87.5409 31.612 87.1898 32.8616 86.4878 33.9836C85.8117 35.0801 84.8106 35.9472 83.4845 36.5847C82.1584 37.2222 80.5332 37.541 78.609 37.541H68ZM72.1344 22.2404H77.7899C79.3761 22.2404 80.5852 21.8834 81.4173 21.1694C82.2494 20.4299 82.6654 19.4226 82.6654 18.1475C82.6654 16.898 82.2494 15.9035 81.4173 15.1639C80.6112 14.4244 79.3761 14.0546 77.7119 14.0546H72.1344V22.2404ZM72.1344 34.2131H78.063C79.7271 34.2131 81.0142 33.8306 81.9243 33.0656C82.8604 32.3005 83.3285 31.2295 83.3285 29.8525C83.3285 28.4754 82.8474 27.3916 81.8853 26.6011C80.9232 25.7851 79.6231 25.377 77.985 25.377H72.1344V34.2131Z"
+            />
+            <path
+              d="M99.0153 38C97.1691 38 95.5049 37.592 94.0228 36.776C92.5667 35.9344 91.4096 34.7741 90.5515 33.2951C89.6934 31.7905 89.2644 30.0437 89.2644 28.0546C89.2644 26.0656 89.6934 24.3315 90.5515 22.8525C91.4356 21.3479 92.6187 20.1876 94.1008 19.3716C95.583 18.5301 97.2341 18.1093 99.0543 18.1093C100.9 18.1093 102.552 18.5301 104.008 19.3716C105.49 20.1876 106.66 21.3479 107.518 22.8525C108.402 24.3315 108.844 26.0656 108.844 28.0546C108.844 30.0437 108.402 31.7905 107.518 33.2951C106.66 34.7741 105.49 35.9344 104.008 36.776C102.526 37.592 100.861 38 99.0153 38ZM99.0153 34.5191C100.003 34.5191 100.913 34.2769 101.746 33.7923C102.604 33.3078 103.293 32.5938 103.813 31.6503C104.333 30.6812 104.593 29.4827 104.593 28.0546C104.593 26.6266 104.333 25.4408 103.813 24.4973C103.319 23.5282 102.643 22.8015 101.785 22.3169C100.952 21.8324 100.042 21.5902 99.0543 21.5902C98.0662 21.5902 97.1431 21.8324 96.285 22.3169C95.4529 22.8015 94.7769 23.5282 94.2568 24.4973C93.7368 25.4408 93.4768 26.6266 93.4768 28.0546C93.4768 29.4827 93.7368 30.6812 94.2568 31.6503C94.7769 32.5938 95.4529 33.3078 96.285 33.7923C97.1171 34.2769 98.0272 34.5191 99.0153 34.5191Z"
+            />
+            <path
+              d="M111.365 37.541V10H115.5V21.6284C116.15 20.5319 117.047 19.6776 118.191 19.0656C119.361 18.4281 120.648 18.1093 122.052 18.1093C124.366 18.1093 126.187 18.8233 127.513 20.2514C128.839 21.6794 129.502 23.8087 129.502 26.6393V37.541H125.406V27.0601C125.406 23.388 123.911 21.5519 120.921 21.5519C119.361 21.5519 118.061 22.0874 117.021 23.1585C116.007 24.2295 115.5 25.7596 115.5 27.7486V37.541H111.365Z"
+            />
+            <path
+              d="M141.47 38C139.572 38 137.882 37.592 136.399 36.776C134.943 35.9344 133.799 34.7741 132.967 33.2951C132.135 31.816 131.719 30.0947 131.719 28.1311C131.719 26.1421 132.122 24.3953 132.928 22.8907C133.76 21.3862 134.904 20.2131 136.36 19.3716C137.843 18.5301 139.559 18.1093 141.509 18.1093C143.407 18.1093 145.058 18.5301 146.462 19.3716C147.867 20.1876 148.959 21.2842 149.739 22.6612C150.519 24.0383 150.909 25.5556 150.909 27.2131C150.909 27.4681 150.896 27.7486 150.87 28.0546C150.87 28.3352 150.857 28.6539 150.831 29.0109H135.775C135.905 30.847 136.516 32.2495 137.609 33.2186C138.727 34.1621 140.014 34.6339 141.47 34.6339C142.64 34.6339 143.615 34.3789 144.395 33.8689C145.201 33.3333 145.799 32.6193 146.189 31.7268H150.324C149.804 33.5118 148.764 35.0036 147.203 36.2022C145.669 37.4007 143.758 38 141.47 38ZM141.47 21.4372C140.092 21.4372 138.87 21.8452 137.804 22.6612C136.737 23.4517 136.087 24.6503 135.853 26.2568H146.774C146.696 24.7778 146.163 23.6047 145.175 22.7377C144.187 21.8707 142.952 21.4372 141.47 21.4372Z"
+            />
+            <path
+              d="M153.248 37.541V18.5683H156.915L157.266 21.2459C157.89 20.2769 158.709 19.5118 159.723 18.9508C160.763 18.3898 161.959 18.1093 163.311 18.1093C166.38 18.1093 168.512 19.2951 169.708 21.6667C170.41 20.5701 171.346 19.7031 172.516 19.0656C173.712 18.4281 175 18.1093 176.378 18.1093C178.796 18.1093 180.694 18.8233 182.072 20.2514C183.45 21.6794 184.139 23.8087 184.139 26.6393V37.541H180.005V27.0601C180.005 23.388 178.575 21.5519 175.715 21.5519C174.258 21.5519 173.062 22.0874 172.126 23.1585C171.216 24.2295 170.761 25.7596 170.761 27.7486V37.541H166.627V27.0601C166.627 23.388 165.184 21.5519 162.297 21.5519C160.867 21.5519 159.684 22.0874 158.748 23.1585C157.838 24.2295 157.383 25.7596 157.383 27.7486V37.541H153.248Z"
+            />
+            <path
+              d="M189.367 14.9727C188.586 14.9727 187.936 14.7432 187.416 14.2842C186.922 13.7996 186.675 13.2004 186.675 12.4863C186.675 11.7723 186.922 11.1858 187.416 10.7268C187.936 10.2423 188.586 10 189.367 10C190.147 10 190.784 10.2423 191.278 10.7268C191.798 11.1858 192.058 11.7723 192.058 12.4863C192.058 13.2004 191.798 13.7996 191.278 14.2842C190.784 14.7432 190.147 14.9727 189.367 14.9727ZM187.299 37.541V18.5683H191.434V37.541H187.299Z"
+            />
+            <path
+              d="M204.107 38C202.209 38 200.506 37.5792 198.998 36.7377C197.516 35.8962 196.345 34.7359 195.487 33.2568C194.655 31.7523 194.239 30.0182 194.239 28.0546C194.239 26.0911 194.655 24.3698 195.487 22.8907C196.345 21.3862 197.516 20.2131 198.998 19.3716C200.506 18.5301 202.209 18.1093 204.107 18.1093C206.499 18.1093 208.502 18.7213 210.114 19.9454C211.752 21.1694 212.805 22.827 213.273 24.918H208.944C208.684 23.8725 208.112 23.0565 207.228 22.4699C206.343 21.8834 205.303 21.5902 204.107 21.5902C203.093 21.5902 202.157 21.8452 201.299 22.3552C200.441 22.8397 199.752 23.5665 199.232 24.5355C198.712 25.4791 198.452 26.6521 198.452 28.0546C198.452 29.4572 198.712 30.643 199.232 31.612C199.752 32.5556 200.441 33.2823 201.299 33.7923C202.157 34.3024 203.093 34.5574 204.107 34.5574C205.303 34.5574 206.343 34.2641 207.228 33.6776C208.112 33.0911 208.684 32.2623 208.944 31.1913H213.273C212.831 33.2313 211.791 34.8761 210.153 36.1257C208.515 37.3752 206.499 38 204.107 38Z"
+            />
+            <path
+              d="M222.359 38C220.721 38 219.369 37.7322 218.303 37.1967C217.237 36.6612 216.444 35.9599 215.924 35.0929C215.404 34.2004 215.144 33.2313 215.144 32.1858C215.144 30.3497 215.872 28.8962 217.328 27.8251C218.784 26.7541 220.864 26.2186 223.569 26.2186H228.639V25.8743C228.639 24.3953 228.223 23.286 227.391 22.5464C226.585 21.8069 225.532 21.4372 224.232 21.4372C223.087 21.4372 222.086 21.7177 221.228 22.2787C220.396 22.8142 219.889 23.6175 219.707 24.6885H215.573C215.703 23.3115 216.171 22.1384 216.977 21.1694C217.809 20.1749 218.849 19.4226 220.097 18.9126C221.371 18.377 222.762 18.1093 224.271 18.1093C226.975 18.1093 229.068 18.8106 230.55 20.2131C232.032 21.5902 232.773 23.4772 232.773 25.8743V37.541H229.185L228.834 34.2896C228.288 35.3352 227.495 36.2149 226.455 36.929C225.415 37.643 224.05 38 222.359 38ZM223.178 34.7104C224.297 34.7104 225.233 34.4554 225.987 33.9454C226.767 33.4098 227.365 32.7086 227.781 31.8415C228.223 30.9745 228.496 30.0182 228.6 28.9727H223.998C222.359 28.9727 221.189 29.2532 220.487 29.8142C219.811 30.3752 219.473 31.0765 219.473 31.918C219.473 32.7851 219.798 33.4736 220.448 33.9836C221.124 34.4681 222.034 34.7104 223.178 34.7104Z"
+            />
+            <path
+              d="M252.687 38C250.684 38 248.929 37.6557 247.421 36.9672C245.913 36.2787 244.73 35.2969 243.872 34.0219C243.04 32.7468 242.611 31.2295 242.585 29.4699H246.953C246.979 30.898 247.486 32.1093 248.474 33.1038C249.462 34.0984 250.853 34.5956 252.648 34.5956C254.234 34.5956 255.469 34.2259 256.353 33.4863C257.263 32.7213 257.718 31.7523 257.718 30.5792C257.718 29.6357 257.497 28.8707 257.055 28.2842C256.639 27.6976 256.054 27.2131 255.3 26.8306C254.572 26.4481 253.727 26.1038 252.765 25.7978C251.803 25.4918 250.788 25.1603 249.722 24.8033C247.616 24.1148 246.03 23.2222 244.964 22.1257C243.924 21.0291 243.404 19.5883 243.404 17.8033C243.378 16.2987 243.729 14.9854 244.457 13.8634C245.211 12.7413 246.251 11.8743 247.577 11.2623C248.929 10.6248 250.502 10.306 252.297 10.306C254.065 10.306 255.612 10.6248 256.938 11.2623C258.29 11.8998 259.343 12.7923 260.097 13.9399C260.851 15.0619 261.241 16.3752 261.267 17.8798H256.899C256.899 17.1913 256.717 16.541 256.353 15.929C255.989 15.2914 255.456 14.7687 254.754 14.3607C254.052 13.9526 253.194 13.7486 252.18 13.7486C250.88 13.7231 249.8 14.0419 248.942 14.7049C248.11 15.3679 247.694 16.286 247.694 17.459C247.694 18.5046 248.006 19.3078 248.63 19.8689C249.254 20.4299 250.112 20.9016 251.205 21.2842C252.297 21.6412 253.545 22.0619 254.949 22.5464C256.301 22.98 257.51 23.5027 258.576 24.1148C259.642 24.7268 260.487 25.5301 261.111 26.5246C261.762 27.5191 262.087 28.7814 262.087 30.3115C262.087 31.663 261.736 32.9253 261.033 34.0984C260.331 35.2459 259.278 36.1894 257.874 36.929C256.47 37.643 254.741 38 252.687 38Z"
+            />
+            <path
+              d="M272.613 37.541C270.715 37.541 269.207 37.0947 268.089 36.2022C266.971 35.2842 266.412 33.6648 266.412 31.3443V21.9727H263.096V18.5683H266.412L266.919 13.7486H270.546V18.5683H276.007V21.9727H270.546V31.3443C270.546 32.3898 270.767 33.1166 271.209 33.5246C271.677 33.9071 272.47 34.0984 273.588 34.0984H275.812V37.541H272.613Z"
+            />
+            <path
+              d="M285.457 38C283.117 38 281.271 37.286 279.919 35.8579C278.592 34.4299 277.929 32.3005 277.929 29.4699V18.5683H282.064V29.0492C282.064 32.7213 283.598 34.5574 286.666 34.5574C288.2 34.5574 289.462 34.0219 290.45 32.9508C291.438 31.8798 291.932 30.3497 291.932 28.3607V18.5683H296.066V37.541H292.4L292.088 34.2131C291.49 35.3862 290.606 36.3169 289.436 37.0055C288.291 37.6685 286.965 38 285.457 38Z"
+            />
+            <path
+              d="M308.19 38C306.318 38 304.667 37.5665 303.237 36.6995C301.807 35.8324 300.688 34.6466 299.882 33.1421C299.076 31.6375 298.673 29.929 298.673 28.0164C298.673 26.1038 299.076 24.408 299.882 22.929C300.688 21.4244 301.807 20.2514 303.237 19.4098C304.693 18.5428 306.357 18.1093 308.229 18.1093C309.763 18.1093 311.102 18.4025 312.247 18.9891C313.417 19.5756 314.327 20.4044 314.977 21.4754V10H319.111V37.541H315.406L314.977 34.5956C314.353 35.4882 313.495 36.2787 312.403 36.9672C311.311 37.6557 309.906 38 308.19 38ZM308.931 34.4809C310.699 34.4809 312.143 33.8816 313.261 32.6831C314.405 31.4845 314.977 29.9417 314.977 28.0546C314.977 26.1421 314.405 24.5993 313.261 23.4262C312.143 22.2277 310.699 21.6284 308.931 21.6284C307.163 21.6284 305.707 22.2277 304.563 23.4262C303.419 24.5993 302.847 26.1421 302.847 28.0546C302.847 29.3042 303.107 30.4135 303.627 31.3825C304.147 32.3515 304.862 33.1166 305.772 33.6776C306.708 34.2131 307.761 34.4809 308.931 34.4809Z"
+            />
+            <path
+              d="M324.714 14.9727C323.934 14.9727 323.284 14.7432 322.764 14.2842C322.27 13.7996 322.023 13.2004 322.023 12.4863C322.023 11.7723 322.27 11.1858 322.764 10.7268C323.284 10.2423 323.934 10 324.714 10C325.494 10 326.131 10.2423 326.625 10.7268C327.145 11.1858 327.405 11.7723 327.405 12.4863C327.405 13.2004 327.145 13.7996 326.625 14.2842C326.131 14.7432 325.494 14.9727 324.714 14.9727ZM322.647 37.541V18.5683H326.781V37.541H322.647Z"
+            />
+            <path
+              d="M339.338 38C337.492 38 335.827 37.592 334.345 36.776C332.889 35.9344 331.732 34.7741 330.874 33.2951C330.016 31.7905 329.587 30.0437 329.587 28.0546C329.587 26.0656 330.016 24.3315 330.874 22.8525C331.758 21.3479 332.941 20.1876 334.423 19.3716C335.905 18.5301 337.557 18.1093 339.377 18.1093C341.223 18.1093 342.874 18.5301 344.33 19.3716C345.812 20.1876 346.982 21.3479 347.841 22.8525C348.725 24.3315 349.167 26.0656 349.167 28.0546C349.167 30.0437 348.725 31.7905 347.841 33.2951C346.982 34.7741 345.812 35.9344 344.33 36.776C342.848 37.592 341.184 38 339.338 38ZM339.338 34.5191C340.326 34.5191 341.236 34.2769 342.068 33.7923C342.926 33.3078 343.615 32.5938 344.135 31.6503C344.655 30.6812 344.915 29.4827 344.915 28.0546C344.915 26.6266 344.655 25.4408 344.135 24.4973C343.641 23.5282 342.965 22.8015 342.107 22.3169C341.275 21.8324 340.365 21.5902 339.377 21.5902C338.389 21.5902 337.466 21.8324 336.607 22.3169C335.775 22.8015 335.099 23.5282 334.579 24.4973C334.059 25.4408 333.799 26.6266 333.799 28.0546C333.799 29.4827 334.059 30.6812 334.579 31.6503C335.099 32.5938 335.775 33.3078 336.607 33.7923C337.44 34.2769 338.35 34.5191 339.338 34.5191Z"
+            />
+          </svg>
+          <div
+            class="py-3 px-5 rounded-xl border border-cool-gray-600 md:py-4 md:px-8"
+          >
+            <svg
+              class="w-auto h-7 text-cool-gray-300 md:h-full"
+              width="228"
+              height="36"
+              viewBox="0 0 228 36"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M6 9H33V6H3V25.5H0V30H21V25.5H6V9Z" />
+              <path d="M6 9H33V6H3V25.5H0V30H21V25.5H6V9Z" />
+              <path d="M36 12H24V30H36V12ZM33 25.5H27V15H33V25.5Z" />
+              <path
+                d="M86.015 32.235L103.46 10.5C102.785 9.99 96.0725 4.5 86 4.5C75.9275 4.5 69.215 9.99 68.54 10.5L85.985 32.235L86 32.25L86.015 32.235Z"
+              />
+              <path
+                d="M73.3022 16.4345L85.9922 32.237L85.9997 32.252L86.0147 32.237L98.7047 16.4345C98.0597 15.9395 93.2147 12.002 85.9997 12.002C78.7772 12.002 73.9397 15.9395 73.3022 16.4345V16.4345Z"
+              />
+              <path
+                d="M142.643 31.4863C146.03 31.4863 148.775 28.7406 148.775 25.3535C148.775 21.9665 146.03 19.2207 142.643 19.2207C139.256 19.2207 136.51 21.9665 136.51 25.3535C136.51 28.7406 139.256 31.4863 142.643 31.4863Z"
+              />
+              <path
+                d="M161.041 15.5488H163.494V4.50977H152.455V6.96289H159.306L149.135 17.1348L150.869 18.8691L161.041 8.69726V15.5488Z"
+              />
+              <path
+                d="M137.734 14.8281L141.414 11.1484L145.094 14.8281L146.828 13.0937L143.148 9.41405L146.828 5.73436L145.094 4L141.414 7.67969L137.734 4L136 5.73436L139.68 9.41405L136 13.0937L137.734 14.8281ZM164 22.9063L162.266 21.1719L158.586 24.8516L154.906 21.1719L153.172 22.9063L156.852 26.5859L153.172 30.2656L154.906 32L158.586 28.3203L162.266 32L164 30.2656L160.32 26.5859L164 22.9063Z"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M228 26.2697L218.93 17.1992L212.801 11.0705L203.73 2L196 9.73034L205.07 18.8008L211.199 24.9295L220.27 34L228 26.2697ZM200.625 9.73034L207.391 16.4801L210.48 13.3749L208.11 11.0051L206.165 12.9499L203.861 10.6456L205.806 8.70071L203.73 6.62513L200.625 9.73034ZM216.625 19.5036L213.52 22.6088L220.27 29.3585L223.375 26.2533L221.299 24.1777L219.354 26.1226L217.05 23.8182L218.995 21.8733L216.625 19.5036Z"
+              />
+              <path
+                d="M221.495 14.6326L218.929 17.1985L211.199 24.9288L203.42 32.7082H197.291V26.5795L205.07 18.8001L212.801 11.0698L215.367 8.50391L221.495 14.6326Z"
+              />
+              <path
+                d="M221.269 2.61303L217.12 6.76172L223.245 12.8865L227.394 8.73783L221.269 2.61303Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="windowUnderlay"
+      x-show="$store.global.showWindowUnderlay"
+      class="absolute inset-0 z-40 flex-col items-end bg-black bg-opacity-50"
+      style="opacity: 0"
+    ></div>
+
+    <div
+      id="slideover"
+      x-show="$store.slideover.open"
+      class="flex fixed inset-0 z-50 flex-col justify-end"
+      style="transform: translateY(100%)"
+    >
+      <div class="flex justify-center py-2.5">
+        <a
+          x-bind:href="$store.global.language"
+          data-navigo
+          class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-800 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800"
+        >
+          <i class="gg-close"></i>
+        </a>
+      </div>
+      <div
+        id="slideoverContentWrapper"
+        class="overflow-y-scroll relative w-full h-full bg-white rounded-t-3xl focus:outline-none md:rounded-t-7xl"
+        tabindex="1"
+      >
+        <div class="container relative z-10 my-24">
+          <div
+            id="slideoverContent"
+            class="py-4"
+            style="transform: translateY(-2rem); opacity: 0"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="mobileMenu"
+      x-show="$store.global.mobileMenuOpen"
+      class="flex fixed inset-0 z-50 flex-col justify-end"
+      style="transform: translateY(-100%)"
+    >
+      <div
+        class="flex overflow-y-auto w-full h-full bg-white rounded-b-3xl focus:outline-none"
+        tabindex="1"
+      >
+        <div class="container grid z-10 grid-flow-row gap-4 pt-2 pb-6 my-auto">
+          <div class="grid grid-flow-row gap-2 items-center">
+            <button
+              class="mobile-menu__button hover:bg-blue-200 focus:ring-blue-400"
+              x-text="$store['global'].return('sections.what.name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="mobile-menu__button hover:bg-yellow-200 focus:ring-yellow-400"
+              x-text="$store['global'].return('sections.how.name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="mobile-menu__button hover:bg-indigo-200 focus:ring-indigo-400"
+              x-text="$store['global'].return('sections[\'how-much\'].name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="mobile-menu__button hover:bg-cool-gray-200 focus:ring-cool-gray-400"
+              x-text="$store['global'].return('sections.why.name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="mobile-menu__button hover:bg-emerald-200 focus:ring-emerald-400"
+              x-text="$store['global'].return('sections.who.name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+            <button
+              class="mobile-menu__button hover:bg-red-200 focus:ring-red-400"
+              x-text="$store['global'].return('sections.where.name')"
+              x-on:click="$store.global.closeMobileMenu(); $store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
+            ></button>
+          </div>
+          <div class="grid grid-flow-col gap-2 mx-auto">
+            <a
+              href="https://twitter.com/BohemicaStudio"
+              target="_blank"
+              x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.twitter&#39;)"
+              class="p-3.5 text-blue-gray-500 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-blue-gray-300 hover:text-blue-gray-700"
+            >
+              <div class="flex justify-center items-center w-7 h-7">
+                <svg
+                  class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="23"
+                  fill="currentColor"
+                  viewBox="0 0 28 23"
+                >
+                  <path
+                    d="M28 2.694c-1.03.457-2.136.765-3.299.904A5.76 5.76 0 0027.227.42a11.468 11.468 0 01-3.648 1.394 5.745 5.745 0 00-9.937 3.934c0 .448.052.885.148 1.307A16.313 16.313 0 011.95 1.05a5.742 5.742 0 00-.777 2.888A5.745 5.745 0 003.728 8.72 5.731 5.731 0 011.126 8v.075a5.747 5.747 0 004.608 5.633 5.787 5.787 0 01-2.594.099 5.748 5.748 0 005.366 3.988 11.527 11.527 0 01-7.135 2.46A11.7 11.7 0 010 20.176a16.246 16.246 0 008.805 2.58c10.568 0 16.345-8.752 16.345-16.344 0-.246-.006-.495-.017-.742a11.677 11.677 0 002.864-2.972L28 2.694z"
+                  />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="https://linkedin.com/company/bohemicastudio"
+              target="_blank"
+              x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.linkedin&#39;)"
+              class="p-3.5 text-blue-gray-500 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-blue-gray-300 hover:text-blue-gray-700"
+            >
+              <div class="flex justify-center items-center w-7 h-7">
+                <svg
+                  class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="currentColor"
+                  viewBox="0 0 28 28"
+                >
+                  <path
+                    d="M28 2.059V25.94A2.059 2.059 0 0125.941 28H2.06A2.059 2.059 0 010 25.941V2.06A2.059 2.059 0 012.059 0H25.94A2.059 2.059 0 0128 2.059zM8.235 10.706H4.118v13.176h4.117V10.706zm.37-4.53a2.372 2.372 0 00-2.354-2.388h-.075a2.388 2.388 0 100 4.777 2.372 2.372 0 002.43-2.314v-.075zm15.277 9.702c0-3.962-2.52-5.502-5.023-5.502a4.694 4.694 0 00-4.167 2.125h-.116v-1.795h-3.87v13.176h4.117v-7.008a2.734 2.734 0 012.471-2.948h.157c1.309 0 2.28.823 2.28 2.899v7.057h4.118l.033-8.004z"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center py-2.5 flex-shrink-0">
+        <button
+          class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800"
+          x-on:click="$store.global.closeMobileMenu()"
+        >
+          <i class="gg-close"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hotjar -->
+    <script async defer>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2238600, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+    <!-- Splitbee -->
+    <script src="https://cdn.splitbee.io/sb.js" async defer></script>
+    <!-- Smallchat -->
+    <script
+      src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js"
+      async
+      defer
+    ></script>
+  </body>
+</html>

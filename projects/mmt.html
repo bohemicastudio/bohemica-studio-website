@@ -1,0 +1,218 @@
+<div
+  x-data="(function () { return {
+			translation: {
+				en: {
+					'tldr': '<strong>TLDR</strong> - Check out the live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>',
+					'descriptionTitle': 'Project description',
+					'description': `<p>
+									<strong>Bohemica Studio was chosen to revamp a website of Czech company specialising in industrial automation and robotics.</strong>
+										The MMT is a well-established company in the European market – providing assembly lines and other machinery for major car manufacturers and supplying components of renowned brands across the continent and beyond.
+									</p>
+									<p>After a thorough discussion with the management team, we established a few key targets for the site:</p>
+									<ul>
+										<li>Professional and modern look</li>
+										<li>Emphasis on the content – easy to find and read</li>
+										<li>Simple content management system with an internationalisation option</li>
+									</ul>`,
+					'processTitle': 'Process',
+					'process': `<p>The whole process was fairly straightforward:</p>
+							<ol>
+								<li>Design – wireframes for each page, followed by mock-ups</li>
+								<li>Coding – user-interface in HTML/CSS alongside the CMS integration</li>
+								<li>Finalisation – reponsivity, testing, SEO, etc.</li>
+							</ol>`,
+					'image1': 'We proposed few mock-up alterations of each page',
+					'image2': 'Our client received a detailed explanation of each UI/UX choice',
+					'image3': 'Mock-ups in Figma',
+					'finalResult': 'Final result',
+					'liveWebsite': 'Live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>'
+				},
+				cs: {
+					'tldr': '<strong>TLDR</strong> - Check out the live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>',
+					'descriptionTitle': 'Project description',
+					'description': `<p>
+									<strong>Bohemica Studio was chosen to revamp a website of Czech company specialising in industrial automation and robotics.</strong>
+										The MMT is a well-established company in the European market – providing assembly lines and other machinery for major car manufacturers and supplying components of renowned brands across the continent and beyond.
+									</p>
+									<p>After a thorough discussion with the management team, we established a few key targets for the site:</p>
+									<ul>
+										<li>Professional and modern look</li>
+										<li>Emphasis on the content – easy to find and read</li>
+										<li>Simple content management system with an internationalisation option</li>
+									</ul>`,
+					'processTitle': 'Process',
+					'process': `<p>The whole process was fairly straightforward:</p>
+							<ol>
+								<li>Design – wireframes for each page, followed by mock-ups</li>
+								<li>Coding – user-interface in HTML/CSS alongside the CMS integration</li>
+								<li>Finalisation – reponsivity, testing, SEO, etc.</li>
+							</ol>`,
+					'image1': 'We proposed few mock-up alterations of each page',
+					'image2': 'Our client received a detailed explanation of each UI/UX choice',
+					'image3': 'Mock-ups in Figma',
+					'finalResult': 'Final result',
+					'liveWebsite': 'Live website: <a href=`https://mmt.cz` target=`_blank`>mmt.cz</a>'
+				}
+			}
+		}
+		})()"
+>
+  <div
+    class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400"
+  >
+    <a
+      x-bind:href="window.router.getPath('overview')"
+      data-navigo
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+    >
+      <i
+        class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
+      ></i>
+      <span
+        class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900"
+        x-text="$store['global'].return('backToProjectOverview')"
+      ></span>
+    </a>
+  </div>
+
+  <div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
+    <div class="flex flex-grow items-center">
+      <img
+        x-bind:class="`h-${$store['translation.projects'].return(`list['mmt'].logoHeight`)}`"
+        x-bind:src="`/images/project/mmt/${$store['translation.projects'].return(`list['mmt'].logo`)}`"
+      />
+    </div>
+
+    <div
+      class="grid gap-y-2 gap-x-5 font-medium"
+      style="grid-template-columns: min-content auto"
+    >
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.client') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].client`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.year') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].year`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.type') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].type`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.industry') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].industry`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].platforms`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.stack') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['mmt'].stack`)"
+      ></span>
+    </div>
+
+    <hr class="border-gray-500" />
+
+    <p x-html="translation[$store.global.language]['tldr']"></p>
+
+    <h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
+    <div x-html="translation[$store.global.language]['description']"></div>
+
+    <h3 x-text="translation[$store.global.language]['processTitle']"></h3>
+    <div x-html="translation[$store.global.language]['process']"></div>
+
+    <figure>
+      <figcaption>
+        <strong x-text="translation[$store.global.language]['image1']"></strong>
+      </figcaption>
+      <picture>
+        <source srcset="/images/project/mmt/1.webp" type="image/webp" />
+        <source srcset="/images/project/mmt/1.png" type="image/png" />
+        <img
+          src="/images/project/mmt/1.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong x-text="translation[$store.global.language]['image2']"></strong>
+      </figcaption>
+      <picture>
+        <source srcset="/images/project/mmt/2.webp" type="image/webp" />
+        <source srcset="/images/project/mmt/2.png" type="image/png" />
+        <img
+          src="/images/project/mmt/2.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong x-text="translation[$store.global.language]['image3']"></strong>
+      </figcaption>
+      <picture>
+        <source srcset="/images/project/mmt/3.webp" type="image/webp" />
+        <source srcset="/images/project/mmt/3.png" type="image/png" />
+        <img
+          src="/images/project/mmt/3.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong
+          x-text="translation[$store.global.language]['finalResult']"
+        ></strong>
+      </figcaption>
+      <picture>
+        <source srcset="/images/project/mmt/4.webp" type="image/webp" />
+        <source srcset="/images/project/mmt/4.png" type="image/png" />
+        <img
+          src="/images/project/mmt/4.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <p x-text="translation[$store.global.language]['liveWebsite']"></p>
+  </div>
+</div>

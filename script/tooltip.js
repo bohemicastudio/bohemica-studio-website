@@ -1,0 +1,1 @@
+window.initialiseTooltips=function(){window.tooltips=[tippy(".top-menu [data-tippy-content]",{placement:"bottom",arrow:!1,followCursor:!1,offset:[0,16],theme:"bohemica",touch:!1}),tippy(".hero [data-tippy-content]",{placement:"auto",arrow:!1,followCursor:!1,offset:[0,12],theme:"bohemica",touch:!1})]};

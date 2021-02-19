@@ -1,0 +1,143 @@
+<div
+  x-data="(function () { return {
+			translation: {
+				en: {
+					'old': 'Before',
+					'new': 'Now'
+				},
+				cs: {
+					'old': 'Předchozí verze',
+					'new': 'Aktuální verze'
+				}
+			}
+		}
+		})()"
+>
+  <div
+    class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400"
+  >
+    <a
+      x-bind:href="window.router.getPath('overview')"
+      data-navigo
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+    >
+      <i
+        class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
+      ></i>
+      <span
+        class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900"
+        x-text="$store['global'].return('backToProjectOverview')"
+      ></span>
+    </a>
+  </div>
+
+  <div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
+    <div class="flex flex-grow items-center">
+      <img
+        x-bind:class="`h-${$store['translation.projects'].return(`list['landing-pages'].logoHeight`)}`"
+        x-bind:src="`/images/project/landing-pages/${$store['translation.projects'].return(`list['landing-pages'].logo`)}`"
+      />
+    </div>
+
+    <div
+      class="grid gap-y-2 gap-x-5 font-medium"
+      style="grid-template-columns: min-content auto"
+    >
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.client') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['landing-pages'].client`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.type') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['landing-pages'].type`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['landing-pages'].platforms`)"
+      ></span>
+      <span
+        class="text-gray-500 whitespace-nowrap font-dm-mono"
+        x-text="$store['translation.projects'].return('labels.stack') + ':'"
+      ></span>
+      <span
+        class="text-gray-800"
+        x-text="$store['translation.projects'].return(`list['landing-pages'].stack`)"
+      ></span>
+    </div>
+
+    <picture>
+      <source srcset="/images/project/landing-pages/1.webp" type="image/webp" />
+      <source srcset="/images/project/landing-pages/1.png" type="image/png" />
+      <img
+        src="/images/project/landing-pages/1.png"
+        class="w-full rounded-lg border border-gray-300"
+        loading="lazy"
+      />
+    </picture>
+    <picture>
+      <source srcset="/images/project/landing-pages/2.webp" type="image/webp" />
+      <source srcset="/images/project/landing-pages/2.png" type="image/png" />
+      <img
+        src="/images/project/landing-pages/2.png"
+        class="w-full rounded-lg border border-gray-300"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div class="grid grid-cols-2 gap-x-8 my-8">
+    <div class="flex flex-col space-y-4">
+      <span
+        class="text-xl font-medium text-gray-600"
+        x-text="translation[$store.global.language]['old']"
+      ></span>
+      <picture>
+        <source
+          srcset="/images/project/landing-pages/3a.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="/images/project/landing-pages/3a.png"
+          type="image/png"
+        />
+        <img
+          src="/images/project/landing-pages/3a.png"
+          class="w-full rounded-lg border border-gray-300"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <span
+        class="text-xl font-medium text-gray-600"
+        x-text="translation[$store.global.language]['new']"
+      ></span>
+      <picture>
+        <source
+          srcset="/images/project/landing-pages/3b.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="/images/project/landing-pages/3b.png"
+          type="image/png"
+        />
+        <img
+          src="/images/project/landing-pages/3b.png"
+          class="w-full rounded-lg border border-gray-300"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+  </div>
+</div>

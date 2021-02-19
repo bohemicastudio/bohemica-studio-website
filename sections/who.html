@@ -1,0 +1,351 @@
+<div
+  id="who-intro"
+  class="relative mx-auto w-full transform -translate-y-1/3 md:-translate-y-1/2 md:w-8/12 md:container-screen"
+>
+  <div
+    class="flex flex-col justify-center items-center text-center bg-gray-legacy-600 rounded-4xl"
+  >
+    <div
+      class="px-6 pt-10 pb-6 space-y-4 md:px-16 md:pt-16 md:pb-12 md:space-y-8"
+    >
+      <h2
+        class="text-4xl sm:text-5xl text-emerald-400 lg:text-6xl xl:text-7xl"
+        x-text="$store['global'].return('sections.who.title')"
+      ></h2>
+    </div>
+    <div class="flex relative flex-grow justify-center w-full h-20 md:h-28">
+      <hr
+        class="absolute border-t-0 border-l border-gray-legacy-400"
+        style="bottom: -100%; height: 200%"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="pt-12 pb-24 bg-white">
+  <div
+    class="container flex flex-col items-center"
+    x-data
+    x-init="(function () { 
+	Spruce.store('translation.sectionWho', {
+	en: {
+	first: {
+	title: 'Remote-first mindset allows us to work with clients from all around the globe.',
+	subtitle: false
+	},
+	second: {
+	title: 'This is what some of our clients have to say about us.',
+	subtitle: false
+	},
+	buttonTitle: 'You can read more about the various projects we have done.'
+	},
+	cs: {
+	first: {
+	title: 'Our process. Simplified. CS',
+	subtitle: 'See below what you can expect.'
+	},
+	second: {
+	title: 'What our clients have to say about us.',
+	subtitle: false
+	},
+	buttonTitle: 'You can read more about various projects we have done.'
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+ })()"
+  >
+    <div
+      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-1/2"
+    >
+      <img class="h-full" src="/images/icon/stars.svg" />
+
+      <h3
+        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        x-text="$store['translation.sectionWho'].return('second.title')"
+      ></h3>
+    </div>
+
+    <hr
+      class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24"
+    />
+    <div class="grid bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px">
+      <div class="p-8 bg-white lg:p-16">
+        <div class="flex flex-col items-start">
+          <img class="h-18" src="/images/project/mmt/logo.svg" />
+          <div class="relative mt-12 mb-10">
+            <p
+              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:font-normal sm:text-lg md:text-xl font-dm-mono"
+            >
+              "Amazing work! We would recommend Bohemica Studio to anyone who is
+              looking for creative web developers."
+            </p>
+            <svg
+              class="absolute top-0 right-0 z-0 text-blue-300 transform -translate-y-1/2"
+              width="77"
+              height="48"
+              viewBox="0 0 77 48"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.8 48H19.2L28.8 28.8V0H0V28.8H14.4L4.8 48ZM52.8 48H67.2L76.8 28.8V0H48V28.8H62.4L52.8 48Z"
+              />
+            </svg>
+          </div>
+          <div class="grid grid-cols-2 gap-x-4 ml-auto">
+            <div class="flex justify-end items-center">
+              <hr class="w-12 border-cool-gray-600" />
+            </div>
+            <div>
+              <span class="font-bold text-cool-gray-600">Company</span>
+            </div>
+            <div></div>
+            <div class="flex flex-col items-start">
+              <span class="text-sm font-medium text-cool-gray-500"
+                >Country</span
+              >
+              <span class="mt-3 text-sm text-cool-gray-500">www.</span>
+            </div>
+          </div>
+          <div class="mt-12">
+            <a
+              x-bind:href="window.router.getPath('overview')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              data-navigo
+            >
+              <span
+                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                >See the project</span
+              >
+              <i
+                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="p-8 bg-white lg:p-16">
+        <div class="flex flex-col items-start">
+          <img class="h-12" src="/images/project/lancaster-maloney/logo.png" />
+          <div class="relative mt-12 mb-10">
+            <p
+              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:font-normal sm:text-lg md:text-xl font-dm-mono"
+            >
+              "Amazing work! We would recommend Bohemica Studio to anyone who is
+              looking for creative web developers."
+            </p>
+            <svg
+              class="absolute top-0 right-0 z-0 text-amber-300 transform -translate-y-1/2"
+              width="77"
+              height="48"
+              viewBox="0 0 77 48"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.8 48H19.2L28.8 28.8V0H0V28.8H14.4L4.8 48ZM52.8 48H67.2L76.8 28.8V0H48V28.8H62.4L52.8 48Z"
+              />
+            </svg>
+          </div>
+          <div class="grid grid-cols-2 gap-x-4 ml-auto">
+            <div class="flex justify-end items-center">
+              <hr class="w-12 border-cool-gray-600" />
+            </div>
+            <div>
+              <span class="font-bold text-cool-gray-600">Company</span>
+            </div>
+            <div></div>
+            <div class="flex flex-col items-start">
+              <span class="text-sm font-medium text-cool-gray-500"
+                >Country</span
+              >
+              <span class="mt-3 text-sm text-cool-gray-500">www.</span>
+            </div>
+          </div>
+          <div class="mt-12">
+            <a
+              x-bind:href="window.router.getPath('overview')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              data-navigo
+            >
+              <span
+                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                >See the project</span
+              >
+              <i
+                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="p-8 bg-white lg:p-16">
+        <div class="flex flex-col items-start">
+          <img class="h-10" src="/images/project/media-server/logo.svg" />
+          <div class="relative mt-12 mb-10">
+            <p
+              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:font-normal sm:text-lg md:text-xl font-dm-mono"
+            >
+              "Amazing work! We would recommend Bohemica Studio to anyone who is
+              looking for creative web developers."
+            </p>
+            <svg
+              class="absolute top-0 right-0 z-0 text-yellow-300 transform -translate-y-1/2"
+              width="77"
+              height="48"
+              viewBox="0 0 77 48"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.8 48H19.2L28.8 28.8V0H0V28.8H14.4L4.8 48ZM52.8 48H67.2L76.8 28.8V0H48V28.8H62.4L52.8 48Z"
+              />
+            </svg>
+          </div>
+          <div class="grid grid-cols-2 gap-x-4 ml-auto">
+            <div class="flex justify-end items-center">
+              <hr class="w-12 border-cool-gray-600" />
+            </div>
+            <div>
+              <span class="font-bold text-cool-gray-600">Company</span>
+            </div>
+            <div></div>
+            <div class="flex flex-col items-start">
+              <span class="text-sm font-medium text-cool-gray-500"
+                >Country</span
+              >
+              <span class="mt-3 text-sm text-cool-gray-500">www.</span>
+            </div>
+          </div>
+          <div class="mt-12">
+            <a
+              x-bind:href="window.router.getPath('overview')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              data-navigo
+            >
+              <span
+                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                >See the project</span
+              >
+              <i
+                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="p-8 bg-white lg:p-16">
+        <div class="flex flex-col items-start">
+          <img class="h-11" src="/images/project/subtitle-editor/logo.svg" />
+          <div class="relative mt-12 mb-10">
+            <p
+              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:font-normal sm:text-lg md:text-xl font-dm-mono"
+            >
+              "Amazing work! We would recommend Bohemica Studio to anyone who is
+              looking for creative web developers."
+            </p>
+            <svg
+              class="absolute top-0 right-0 z-0 text-rose-300 transform -translate-y-1/2"
+              width="77"
+              height="48"
+              viewBox="0 0 77 48"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.8 48H19.2L28.8 28.8V0H0V28.8H14.4L4.8 48ZM52.8 48H67.2L76.8 28.8V0H48V28.8H62.4L52.8 48Z"
+              />
+            </svg>
+          </div>
+          <div class="grid grid-cols-2 gap-x-4 ml-auto">
+            <div class="flex justify-end items-center">
+              <hr class="w-12 border-cool-gray-600" />
+            </div>
+            <div>
+              <span class="font-bold text-cool-gray-600">Company</span>
+            </div>
+            <div></div>
+            <div class="flex flex-col items-start">
+              <span class="text-sm font-medium text-cool-gray-500"
+                >Country</span
+              >
+              <span class="mt-3 text-sm text-cool-gray-500">www.</span>
+            </div>
+          </div>
+          <div class="mt-12">
+            <a
+              x-bind:href="window.router.getPath('overview')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              data-navigo
+            >
+              <span
+                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                >See the project</span
+              >
+              <i
+                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr
+      class="mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48"
+    />
+
+    <div
+      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-1/2"
+    >
+      <img class="h-full" src="/images/icon/globe.svg" />
+
+      <h3
+        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        x-text="$store['translation.sectionWho'].return('first.title')"
+      ></h3>
+    </div>
+
+    <picture>
+      <source srcset="/images/map.webp" type="image/webp" />
+      <source srcset="/images/map.png" type="image/png" />
+      <img
+        src="/images/map.png"
+        class="hidden my-20 w-full max-w-full h-auto md:block lg:px-12 xl:px-28"
+        media="(min-width: 960px)"
+        loading="lazy"
+      />
+    </picture>
+    <picture>
+      <source srcset="/images/map-mobile.svg" type="image/svg" />
+      <img
+        src="/images/map-mobile.svg"
+        class="block my-16 w-10 md:hidden"
+        media="(max-width: 960px)"
+        loading="lazy"
+      />
+    </picture>
+    <p
+      class="mb-4 font-medium text-center text-cool-gray-700 sm:font-normal"
+      x-text="$store['translation.sectionWho'].return('buttonTitle')"
+    ></p>
+    <div
+      class="flex justify-center items-center py-16 w-full md:w-auto md:px-32 rounded-4xl bg-teal-legacy-400"
+    >
+      <a
+        x-bind:href="window.router.getPath('overview')"
+        data-navigo
+        class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200"
+      >
+        <span
+          class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900"
+          >Open project library</span
+        >
+        <i
+          class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"
+        ></i>
+      </a>
+    </div>
+  </div>
+</div>

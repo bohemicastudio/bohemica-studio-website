@@ -1,0 +1,771 @@
+<div class="bg-cool-gray-300">
+  <div
+    id="how-intro"
+    class="relative mx-auto w-full transform -translate-y-1/3 md:-translate-y-1/2 md:w-8/12 md:container-screen"
+  >
+    <div
+      class="flex flex-col justify-center items-center text-center bg-gray-legacy-600 rounded-4xl"
+    >
+      <div
+        class="px-6 pt-10 pb-6 space-y-4 md:px-16 md:pt-16 md:pb-12 md:space-y-8"
+      >
+        <h2
+          class="text-4xl sm:text-5xl text-yellow-400 lg:text-6xl xl:text-7xl"
+          x-text="$store['global'].return('sections.how.title')"
+        ></h2>
+
+        <p
+          class="leading-7 text-yellow-200 lg:leading-8 lg:text-lg font-dm-mono"
+          x-text="$store['global'].return('sections.how.subtitle')"
+        ></p>
+      </div>
+      <div class="flex relative flex-grow justify-center w-full h-20 md:h-28">
+        <hr
+          class="absolute border-t-0 border-l border-gray-legacy-400"
+          style="bottom: -100%; height: 200%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="container"
+    x-data
+    x-init="(function () { 
+	Spruce.store('translation.sectionHow', {
+	en: {
+	first: {
+	title: 'Our process. Simplified.',
+	subtitle: 'See below what you can expect.'
+	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	},
+	second: {
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
+	},
+	cs: {
+	first: {
+	title: 'Our process. Simplified. CS',
+	subtitle: 'See below what you can expect.'
+	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+ 
+		Spruce.store('translation.processSteps', {
+			en: {
+				step: 'Step',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals the project and come back with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let clients the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Design & Development',
+					description: [
+						`Let's get to work!This is when it all comes together.`,
+						'We design, code, and do everything in-between and beyond.',
+						'Client is regularly updated about the progress and further discussions take place.'
+					],
+					keywords: [
+						'Sketch',
+						'Wireframe',
+						'Mock-up',
+						'Guideline',
+						'Illustration',
+						'Website',
+						'Application',
+						'Copywriting'
+					]
+				},
+				3: {
+					title: 'Test & Launch',
+					description: [
+						'Hooray, it is done!',
+						`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
+					],
+					keywords: [
+						'Testing',
+						'Deployment',
+						'SEO',
+						'Analytics',
+					]
+				}
+			},
+			cs: {
+				step: 'Krok',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				3: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+ })()"
+  >
+    <div
+      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-1/2"
+    >
+      <img class="h-full" src="/images/icon/process.svg" />
+
+      <h3
+        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        x-text="$store['translation.sectionHow'].return('first.title')"
+      ></h3>
+
+      <h4
+        class="mt-6 md:text-lg leading-relaxed font-dm-mono text-cool-gray-700"
+        x-text="$store['translation.sectionHow'].return('first.subtitle')"
+      ></h4>
+    </div>
+
+    <div class="mt-12 mb-16 space-y-12 md:mt-24 md:mb-32 md:space-y-40">
+      <div
+        class="flex flex-col p-5 w-full bg-white sm:py-8 sm:px-10 md:py-20 md:pl-14 md:w-10/12"
+      >
+        <div class="relative">
+          <picture>
+            <source srcset="/images/step/bubble.webp" type="image/webp" />
+            <source srcset="/images/step/bubble.png" type="image/png" />
+            <img
+              src="/images/step/bubble.png"
+              class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source srcset="/images/step/coffee.webp" type="image/webp" />
+            <source srcset="/images/step/coffee.png" type="image/png" />
+            <img
+              src="/images/step/coffee.png"
+              class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <span
+            class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase"
+            x-text="$store['translation.processSteps'].return('step') + ' 1'"
+          ></span>
+          <h3
+            class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl"
+            x-text="$store['translation.processSteps'].return('1.title')"
+          ></h3>
+          <div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
+            <ul class="space-y-12 text-base text-cool-gray-900 font-dm-mono">
+              <template
+                x-for="row in $store['translation.processSteps'].return('1.description')"
+              >
+                <li x-text="row"></li>
+              </template>
+            </ul>
+          </div>
+
+          <div
+            class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3"
+          >
+            <template
+              x-for="keyword in $store['translation.processSteps'].return('1.keywords')"
+            >
+              <span
+                class="select-none text-white bg-cyan-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+                x-text="keyword"
+              ></span>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col p-5 w-full bg-white sm:py-8 sm:px-10 md:py-20 md:pl-14 md:w-10/12"
+      >
+        <div class="relative">
+          <picture>
+            <source srcset="/images/step/notebook.webp" type="image/webp" />
+            <source srcset="/images/step/notebook.png" type="image/png" />
+            <img
+              src="/images/step/notebook.png"
+              class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source srcset="/images/step/pencil.webp" type="image/webp" />
+            <source srcset="/images/step/pencil.png" type="image/png" />
+            <img
+              src="/images/step/pencil.png"
+              class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <span
+            class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase"
+            x-text="$store['translation.processSteps'].return('step') + ' 2'"
+          ></span>
+          <h3
+            class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl"
+            x-text="$store['translation.processSteps'].return('2.title')"
+          ></h3>
+          <div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
+            <ul class="space-y-12 text-base text-cool-gray-900 font-dm-mono">
+              <template
+                x-for="row in $store['translation.processSteps'].return('2.description')"
+              >
+                <li x-text="row"></li>
+              </template>
+            </ul>
+          </div>
+
+          <div
+            class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3"
+          >
+            <template
+              x-for="keyword in $store['translation.processSteps'].return('2.keywords')"
+            >
+              <span
+                class="select-none text-white bg-teal-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+                x-text="keyword"
+              ></span>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col p-5 w-full bg-white sm:py-8 sm:px-10 md:py-20 md:pl-14 md:w-10/12"
+      >
+        <div class="relative">
+          <picture>
+            <source srcset="/images/step/rocket.webp" type="image/webp" />
+            <source srcset="/images/step/rocket.png" type="image/png" />
+            <img
+              src="/images/step/rocket.png"
+              class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source srcset="/images/step/shield.webp" type="image/webp" />
+            <source srcset="/images/step/shield.png" type="image/png" />
+            <img
+              src="/images/step/shield.png"
+              class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block"
+              media="(min-width: 960px)"
+              loading="lazy"
+            />
+          </picture>
+          <span
+            class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase"
+            x-text="$store['translation.processSteps'].return('step') + ' 3'"
+          ></span>
+          <h3
+            class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl"
+            x-text="$store['translation.processSteps'].return('3.title')"
+          ></h3>
+          <div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
+            <ul class="space-y-12 text-base text-cool-gray-900 font-dm-mono">
+              <template
+                x-for="row in $store['translation.processSteps'].return('3.description')"
+              >
+                <li x-text="row"></li>
+              </template>
+            </ul>
+          </div>
+
+          <div
+            class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3"
+          >
+            <template
+              x-for="keyword in $store['translation.processSteps'].return('3.keywords')"
+            >
+              <span
+                class="select-none text-white bg-emerald-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+                x-text="keyword"
+              ></span>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex relative flex-grow justify-center mx-auto w-full h-20 md:h-28"
+  >
+    <hr
+      class="border-t-0 border-l border-cool-gray-400"
+      style="bottom: -100%; height: 200%"
+    />
+  </div>
+</div>
+
+<div class="bg-cool-gray-100">
+  <div class="m-auto h-20 md:h-28"></div>
+  <div
+    class="container pb-16 mt-12 space-y-24 md:pb-32 md:mt-32"
+    x-data
+    x-init="(function () { 
+	Spruce.store('translation.sectionHow', {
+	en: {
+	first: {
+	title: 'Our process. Simplified.',
+	subtitle: 'See below what you can expect.'
+	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	},
+	second: {
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
+	},
+	cs: {
+	first: {
+	title: 'Our process. Simplified. CS',
+	subtitle: 'See below what you can expect.'
+	},
+	tools: {
+	first: 'Coding',
+	second: 'Styling',
+	third: 'JavaScript',
+	fourth: 'Storing & managing',
+	fifth: 'Visualising & prototyping',
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
+	}
+	})
+ 
+		Spruce.store('translation.processSteps', {
+			en: {
+				step: 'Step',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals the project and come back with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let clients the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Design & Development',
+					description: [
+						`Let's get to work!This is when it all comes together.`,
+						'We design, code, and do everything in-between and beyond.',
+						'Client is regularly updated about the progress and further discussions take place.'
+					],
+					keywords: [
+						'Sketch',
+						'Wireframe',
+						'Mock-up',
+						'Guideline',
+						'Illustration',
+						'Website',
+						'Application',
+						'Copywriting'
+					]
+				},
+				3: {
+					title: 'Test & Launch',
+					description: [
+						'Hooray, it is done!',
+						`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
+					],
+					keywords: [
+						'Testing',
+						'Deployment',
+						'SEO',
+						'Analytics',
+					]
+				}
+			},
+			cs: {
+				step: 'Krok',
+				1: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				2: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				},
+				3: {
+					title: 'Meet & Plan',
+					description: [
+						'It all starts with a project brief.',
+						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+						'Our team put heads together to come up with the best strategy.',
+						'We let you know the options you have in terms of how we intend to approach the project.'
+					],
+					keywords: [
+						'Communication channel',
+						'Project brief',
+						'Estimate',
+						'Milestones',
+						'Deliverables'
+					]
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+ })()"
+  >
+    <div
+      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-1/2"
+    >
+      <img class="h-full" src="/images/icon/code.svg" />
+
+      <h3
+        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        x-text="$store['translation.sectionHow'].return('second.title')"
+      ></h3>
+
+      <h4
+        class="mt-6 md:text-lg leading-relaxed font-dm-mono text-cool-gray-700"
+        x-text="$store['translation.sectionHow'].return('second.subtitle')"
+      ></h4>
+    </div>
+
+    <div>
+      <h5
+        class="mb-6 text-2xl font-medium"
+        x-text="$store['translation.sectionHow'].return('tools.first')"
+      ></h5>
+      <ul class="grid-how">
+        <li>
+          <div>
+            <img src="/images/logo/javascript.svg" loading="lazy" />
+          </div>
+          <span>JavaScript</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/php.svg" loading="lazy" />
+          </div>
+          <span>PHP</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/laravel.svg" loading="lazy" />
+          </div>
+          <span>Laravel</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/csharp.svg" loading="lazy" />
+          </div>
+          <span>C#</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/swift.svg" loading="lazy" />
+          </div>
+          <span>Swift</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/swiftui.svg" loading="lazy" />
+          </div>
+          <span>SwiftUI</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/kotlin.svg" loading="lazy" />
+          </div>
+          <span>Kotlin</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5
+        class="mb-6 text-2xl font-medium"
+        x-text="$store['translation.sectionHow'].return('tools.second')"
+      ></h5>
+      <ul class="grid-how">
+        <li>
+          <div>
+            <img src="/images/logo/html5.svg" loading="lazy" />
+          </div>
+          <span>HTML5</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/css3.svg" loading="lazy" />
+          </div>
+          <span>CSS3</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/tailwindcss.svg" loading="lazy" />
+          </div>
+          <span>Tailwind CSS</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/bootstrap.svg" loading="lazy" />
+          </div>
+          <span>Bootstrap</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5
+        class="mb-6 text-2xl font-medium"
+        x-text="$store['translation.sectionHow'].return('tools.third')"
+      ></h5>
+      <ul class="grid-how">
+        <li>
+          <div>
+            <img src="/images/logo/vuejs.svg" loading="lazy" />
+          </div>
+          <span>Vue.js</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/nuxtjs.svg" loading="lazy" />
+          </div>
+          <span>Nuxt.js</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/nodejs.svg" loading="lazy" />
+          </div>
+          <span>Node.js</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/gridsome.svg" loading="lazy" />
+          </div>
+          <span>Gridsome</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/alpinejs.svg" loading="lazy" />
+          </div>
+          <span>Alpine.js</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/jquery.svg" loading="lazy" />
+          </div>
+          <span>jQuery</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/animejs.svg" loading="lazy" />
+          </div>
+          <span>Anime.js</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5
+        class="mb-6 text-2xl font-medium"
+        x-text="$store['translation.sectionHow'].return('tools.fourth')"
+      ></h5>
+      <ul class="mt-12 grid-how">
+        <li>
+          <a
+            href="https://apostrophecms.com/"
+            target="_blank"
+            class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl"
+          >
+            <img src="/images/badge/official-partner.svg" />
+            <span
+              class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans"
+              x-text="$store['translation.badge'].return('officialPartner')"
+            ></span>
+          </a>
+
+          <div>
+            <img src="/images/logo/apostrophecms.svg" loading="lazy" />
+          </div>
+          <span> Apostrophe CMS </span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/strapi.svg" loading="lazy" />
+          </div>
+          <span>Strapi</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/wordpress.svg" loading="lazy" />
+          </div>
+          <span>Wordpress</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/elementor.svg" loading="lazy" />
+          </div>
+          <span>Elementor</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5
+        class="mb-6 text-2xl font-medium"
+        x-text="$store['translation.sectionHow'].return('tools.fifth')"
+      ></h5>
+      <ul class="mt-12 grid-how">
+        <li>
+          <div>
+            <img src="/images/logo/figma.svg" loading="lazy" />
+          </div>
+          <span>Figma</span>
+        </li>
+        <li>
+          <div>
+            <img
+              class="w-auto h-20"
+              src="/images/logo/drama.png"
+              loading="lazy"
+            />
+          </div>
+          <span>Drama</span>
+        </li>
+        <li>
+          <div>
+            <img src="/images/logo/framer.svg" loading="lazy" />
+          </div>
+          <span>Framer</span>
+        </li>
+        <li>
+          <div>
+            <img
+              class="w-auto h-20"
+              src="/images/logo/spline.png"
+              loading="lazy"
+            />
+          </div>
+          <span>Spline</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="flex relative flex-grow justify-center mx-auto w-full h-20 md:h-28"
+  >
+    <hr
+      class="border-t-0 border-l border-cool-gray-400"
+      style="bottom: -100%; height: 200%"
+    />
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<h3
+  class="pb-8 mb-16 text-3xl font-bold text-gray-900 border-b border-gray-600"
+  x-text="$store['translation.projects'].return('projectLibrary')"
+></h3>
+
+<div class="grid grid-cols-2 auto-rows-fr gap-6">
+  <template
+    x-for="(entry, index) in Object.entries($store['translation.projects'].return('list'))"
+    :key="entry[0]"
+  >
+    <a
+      x-bind:href="window.router.getPath(entry[0])"
+      data-navigo
+      class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+    >
+      <div class="flex flex-grow items-center">
+        <img
+          x-bind:class="'h-'+entry[1].logoHeight"
+          x-bind:src="`/images/project/${entry[0]}/${entry[1].logo}`"
+        />
+      </div>
+      <div class="flex flex-col space-y-3 text-2xl">
+        <span
+          class="text-gray-800"
+          x-text="entry[1].client + (entry[1].year ? ' | ' + entry[1].year : '')"
+        ></span>
+        <div class="flex flex-wrap space-x-1 space-x-reverse">
+          <template x-for="(category, index) in entry[1].categories">
+            <span
+              class="select-none text-white bg-gray-600 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap"
+              x-text="category"
+            ></span>
+          </template>
+        </div>
+      </div>
+    </a>
+  </template>
+</div>

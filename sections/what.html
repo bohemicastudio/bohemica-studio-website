@@ -1,0 +1,872 @@
+<div class="bg-black">
+  <div
+    id="what-intro"
+    class="relative mx-auto w-full transform -translate-y-1/3 md:-translate-y-1/2 md:w-8/12 md:container-screen"
+  >
+    <div
+      class="flex flex-col justify-center items-center text-center bg-gray-legacy-800 rounded-4xl"
+    >
+      <div
+        class="px-6 pt-10 pb-6 space-y-4 md:px-16 md:pt-16 md:pb-12 md:space-y-8"
+      >
+        <h2
+          class="text-4xl sm:text-5xl text-blue-400 lg:text-6xl xl:text-7xl"
+          x-text="$store['global'].return('sections.what.title')"
+        ></h2>
+
+        <p
+          class="leading-7 text-blue-200 lg:leading-8 lg:text-lg font-dm-mono"
+          x-text="$store['global'].return('sections.what.subtitle')"
+        ></p>
+      </div>
+      <div class="flex relative flex-grow justify-center w-full h-20 md:h-28">
+        <hr
+          class="absolute border-t-0 border-l border-gray-legacy-200"
+          style="bottom: -100%; height: 200%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div
+      class="flex flex-col divide-y divide-gray-legacy-500"
+      x-data
+      x-init="(function () { 
+		Spruce.store('translation.specialisation', {
+			en: {
+				code: {
+					title: 'Software development',
+					subtitle: 'Web, mobile, desktop applications – done well. From the start to the end.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'API', 'iOS', 'Android', 'SEO', 'Hosting', 'CI/CD', 'Unit testing']
+				},
+				iot: {
+					title: 'IoT solutions',
+					subtitle: 'Hardware and software solutions. Automated and scalable.',
+					keywords: ['Arduino', 'Raspberry Pi', 'SocketIO']
+				},
+				uiux: {
+					title: 'Visual design & interface interaction',
+					subtitle: 'Intuitive interfaces that bring delight and joy. Stress-free experience.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				branding: {
+					title: 'Branding & illustration',
+					subtitle: 'Get the right message across. In style.',
+					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+				}
+			},
+			cs: {
+				code: {
+					title: 'Vývoj webů a aplikací',
+					subtitle: 'Webové, mobilní a desktopové aplikace ušité na míru.',
+					keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
+				},
+				iot: {
+					title: 'Internet of things (IoT)',
+					subtitle: 'Hardwarová a softwarová řešení. Automatizované a škálovatelné.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				uiux: {
+					title: 'Vizuální design a interakce s rozhraním',
+					subtitle: 'Intuitivní a funkční rozhraní, která přinášejí radost a potěšení.',
+					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
+				},
+				branding: {
+					title: 'Branding a ilustrace',
+					subtitle: 'Pošlete tu správnou zprávu do světa. Ve stylu.',
+					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
+				}
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
+			}
+		})
+ })()"
+    >
+      <div class="pb-8 md:pb-16">
+        <img
+          class="transform origin-bottom-left scale-75 md:scale-100"
+          src="/images/specialisation/code.svg"
+        />
+        <h3
+          class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-orange-200"
+          x-text="'01 // ' + $store['translation.specialisation'].return('code.title')"
+        ></h3>
+        <h4
+          class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl"
+          x-text="$store['translation.specialisation'].return('code.subtitle')"
+        ></h4>
+
+        <div
+          class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3"
+        >
+          <template
+            x-for="(item, index) in $store['translation.specialisation'].return('code.keywords')"
+          >
+            <span
+              class="select-none text-white bg-orange-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+              x-text="item"
+            ></span>
+          </template>
+        </div>
+      </div>
+      <div class="divide-y divide-gray-legacy-500">
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/subtitle-editor/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/subtitle-editor/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/subtitle-editor/preview-3d-zoom.png"
+                id="preview-image-subtitle-editor"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 40)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4">
+                <div
+                  class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none"
+                >
+                  <img src="/images/badge/source-code.svg" />
+                  <span
+                    class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans"
+                    x-text="$store['translation.badge'].return('sourceCode')"
+                  ></span>
+                </div>
+              </div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['subtitle-editor'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('subtitle-editor')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row-reverse"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/lancaster-maloney/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/lancaster-maloney/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/lancaster-maloney/preview-3d-zoom.png"
+                id="preview-image-lancaster-maloney"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 50)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4"></div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['lancaster-maloney'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('lancaster-maloney')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/mmt/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/mmt/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/mmt/preview-3d-zoom.png"
+                id="preview-image-mmt"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 45)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4"></div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['mmt'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('mmt')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-16 pb-8 md:pt-40 md:pb-16">
+        <img
+          class="transform origin-bottom-left scale-75 md:scale-100"
+          src="/images/specialisation/iot.svg"
+        />
+        <h3
+          class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-indigo-200"
+          x-text="'02 // ' + $store['translation.specialisation'].return('iot.title')"
+        ></h3>
+        <h4
+          class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl"
+          x-text="$store['translation.specialisation'].return('iot.subtitle')"
+        ></h4>
+
+        <div
+          class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3"
+        >
+          <template
+            x-for="(item, index) in $store['translation.specialisation'].return('iot.keywords')"
+          >
+            <span
+              class="select-none text-white bg-indigo-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+              x-text="item"
+            ></span>
+          </template>
+        </div>
+      </div>
+      <div class="divide-y divide-gray-legacy-500">
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/media-server/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/media-server/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/media-server/preview-3d-zoom.png"
+                id="preview-image-media-server"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 50)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4">
+                <div
+                  class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none"
+                >
+                  <img src="/images/badge/latest-project.svg" />
+                  <span
+                    class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans"
+                    x-text="$store['translation.badge'].return('latestProject')"
+                  ></span>
+                </div>
+
+                <div
+                  class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none"
+                >
+                  <img src="/images/badge/source-code.svg" />
+                  <span
+                    class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans"
+                    x-text="$store['translation.badge'].return('sourceCode')"
+                  ></span>
+                </div>
+              </div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['media-server'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('media-server')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-16 pb-8 md:pt-40 md:pb-16">
+        <img
+          class="transform origin-bottom-left scale-75 md:scale-100"
+          src="/images/specialisation/uiux.svg"
+        />
+        <h3
+          class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-green-200"
+          x-text="'03 // ' + $store['translation.specialisation'].return('uiux.title')"
+        ></h3>
+        <h4
+          class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl"
+          x-text="$store['translation.specialisation'].return('uiux.subtitle')"
+        ></h4>
+
+        <div
+          class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3"
+        >
+          <template
+            x-for="(item, index) in $store['translation.specialisation'].return('uiux.keywords')"
+          >
+            <span
+              class="select-none text-white bg-green-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+              x-text="item"
+            ></span>
+          </template>
+        </div>
+      </div>
+      <div class="divide-y divide-gray-legacy-500">
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/superflow/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/superflow/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/superflow/preview-3d-zoom.png"
+                id="preview-image-superflow"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 40)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4"></div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['superflow'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('superflow')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-16 pb-8 md:pt-40 md:pb-16">
+        <img
+          class="transform origin-bottom-left scale-75 md:scale-100"
+          src="/images/specialisation/branding.svg"
+        />
+        <h3
+          class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-amber-200"
+          x-text="'04 // ' + $store['translation.specialisation'].return('branding.title')"
+        ></h3>
+        <h4
+          class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl"
+          x-text="$store['translation.specialisation'].return('branding.subtitle')"
+        ></h4>
+
+        <div
+          class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3"
+        >
+          <template
+            x-for="(item, index) in $store['translation.specialisation'].return('branding.keywords')"
+          >
+            <span
+              class="select-none text-white bg-amber-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap"
+              x-text="item"
+            ></span>
+          </template>
+        </div>
+      </div>
+      <div class="divide-y divide-gray-legacy-500">
+        <div
+          class="flex py-8 md:py-16 flex-col space-y-8 md:space-y-0 md:flex-row"
+        >
+          <div
+            class="flex relative justify-center items-center w-full md:w-1/2"
+          >
+            <picture>
+              <source
+                srcset="/images/project/branding/preview-3d.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/images/project/branding/preview-3d.png"
+                type="image/png"
+              />
+              <img
+                src="/images/project/branding/preview-3d-zoom.png"
+                id="preview-image-branding"
+                class="mx-auto w-auto"
+                style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * 45)"
+                data-zoom
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div
+            class="flex justify-start items-center w-full md:justify-center md:w-1/2"
+          >
+            <div class="flex flex-col items-start space-y-10">
+              <div class="flex flex-row space-x-4"></div>
+
+              <div
+                class="grid gap-y-3 gap-x-5 font-medium"
+                style="grid-template-columns: min-content auto"
+              >
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.client') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].client`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.year') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].year`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.type') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.industry') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].industry`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.platforms') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].type`)"
+                ></span>
+                <span
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
+                  x-text="$store['translation.projects'].return('labels.stack') + ':'"
+                ></span>
+                <span
+                  class="text-cool-gray-100"
+                  x-text="$store['translation.projects'].return(`list['branding'].stack`)"
+                ></span>
+              </div>
+
+              <a
+                x-bind:href="window.router.getPath('branding')"
+                class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+                data-navigo
+              >
+                <span
+                  class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                  >See the project</span
+                >
+                <i
+                  class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div
+      class="flex justify-center items-center py-8 mt-24 rounded-t-3xl md:py-16 bg-gray-legacy-800 md:mt-48 md:rounded-t-7xl"
+    >
+      <a
+        x-bind:href="window.router.getPath('overview')"
+        data-navigo
+        class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200"
+      >
+        <span
+          class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900"
+          >Open project library</span
+        >
+        <i
+          class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"
+        ></i>
+      </a>
+    </div>
+  </div>
+</div>
