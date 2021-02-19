@@ -26,7 +26,8 @@
     "serve:eleventy": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "sort": "npx sort-package-json",
     "watch:style": "onchange 'source/style' 'tailwind.config.js' -- pnpm run build:style",
-    "deploy": "cross-env ELEVENTY_ENV=deploy gh-pages -d build"
+    "deploy": "cross-env ELEVENTY_ENV=deploy gh-pages -d build",
+    "postinstall": "husky install"
   },
   "husky": {
     "hooks": {
