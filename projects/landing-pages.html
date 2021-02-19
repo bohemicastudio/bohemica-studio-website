@@ -35,7 +35,7 @@
     <div class="flex flex-grow items-center">
       <img
         x-bind:class="`h-${$store['translation.projects'].return(`list['landing-pages'].logoHeight`)}`"
-        x-bind:src="`/images/project/landing-pages/${$store['translation.projects'].return(`list['landing-pages'].logo`)}`"
+        x-bind:src="`./images/project/landing-pages/${$store['translation.projects'].return(`list['landing-pages'].logo`)}`"
       />
     </div>
 
@@ -78,19 +78,25 @@
     </div>
 
     <picture>
-      <source srcset="/images/project/landing-pages/1.webp" type="image/webp" />
-      <source srcset="/images/project/landing-pages/1.png" type="image/png" />
+      <source
+        srcset="./images/project/landing-pages/1.webp"
+        type="image/webp"
+      />
+      <source srcset="./images/project/landing-pages/1.png" type="image/png" />
       <img
-        src="/images/project/landing-pages/1.png"
+        src="./images/project/landing-pages/1.png"
         class="w-full rounded-lg border border-gray-300"
         loading="lazy"
       />
     </picture>
     <picture>
-      <source srcset="/images/project/landing-pages/2.webp" type="image/webp" />
-      <source srcset="/images/project/landing-pages/2.png" type="image/png" />
+      <source
+        srcset="./images/project/landing-pages/2.webp"
+        type="image/webp"
+      />
+      <source srcset="./images/project/landing-pages/2.png" type="image/png" />
       <img
-        src="/images/project/landing-pages/2.png"
+        src="./images/project/landing-pages/2.png"
         class="w-full rounded-lg border border-gray-300"
         loading="lazy"
       />
@@ -104,15 +110,15 @@
       ></span>
       <picture>
         <source
-          srcset="/images/project/landing-pages/3a.webp"
+          srcset="./images/project/landing-pages/3a.webp"
           type="image/webp"
         />
         <source
-          srcset="/images/project/landing-pages/3a.png"
+          srcset="./images/project/landing-pages/3a.png"
           type="image/png"
         />
         <img
-          src="/images/project/landing-pages/3a.png"
+          src="./images/project/landing-pages/3a.png"
           class="w-full rounded-lg border border-gray-300"
           loading="lazy"
         />
@@ -125,15 +131,15 @@
       ></span>
       <picture>
         <source
-          srcset="/images/project/landing-pages/3b.webp"
+          srcset="./images/project/landing-pages/3b.webp"
           type="image/webp"
         />
         <source
-          srcset="/images/project/landing-pages/3b.png"
+          srcset="./images/project/landing-pages/3b.png"
           type="image/png"
         />
         <img
-          src="/images/project/landing-pages/3b.png"
+          src="./images/project/landing-pages/3b.png"
           class="w-full rounded-lg border border-gray-300"
           loading="lazy"
         />
