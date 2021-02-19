@@ -1,8 +1,9 @@
 {
   "name": "bohemica-studio-website",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Bohemica Studio Website",
   "author": "Bohemica Studio",
+  "homepage": "http://bohemicastudio.github.io/bohemica-studio-website",
   "scripts": {
     "build": "run-s clean copy:* build:eleventy build:tailwind",
     "build:eleventy": "cross-env ELEVENTY_ENV=production eleventy",
@@ -24,12 +25,18 @@
     "serve": "run-s copy:* serve:eleventy & run-s build:tailwind watch:style",
     "serve:eleventy": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "sort": "npx sort-package-json",
-    "watch:style": "onchange 'source/style' 'tailwind.config.js' -- pnpm run build:style"
+    "watch:style": "onchange 'source/style' 'tailwind.config.js' -- pnpm run build:style",
+    "deploy": "cross-env ELEVENTY_ENV=deploy gh-pages -d build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "pnpm run deploy"
+    }
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-img": "^0.8.0",
-    "@popperjs/core": "^2.7.0",
+    "@popperjs/core": "^2.7.1",
     "@ryangjchandler/alpine-toggle": "^0.1.0",
     "@ryangjchandler/spruce": "2.6.3",
     "@tailwindcss/aspect-ratio": "^0.2.0",
@@ -39,13 +46,15 @@
     "animejs": "^3.2.1",
     "arrive": "^2.4.1",
     "autoprefixer": "^10.2.4",
-    "clean-css": "^5.0.1",
+    "clean-css": "^5.1.0",
     "connect-history-api-fallback": "^1.6.0",
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "dayjs": "^1.10.4",
+    "gh-pages": "^3.1.0",
     "html-minifier-terser": "^5.1.1",
+    "husky": "^5.0.9",
     "medium-zoom": "^1.0.6",
     "moment": "^2.29.1",
     "navigo": "8.8.12",

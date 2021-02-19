@@ -8,7 +8,11 @@
 	<meta name="description" content="We are Bohemica Studio — a friendly team of qualified full-stack programmers and visual designers.">
 	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 	<meta name="viewport" content="width=400, shrink-to-fit=yes, viewport-fit=cover, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"/>
-	<base href="/"/>
+	{% if process.env.ELEVENTY_ENV == "deploy" %}
+		<base href="/bohemica-studio-website"/>
+	{% else %}
+		<base href="/"/>
+	{% endif %}
 	<!-- Favicon generated via https://realfavicongenerator.net/ -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
