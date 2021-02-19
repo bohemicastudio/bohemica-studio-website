@@ -1,0 +1,33 @@
+# This GitHub Action will automatically deploy your project to GitHub Pages. It can be configured to push your production-ready code into any branch you'd like, including gh-pages and docs. It can also handle cross repository deployments too.          
+# https://github.com/marketplace/actions/deploy-to-github-pages
+
+name: Build and Deploy
+
+# Controls when the action will run.
+on:
+  push:
+    branches:
+      - master
+      
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build-and-deploy"
+  build-and-deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      # Runs a set of commands using the runners shell
+      - name: Install and Build 🔧 # This example project is built using pnpm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
