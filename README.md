@@ -1,10 +1,20 @@
-<p align="center">
+<p align="left">
 <a href="https://bohemica.studio" target="_blank">
-	<img src="./source/images/symbol.svg" alt="Bohemica symbol" width="64" align="center" />
+	<img src="./source/images/symbol.svg" alt="Bohemica symbol" width="64" />
 </a>
 </p>
 
-<h2 align="center"><a href="https://bohemica.studio" target="_blank"><strong>Bohemica Studio Website</strong></a></h2>
+<p align="left">
+<a href="https://bohemica.studio" target="_blank">
+	<img src="./source/images/symbol.svg" alt="Bohemica title" width="128" />
+</a>
+</p>
+
+<p align="left">
+<a href="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json"><img src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" style="max-width:100%;"></a>
+</p>
+
+---
 
 This site was a bit of an experiment on our behalf as we wanted to trial using Eleventy as a static generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single page website**.
 

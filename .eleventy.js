@@ -53,7 +53,7 @@ module.exports = function (config) {
 		dir: {
 			input: "source",
 			includes: "includes",
-			/*data: "data",*/
+			data: "data",
 			output: "build",
 		},
 	}
