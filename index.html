@@ -68,28 +68,28 @@
       });
     </script>
     <!-- CSS style & fonts -->
-    <link rel="stylesheet" href="./style.css?v=1613758278385" />
+    <link rel="stylesheet" href="./style.css?v=1613759084660" />
     <!-- Helper JS functions -->
-    <script src="script/helpers.js?v=1613758278385"></script>
-    <script src="script/alpine-magic-helpers.js?v=1613758278385"></script>
-    <script src="script/alpine-toggle.js?v=1613758278385"></script>
+    <script src="./script/helpers.js?v=1613759084660"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1613759084660"></script>
+    <script src="./script/alpine-toggle.js?v=1613759084660"></script>
     <!-- External JS libraries -->
-    <script src="script/alpine.js?v=1613758278385" defer></script>
-    <script src="script/arrive.js?v=1613758278385"></script>
-    <script src="script/anime.js?v=1613758278385"></script>
-    <script src="script/spruce.js?v=1613758278385"></script>
-    <script src="script/navigo.js?v=1613758278385"></script>
-    <script src="script/popper.js?v=1613758278385"></script>
-    <script src="script/tippy.js?v=1613758278385"></script>
-    <script src="script/medium-zoom.js?v=1613758278385"></script>
-    <script src="script/dayjs.js?v=1613758278385"></script>
+    <script src="./script/alpine.js?v=1613759084660" defer></script>
+    <script src="./script/arrive.js?v=1613759084660"></script>
+    <script src="./script/anime.js?v=1613759084660"></script>
+    <script src="./script/spruce.js?v=1613759084660"></script>
+    <script src="./script/navigo.js?v=1613759084660"></script>
+    <script src="./script/popper.js?v=1613759084660"></script>
+    <script src="./script/tippy.js?v=1613759084660"></script>
+    <script src="./script/medium-zoom.js?v=1613759084660"></script>
+    <script src="./script/dayjs.js?v=1613759084660"></script>
     <!-- Internal JS scripts -->
-    <script src="script/animation.js?v=1613758278385"></script>
-    <script src="script/store.js?v=1613758278385"></script>
-    <script src="script/router.js?v=1613758278385"></script>
-    <script src="script/tooltip.js?v=1613758278386" defer></script>
-    <script src="script/parallax.js?v=1613758278386" defer></script>
-    <script src="script/main.js?v=1613758278386" defer></script>
+    <script src="./script/animation.js?v=1613759084660"></script>
+    <script src="./script/store.js?v=1613759084660"></script>
+    <script src="./script/router.js?v=1613759084660"></script>
+    <script src="./script/tooltip.js?v=1613759084660" defer></script>
+    <script src="./script/parallax.js?v=1613759084660" defer></script>
+    <script src="./script/main.js?v=1613759084660" defer></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -350,7 +350,7 @@
               class="w-auto h-full opacity-0 cursor-pointer"
               x-on:click="window.router.getPath('brand')"
               oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))"
-              src="/images/logomark.svg"
+              src="./images/logomark.svg"
               onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})"
             />
             <div
@@ -475,7 +475,7 @@
                           <span class="w-7 h-auto">
                             <img
                               alt="language-icon"
-                              x-bind:src="'/images/language/' + language.code + '.svg'"
+                              x-bind:src="'./images/language/' + language.code + '.svg'"
                             />
                           </span>
                           <span
@@ -606,10 +606,10 @@
           class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-lg xl:max-h-xl container-screen lg:flex"
         >
           <picture>
-            <source srcset="/images/hand/blue.webp" type="image/webp" />
-            <source srcset="/images/hand/blue.png" type="image/png" />
+            <source srcset="./images/hand/blue.webp" type="image/webp" />
+            <source srcset="./images/hand/blue.png" type="image/png" />
             <img
-              src="/images/hand/blue.png"
+              src="./images/hand/blue.png"
               id="blueHand"
               class="absolute bottom-0 origin-bottom-left"
               style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0"
@@ -620,10 +620,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/green.webp" type="image/webp" />
-            <source srcset="/images/hand/green.png" type="image/png" />
+            <source srcset="./images/hand/green.webp" type="image/webp" />
+            <source srcset="./images/hand/green.png" type="image/png" />
             <img
-              src="/images/hand/green.png"
+              src="./images/hand/green.png"
               id="greenHand"
               class="absolute bottom-0 origin-bottom-right"
               style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
@@ -634,10 +634,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/purple.webp" type="image/webp" />
-            <source srcset="/images/hand/purple.png" type="image/png" />
+            <source srcset="./images/hand/purple.webp" type="image/webp" />
+            <source srcset="./images/hand/purple.png" type="image/png" />
             <img
-              src="/images/hand/purple.png"
+              src="./images/hand/purple.png"
               id="purpleHand"
               class="absolute bottom-0 origin-bottom-left"
               style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
@@ -648,10 +648,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/yellow.webp" type="image/webp" />
-            <source srcset="/images/hand/yellow.png" type="image/png" />
+            <source srcset="./images/hand/yellow.webp" type="image/webp" />
+            <source srcset="./images/hand/yellow.png" type="image/png" />
             <img
-              src="/images/hand/yellow.png"
+              src="./images/hand/yellow.png"
               class="absolute bottom-0 origin-bottom-right"
               style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(8.5vh); translateX(-50%); opacity: 0"
               id="yellowHand"
@@ -666,10 +666,10 @@
           class="hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-md lg:max-h-lg container-screen md:flex lg:hidden"
         >
           <picture>
-            <source srcset="/images/hand/blue.webp" type="image/webp" />
-            <source srcset="/images/hand/blue.png" type="image/png" />
+            <source srcset="./images/hand/blue.webp" type="image/webp" />
+            <source srcset="./images/hand/blue.png" type="image/png" />
             <img
-              src="/images/hand/blue.png"
+              src="./images/hand/blue.png"
               id="blueHandTablet"
               class="absolute bottom-0 origin-bottom-left"
               style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0"
@@ -680,10 +680,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/green.webp" type="image/webp" />
-            <source srcset="/images/hand/green.png" type="image/png" />
+            <source srcset="./images/hand/green.webp" type="image/webp" />
+            <source srcset="./images/hand/green.png" type="image/png" />
             <img
-              src="/images/hand/green.png"
+              src="./images/hand/green.png"
               id="greenHandTablet"
               class="absolute bottom-0 origin-bottom-right"
               style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0"
@@ -694,10 +694,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/purple.webp" type="image/webp" />
-            <source srcset="/images/hand/purple.png" type="image/png" />
+            <source srcset="./images/hand/purple.webp" type="image/webp" />
+            <source srcset="./images/hand/purple.png" type="image/png" />
             <img
-              src="/images/hand/purple.png"
+              src="./images/hand/purple.png"
               id="purpleHandTablet"
               class="absolute bottom-0 origin-bottom-left"
               style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0"
@@ -712,10 +712,10 @@
           class="flex absolute inset-0 z-10 transform -translate-y-20 container-screen md:hidden"
         >
           <picture>
-            <source srcset="/images/hand/green.webp" type="image/webp" />
-            <source srcset="/images/hand/green.png" type="image/png" />
+            <source srcset="./images/hand/green.webp" type="image/webp" />
+            <source srcset="./images/hand/green.png" type="image/png" />
             <img
-              src="/images/hand/green.png"
+              src="./images/hand/green.png"
               id="greenHandMobile"
               class="absolute bottom-0 origin-bottom-right"
               style="
@@ -731,10 +731,10 @@
           </picture>
 
           <picture>
-            <source srcset="/images/hand/purple.webp" type="image/webp" />
-            <source srcset="/images/hand/purple.png" type="image/png" />
+            <source srcset="./images/hand/purple.webp" type="image/webp" />
+            <source srcset="./images/hand/purple.png" type="image/png" />
             <img
-              src="/images/hand/purple.png"
+              src="./images/hand/purple.png"
               id="purpleHandMobile"
               class="absolute bottom-0 origin-bottom-left"
               style="
@@ -752,10 +752,10 @@
 
         <div class="absolute inset-0">
           <picture>
-            <source srcset="/images/warp-background.webp" type="image/webp" />
-            <source srcset="/images/warp-background.png" type="image/png" />
+            <source srcset="./images/warp-background.webp" type="image/webp" />
+            <source srcset="./images/warp-background.png" type="image/png" />
             <img
-              src="/images/warp-background.png"
+              src="./images/warp-background.png"
               class="object-cover top-0 left-0 z-0 h-full"
             />
           </picture>
