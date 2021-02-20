@@ -32,6 +32,9 @@ module.exports = function (config) {
 	// Pass-through files
 	config.addPassthroughCopy({ "./temporary/style.css": "./style.css" })
 	config.addPassthroughCopy("./source/images")
+	/*if (process.env.NODE_ENV === 'deploy') {
+		config.addPassthroughCopy({ "./source/404.html": "./404.html" })
+	}*/
 
 	// Shortcodes
 	config.addShortcode("version", function () {

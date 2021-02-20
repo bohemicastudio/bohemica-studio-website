@@ -23,7 +23,8 @@
     "copy:spruce": "copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.umd.js source/script/libs",
     "copy:tippy": "copyfiles --flat node_modules/tippy.js/dist/tippy-bundle.umd.js source/script/libs",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
-    "deploy": "cross-env NODE_ENV=deploy gh-pages -d build",
+    "deploy:gh-pages": "gh-pages -d build",
+    "deploy": "cross-env NODE_ENV=deploy run-s build deploy:gh-pages",
     "serve": "run-s copy:* serve:eleventy & run-s build:tailwind watch:style",
     "serve:eleventy": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "sort": "npx sort-package-json",
@@ -32,7 +33,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-img": "^0.8.0",
-    "@popperjs/core": "^2.7.1",
+    "@popperjs/core": "^2.7.2",
     "@ryangjchandler/alpine-toggle": "^0.1.0",
     "@ryangjchandler/spruce": "2.6.3",
     "@tailwindcss/aspect-ratio": "^0.2.0",

@@ -29,7 +29,7 @@ permalink: /projects/branding.html
 	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
 
 		<div class="flex flex-grow items-center">
-			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`/images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
 		</div>
 
 		<div class="grid gap-y-2 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
@@ -45,41 +45,41 @@ permalink: /projects/branding.html
 
 		<h3 x-text="translation[$store.global.language]['logos']"></h3>
 		<picture>
-			<source srcset="/images/project/{{ project }}/1.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/1.png" type="image/png">
-			<img src="/images/project/{{ project }}/1.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/1.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/1.png" type="image/png">
+			<img src="./images/project/{{ project }}/1.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<picture>
-			<source srcset="/images/project/{{ project }}/2.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/2.png" type="image/png">
-			<img src="/images/project/{{ project }}/2.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/2.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/2.png" type="image/png">
+			<img src="./images/project/{{ project }}/2.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<picture>
-			<source srcset="/images/project/{{ project }}/3.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/3.png" type="image/png">
-			<img src="/images/project/{{ project }}/3.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/3.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/3.png" type="image/png">
+			<img src="./images/project/{{ project }}/3.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<picture>
-			<source srcset="/images/project/{{ project }}/4.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/4.png" type="image/png">
-			<img src="/images/project/{{ project }}/4.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/4.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/4.png" type="image/png">
+			<img src="./images/project/{{ project }}/4.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<picture>
-			<source srcset="/images/project/{{ project }}/5.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/5.png" type="image/png">
-			<img src="/images/project/{{ project }}/5.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/5.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/5.png" type="image/png">
+			<img src="./images/project/{{ project }}/5.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<h3>Messy processes</h3>
 		<p>...that lead to beautiful results</p>
 		<picture>
-			<source srcset="/images/project/{{ project }}/6.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/6.png" type="image/png">
-			<img src="/images/project/{{ project }}/6.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/6.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/6.png" type="image/png">
+			<img src="./images/project/{{ project }}/6.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 		<picture>
-			<source srcset="/images/project/{{ project }}/7.webp" type="image/webp">
-			<source srcset="/images/project/{{ project }}/7.png" type="image/png">
-			<img src="/images/project/{{ project }}/7.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<source srcset="./images/project/{{ project }}/7.webp" type="image/webp">
+			<source srcset="./images/project/{{ project }}/7.png" type="image/png">
+			<img src="./images/project/{{ project }}/7.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 	</div>
 </div>

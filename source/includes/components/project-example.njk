@@ -24,7 +24,7 @@
 					</div>
 					<div class="overflow-hidden relative flex-grow bg-cool-gray-900 rounded-b-lg border border-cool-gray-500">
 						<div class="opacity-80 transition-opacity duration-150 ease-linear aspect-w-16 aspect-h-10 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/project/{{ project }}/{{ image }}">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="./images/project/{{ project }}/{{ image }}">
 							<div class="hidden absolute inset-0 justify-end items-end pointer-events-none md:flex">
 								<span class="text-cool-gray-50 bg-cool-gray-800 rounded-md px-2.5 py-1 mb-2 mr-2">Final product - Dashboard application</span>
 							</div>
@@ -38,7 +38,7 @@
 					<div class="flex justify-between items-center h-4 bg-cool-gray-900 rounded-t-lg border-t border-r border-l border-cool-gray-500"></div>
 					<div class="flex-grow px-2 pb-4 bg-cool-gray-900 border-r border-l border-cool-gray-500">
 						<div class="overflow-hidden relative border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear aspect-w-21 aspect-h-10 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="/images/project/{{ project }}/{{ image }}">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto h-full" data-zoom src="./images/project/{{ project }}/{{ image }}">
 							<button x-on:click="window.mediumZoom.open({ target: document.querySelector('#preview-image-{{ project }}') })" class="hidden absolute justify-center items-center mt-2 mr-2 mb-auto ml-auto w-8 h-8 text-blue-gray-200 bg-cool-gray-600 rounded-md transition duration-100 ease-linear md:flex focus:outline-none hover:text-white hover:bg-cool-gray-500 focus:bg-cool-gray-500">
 								<i class="gg-arrows-expand-right"></i>
 							</button>
@@ -61,7 +61,7 @@
 					</div>
 					<div class="flex-grow px-2 bg-cool-gray-900 border-r border-l border-cool-gray-500">
 						<div class="overflow-hidden relative w-40 rounded-lg border border-cool-gray-500 opacity-80 transition-opacity duration-150 ease-linear sm:w-56 md:w-64 hover:opacity-100">
-							<img id="preview-image-{{ project }}" class="mx-auto w-auto" data-zoom src="/images/project/{{ project }}/{{ image }}">
+							<img id="preview-image-{{ project }}" class="mx-auto w-auto" data-zoom src="./images/project/{{ project }}/{{ image }}">
 						</div>
 					</div>
 					<div class="flex justify-center items-center py-4 bg-cool-gray-900 rounded-b-3xl border-r border-b border-l border-cool-gray-500">
@@ -71,9 +71,9 @@
 
 			{% elseif imageWrapper === '3d' %}
 				<picture>
-					<source srcset="/images/project/{{ project }}/preview-3d.webp" type="image/webp">
-					<source srcset="/images/project/{{ project }}/preview-3d.png" type="image/png">
-					<img src="/images/project/{{ project }}/preview-3d-zoom.png" id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom loading="lazy">
+					<source srcset="./images/project/{{ project }}/preview-3d.webp" type="image/webp">
+					<source srcset="./images/project/{{ project }}/preview-3d.png" type="image/png">
+					<img src="./images/project/{{ project }}/preview-3d-zoom.png" id="preview-image-{{ project }}" class="mx-auto w-auto" style="max-height: calc((0.25vw + 0.5vh + 0.25vmin) * {{ imageSize }})" data-zoom loading="lazy">
 				</picture>
 			{% endif %}
 

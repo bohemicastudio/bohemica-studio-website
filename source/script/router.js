@@ -1,5 +1,10 @@
-// initialise Navigo inside window.router
-window.router = new Navigo('/', { strategy: 'ONE', hash: false, noMatchWarning: false })
+// initialise Navigo
+console.log('window.location', window.location, window.location.hostname === 'bohemicastudio.github.io')
+window.router = new Navigo(window.location.hostname === 'bohemicastudio.github.io' ? '/bohemica-studio-website' : '/', {
+	strategy: 'ONE',
+	hash: false,
+	noMatchWarning: false
+})
 
 // set language in Spruce for global use
 Spruce.stores.global.language = typeof localStorage.language === 'undefined' || localStorage.language === null || !Spruce.stores.global.languages.some(language => language.code === localStorage.language) ? 'en' : localStorage.language
@@ -186,6 +191,8 @@ window.router.on({
 		}
 	},
 }).resolve()
+
+console.log(window.router.match("/en/projects/overview"))
 
 // handler function for slideover router changes
 function projectHandler(name) {

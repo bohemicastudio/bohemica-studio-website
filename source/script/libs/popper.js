@@ -1,5 +1,5 @@
 /**
- * @popperjs/core v2.7.1 - MIT License
+ * @popperjs/core v2.7.2 - MIT License
  */
 
 (function (global, factory) {
@@ -240,13 +240,15 @@
 
 
   function getContainingBlock(element) {
+    var isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
     var currentNode = getParentNode(element);
 
     while (isHTMLElement(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
       var css = getComputedStyle(currentNode); // This is non-exhaustive but covers the most common CSS properties that
       // create a containing block.
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
 
-      if (css.transform !== 'none' || css.perspective !== 'none' || css.willChange && css.willChange !== 'auto') {
+      if (css.transform !== 'none' || css.perspective !== 'none' || css.contain === 'paint' || ['transform', 'perspective'].includes(css.willChange) || isFirefox && css.willChange === 'filter' || isFirefox && css.filter && css.filter !== 'none') {
         return currentNode;
       } else {
         currentNode = currentNode.parentNode;

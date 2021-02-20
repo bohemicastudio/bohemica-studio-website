@@ -86,7 +86,7 @@ ul.grid-how li > span {
     margin: -7px;
     background-repeat: no-repeat;
     background-position: top right, bottom right, bottom left, top left;
-    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    background-image: url("./images/grid-cross.svg"), url("./images/grid-cross.svg"), url("./images/grid-cross.svg"), url("./images/grid-cross.svg");
 }
 
 .grid-styled__first-row {
@@ -99,7 +99,7 @@ ul.grid-how li > span {
     margin: -7px;
     background-repeat: no-repeat;
     background-position: top right, bottom right;
-    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    background-image: url("./images/grid-cross.svg"), url("./images/grid-cross.svg");
 }
 
 .grid-styled__other-rows__first-item {
@@ -112,7 +112,7 @@ ul.grid-how li > span {
     margin: -7px;
     background-repeat: no-repeat;
     background-position: bottom left, bottom right;
-    background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+    background-image: url("./images/grid-cross.svg"), url("./images/grid-cross.svg");
 }
 
 .grid-styled__other-rows {
@@ -125,7 +125,7 @@ ul.grid-how li > span {
     margin: -7px;
     background-repeat: no-repeat;
     background-position: bottom right;
-    background-image: url("/images/grid-cross.svg");
+    background-image: url("./images/grid-cross.svg");
 }
 
 

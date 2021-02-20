@@ -27,7 +27,7 @@ permalink: /projects/superflow.html
 	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
 
 		<div class="flex flex-grow items-center">
-			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`/images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
 		</div>
 
 		<div class="grid gap-y-2 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
@@ -46,13 +46,13 @@ permalink: /projects/superflow.html
 		</div>
 
 		<h3>Prototype walkthrough</h3>
-		<video src="/images/project/{{ project }}/prototype.mp4" autoplay controls class="mx-auto rounded-lg border border-gray-300 outline-none focus:outline-none w-80"></video>
+		<video src="./images/project/{{ project }}/prototype.mp4" autoplay controls class="mx-auto rounded-lg border border-gray-300 outline-none focus:outline-none w-80"></video>
 		<h3>Individual screens:</h3>
 		<p>...that lead to beautiful results</p>
 		<div class="grid grid-cols-3 gap-x-8 my-8">
-			<img src="/images/project/{{ project }}/1.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
-			<img src="/images/project/{{ project }}/2.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
-			<img src="/images/project/{{ project }}/3.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<img src="./images/project/{{ project }}/1.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<img src="./images/project/{{ project }}/2.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
+			<img src="./images/project/{{ project }}/3.svg" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</div>
 	</div>
 
@@ -110,7 +110,7 @@ permalink: /projects/superflow.html
 		</blockquote>
 		<p>It's probably important that images look okay here by default as well:</p>
 		<figure>
-			<img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="">
+			<img src="https:/./images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="">
 			<figcaption>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</figcaption>
 		</figure>
 		<p>Now I'm going to show you an example of an unordered list to make sure that looks good, too:</p>

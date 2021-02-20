@@ -2,12 +2,12 @@
 
 	{% if link === false %}
 		<div class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none">
-			<img src="/images/badge/{{ icon }}">
+			<img src="./images/badge/{{ icon }}">
 			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans" x-text="$store['translation.badge'].return('{{ name }}')"></span>
 		</div>
 	{% else %}
 		<a href="{{ link }}" target="_blank" class="flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl">
-			<img src="/images/badge/{{ icon }}">
+			<img src="./images/badge/{{ icon }}">
 			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans" x-text="$store['translation.badge'].return('{{ name }}')"></span>
 		</a>
 	{% endif %}

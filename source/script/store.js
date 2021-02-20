@@ -1,7 +1,3 @@
-// initialise Navigo inside window.router
-window.router = new Navigo('/')
-
-
 // Global store
 Spruce.store('global', {
 	loaded: false,
@@ -208,34 +204,34 @@ Spruce.store('activity', {
 	activities: [
 		{
 			en: {
-				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img class="max-w-none" src="/images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
 				url: '/project/mmt',
 			},
 			cs: {
-				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img class="max-w-none" src="/images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
 				url: '/projekt/mmt'
 			},
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img class="max-w-none" src="/images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			},
 			cs: {
-				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img class="max-w-none" src="/images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			}
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img class="max-w-none" src="/images/activity/github-logo.svg">',
+				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
 				url: 'https://github.com/',
 				target: '_blank'
 			},
 			cs: {
-				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img class="max-w-none" src="/images/activity/github-logo.svg">',
+				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
 				url: 'https://github.com/',
 				target: '_blank'
 			}
@@ -274,7 +270,8 @@ Spruce.starting(function () {
 // Project store
 Spruce.store('project', {
 	loadContent(name) {
-		return fetch(`./projects/${ name }.html`)
+		/*${window.router.root}*/
+		return fetch(`/projects/${ name }.html`)
 			.then(response => response.text())
 			.then(html => {
 				document.querySelector('#slideoverContent').innerHTML = html
