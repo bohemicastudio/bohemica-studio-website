@@ -1,12 +1,12 @@
 <p align="left">
 <a href="https://bohemica.studio" target="_blank">
-	<img src="./source/images/symbol.svg" alt="Bohemica symbol" width="64" />
+	<img src="./source/images/symbol.svg" alt="Bohemica symbol" height="64" />
 </a>
 </p>
 
 <p align="left">
 <a href="https://bohemica.studio" target="_blank">
-	<img src="./source/images/symbol.svg" alt="Bohemica title" width="128" />
+	<img src="./source/images/title.svg" alt="Bohemica title" height="136" />
 </a>
 </p>
 
@@ -16,28 +16,22 @@
 
 ---
 
-This site was a bit of an experiment on our behalf as we wanted to trial using Eleventy as a static generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single page website**.
+This site was a bit of an experiment on our behalf as we wanted to run a trial of using Eleventy as a static generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single-page website**.
 
-The development approach for this site was to get rid of any bundlers, compilers or transpilers – get down to the web
-design as quickly as possible. Specifically, we wanted to avoid using Webpack as this site was meant to be fairly
-simple. On many occasions, we found ourselves spending hours debugging Webpack's errors and warnings due to various
+The development approach for this site was to get rid of any bundlers, compilers or transpilers – get down to the process of web designing as quickly as possible. Specifically, we wanted to avoid using Webpack as the site was meant to be fairly simple. The reasoning is that on many occasions, we found ourselves spending hours debugging Webpack's errors and warnings due to various
 module related issues.
 
-Nonetheless, there was an exception for the PostCSS preprocessor – in order to build the Tailwind CSS file, handle
-imports and add prefixes. You could also count in the static site generator Eleventy, which was the main driving force.
-This gave us almost full control and transparency over the final code.
+Nonetheless, there was an exception for the PostCSS preprocessor – in order to build the Tailwind CSS file, handle imports and add prefixes. You could also count in the static site generator Eleventy, which was the main driving force. This gave us almost full control and transparency over the final code.
 
-Another decision was to only use compiled UMD format (i.e. exported as global variable) for JavaScript libraries. In
-comparison, ES6 version of JavaScript allows us to perform tree shaking on unused code/functions. However, since we
-opted out from using any bundler and all the JS libraries we used were already "lightweight" in size, we stuck to UMD.
-Moreover, some libraries may not even support other module formats, so we did it the "old school" way.
+Another decision was to only use compiled UMD format (i.e. exported as a global variable) for JavaScript libraries. In
+comparison, the ES6 version of JavaScript allows us to perform tree shaking on unused code/functions. However, since we
+opted out from using any bundler and all the JS libraries we used were already "lightweight" in size, we stuck to UMD. Moreover, some libraries may not even support other module formats, so we did it the "old school" way.
 
-We might be stretching the capabilities of Alpine.js here a little, but we implemented i18n capability for two
-  languages. It may not be optimal in terms of the code structure (and possibly performance), but so far so good.
+We implemented the i18n capability for two languages using an awesome Alpine.js library. We definitely were stretching the capabilities of the library here a little, but so far so good.
 
-And why did we do it this way? Well, for once it works pretty well, and it was fun doing things differently.
+**And why did we do it this way? Well, for once it all works as it should and it was fun doing things differently!**
 
-Just a bit on the UI/UX: the page is a fairly long in order to fit necessary information without being too condensed and have enough whitespace. Also, users are likely to scroll quickly through and/or stop at the section that interests them – either visually or context-wise.  Lastly, the website is SPA, so there is no need to switch between pages. All new content is loaded dynamically.
+Just a bit on the UI/UX: the page is fairly long in order to fit necessary information without being too condensed and have enough whitespace. Also, users are likely to scroll quickly through and/or stop at the section that interests them – either visually or context-wise.  Lastly, the website was designed as a single-page application (SPA), so there is no need to switch between pages. All new content is loaded dynamically.
   
 
 ## Summmary
