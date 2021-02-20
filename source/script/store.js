@@ -271,7 +271,7 @@ Spruce.starting(function () {
 Spruce.store('project', {
 	loadContent(name) {
 		/*${window.router.root}*/
-		return fetch(`/projects/${ name }.html`)
+		return fetch(`./projects/${ name }.html`)
 			.then(response => response.text())
 			.then(html => {
 				document.querySelector('#slideoverContent').innerHTML = html
