@@ -11,8 +11,8 @@
 </p>
 
 <p align="left">
-<a href="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json"><img src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website/badge.svg?targetFile=package.json" alt="Known vulnerabilities" data-canonical-src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" style="max-width:100%;"></a>
-<a href="./source/images/lighthouse/bohemicastudio_github_io_bohemica_studio_website_.html"><img src="./source/images/lighthouse/lighthouse.svg" alt="Lighthouse report" style="max-width:100%;"></a>
+<a href="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" target="_blank"><img src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website/badge.svg?targetFile=package.json" alt="Known vulnerabilities" data-canonical-src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" style="max-width:100%;"></a>
+<a href="https://bohemicastudio.github.io/bohemica-studio-website/images/lighthouse/bohemicastudio_github_io_bohemica_studio_website_.html" target="_blank"><img src="./source/images/lighthouse/lighthouse.svg" alt="Lighthouse report" style="max-width:100%;"></a>
 </p>
 
 ---
@@ -60,7 +60,7 @@ Just a bit on the UI/UX: the page is fairly long in order to fit necessary infor
 
 ## Commands
 
-Disclaimer: we are using [pnpm](https://github.com/pnpm/pnpm) instead of npm or yarn (shhh.. it saves spaces).
+Disclaimer: we are using [pnpm](https://github.com/pnpm/pnpm) instead of npm or yarn (shhh.. it saves space).
 
 ### Install dependencies
 
@@ -73,7 +73,7 @@ pnpm install
 Start a web server with hot-reloading and automatic compilation when a change is detected
 
 ```
-pnpm serve
+pnpm run serve
 ```
 
 ### Creating a production build

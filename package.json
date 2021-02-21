@@ -29,7 +29,7 @@
     "serve:eleventy": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "sort": "npx sort-package-json",
     "watch:style": "onchange 'source/style' 'tailwind.config.js' -- pnpm run build:style",
-    "lighthouse": "lighthouse-badges --urls https://bohemicastudio.github.io/bohemica-studio-website/ --output source/images/lighthouse --single-badge --save-report"
+    "lighthouse": "cross-env LIGHTHOUSE_BADGES_PARAMS='--emulated-preset=desktop' lighthouse-badges --urls https://bohemicastudio.github.io/bohemica-studio-website/ --output source/images/lighthouse --single-badge --save-report"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",

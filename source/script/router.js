@@ -130,6 +130,7 @@ window.router.getPath = function (file) {
 		console.error('getPath:', file, '(Path does not exist)')
 	}
 
+	console.log(route, path, router.generate(route, { language: Spruce.stores.global.language, name: path }))
 	return router.generate(route, { language: Spruce.stores.global.language, name: path })
 }
 
