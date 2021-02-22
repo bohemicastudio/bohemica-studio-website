@@ -202,4 +202,22 @@
     current needs/issues Daily Site Manager Tasks - repeat daily, site specific
     Job status - Protocols Email integration Global list management and sorting
   </div>
+
+  <div
+    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400"
+  >
+    <a
+      x-bind:href="window.router.getPath('overview')"
+      data-navigo
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+    >
+      <i
+        class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
+      ></i>
+      <span
+        class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900"
+        x-text="$store['global'].return('backToProjectOverview')"
+      ></span>
+    </a>
+  </div>
 </div>

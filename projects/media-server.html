@@ -73,14 +73,6 @@
       ></span>
       <span
         class="text-gray-500 whitespace-nowrap font-dm-mono"
-        x-text="$store['translation.projects'].return('labels.platforms') + ':'"
-      ></span>
-      <span
-        class="text-gray-800"
-        x-text="$store['translation.projects'].return(`list['media-server'].platforms`)"
-      ></span>
-      <span
-        class="text-gray-500 whitespace-nowrap font-dm-mono"
         x-text="$store['translation.projects'].return('labels.stack') + ':'"
       ></span>
       <span
@@ -189,15 +181,55 @@
     <figure>
       <figcaption><strong>Final result</strong></figcaption>
       <picture>
-        <source srcset="./images/project/mmt/4.webp" type="image/webp" />
-        <source srcset="./images/project/mmt/4.png" type="image/png" />
+        <source
+          srcset="./images/project/media-server/magenta_photo_1.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/media-server/magenta_photo_1.jpg"
+          type="image/jpeg"
+        />
         <img
-          src="./images/project/mmt/4.png"
+          src="./images/project/media-server/magenta_photo_1.jpg"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+      <picture>
+        <source
+          srcset="./images/project/media-server/admin_groups.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/media-server/admin_groups.png"
+          type="image/png"
+        />
+        <img
+          src="./images/project/media-server/admin_groups.jpg"
           class="w-full rounded-lg border border-gray-300"
           media="(min-width: 960px)"
           loading="lazy"
         />
       </picture>
     </figure>
+  </div>
+
+  <div
+    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400"
+  >
+    <a
+      x-bind:href="window.router.getPath('overview')"
+      data-navigo
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+    >
+      <i
+        class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
+      ></i>
+      <span
+        class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900"
+        x-text="$store['global'].return('backToProjectOverview')"
+      ></span>
+    </a>
   </div>
 </div>
