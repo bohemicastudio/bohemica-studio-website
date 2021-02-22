@@ -37,8 +37,6 @@ permalink: /projects/media-server.html
 			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
 			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
 			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
-			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
-			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].platforms`)"></span>
 			<span class="text-gray-500 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
 			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 		</div>
@@ -97,11 +95,23 @@ permalink: /projects/media-server.html
 		<figure>
 			<figcaption><strong>Final result</strong></figcaption>
 			<picture>
-				<source srcset="./images/project/mmt/4.webp" type="image/webp">
-				<source srcset="./images/project/mmt/4.png" type="image/png">
-				<img src="./images/project/mmt/4.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+				<source srcset="./images/project/media-server/magenta_photo_1.webp" type="image/webp">
+				<source srcset="./images/project/media-server/magenta_photo_1.jpg" type="image/jpeg">
+				<img src="./images/project/media-server/magenta_photo_1.jpg" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+			</picture>
+			<picture>
+				<source srcset="./images/project/media-server/admin_groups.webp" type="image/webp">
+				<source srcset="./images/project/media-server/admin_groups.png" type="image/png">
+				<img src="./images/project/media-server/admin_groups.jpg" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
 			</picture>
 		</figure>
+
+	</div>
+
+	<div class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 </div>
 

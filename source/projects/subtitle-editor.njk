@@ -45,63 +45,49 @@ permalink: /projects/subtitle-editor.html
 
 		<hr class="border-gray-500">
 
-		<p>Z projektu jsme vyvinuli vlastní platformu - Bohemica Signage
-			<a href="https://bohemicasignage.com" target="_blank">bohemicasignage.com</a>
-		</p>
+		<p>Aplikace pro úpravu a tvorbu titulků k videoprezentacím</p>
 
-		<h3>Project description</h3>
-		<p><strong>Pro novou prodejnu v Praze</strong> jsme byli vybráni jako dodavetel řešení pro správu obsahu obrazovek.</p>
-		<p>Během extrémně krátké doby, kterou jsme na vývoj měli, jsme dokázali vyvinout řešení zahrnující následující požadavky:</p>
+		<h3>Popis projektu</h3>
+		<p><strong>Pro významnou produkčně - technickou společnost</strong> v oboru konferencí jsme vyvinuli software pro
+		úpravu a vytváření titulků k videím.</p>
 		<ul>
-			<li>Správa obsahu v cloudu dostupná odkudkoliv</li>
-			<li>Automatická kontrola kvality dodaného videomateriálu</li>
-			<li>Možnost zobrazit jak video, statický obraz, tak webovou stránku</li>
-			<li>Administrace v několika jazycích</li>
-			<li>Kontinuální podpora 7 dní v týdnu</li>
+			<li>Staticky generovaná webová aplikace</li>
+			<li>Napojení na API pro získávání a ukládání dat</li>
+			<li>Synchronizace s vloženým přehrávačem</li>
+			<li>Multijazyčnost</li>
 		</ul>
 		<h3>Proces</h3>
-		<p>Technické řešení sestává z několika aplikací:</p>
+		<p>Technické řešení:</p>
 		<ol>
-			<li>Serverová část: databáze a API, zpracování požadavků, ukládání dat a zálohy</li>
-			<li>Uživatelská část: administrace médií přímo v prohlížeči</li>
-			<li>Přehrávací část: program pro přehrávání přímo na displeji</li>
+			<li>Front-end framework: Vue.js</li>
+			<li>Vzhled: Tailwind CSS</li>
 		</ol>
 
 		<figure>
-			<figcaption><strong>Pro klienta jsme vytvořili schéma zapojení všech částí v celek</strong></figcaption>
+			<figcaption><strong>Vyhledávání skrze poskytnuté API</strong></figcaption>
 			<picture>
-				<source srcset="./images/project/media-server/wiring-schema.webp" type="image/webp">
-				<source srcset="./images/project/media-server/wiring-schema.png" type="image/png">
-				<img src="./images/project/media-server/wiring-schema.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+				<source srcset="./images/project/subtitle-editor/2.webp" type="image/webp">
+				<source srcset="./images/project/subtitle-editor/2.png" type="image/png">
+				<img src="./images/project/subtitle-editor/2.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
 			</picture>
 		</figure>
 
 		<figure>
-			<figcaption><strong>Navrhli jsme způsob nahrávání médií</strong></figcaption>
+			<figcaption><strong>Úprava a tvorba titulků v přehledém editoru přímo v prohlížeci</strong></figcaption>
 			<picture>
-				<source srcset="./images/project/media-server/playables.webp" type="image/webp">
-				<source srcset="./images/project/media-server/playables.png" type="image/png">
-				<img src="./images/project/media-server/playables.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
+				<source srcset="./images/project/subtitle-editor/1.webp" type="image/webp">
+				<source srcset="./images/project/subtitle-editor/1.png" type="image/png">
+				<img src="./images/project/subtitle-editor/1.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
 			</picture>
 		</figure>
 
-		<figure>
-			<figcaption><strong>Mock-ups in Figma</strong></figcaption>
-			<picture>
-				<source srcset="./images/project/mmt/3.webp" type="image/webp">
-				<source srcset="./images/project/mmt/3.png" type="image/png">
-				<img src="./images/project/mmt/3.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
-			</picture>
-		</figure>
 
-		<figure>
-			<figcaption><strong>Final result</strong></figcaption>
-			<picture>
-				<source srcset="./images/project/mmt/4.webp" type="image/webp">
-				<source srcset="./images/project/mmt/4.png" type="image/png">
-				<img src="./images/project/mmt/4.png" class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
-			</picture>
-		</figure>
+	</div>
+
+	<div class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
+		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 </div>
 
