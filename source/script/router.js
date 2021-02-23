@@ -114,6 +114,14 @@ window.router.paths = [
 			cs: 'firemni-identita'
 		},
 		route: 'project'
+	},
+	{
+		file: 'project-proposal',
+		path: {
+			en: 'proposal-example',
+			cs: 'nabidka-priklad'
+		},
+		route: 'project'
 	}
 ]
 
