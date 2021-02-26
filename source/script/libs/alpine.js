@@ -77,7 +77,7 @@
     if (el.tagName.toLowerCase() !== 'template') {
       console.warn(`Alpine: [${directive}] directive should only be added to <template> tags. See https://github.com/alpinejs/alpine#${directive}`);
     } else if (el.content.childElementCount !== 1) {
-      console.warn(`Alpine: <template> tag with [${directive}] encountered with multiple element roots. Make sure <template> only has a single child element.`);
+      console.warn(`Alpine: <template> tag with [${directive}] encountered with an unexpected number of root elements. Make sure <template> has a single root element. `);
     }
   }
   function kebabCase(subject) {
@@ -115,6 +115,10 @@
     console.warn(`Alpine Error: "${error}"\n\nExpression: "${expression}"\nElement:`, el);
 
     if (!isTesting()) {
+      Object.assign(error, {
+        el,
+        expression
+      });
       throw error;
     }
   };
@@ -574,7 +578,7 @@
     let forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
     let stripParensRE = /^\(|\)$/g;
     let forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
-    let inMatch = expression.match(forAliasRE);
+    let inMatch = String(expression).match(forAliasRE);
     if (!inMatch) return;
     let res = {};
     res.items = inMatch[2].trim();
@@ -620,7 +624,7 @@
 
     let items = component.evaluateReturnExpression(el, iteratorNames.items, extraVars); // This adds support for the `i in n` syntax.
 
-    if (isNumeric(items) && items > 0) {
+    if (isNumeric(items) && items >= 0) {
       items = Array.from(Array(items).keys(), i => i + 1);
     }
 
@@ -671,7 +675,7 @@
     if (attrName === 'value') {
       if (Alpine.ignoreFocusedForValueBinding && document.activeElement.isSameNode(el)) return; // If nested model key is undefined, set the default value to empty string.
 
-      if (value === undefined && expression.match(/\./)) {
+      if (value === undefined && String(expression).match(/\./)) {
         value = '';
       }
 
@@ -754,7 +758,7 @@
 
   function handleTextDirective(el, output, expression) {
     // If nested model key is undefined, set the default value to empty string.
-    if (output === undefined && expression.match(/\./)) {
+    if (output === undefined && String(expression).match(/\./)) {
       output = '';
     }
 
@@ -859,8 +863,12 @@
       event = camelCase(event);
     }
 
+    let handler, listenerTarget;
+
     if (modifiers.includes('away')) {
-      let handler = e => {
+      listenerTarget = document;
+
+      handler = e => {
         // Don't do anything if the click came from the element or within it.
         if (el.contains(e.target)) return; // Don't do anything if this element isn't currently visible.
 
@@ -872,14 +880,11 @@
         if (modifiers.includes('once')) {
           document.removeEventListener(event, handler, options);
         }
-      }; // Listen for this event at the root level.
-
-
-      document.addEventListener(event, handler, options);
+      };
     } else {
-      let listenerTarget = modifiers.includes('window') ? window : modifiers.includes('document') ? document : el;
+      listenerTarget = modifiers.includes('window') ? window : modifiers.includes('document') ? document : el;
 
-      let handler = e => {
+      handler = e => {
         // Remove this global event handler if the element that declared it
         // has been removed. It's now stale.
         if (listenerTarget === window || listenerTarget === document) {
@@ -913,15 +918,15 @@
           });
         }
       };
-
-      if (modifiers.includes('debounce')) {
-        let nextModifier = modifiers[modifiers.indexOf('debounce') + 1] || 'invalid-wait';
-        let wait = isNumeric(nextModifier.split('ms')[0]) ? Number(nextModifier.split('ms')[0]) : 250;
-        handler = debounce(handler, wait);
-      }
-
-      listenerTarget.addEventListener(event, handler, options);
     }
+
+    if (modifiers.includes('debounce')) {
+      let nextModifier = modifiers[modifiers.indexOf('debounce') + 1] || 'invalid-wait';
+      let wait = isNumeric(nextModifier.split('ms')[0]) ? Number(nextModifier.split('ms')[0]) : 250;
+      handler = debounce(handler, wait);
+    }
+
+    listenerTarget.addEventListener(event, handler, options);
   }
 
   function runListenerHandler(component, expression, e, extraVars) {
@@ -1505,9 +1510,11 @@
         initReturnedCallback = this.evaluateReturnExpression(this.$el, initExpression);
         this.pauseReactivity = false;
       } // Register all our listeners and set all our attribute bindings.
+      // If we're cloning a component, the third parameter ensures no duplicate
+      // event listeners are registered (the mutation observer will take care of them)
 
 
-      this.initializeElements(this.$el); // Use mutation observer to detect new elements being added within this component at run-time.
+      this.initializeElements(this.$el, () => {}, componentForClone ? false : true); // Use mutation observer to detect new elements being added within this component at run-time.
       // Alpine's just so darn flexible amirite?
 
       this.listenForNewElementsToInitialize();
@@ -1596,13 +1603,13 @@
       });
     }
 
-    initializeElements(rootEl, extraVars = () => {}) {
+    initializeElements(rootEl, extraVars = () => {}, shouldRegisterListeners = true) {
       this.walkAndSkipNestedComponents(rootEl, el => {
         // Don't touch spawns from for loop
         if (el.__x_for_key !== undefined) return false; // Don't touch spawns from if directives
 
         if (el.__x_inserted_me !== undefined) return false;
-        this.initializeElement(el, extraVars);
+        this.initializeElement(el, extraVars, shouldRegisterListeners);
       }, el => {
         el.__x = new Component(el);
       });
@@ -1610,14 +1617,14 @@
       this.executeAndClearNextTickStack(rootEl);
     }
 
-    initializeElement(el, extraVars) {
+    initializeElement(el, extraVars, shouldRegisterListeners = true) {
       // To support class attribute merging, we have to know what the element's
       // original class attribute looked like for reference.
       if (el.hasAttribute('class') && getXAttrs(el, this).length > 0) {
         el.__x_original_classes = convertClassStringToArray(el.getAttribute('class'));
       }
 
-      this.registerListeners(el, extraVars);
+      shouldRegisterListeners && this.registerListeners(el, extraVars);
       this.resolveBoundAttributes(el, true, extraVars);
     }
 
@@ -1834,7 +1841,7 @@
   }
 
   const Alpine = {
-    version: "2.8.0",
+    version: "2.8.1",
     pauseMutationObserver: false,
     magicProperties: {},
     onComponentInitializeds: [],

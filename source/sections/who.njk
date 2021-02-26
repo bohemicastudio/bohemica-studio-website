@@ -3,33 +3,41 @@ permalink: /sections/who.html
 ---
 
 {% macro sectionWhoTranslation() %}
-	Spruce.store('translation.sectionWho', {
-	en: {
-	first: {
-	title: 'Remote-first mindset allows us to work with clients from all around the globe.',
-	subtitle: false
-	},
-	second: {
-	title: 'This is what some of our clients have to say about us.',
-	subtitle: false
-	},
-	buttonTitle: 'You can read more about the various projects we have done.'
-	},
-	cs: {
-	first: {
-	title: 'Our process. Simplified. CS',
-	subtitle: 'See below what you can expect.'
-	},
-	second: {
-	title: 'What our clients have to say about us.',
-	subtitle: false
-	},
-	buttonTitle: 'You can read more about various projects we have done.'
-	},
-	return: function (data) {
-	return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
-	}
-	})
+		Spruce.store('translation.sectionWho', {
+			en: {
+				first: {
+					title: 'Remote-first mindset allows us to work with clients from all around the globe.',
+					subtitle: false
+				},
+				second: {
+					title: 'This is what some of our clients have to say about us.',
+					subtitle: false
+				},
+				buttonTitle: 'You can read more about the various projects we have done.',
+				testimonials: {
+					mmt: {
+						company: 'MMT s.r.o.',
+						country: 'Czech Republic',
+						url: 'https://mmt.cz',
+						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+					}
+				}
+			},
+			cs: {
+				first: {
+					title: 'Our process. Simplified. CS',
+					subtitle: 'See below what you can expect.'
+				},
+				second: {
+					title: 'What our clients have to say about us.',
+					subtitle: false
+				},
+				buttonTitle: 'You can read more about various projects we have done.'
+			},
+			return: function (data) {
+				return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
+			}
+		})
 {% endmacro %}
 
 {% from "components/section-intro.njk" import sectionIntro %}

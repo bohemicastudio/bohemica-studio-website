@@ -1,5 +1,5 @@
 /**
- * @popperjs/core v2.8.2 - MIT License
+ * @popperjs/core v2.8.4 - MIT License
  */
 
 (function (global, factory) {
@@ -64,6 +64,11 @@
 
 
   function isShadowRoot(node) {
+    // IE 11 has no ShadowRoot
+    if (typeof ShadowRoot === 'undefined') {
+      return false;
+    }
+
     var OwnElement = getWindow(node).ShadowRoot;
     return node instanceof OwnElement || node instanceof ShadowRoot;
   }
@@ -1711,11 +1716,19 @@
     requiresIfExists: ['offset']
   };
 
+  var toPaddingObject = function toPaddingObject(padding, state) {
+    padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
+      placement: state.placement
+    })) : padding;
+    return mergePaddingObject(typeof padding !== 'number' ? padding : expandToHashMap(padding, basePlacements));
+  };
+
   function arrow(_ref) {
     var _state$modifiersData$;
 
     var state = _ref.state,
-        name = _ref.name;
+        name = _ref.name,
+        options = _ref.options;
     var arrowElement = state.elements.arrow;
     var popperOffsets = state.modifiersData.popperOffsets;
     var basePlacement = getBasePlacement(state.placement);
@@ -1727,7 +1740,7 @@
       return;
     }
 
-    var paddingObject = state.modifiersData[name + "#persistent"].padding;
+    var paddingObject = toPaddingObject(options.padding, state);
     var arrowRect = getLayoutRect(arrowElement);
     var minProp = axis === 'y' ? top : left;
     var maxProp = axis === 'y' ? bottom : right;
@@ -1749,12 +1762,9 @@
 
   function effect$2(_ref2) {
     var state = _ref2.state,
-        options = _ref2.options,
-        name = _ref2.name;
+        options = _ref2.options;
     var _options$element = options.element,
-        arrowElement = _options$element === void 0 ? '[data-popper-arrow]' : _options$element,
-        _options$padding = options.padding,
-        padding = _options$padding === void 0 ? 0 : _options$padding;
+        arrowElement = _options$element === void 0 ? '[data-popper-arrow]' : _options$element;
 
     if (arrowElement == null) {
       return;
@@ -1783,13 +1793,7 @@
       return;
     }
 
-    padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
-      placement: state.placement
-    })) : padding;
     state.elements.arrow = arrowElement;
-    state.modifiersData[name + "#persistent"] = {
-      padding: mergePaddingObject(typeof padding !== 'number' ? padding : expandToHashMap(padding, basePlacements))
-    };
   } // eslint-disable-next-line import/no-unused-modules
 
 

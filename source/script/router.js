@@ -135,10 +135,10 @@ window.router.getPath = function (file) {
 		// console.log('file:', file, 'route:', route, 'path:', path)
 	}
 	else {
-		console.error('getPath:', file, '(Path does not exist)')
+		// console.error('getPath:', file, '(Path does not exist)')
 	}
 
-	console.log(route, path, router.generate(route, { language: Spruce.stores.global.language, name: path }))
+	// console.log(route, path, router.generate(route, { language: Spruce.stores.global.language, name: path }))
 	return router.generate(route, { language: Spruce.stores.global.language, name: path })
 }
 
@@ -205,8 +205,8 @@ console.log(window.router.match("/en/projects/overview"))
 
 // handler function for slideover router changes
 function projectHandler(name) {
-	console.log('projectHandler', name)
-	console.log('projectHandler/getFile', window.router.getFile(name))
+	// console.log('projectHandler', name)
+	// console.log('projectHandler/getFile', window.router.getFile(name))
 
 	if (Spruce.stores.slideover.open === true) {
 		// switching between pages in the slideover

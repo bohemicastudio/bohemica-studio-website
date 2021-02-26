@@ -6,8 +6,8 @@ permalink: /sections/how-much.html
 	Spruce.store('translation.sectionHowMuch', {
 	en: {
 	first: {
-	title: 'We can apply any pricing method that is fit for the project at hand.',
-	subtitle: 'We can start with any of the ones below.'
+	title: 'We can apply any pricing method that fits the project at hand.',
+	subtitle: 'We can start with the classics below.'
 	},
 	},
 	cs: {
@@ -25,61 +25,55 @@ permalink: /sections/how-much.html
 {% from "components/section-intro.njk" import sectionIntro %}
 {% from "components/section-title.njk" import sectionTitle %}
 
-{{ sectionIntro(name='how-much', backgroundColor='gray-legacy-700', textColor='blue', lineColor='gray-legacy-400') }}
+<div class="bg-blue-gray-100">
 
-<div class="pb-24 bg-white">
-	<div class="container flex flex-col items-center" x-data x-init="(function () { {{ sectionHowMuchTranslation() }} })()">
+	{{ sectionIntro(name='how-much', backgroundColor='gray-legacy-700', textColor='blue', lineColor='gray-legacy-400') }}
+
+	<div class="container flex flex-col items-center pb-24" x-data x-init="(function () { {{ sectionHowMuchTranslation() }} })()">
 
 		{{ sectionTitle(section='sectionHowMuch', name='first', icon='bank.svg') }}
 
-		<div class="flex flex-row px-28 mt-48 space-x-28 w-full">
-			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-blue-gray-200 rounded-xl">
-				<h3 class="text-3xl text-blue-gray-800 font-dm-mono">Fixed-based</h3>
+		<div class="flex flex-row px-28 mt-48 space-x-40 w-full">
+			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-white border-2 border-blue-gray-300">
+				<h3 class="text-3xl text-blue-gray-700 font-dm-mono">Fixed-based</h3>
 				<picture>
 					<source srcset="./images/pricing/coins.webp" type="image/webp">
 					<source srcset="./images/pricing/coins.png" type="image/png">
-					<img src="./images/pricing/coins.png" class="hidden absolute top-0 left-0 h-56 transform -translate-x-1/2 -translate-y-1/2 md:block" media="(min-width: 960px)" loading="lazy">
+					<img src="./images/pricing/coins.png" class="hidden absolute top-0 left-0 h-60 transform -translate-x-1/2 -translate-y-1/2 md:block" media="(min-width: 960px)" loading="lazy">
 				</picture>
 			</div>
-			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-blue-gray-200 rounded-xl">
-				<h3 class="text-3xl text-blue-gray-800 font-dm-mono">Hourly-based</h3>
+			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-white border-2 border-blue-gray-300">
+				<h3 class="text-3xl text-blue-gray-700 font-dm-mono">Hourly-based</h3>
 				<picture>
 					<source srcset="./images/pricing/hourglass.webp" type="image/webp">
 					<source srcset="./images/pricing/hourglass.png" type="image/png">
-					<img src="./images/pricing/hourglass.png" class="hidden absolute top-0 left-0 h-56 transform -translate-x-1/2 -translate-y-1/2 md:block" media="(min-width: 960px)" loading="lazy">
+					<img src="./images/pricing/hourglass.png" class="hidden absolute top-0 left-0 h-60 transform -translate-x-1/2 -translate-y-1/2 md:block" media="(min-width: 960px)" loading="lazy">
 				</picture>
 			</div>
 		</div>
-		{#<hr class="mt-20 mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48">#}
-		<div class="flex flex-col mt-24 space-y-4 w-full text-left text-white text-cool-gray-800 md:w-1/2">
-			<p class="mb-4 text-2xl text-center">
-				Our favourite pricing method is using an
+		<hr class="mt-20 h-40 border-t-0 border-l border-cool-gray-400 md:h-32">
+		<ul class="text-lg leading-loose text-cool-gray-800 text-center mt-16 font-medium">
+			<li>Fixed amount might not accurately represent the value/work/time.</li>
+			<li>Hourly rate has usually no boundaries, and therefore may go outside client's budget.</li>
+		</ul>
+		<hr class="mt-16 h-40 border-t-0 border-l border-cool-gray-400 md:h-32">
+		<div class="flex flex-col mt-16 mb-8 space-y-4 w-full text-left text-white text-cool-gray-800 md:w-1/2">
+			<p class="mb-6 text-2xl leading-relaxed text-center">
+				Hence, our favourite pricing method is using an
 				<strong>hourly-based pricing with a minimum and maximum time range</strong> for each milestone.
 			</p>
 
-			<ul class="space-y-2 text-lg list-disc text-cool-gray-700">
-				<li>It's difficult to know how much time each task will actually take due to unforeseen circumstances or other project nuances
-					<ul class="ml-6 list-disc">
-						<li>Fixed amount might not accurately represent the value/work/time</li>
-						<li>Hourly rate has usually no boundaries, and therefore may go outside client's budget</li>
-					</ul>
-				</li>
+			<ul class="text-lg leading-relaxed list-disc text-cool-gray-700 space-y-4">
+				<li>Time range caps the maximum so client knows exactly what the highest cost might be</li>
+				<li>It's difficult to know how much time each task will actually take due to unforeseen circumstances or other project nuances</li>
+				<li>This methods takes into account any bugs, fixes or tweaks that may occur in the development process</li>
 			</ul>
-
-			<ul class="space-y-2 text-lg list-disc text-cool-gray-700">
-				<li><strong>Time range caps the maximum so client knows exactly what the highest cost might be</strong>
-				</li>
-				<li>
-					<strong>It also gives our team more breathing room if any task takes take longer than anticipated</strong>
-				</li>
-			</ul>
-
 		</div>
-		<hr class="mb-12 mt-8 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48">
-		<p class="mb-4 font-medium text-center text-cool-gray-700 sm:font-normal">Our typical proposal look like this...</p>
+		{#<hr class="mt-8 mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48">#}
+		<p class="mb-4 font-medium text-center text-cool-gray-700 sm:font-normal mt-12">Our typical proposal looks like this.</p>
 		<div class="flex justify-center items-center py-16 w-full bg-blue-400 md:w-auto md:px-32 rounded-4xl">
 			<a x-bind:href="window.router.getPath('project-proposal')" data-navigo class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200">
-				<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">Example of a project proposal</span>
+				<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">Open a proposal example</span>
 				<i class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"></i>
 			</a>
 		</div>

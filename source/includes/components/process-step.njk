@@ -21,7 +21,6 @@
 					</template>
 				</ul>
 			</div>
-			{# TODO Idea - button next step #}
 			<div class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3">
 				<template x-for="keyword in $store['translation.processSteps'].return('{{ step }}.keywords')">
 					<span class="select-none text-white bg-{{ color }}-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap" x-text="keyword"></span>

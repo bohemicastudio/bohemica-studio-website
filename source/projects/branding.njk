@@ -43,6 +43,8 @@ permalink: /projects/branding.html
 			<span class="text-gray-800" x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
 		</div>
 
+		<hr class="border-gray-500">
+
 		<h3 x-text="translation[$store.global.language]['logos']"></h3>
 		<picture>
 			<source srcset="./images/project/{{ project }}/1.webp" type="image/webp">
@@ -83,10 +85,8 @@ permalink: /projects/branding.html
 		</picture>
 	</div>
 
-	<div class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400">
+	<div class="flex flex-row items-center pt-8 mt-16 space-x-6 border-t border-gray-400">
 		{{ buttonBackLibrary() }}
-		{# <hr class="w-40 border-gray-500">
-		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 </div>
 

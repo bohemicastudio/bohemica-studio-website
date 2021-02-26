@@ -58,6 +58,12 @@ Just a bit on the UI/UX: the page is fairly long in order to fit necessary infor
 - [Navigo](https://github.com/krasimir/navigo)
 - [Anime](https://github.com/juliangarnier/anime)
 
+## Free assets
+
+- [Handz]()
+- [3D business icons]()
+- [Device mock-ups]()
+
 ## Commands
 
 Disclaimer: we are using [pnpm](https://github.com/pnpm/pnpm) instead of npm or yarn (shhh.. it saves space).

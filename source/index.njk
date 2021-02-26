@@ -51,7 +51,7 @@
 											<path d="M12.87 15.07L10.33 12.56L10.36 12.53C12.1 10.59 13.34 8.36 14.07 6H17V4H10V2H8V4H1V5.99H12.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8H4.69C5.42 9.63 6.42 11.17 7.67 12.56L2.58 17.58L4 19L9 14L12.11 17.11L12.87 15.07ZM18.5 10H16.5L12 22H14L15.12 19H19.87L21 22H23L18.5 10ZM15.88 17L17.5 12.67L19.12 17H15.88V17Z"></path>
 										</svg>
 
-										<span class="text-lg font-medium leading-none text-blue-gray-100" x-text="$store.global.languages.find(language => language.code === $store.global.language)?.name"></span>
+										<span class="text-lg font-normal leading-none text-blue-gray-100" x-text="$store.global.languages.find(language => language.code === $store.global.language)?.name"></span>
 
 										<span class="text-blue-gray-100 bg-blue-gray-700 rounded-lg ml-3.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-blue-gray-500 group-focus:bg-blue-gray-500" x-bind:data-tippy-content="$store['global'].return('tooltip.changeLanguage')"><i class="gg-chevron-down"></i></span>
 									</div>
@@ -75,6 +75,7 @@
 								</div>
 
 							</div>
+
 						</div>
 
 						<div class="flex flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12">
@@ -201,9 +202,17 @@
 				</picture>
 				{# <img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="./images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})"> #}
 			</div>
+
 		</div>
 
-		<div class="container-screen">
+		<div class="relative container-screen">
+
+			<a x-bind:href="window.router.getPath('overview')" data-navigo style="--tw-translate-y: calc(-100% - 2rem)"
+			   class="transform -translate-x-4 top-0 left-0 absolute z-30 flex flex-row items-center py-2.5 pl-3.5 pr-2.5 space-x-1 opacity-0 bg-blue-gray-500 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-blue-gray-100 focus:ring-blue-gray-500"
+			   x-init="() => { anime({ targets: $el, duration: 200, delay: 3200, opacity: 1, easing: 'linear'}) }" x-data>
+				<span class="leading-none text-white whitespace-nowrap">Open a project library</span>
+				<i class="transition duration-200 ease-out transform gg-chevron-right text-white group-hover:translate-x-0.5 flex-shrink-0"></i>
+			</a>
 
 			{# Company name title #}
 			<div class="flex relative z-30 justify-center">
@@ -337,7 +346,7 @@
 
 	<div id="slideover" x-show="$store.slideover.open" class="flex fixed inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
 		<div class="flex justify-center py-2.5">
-			<a x-bind:href="$store.global.language" data-navigo class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-800 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800">
+			<a x-bind:href="$store.global.language" data-navigo class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800">
 				<i class="gg-close"></i>
 			</a>
 		</div>

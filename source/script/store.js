@@ -23,7 +23,7 @@ Spruce.store('global', {
 				'how-much': {
 					name: 'How much',
 					title: 'How much we charge',
-					subtitle: 'The project cost is derived from the given requirements and task complexity as well as our expertise and experience in the field. We offer competitive pricing corresponding with the quality output we produce.',
+					subtitle: 'The project cost is derived from the given requirements and task complexity as well as our expertise and experience in the field. We offer competitive pricing corresponding with the required output quality.',
 				},
 				'why': {
 					name: 'Why',

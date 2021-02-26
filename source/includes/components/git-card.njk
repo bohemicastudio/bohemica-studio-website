@@ -1,5 +1,5 @@
 {% macro gitCard(name='tailwindlabs/tailwindcss') %}
-	<div x-on:click="window.open(data.html_url, '_blank')" class="flex flex-col flex-grow justify-start p-4 space-y-3 rounded-lg border border-blue-gray-500 transition duration-100 ease-linear hover:border-blue-gray-300" x-data="{ url: 'https://api.github.com/repos/{{ name }}', data: '' }"
+	<div x-on:click="window.open(data.html_url, '_blank')" class="flex flex-col flex-grow justify-start p-4 space-y-3 rounded-lg border border-blue-gray-500 transition duration-100 ease-linear cursor-pointer hover:border-blue-gray-300" x-data="{ url: 'https://api.github.com/repos/{{ name }}', data: '' }"
 	     x-init="$fetch(url).then(response => { data = response }).catch(error => window.Spruce.stores.global.showRepos = false )">
 
 		<div class="flex flex-row items-center space-x-3">
