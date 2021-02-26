@@ -2,7 +2,41 @@
   x-data="(function () { return {
 			translation: {
 				en: {
-				},
+				'descriptionTitle': 'Project description',
+				'description': `<p>Lancaster Maloney was established in 2003 and has grown into an innovative, dynamic principal design practice of talented professionals – expert in the design, property care and management of the built environment.</p>
+						<p>The aim of this project was to improve Lancaster Maloney’s internal property management processes. They had been using Microsoft Access database for many years to manage their property maintenance and repairs prior to the web-based application we had developed.</p>`,
+				'imageCaption1': 'Original MS Access application',
+				'imageCaption2': 'Original method of managing site-specific tasks',
+				'imageCaption3': '<strong>(Never) final database structure</strong>',
+				'imageCaption4': 'The dashboard platform allowed the LM team to manage all the datasets in one place.',
+				'imageCaption5': 'Job detail',
+				'imageCaption6': 'Site-specific task detail',
+				'imageCaption7': 'Global list management and sorting',
+				'processTitle': 'Process',
+				'processDescription': 'The most intricate part of the process was establishing the models and relationships between them. The system was fairly sophisticated so there were many close discussions with the LM team to get it right.',
+				'datasets': `<p>There were a few datasets in its core – each with an ability to perform basic CRUD operations inside the dashboard environment:</p>
+						<ul>
+							<li>Jobs</li>
+							<li>Clients</li>
+							<li>Contractors</li>
+							<li>Sites</li>
+							<li>Site tasks</li>
+							<li>Contracts</li>
+						</ul>`,
+				'jobs': `<ul>
+							<li>Planned Preventive Maintenance - legally required tasks, repeated weekly, monthly and/or yearly</li>
+							<li>Reactive Maintenance - one-off jobs, react to the current needs/issues</li>
+							<li>Daily Site Manager Tasks - repeat daily, site specific</li>
+							<li>Job status - following internal protocols</li>
+							<li>Email integration</li>
+						</ul>`,
+				'users': `<p>We also implemented multiple user access levels:</p>
+								<ul>
+									<li>Administrator - full access, for internal use
+									<li>Facility manager - access to a specific client with a subset of properties
+									<li>Site manager - access to a single site
+								</ul>`
+								},
 				cs: {
 				}
 			}
@@ -91,21 +125,33 @@
 
     <hr class="border-gray-500" />
 
-    <h3>Project description</h3>
-    <p>
-      Lancaster Maloney was established in 2003 and has grown into an
-      innovative, dynamic principal design practice of talented professionals –
-      expert in the design, property care and management of the built
-      environment.
-    </p>
-    <p>
-      The aim of this project was to improve Lancaster Maloney’s internal
-      property management processes. They had been using Microsoft Access
-      database for many years to manage their property maintenance and repairs
-      prior to the web-based application we had developed.
-    </p>
+    <h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
+    <div x-html="translation[$store.global.language]['description']"></div>
     <figure>
-      <figcaption>Original MS Access application</figcaption>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption1']"
+      ></figcaption>
+      <picture>
+        <source
+          srcset="./images/project/lancaster-maloney/1.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/lancaster-maloney/1.png"
+          type="image/png"
+        />
+        <img
+          src="./images/project/lancaster-maloney/1.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+    <figure>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption2']"
+      ></figcaption>
       <picture>
         <source
           srcset="./images/project/lancaster-maloney/2.webp"
@@ -123,14 +169,12 @@
         />
       </picture>
     </figure>
-    <h3>Process</h3>
-    <p>
-      The most intricate part of the process was establishing the models and
-      relationships between. The system was fairly complicated so there were
-      many close discussions with the LM team to get it right.
-    </p>
+    <h3 x-text="translation[$store.global.language]['processTitle']"></h3>
+    <p x-text="translation[$store.global.language]['processDescription']"></p>
     <figure>
-      <figcaption><strong>Database structure</strong></figcaption>
+      <figcaption
+        x-html="translation[$store.global.language]['imageCaption3']"
+      ></figcaption>
       <picture>
         <source
           srcset="./images/project/lancaster-maloney/3.webp"
@@ -148,23 +192,10 @@
         />
       </picture>
     </figure>
-    <p>
-      There were a few datasets in its core, each with an ability to perform
-      basic CRUD operations inside the dashboard environment:
-    </p>
-    <ul>
-      <li>Jobs</li>
-      <li>Clients</li>
-      <li>Contractors</li>
-      <li>Sites</li>
-      <li>Site tasks</li>
-      <li>Contracts</li>
-    </ul>
     <figure>
-      <figcaption>
-        The dashboard platform allowed the LM team to manage all the datasets in
-        one place.
-      </figcaption>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption4']"
+      ></figcaption>
       <picture>
         <source
           srcset="./images/project/lancaster-maloney/4.webp"
@@ -182,29 +213,77 @@
         />
       </picture>
     </figure>
-    <p>We also implemented multiple user access levels:</p>
-    <ul>
-      <li>Administrator - full access, for internal use</li>
-      <li>
-        Facility manager - access to a specific client with a subset of
-        properties
-      </li>
-      <li>Site manager - access to a single site</li>
-    </ul>
-
-    <h3>Final result</h3>
+    <div x-html="translation[$store.global.language]['datasets']"></div>
     <figure>
-      <figcaption><strong>1. Dashboard overview</strong></figcaption>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption5']"
+      ></figcaption>
+      <picture>
+        <source
+          srcset="./images/project/lancaster-maloney/5.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/lancaster-maloney/5.png"
+          type="image/png"
+        />
+        <img
+          src="./images/project/lancaster-maloney/5.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+    <div x-html="translation[$store.global.language]['jobs']"></div>
+    <figure>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption6']"
+      ></figcaption>
+      <picture>
+        <source
+          srcset="./images/project/lancaster-maloney/6.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/lancaster-maloney/6.png"
+          type="image/png"
+        />
+        <img
+          src="./images/project/lancaster-maloney/6.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
     </figure>
 
-    Planned Preventive Maintenance - legally required tasks, repeated weekly,
-    monthly and/or yearly Reactive Maintenance - one-off jobs, react to the
-    current needs/issues Daily Site Manager Tasks - repeat daily, site specific
-    Job status - Protocols Email integration Global list management and sorting
+    <figure>
+      <figcaption
+        x-text="translation[$store.global.language]['imageCaption7']"
+      ></figcaption>
+      <picture>
+        <source
+          srcset="./images/project/lancaster-maloney/7.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/lancaster-maloney/7.png"
+          type="image/png"
+        />
+        <img
+          src="./images/project/lancaster-maloney/7.png"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+    <div x-html="translation[$store.global.language]['users']"></div>
   </div>
 
   <div
-    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400"
+    class="flex flex-row items-center pt-8 mt-16 space-x-6 border-t border-gray-400"
   >
     <a
       x-bind:href="window.router.getPath('overview')"

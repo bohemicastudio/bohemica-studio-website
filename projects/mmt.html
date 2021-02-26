@@ -213,11 +213,11 @@
       </picture>
     </figure>
 
-    <p x-text="translation[$store.global.language]['liveWebsite']"></p>
+    <p x-html="translation[$store.global.language]['liveWebsite']"></p>
   </div>
 
   <div
-    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400"
+    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400 mt-16"
   >
     <a
       x-bind:href="window.router.getPath('overview')"

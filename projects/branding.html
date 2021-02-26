@@ -79,6 +79,8 @@
       ></span>
     </div>
 
+    <hr class="border-gray-500" />
+
     <h3 x-text="translation[$store.global.language]['logos']"></h3>
     <picture>
       <source srcset="./images/project/branding/1.webp" type="image/webp" />
@@ -148,7 +150,7 @@
   </div>
 
   <div
-    class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400"
+    class="flex flex-row items-center pt-8 mt-16 space-x-6 border-t border-gray-400"
   >
     <a
       x-bind:href="window.router.getPath('overview')"
