@@ -56,7 +56,8 @@ Spruce.store('global', {
 			loading: 'Loading...',
 			backToTop: 'Back to top',
 			backToProjectOverview: 'Back to the project overview',
-			openProjectLibrary: 'Open a project library'
+			openProjectLibrary: 'Open a project library',
+			available: 'Available for new projects'
 		},
 		cs: {
 			sections: {
@@ -106,7 +107,8 @@ Spruce.store('global', {
 			loading: 'Načítám...',
 			backToTop: 'Zpět nahoru',
 			backToProjectOverview: 'Zpět na přehled projektů',
-			openProjectLibrary: 'Otevřít knihovnu projektů'
+			openProjectLibrary: 'Otevřít knihovnu projektů',
+			available: 'Jsme otevřeni novým projektům'
 		}
 	},
 	return: function (data) {
@@ -229,12 +231,12 @@ Spruce.store('activity', {
 		{
 			en: {
 				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
-				url: 'https://github.com/',
+				url: 'https://github.com/bohemicastudio/bohemica-studio-website',
 				target: '_blank'
 			},
 			cs: {
 				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
-				url: 'https://github.com/',
+				url: 'https://github.com/bohemicastudio/bohemica-studio-website',
 				target: '_blank'
 			}
 		},
