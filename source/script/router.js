@@ -2,7 +2,7 @@
 console.log('window.location', window.location, window.location.hostname === 'bohemicastudio.github.io')
 window.router = new Navigo(window.location.hostname === 'bohemicastudio.github.io' ? '/bohemica-studio-website' : '/', {
 	strategy: 'ONE',
-	hash: true,
+	hash: false,
 	noMatchWarning: false
 })
 
