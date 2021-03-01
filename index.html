@@ -68,28 +68,28 @@
       });
     </script>
     <!-- CSS style & fonts -->
-    <link rel="stylesheet" href="./style.css?v=1614608344199" />
+    <link rel="stylesheet" href="./style.css?v=1614611660988" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1614608344199"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1614608344199"></script>
-    <script src="./script/alpine-toggle.js?v=1614608344199"></script>
+    <script src="./script/helpers.js?v=1614611660988"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1614611660988"></script>
+    <script src="./script/alpine-toggle.js?v=1614611660988"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1614608344199" defer></script>
-    <script src="./script/arrive.js?v=1614608344199"></script>
-    <script src="./script/anime.js?v=1614608344199"></script>
-    <script src="./script/spruce.js?v=1614608344199"></script>
-    <script src="./script/navigo.js?v=1614608344199"></script>
-    <script src="./script/popper.js?v=1614608344199"></script>
-    <script src="./script/tippy.js?v=1614608344199"></script>
-    <script src="./script/medium-zoom.js?v=1614608344199"></script>
-    <script src="./script/dayjs.js?v=1614608344199"></script>
+    <script src="./script/alpine.js?v=1614611660988" defer></script>
+    <script src="./script/arrive.js?v=1614611660988"></script>
+    <script src="./script/anime.js?v=1614611660988"></script>
+    <script src="./script/spruce.js?v=1614611660988"></script>
+    <script src="./script/navigo.js?v=1614611660988"></script>
+    <script src="./script/popper.js?v=1614611660988"></script>
+    <script src="./script/tippy.js?v=1614611660988"></script>
+    <script src="./script/medium-zoom.js?v=1614611660988"></script>
+    <script src="./script/dayjs.js?v=1614611660988"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1614608344199"></script>
-    <script src="./script/store.js?v=1614608344199"></script>
-    <script src="./script/router.js?v=1614608344199"></script>
-    <script src="./script/tooltip.js?v=1614608344199" defer></script>
-    <script src="./script/parallax.js?v=1614608344199" defer></script>
-    <script src="./script/main.js?v=1614608344199" defer></script>
+    <script src="./script/animation.js?v=1614611660988"></script>
+    <script src="./script/store.js?v=1614611660988"></script>
+    <script src="./script/router.js?v=1614611660988"></script>
+    <script src="./script/tooltip.js?v=1614611660988" defer></script>
+    <script src="./script/parallax.js?v=1614611660988" defer></script>
+    <script src="./script/main.js?v=1614611660988" defer></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -211,11 +211,10 @@
               logo: "logo.svg",
               logoHeight: "12",
               year: 2021,
-              type: "Company website",
-              industry: "Production automation and robotics",
-              platforms: "Web",
+              type: "Pokročilý systém a přehrávač mediálního obsahu",
               categories: ["Website", "UI/UX", "CMS"],
-              stack: "Apostrophe CMS ...",
+              stack: "Electron.js, Strapi, Tailwind CSS, Vue.js, MySQL, ...",
+              industry: "Chytrá organizace video-ploch",
             },
             mmt: {
               client: "MMT s.r.o., Czech Republic",
@@ -223,7 +222,7 @@
               logoHeight: "20",
               year: 2020,
               type: "Company website",
-              industry: "Production automation and robotics",
+              industry: "Průmyslová automatizace",
               platforms: "Web",
               categories: [
                 "Website",
@@ -362,8 +361,8 @@
                 class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl text-center"
                 x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')"
                 target="_blank"
-                >Available for new projects</a
-              >
+                x-text="$store['global'].return('available')"
+              ></a>
               <div class="items-center hidden space-x-2 md:flex">
                 <button
                   class="top-menu__button hover:bg-blue-200 focus:ring-blue-400"
