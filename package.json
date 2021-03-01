@@ -25,7 +25,7 @@
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "deploy:gh-pages": "gh-pages -d build",
     "deploy": "cross-env NODE_ENV=deploy run-s build deploy:gh-pages",
-    "serve": "run-s copy:* serve:eleventy & run-s build:tailwind watch:style",
+    "serve": "run-s copy:* serve:eleventy & run-s build:style watch:style",
     "serve:eleventy": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "sort": "npx sort-package-json",
     "watch:style": "onchange 'source/style' 'tailwind.config.js' -- pnpm run build:style",

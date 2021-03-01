@@ -13,7 +13,7 @@ permalink: /projects/media-server.html
 <div x-data="(function () { return {
         translation: {
             en: {
-                preHeading: 'We launched our own SaaS product on top of this project: Bohemica Signage <a href=`https://bohemicasignage.com` target=`_blank`>bohemicasignage.com</a>',
+                preHeading: `We launched our own SaaS product based on this project. Check out Bohemica Signage at <a href='https://bohemicasignage.com' target='_blank'>bohemicasignage.com</a>`,
                 projectDescHeading: 'Project description',
                 projectDesc1: '<strong>For a major physical store</strong> were we chosed to deliver a next-gen signage solution.',
                 projectDesc2: 'Within a short amount of time we came up with a solution. That included the following tasks:',
@@ -28,7 +28,7 @@ permalink: /projects/media-server.html
                 client3: '<strong>Final result</strong>'
             },
             cs: {
-                preHeading: 'Z projektu jsme vyvinuli vlastní Saas produkt - Bohemica Signage <a href=`https://bohemicasignage.com` target=`_blank`>bohemicasignage.com</a>',
+                preHeading: `Z projektu jsme vyvinuli vlastní Saas produkt - Bohemica Signage <a href='https://bohemicasignage.com' target='_blank'>bohemicasignage.com</a>`,
                 projectDescHeading: 'Popis projektu',
                 projectDesc1: '<strong>Pro novou prodejnu v Praze</strong> jsme byli vybráni jako dodavetel řešení pro správu obsahu obrazovek.',
                 projectDesc2: 'Během extrémně krátké doby, kterou jsme na vývoj měli, jsme dokázali vyvinout řešení zahrnující následující požadavky:',
@@ -87,9 +87,7 @@ permalink: /projects/media-server.html
 
         {{ badgeFeature(name='saasProduct', icon='source-code.svg', link='https://www.bohemica.tv') }}
 
-        <p>
-
-        </p>
+        <p x-html="translation[$store.global.language]['preHeading']"></p>
 
         <h3 x-html="translation[$store.global.language]['projectDescHeading']"></h3>
         <p x-html="translation[$store.global.language]['projectDesc1']"></p>
@@ -102,9 +100,9 @@ permalink: /projects/media-server.html
         <figure>
             <figcaption x-html="translation[$store.global.language]['client']"></figcaption>
             <picture>
-                <source srcset="./images/project/media-server/wiring-schema.webp" type="image/webp">
-                <source srcset="./images/project/media-server/wiring-schema.png" type="image/png">
-                <img src="./images/project/media-server/wiring-schema.png"
+                <source srcset="./images/project/media-server/1.webp" type="image/webp">
+                <source srcset="./images/project/media-server/1.png" type="image/png">
+                <img src="./images/project/media-server/1.png"
                      class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
             </picture>
         </figure>
@@ -112,9 +110,9 @@ permalink: /projects/media-server.html
         <figure>
             <figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
             <picture>
-                <source srcset="./images/project/media-server/playables.webp" type="image/webp">
-                <source srcset="./images/project/media-server/playables.png" type="image/png">
-                <img src="./images/project/media-server/playables.png" class="w-full rounded-lg border border-gray-300"
+                <source srcset="./images/project/media-server/2.webp" type="image/webp">
+                <source srcset="./images/project/media-server/2.png" type="image/png">
+                <img src="./images/project/media-server/2.png" class="w-full rounded-lg border border-gray-300"
                      media="(min-width: 960px)" loading="lazy">
             </picture>
         </figure>
@@ -122,15 +120,15 @@ permalink: /projects/media-server.html
         <figure>
             <figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
             <picture>
-                <source srcset="./images/project/media-server/magenta_photo_1.webp" type="image/webp">
-                <source srcset="./images/project/media-server/magenta_photo_1.jpg" type="image/jpeg">
-                <img src="./images/project/media-server/magenta_photo_1.jpg"
+                <source srcset="./images/project/media-server/3.webp" type="image/webp">
+                <source srcset="./images/project/media-server/3.jpg" type="image/jpeg">
+                <img src="./images/project/media-server/3.jpg"
                      class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
             </picture>
             <picture>
-                <source srcset="./images/project/media-server/admin_groups.webp" type="image/webp">
-                <source srcset="./images/project/media-server/admin_groups.png" type="image/png">
-                <img src="./images/project/media-server/admin_groups.jpg"
+                <source srcset="./images/project/media-server/4.webp" type="image/webp">
+                <source srcset="./images/project/media-server/4.png" type="image/png">
+                <img src="./images/project/media-server/4.jpg"
                      class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
             </picture>
         </figure>

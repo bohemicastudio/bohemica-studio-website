@@ -56,6 +56,7 @@ Spruce.store('global', {
 			loading: 'Loading...',
 			backToTop: 'Back to top',
 			backToProjectOverview: 'Back to the project overview',
+			openProjectLibrary: 'Open a project library'
 		},
 		cs: {
 			sections: {
@@ -105,6 +106,7 @@ Spruce.store('global', {
 			loading: 'Načítám...',
 			backToTop: 'Zpět nahoru',
 			backToProjectOverview: 'Zpět na přehled projektů',
+			openProjectLibrary: 'Otevřít knihovnu projektů'
 		}
 	},
 	return: function (data) {
