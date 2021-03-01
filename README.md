@@ -31,7 +31,7 @@ We implemented the i18n capability for two languages using an awesome Alpine.js 
 
 **And why did we do it this way? Well, for once it all works as it should and it was fun doing things differently!**
 
-Just a bit on the UI/UX: the page is fairly long in order to fit necessary information without being too condensed and have enough whitespace. Also, users are likely to scroll quickly through and/or stop at the section that interests them – either visually or context-wise.  Lastly, the website was designed as a single-page application (SPA), so there is no need to switch between pages. All new content is loaded dynamically.
+Just a bit on the UI/UX: the page is fairly long in order to fit necessary information without being too condensed and have enough whitespace. Also, users are likely to scroll quickly through and/or stop at the section that interests them – either visually or context-wise (like with newspaper or magazine).  Lastly, the website was designed as a single-page application (SPA), so there is no need to switch between pages. All new content is loaded dynamically.
   
 
 ## Summmary
@@ -58,9 +58,9 @@ Just a bit on the UI/UX: the page is fairly long in order to fit necessary infor
 
 ## Free assets
 
-- [Handz]()
-- [3D business icons]()
-- [Device mock-ups]()
+- [Handz](https://www.handz.design/)
+- [3D business icons](https://www.behance.net/gallery/98190221/Business-3D-Icons-Free)
+- [Device mock-ups](https://www.ls.graphics/free-mockups)
 
 ## Commands
 
