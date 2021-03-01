@@ -290,12 +290,14 @@ Spruce.store('translation.badge', {
 	en: {
 		officialPartner: 'Official partner',
 		sourceCode: 'Source code available',
-		latestProject: 'Latest project'
+		latestProject: 'Latest project',
+		saasProduct: 'SaaS product',
 	},
 	cs: {
 		officialPartner: 'Oficiální partner',
 		sourceCode: 'Zdrojový kód k dostání',
-		latestProject: 'Nejnovější project'
+		latestProject: 'Nejnovější project',
+		saasProduct: 'SaaS produkt',
 	},
 	return: function (data) {
 		return Object.getProperty(Spruce.stores['translation.badge'], Spruce.stores.global.language + '.' + data)
