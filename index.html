@@ -68,28 +68,28 @@
       });
     </script>
     <!-- CSS style & fonts -->
-    <link rel="stylesheet" href="./style.css?v=1614611660988" />
+    <link rel="stylesheet" href="./style.css?v=1614613227541" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1614611660988"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1614611660988"></script>
-    <script src="./script/alpine-toggle.js?v=1614611660988"></script>
+    <script src="./script/helpers.js?v=1614613227541"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1614613227541"></script>
+    <script src="./script/alpine-toggle.js?v=1614613227542"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1614611660988" defer></script>
-    <script src="./script/arrive.js?v=1614611660988"></script>
-    <script src="./script/anime.js?v=1614611660988"></script>
-    <script src="./script/spruce.js?v=1614611660988"></script>
-    <script src="./script/navigo.js?v=1614611660988"></script>
-    <script src="./script/popper.js?v=1614611660988"></script>
-    <script src="./script/tippy.js?v=1614611660988"></script>
-    <script src="./script/medium-zoom.js?v=1614611660988"></script>
-    <script src="./script/dayjs.js?v=1614611660988"></script>
+    <script src="./script/alpine.js?v=1614613227542" defer></script>
+    <script src="./script/arrive.js?v=1614613227542"></script>
+    <script src="./script/anime.js?v=1614613227542"></script>
+    <script src="./script/spruce.js?v=1614613227542"></script>
+    <script src="./script/navigo.js?v=1614613227542"></script>
+    <script src="./script/popper.js?v=1614613227542"></script>
+    <script src="./script/tippy.js?v=1614613227542"></script>
+    <script src="./script/medium-zoom.js?v=1614613227542"></script>
+    <script src="./script/dayjs.js?v=1614613227542"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1614611660988"></script>
-    <script src="./script/store.js?v=1614611660988"></script>
-    <script src="./script/router.js?v=1614611660988"></script>
-    <script src="./script/tooltip.js?v=1614611660988" defer></script>
-    <script src="./script/parallax.js?v=1614611660988" defer></script>
-    <script src="./script/main.js?v=1614611660988" defer></script>
+    <script src="./script/animation.js?v=1614613227542"></script>
+    <script src="./script/store.js?v=1614613227542"></script>
+    <script src="./script/router.js?v=1614613227542"></script>
+    <script src="./script/tooltip.js?v=1614613227542" defer></script>
+    <script src="./script/parallax.js?v=1614613227542" defer></script>
+    <script src="./script/main.js?v=1614613227542" defer></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -763,7 +763,25 @@
       </div>
 
       <div class="relative container-screen">
-        <div class="container top-0 left-0 absolute z-30 flex items-start">
+        <a
+          x-bind:href="window.router.getPath('overview')"
+          data-navigo
+          style="--tw-translate-y: calc(-100% - 2rem)"
+          class="transform -translate-x-4 top-0 left-0 hidden absolute z-30 lg:flex flex-row items-center py-2.5 pl-3.5 pr-2.5 space-x-1 opacity-0 bg-blue-gray-500 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-blue-gray-100 focus:ring-blue-gray-500"
+          x-init="() => { anime({ targets: $el, duration: 200, delay: 3200, opacity: 1, easing: 'linear'}) }"
+          x-data
+        >
+          <span class="leading-none text-white whitespace-nowrap"
+            >Open a project library</span
+          >
+          <i
+            class="transition duration-200 ease-out transform gg-chevron-right text-white group-hover:translate-x-0.5 flex-shrink-0"
+          ></i>
+        </a>
+
+        <div
+          class="container absolute top-0 left-0 z-30 flex items-start lg:hidden"
+        >
           <a
             x-bind:href="window.router.getPath('overview')"
             data-navigo

@@ -2,8 +2,34 @@
   x-data="(function () { return {
 			translation: {
 				en: {
+				intro: 'Aplikace pro úpravu a tvorbu titulků k videoprezentacím',
+								descriptionTitle: 'Popis projektu',
+								description1: '<strong>Pro významnou produkčně - technickou společnost</strong> v oboru konferencí jsme vyvinuli software pro úpravu a vytváření titulků k videím.',
+								description2: `<li>Staticky generovaná webová aplikace</li>
+													<li>Napojení na API pro získávání a ukládání dat</li>
+													<li>Synchronizace s externí knihovnou přehrávače</li>
+													<li>Multijazyčnost</li>`,
+								processTitle: 'Proces',
+								process1: 'Technické řešení:',
+								process2: `<li>Front-end framework: Vue.js</li>
+											<li>Vzhled: Tailwind CSS</li>`,
+								image1: 'Vyhledávání skrze poskytnuté API',
+								image2: 'Úprava a tvorba titulků v přehledém editoru přímo v prohlížeci'
 				},
 				cs: {
+				intro: 'Aplikace pro úpravu a tvorbu titulků k videoprezentacím',
+				descriptionTitle: 'Popis projektu',
+				description1: '<strong>Pro významnou produkčně - technickou společnost</strong> v oboru konferencí jsme vyvinuli software pro úpravu a vytváření titulků k videím.',
+				description2: `<li>Staticky generovaná webová aplikace</li>
+									<li>Napojení na API pro získávání a ukládání dat</li>
+									<li>Synchronizace s externí knihovnou přehrávače</li>
+									<li>Multijazyčnost</li>`,
+				processTitle: 'Proces',
+				process1: 'Technické řešení:',
+				process2: `<li>Front-end framework: Vue.js</li>
+							<li>Vzhled: Tailwind CSS</li>`,
+				image1: 'Vyhledávání skrze poskytnuté API',
+				image2: 'Úprava a tvorba titulků v přehledém editoru přímo v prohlížeci'
 				}
 			}
 		}
@@ -91,28 +117,19 @@
 
     <hr class="border-gray-500" />
 
-    <p>Aplikace pro úpravu a tvorbu titulků k videoprezentacím</p>
+    <p x-text="translation[$store.global.language]['intro']"></p>
 
-    <h3>Popis projektu</h3>
-    <p>
-      <strong>Pro významnou produkčně - technickou společnost</strong> v oboru
-      konferencí jsme vyvinuli software pro úpravu a vytváření titulků k videím.
-    </p>
-    <ul>
-      <li>Staticky generovaná webová aplikace</li>
-      <li>Napojení na API pro získávání a ukládání dat</li>
-      <li>Synchronizace s vloženým přehrávačem</li>
-      <li>Multijazyčnost</li>
-    </ul>
-    <h3>Proces</h3>
-    <p>Technické řešení:</p>
-    <ol>
-      <li>Front-end framework: Vue.js</li>
-      <li>Vzhled: Tailwind CSS</li>
-    </ol>
+    <h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
+    <p x-html="translation[$store.global.language]['description1']"></p>
+    <ul x-html="translation[$store.global.language]['description2']"></ul>
+    <h3 x-text="translation[$store.global.language]['processTitle']"></h3>
+    <p x-html="translation[$store.global.language]['process1']"></p>
+    <ol x-html="translation[$store.global.language]['process2']"></ol>
 
     <figure>
-      <figcaption><strong>Vyhledávání skrze poskytnuté API</strong></figcaption>
+      <figcaption
+        x-text="translation[$store.global.language]['image1']"
+      ></figcaption>
       <picture>
         <source
           srcset="./images/project/subtitle-editor/2.webp"
@@ -132,12 +149,9 @@
     </figure>
 
     <figure>
-      <figcaption>
-        <strong
-          >Úprava a tvorba titulků v přehledém editoru přímo v
-          prohlížeci</strong
-        >
-      </figcaption>
+      <figcaption
+        x-text="translation[$store.global.language]['image2']"
+      ></figcaption>
       <picture>
         <source
           srcset="./images/project/subtitle-editor/1.webp"
