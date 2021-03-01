@@ -15,17 +15,17 @@ permalink: /projects/media-server.html
             en: {
                 preHeading: `We launched our own SaaS product based on this project. Check out Bohemica Signage at <a href='https://bohemicasignage.com' target='_blank'>bohemicasignage.com</a>`,
                 projectDescHeading: 'Project description',
-                projectDesc1: '<strong>For a major physical store</strong> were we chosed to deliver a next-gen signage solution.',
-                projectDesc2: 'Within a short amount of time we came up with a solution. That included the following tasks:',
-                projectDesc3: '<li>Cloud-based dashboard</li><li>Automatic material quality control</li><li>Player can display videos, pictures and even websites</li><li>Multi-language control panel</li><li>Human phone support</li>',
+                projectDesc1: 'We secured a project to develop a next generation signage solution for a unique electronics store.',
+                projectDesc2: 'Within a short span of time we managed to create a full-fledged signage solution with following features:',
+                projectDesc3: '<li>Cloud-based dashboard</li><li>Video, image and even website media type</li><li>Automatic image/video optimisation</li><li>Internationalisation</li><li>Live operator support</li>',
                 process: 'Process',
-                process2: 'The technical solution itself includes several stand-alone applications:',
-                process3: '<li>Server part: database & API, command processing, storage and backups</li>'+
-            '<li>Control panel: admin dashboard in a web browser</li>'+
-            '<li>Player: application controlling the displayed content</li>',
-                client: '<strong>A wireframe diagram was created to brighten the complexity of a solution</strong>',
-                client2: '<strong>We designed a media upload approach</strong>',
-                client3: '<strong>Final result</strong>'
+                process2: 'The technical solution itself included several stand-alone applications:',
+                process3: `<li>Server part: database & API, command processing, storage and backups</li>
+            <li>Control panel: admin dashboard in a web browser</li>
+            <li>Player: application controlling the displayed content</li>`,
+                client: `During the initial stage, a wireframe diagram was created to break down the project's complexity`,
+                client2: 'We designed a media upload approach',
+                client3: 'Final result'
             },
             cs: {
                 preHeading: `Z projektu jsme vyvinuli vlastní Saas produkt - Bohemica Signage <a href='https://bohemicasignage.com' target='_blank'>bohemicasignage.com</a>`,
@@ -35,109 +35,109 @@ permalink: /projects/media-server.html
                 projectDesc3: '<li>Správa obsahu v cloudu dostupná odkudkoliv</li><li>Automatická kontrola kvality dodaného videomateriálu</li><li>Možnost zobrazit jak video, statický obraz, tak webovou stránku</li><li>Administrace v několika jazycích</li><li>Kontinuální podpora 7 dní v týdnu</li>',
                 process: 'Proces',
                 process2: 'Technické řešení sestává z několika aplikací:',
-                process3: '<li>Serverová část: databáze a API, zpracování požadavků, ukládání dat a zálohy</li>'+
-            '<li>Uživatelská část: administrace médií přímo v prohlížeči</li>'+
-            '<li>Přehrávací část: program pro přehrávání přímo na displeji</li>',
-                client: '<strong>Pro klienta jsme vytvořili schéma zapojení všech částí v celek</strong>',
-                client2: '<strong>Navrhli jsme způsob nahrávání médií</strong>',
-                client3: '<strong>Výsledek</strong>'
+                process3: `<li>Serverová část: databáze a API, zpracování požadavků, ukládání dat a zálohy</li><li>Uživatelská část: administrace médií přímo v prohlížeči</li><li>Přehrávací část: program pro přehrávání přímo na displeji</li>`,
+                client: 'Na začátku jsme vytvořili schéma zapojení všech částí pro následovný rychlejší a jasnější vývoj',
+                client2: 'Navrhli jsme způsob nahrávání médií',
+                client3: 'Výsledek'
             }
         }
     }
     })()">
 
-    <div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
-        {{ buttonBackLibrary() }}
-        {# <hr class="w-40 border-gray-500">
+	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
+		{{ buttonBackLibrary() }}
+		{# <hr class="w-40 border-gray-500">
 		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
-    </div>
+	</div>
 
-    <div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
 
-        <div class="flex flex-grow items-center">
-            <img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`"
-                 x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
-        </div>
+		<div class="flex items-center flex-grow">
+			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`"
+			     x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
+		</div>
 
-        <div class="grid gap-y-2 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
+		<div class="grid font-medium gap-y-2 gap-x-5" style="grid-template-columns: min-content auto">
             <span class="text-gray-500 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
-            <span class="text-gray-800"
-                  x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
-            <span class="text-gray-500 whitespace-nowrap font-dm-mono"
-                  x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
-            <span class="text-gray-800"
-                  x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
-            <span class="text-gray-500 whitespace-nowrap font-dm-mono"
-                  x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
-            <span class="text-gray-800"
-                  x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
-            <span class="text-gray-500 whitespace-nowrap font-dm-mono"
-                  x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
-            <span class="text-gray-800"
-                  x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
-            <span class="text-gray-500 whitespace-nowrap font-dm-mono"
-                  x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
-            <span class="text-gray-800"
-                  x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
-        </div>
+			<span class="text-gray-800"
+			      x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono"
+			      x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
+			<span class="text-gray-800"
+			      x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono"
+			      x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
+			<span class="text-gray-800"
+			      x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono"
+			      x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+			<span class="text-gray-800"
+			      x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
+			<span class="text-gray-500 whitespace-nowrap font-dm-mono"
+			      x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>
+			<span class="text-gray-800"
+			      x-text="$store['translation.projects'].return(`list['{{ project }}'].stack`)"></span>
+		</div>
 
 
-        <hr class="border-gray-500">
+		<hr class="border-gray-500">
 
-        {{ badgeFeature(name='saasProduct', icon='source-code.svg', link='https://www.bohemica.tv') }}
+		{{ badgeFeature(name='saasProduct', icon='source-code.svg', link='https://www.bohemica.tv') }}
 
-        <p x-html="translation[$store.global.language]['preHeading']"></p>
+		<p x-html="translation[$store.global.language]['preHeading']"></p>
 
-        <h3 x-html="translation[$store.global.language]['projectDescHeading']"></h3>
-        <p x-html="translation[$store.global.language]['projectDesc1']"></p>
-        <p x-html="translation[$store.global.language]['projectDesc2']"></p>
-        <ul x-html="translation[$store.global.language]['projectDesc3']"></ul>
-        <h3 x-html="translation[$store.global.language]['process']"></h3>
-        <p x-html="translation[$store.global.language]['process2']"></p>
-        <ol x-html="translation[$store.global.language]['process3']"></ol>
+		<h3 x-html="translation[$store.global.language]['projectDescHeading']"></h3>
 
-        <figure>
-            <figcaption x-html="translation[$store.global.language]['client']"></figcaption>
-            <picture>
-                <source srcset="./images/project/media-server/1.webp" type="image/webp">
-                <source srcset="./images/project/media-server/1.png" type="image/png">
-                <img src="./images/project/media-server/1.png"
-                     class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
-            </picture>
-        </figure>
+		<p x-html="translation[$store.global.language]['projectDesc1']"></p>
+		<p x-html="translation[$store.global.language]['projectDesc2']"></p>
+		<ul x-html="translation[$store.global.language]['projectDesc3']"></ul>
 
-        <figure>
-            <figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
-            <picture>
-                <source srcset="./images/project/media-server/2.webp" type="image/webp">
-                <source srcset="./images/project/media-server/2.png" type="image/png">
-                <img src="./images/project/media-server/2.png" class="w-full rounded-lg border border-gray-300"
-                     media="(min-width: 960px)" loading="lazy">
-            </picture>
-        </figure>
+		<h3 x-html="translation[$store.global.language]['process']"></h3>
+		<p x-html="translation[$store.global.language]['process2']"></p>
+		<ol x-html="translation[$store.global.language]['process3']"></ol>
 
-        <figure>
-            <figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
-            <picture>
-                <source srcset="./images/project/media-server/3.webp" type="image/webp">
-                <source srcset="./images/project/media-server/3.jpg" type="image/jpeg">
-                <img src="./images/project/media-server/3.jpg"
-                     class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
-            </picture>
-            <picture>
-                <source srcset="./images/project/media-server/4.webp" type="image/webp">
-                <source srcset="./images/project/media-server/4.png" type="image/png">
-                <img src="./images/project/media-server/4.jpg"
-                     class="w-full rounded-lg border border-gray-300" media="(min-width: 960px)" loading="lazy">
-            </picture>
-        </figure>
+		<figure>
+			<figcaption x-html="translation[$store.global.language]['client']"></figcaption>
+			<picture>
+				<source srcset="./images/project/media-server/1.webp" type="image/webp">
+				<source srcset="./images/project/media-server/1.png" type="image/png">
+				<img src="./images/project/media-server/1.png"
+				     class="w-full border border-gray-300 rounded-lg" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
 
-    </div>
+		<figure>
+			<figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
+			<picture>
+				<source srcset="./images/project/media-server/2.webp" type="image/webp">
+				<source srcset="./images/project/media-server/2.png" type="image/png">
+				<img src="./images/project/media-server/2.png" class="w-full border border-gray-300 rounded-lg"
+				     media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
 
-    <div class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400 mt-16">
-        {{ buttonBackLibrary() }}
-    </div>
+		<figure>
+			<figcaption x-html="translation[$store.global.language]['client2']"></figcaption>
+			<picture>
+				<source srcset="./images/project/media-server/3.webp" type="image/webp">
+				<source srcset="./images/project/media-server/3.jpg" type="image/jpeg">
+				<img src="./images/project/media-server/3.jpg"
+				     class="w-full border border-gray-300 rounded-lg" media="(min-width: 960px)" loading="lazy">
+			</picture>
+			<picture>
+				<source srcset="./images/project/media-server/4.webp" type="image/webp">
+				<source srcset="./images/project/media-server/4.png" type="image/png">
+				<img src="./images/project/media-server/4.jpg"
+				     class="w-full border border-gray-300 rounded-lg" media="(min-width: 960px)" loading="lazy">
+			</picture>
+		</figure>
+
+	</div>
+
+	<div class="flex flex-row items-center pt-8 mt-16 space-x-6 border-t border-gray-400">
+		{{ buttonBackLibrary() }}
+	</div>
 </div>
 
 
