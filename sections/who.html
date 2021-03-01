@@ -42,67 +42,65 @@
 					mmt: {
 						company: 'MMT',
 						country: 'Czech Republic',
-						url: 'https://mmt.cz',
+						url: 'mmt.cz',
 						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
 					},
 					'lancaster-maloney': {
-                                                            						company: 'Lancaster Maloney',
-                                                            						country: 'United Kingdom',
-                                                            						url: 'https://lancastermaloney.co.uk/',
-                                                            						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
-                                                            					},
-                                                            					'media-server': {
-                                                                                                                                            						company: 'T-Mobile',
-                                                                                                                                            						country: 'Czech Republic, Global',
-                                                                                                                                            						url: 'https://www.t-mobile.cz/microsites/magenta-experience/index-en.html',
-                                                                                                                                            						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
-                                                                                                                                            					},
+						company: 'Lancaster Maloney',
+						country: 'United Kingdom',
+						url: 'lancastermaloney.co.uk',
+						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
+					},
+					'media-server': {
+						company: 'T-Mobile',
+						country: 'Czech Republic, Global',
+						url: 't-mobile.cz/microsites/magenta-experience',
+						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
+					},
 					'subtitle-editor': {
-                    						company: 'SlidesLive',
-                    						country: 'EU',
-                    						url: 'https://slideslive.com',
-                    						review: 'Bohemica Studio impressed me on multiple levels. We would not be able to pull our Subtitle Editor without them. We continue to work with these folks on other projects.'
-                    					},
-
+						company: 'SlidesLive',
+						country: 'EU',
+						url: 'slideslive.com',
+						review: 'Bohemica Studio impressed me on multiple levels. We would not be able to pull our Subtitle Editor without them. We continue to work with these folks on other projects.'
+					},
 				}
 			},
 			cs: {
-	first: {
-						title: 'Styl práce na dálku nám umožňuje pracovat s klienty z celého světa.',
-						subtitle: false
-					},
-					second: {
-						title: 'Co o nás říkají někteří z našich klientů.',
-						subtitle: false
-					},
+				first: {
+					title: 'Styl práce na dálku nám umožňuje pracovat s klienty z celého světa.',
+					subtitle: false
+				},
+				second: {
+					title: 'Co o nás říkají někteří z našich klientů.',
+					subtitle: false
+				},
 				buttonTitle: 'Více o úspěšně dokončených projektech.',
 				testimonials: {
-                					mmt: {
-                						company: 'MMT s.r.o.',
-                						country: 'Česká Republika',
-                						url: 'mmt.cz',
-                						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
-                					},
-                					'lancaster-maloney': {
-                                                                            						company: 'Lancaster Maloney',
-                                                                            						country: 'Velká Británie',
-                                                                            						url: 'lancastermaloney.co.uk',
-                                                                            						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
-                                                                            					},
-                                                                            					'media-server': {
-                                                                                                                                                            						company: 'T-Mobile (Magenta Experience Center)',
-                                                                                                                                                            						country: 'Czech Republic, Global',
-                                                                                                                                                            						url: 't-mobile.cz/microsites/magenta-experience',
-                                                                                                                                                            						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
-                                                                                                                                                            					},
-                					'subtitle-editor': {
-                                    						company: 'SlidesLive',
-                                    						country: 'EU',
-                                    						url: 'slideslive.com',
-                                    						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
-                                    					},
-
-                				}
+					mmt: {
+						company: 'MMT s.r.o.',
+						country: 'Česká Republika',
+						url: 'mmt.cz',
+						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+					},
+					'lancaster-maloney': {
+						company: 'Lancaster Maloney',
+						country: 'Velká Británie',
+						url: 'lancastermaloney.co.uk',
+						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
+					},
+					'media-server': {
+						company: 'T-Mobile (Magenta Experience Center)',
+						country: 'Czech Republic, Global',
+						url: 't-mobile.cz/microsites/magenta-experience',
+						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
+					},
+					'subtitle-editor': {
+						company: 'SlidesLive',
+						country: 'EU',
+						url: 'slideslive.com',
+						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+					}
+				}
 			},
 			return: function (data) {
 				return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
@@ -122,7 +120,7 @@
     </div>
 
     <hr
-      class="h-20 mt-12 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24"
+      class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24"
     />
     <div class="grid bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px">
       <div class="p-8 bg-white lg:p-16">
@@ -175,8 +173,8 @@
           </div>
           <div class="mt-12">
             <a
-              x-bind:href="window.router.getPath('overview')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              x-bind:href="window.router.getPath('mmt')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
               data-navigo
             >
               <span
@@ -243,8 +241,8 @@
           </div>
           <div class="mt-12">
             <a
-              x-bind:href="window.router.getPath('overview')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              x-bind:href="window.router.getPath('lancaster-maloney')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
               data-navigo
             >
               <span
@@ -308,8 +306,8 @@
           </div>
           <div class="mt-12">
             <a
-              x-bind:href="window.router.getPath('overview')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              x-bind:href="window.router.getPath('media-server')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
               data-navigo
             >
               <span
@@ -373,8 +371,8 @@
           </div>
           <div class="mt-12">
             <a
-              x-bind:href="window.router.getPath('overview')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 hover:bg-emerald-200 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-emerald-200"
+              x-bind:href="window.router.getPath('subtitle-editor')"
+              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
               data-navigo
             >
               <span
@@ -390,7 +388,7 @@
       </div>
     </div>
     <hr
-      class="h-40 mb-12 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48"
+      class="mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48"
     />
 
     <div
@@ -409,7 +407,7 @@
       <source srcset="./images/map.png" type="image/png" />
       <img
         src="./images/map.png"
-        class="hidden w-full h-auto max-w-full my-20 md:block lg:px-12 xl:px-28"
+        class="hidden my-20 w-full max-w-full h-auto md:block lg:px-12 xl:px-28"
         media="(min-width: 960px)"
         loading="lazy"
       />
@@ -418,7 +416,7 @@
       <source srcset="./images/map-mobile.svg" type="image/svg" />
       <img
         src="./images/map-mobile.svg"
-        class="block w-10 my-16 md:hidden"
+        class="block my-16 w-10 md:hidden"
         media="(max-width: 960px)"
         loading="lazy"
       />
@@ -428,12 +426,12 @@
       x-text="$store['translation.sectionWho'].return('buttonTitle')"
     ></p>
     <div
-      class="flex items-center justify-center w-full py-16 md:w-auto md:px-32 rounded-4xl bg-teal-legacy-400"
+      class="flex justify-center items-center py-16 w-full md:w-auto md:px-32 rounded-4xl bg-teal-legacy-400"
     >
       <a
         x-bind:href="window.router.getPath('overview')"
         data-navigo
-        class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-gray-legacy-800 focus:ring-yellow-200"
+        class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-teal-legacy-400 focus:ring-yellow-200"
       >
         <span
           class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900"
