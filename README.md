@@ -17,10 +17,9 @@
 
 ---
 
-This site was a bit of an experiment on our behalf as we wanted to run a trial of using Eleventy as a static generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single-page website**.
+This site was a bit of an experiment on our behalf as we wanted to run a trial of using Eleventy as a static site generator. It usually takes time to set up a development environment and back-end system just to get a few JavaScript libraries running. That's why there are so many starter projects. We simply wanted to create a **lightweight serverless single-page website**.
 
-The development approach for this site was to get rid of any bundlers, compilers or transpilers – get down to the process of web designing as quickly as possible. Specifically, we wanted to avoid using Webpack as the site was meant to be fairly simple. The reasoning is that on many occasions, we found ourselves spending hours debugging Webpack's errors and warnings due to various
-module related issues.
+The development approach for this site was to get rid of any unnecessary transpilers – get down to the process of web designing as quickly as possible. Specifically, we wanted to avoid using Webpack as the site was meant to be fairly simple. The reasoning is that on many occasions, we found ourselves spending hours debugging Webpack's errors and warnings due to various module related issues.
 
 Nonetheless, there was an exception for the PostCSS preprocessor – in order to build the Tailwind CSS file, handle imports and add prefixes. You could also count in the static site generator Eleventy, which was the main driving force. This gave us almost full control and transparency over the final code.
 
@@ -38,7 +37,6 @@ Just a bit on the UI/UX: the page is fairly long in order to fit necessary infor
 ## Summmary
 
 - single page application
-- no bundlers, compilers or transpilers
 - no backend, no db
 - only using UMD format of external JS libraries
 - automatic minification of all code files during the build
