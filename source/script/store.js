@@ -93,7 +93,7 @@ Spruce.store('global', {
 				}
 			},
 			head: {
-				title: 'Nazdárek!',
+				title: 'Zdravíme!',
 				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních technologií'
 			},
 			tooltip: {

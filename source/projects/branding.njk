@@ -11,12 +11,14 @@ permalink: /projects/branding.html
 				en: {
 					'logos': 'Logos',
 					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'processesSubtitle': '...that lead to beautiful results',
+					'emailTemplate': 'Email template'
 				},
 				cs: {
 					'logos': 'Loga',
-					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'processes': 'Ústřižky z procesu vývoje',
+					'processesSubtitle': '',
+					'emailTemplate': 'Šablona emailu'
 				}
 			}
 		}
@@ -71,8 +73,8 @@ permalink: /projects/branding.html
 			<source srcset="./images/project/{{ project }}/5.png" type="image/png">
 			<img src="./images/project/{{ project }}/5.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
-		<h3>Messy processes</h3>
-		<p>...that lead to beautiful results</p>
+		<h3 x-text="translation[$store.global.language]['processes']"></h3>
+		<p x-text="translation[$store.global.language]['processesSubtitle']"></p>
 		<picture>
 			<source srcset="./images/project/{{ project }}/6.webp" type="image/webp">
 			<source srcset="./images/project/{{ project }}/6.png" type="image/png">
@@ -84,9 +86,8 @@ permalink: /projects/branding.html
 			<img src="./images/project/{{ project }}/7.png" class="w-full rounded-lg border border-gray-300" loading="lazy">
 		</picture>
 
-		<h4>Email template as a order confirmation</h4>
-
 		<picture>
+			<figcaption x-text="translation[$store.global.language]['emailTemplate']"></figcaption>
 			<source srcset="./images/project/{{ project }}/retech-email-template.webp" type="image/webp">
 			<source srcset="./images/project/{{ project }}/retech-email-template.png" type="image/png">
 			<img src="./images/project/{{ project }}/retech-email-template.png" class="rounded-lg border border-gray-300" loading="lazy">
