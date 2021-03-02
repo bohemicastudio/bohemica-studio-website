@@ -9,8 +9,34 @@ permalink: /projects/subtitle-editor.html
 <div x-data="(function () { return {
 			translation: {
 				en: {
+				intro: 'Application for creating and editing subtitles for a web-based video player.',
+				descriptionTitle: 'Project description',
+				description1: 'A European company, in the filed of conference video-production, approached us to develop an internal tool for managing and editing subtitles.',
+				description2: `<li>Statically generated web application</li>
+									<li>Connection to an external API for data acquisition and storage</li>
+									<li>Sync with the player's external library</li>
+									<li>Internationalization</li>`,
+				processTitle: 'Process',
+				process1: 'The technical solution was fairly simple:',
+				process2: `<li>Front-end framework: Vue.js</li>
+								<li>UI styling: Tailwind CSS</li>`,
+				image1: 'Search through the provided API',
+				image2: 'Editing and creating subtitles in an intuitive editor directly in the browser'
 				},
 				cs: {
+				intro: 'Aplikace pro úpravu a tvorbu titulků k videoprezentacím',
+				descriptionTitle: 'Popis projektu',
+				description1: '<strong>Pro významnou produkčně - technickou společnost</strong> v oboru konferencí jsme vyvinuli software pro úpravu a vytváření titulků k videím.',
+				description2: `<li>Staticky generovaná webová aplikace</li>
+									<li>Napojení na externí API pro získávání a ukládání dat</li>
+									<li>Synchronizace s externí knihovnou přehrávače</li>
+									<li>Multijazyčnost</li>`,
+				processTitle: 'Proces',
+				process1: 'Technické řešení:',
+				process2: `<li>Front-end framework: Vue.js</li>
+							<li>Vzhled: Tailwind CSS</li>`,
+				image1: 'Vyhledávání skrze poskytnuté API',
+				image2: 'Úprava a tvorba titulků v přehledém editoru přímo v prohlížeci'
 				}
 			}
 		}
@@ -18,11 +44,9 @@ permalink: /projects/subtitle-editor.html
 
 	<div class="flex flex-row items-center pb-8 space-x-6 border-b border-gray-400">
 		{{ buttonBackLibrary() }}
-		{# <hr class="w-40 border-gray-500">
-		<h3 class="text-3xl font-bold text-gray-900" x-text="messages[$store.global.language].title"></h3> #}
 	</div>
 
-	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl"> {# style="max-width: none !important;" #}
+	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
 
 		<div class="flex flex-grow items-center">
 			<img x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
@@ -45,26 +69,17 @@ permalink: /projects/subtitle-editor.html
 
 		<hr class="border-gray-500">
 
-		<p>Aplikace pro úpravu a tvorbu titulků k videoprezentacím</p>
+		<p x-text="translation[$store.global.language]['intro']"></p>
 
-		<h3>Popis projektu</h3>
-		<p><strong>Pro významnou produkčně - technickou společnost</strong> v oboru konferencí jsme vyvinuli software pro
-		úpravu a vytváření titulků k videím.</p>
-		<ul>
-			<li>Staticky generovaná webová aplikace</li>
-			<li>Napojení na API pro získávání a ukládání dat</li>
-			<li>Synchronizace s vloženým přehrávačem</li>
-			<li>Multijazyčnost</li>
-		</ul>
-		<h3>Proces</h3>
-		<p>Technické řešení:</p>
-		<ol>
-			<li>Front-end framework: Vue.js</li>
-			<li>Vzhled: Tailwind CSS</li>
-		</ol>
+		<h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
+		<p x-html="translation[$store.global.language]['description1']"></p>
+		<ul x-html="translation[$store.global.language]['description2']"></ul>
+		<h3 x-text="translation[$store.global.language]['processTitle']"></h3>
+		<p x-html="translation[$store.global.language]['process1']"></p>
+		<ol x-html="translation[$store.global.language]['process2']"></ol>
 
 		<figure>
-			<figcaption><strong>Vyhledávání skrze poskytnuté API</strong></figcaption>
+			<figcaption x-text="translation[$store.global.language]['image1']"></figcaption>
 			<picture>
 				<source srcset="./images/project/subtitle-editor/2.webp" type="image/webp">
 				<source srcset="./images/project/subtitle-editor/2.png" type="image/png">
@@ -73,7 +88,7 @@ permalink: /projects/subtitle-editor.html
 		</figure>
 
 		<figure>
-			<figcaption><strong>Úprava a tvorba titulků v přehledém editoru přímo v prohlížeci</strong></figcaption>
+			<figcaption x-text="translation[$store.global.language]['image2']"></figcaption>
 			<picture>
 				<source srcset="./images/project/subtitle-editor/1.webp" type="image/webp">
 				<source srcset="./images/project/subtitle-editor/1.png" type="image/png">
@@ -84,7 +99,7 @@ permalink: /projects/subtitle-editor.html
 
 	</div>
 
-	<div class="flex flex-row items-center pt-8 space-x-6 border-t border-gray-400 mt-16">
+	<div class="flex flex-row items-center pt-8 mt-16 space-x-6 border-t border-gray-400">
 		{{ buttonBackLibrary() }}
 	</div>
 </div>

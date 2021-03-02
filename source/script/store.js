@@ -52,7 +52,7 @@ Spruce.store('global', {
 				linkedin: 'Connect with us on LinkedIn'
 			},
 			recentActivity: 'Recent activity',
-			lastUpdated: 'Last updated',
+			lastUpdated: 'Last updated on',
 			loading: 'Loading...',
 			backToTop: 'Back to top',
 			backToProjectOverview: 'Back to the project overview',
@@ -93,7 +93,7 @@ Spruce.store('global', {
 				}
 			},
 			head: {
-				title: 'Nazdárek!',
+				title: 'Zdravíme!',
 				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních technologií'
 			},
 			tooltip: {
