@@ -4,12 +4,14 @@
 				en: {
 					'logos': 'Logos',
 					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'processesSubtitle': '...that lead to beautiful results',
+					'emailTemplate': 'Email template'
 				},
 				cs: {
 					'logos': 'Loga',
-					'processes': 'Messy processes',
-					'processesSubtitle': '...that lead to beautiful results'
+					'processes': 'Ústřižky z procesu vývoje',
+					'processesSubtitle': '',
+					'emailTemplate': 'Šablona emailu'
 				}
 			}
 		}
@@ -21,7 +23,7 @@
     <a
       x-bind:href="window.router.getPath('overview')"
       data-navigo
-      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-400"
     >
       <i
         class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
@@ -127,8 +129,8 @@
         loading="lazy"
       />
     </picture>
-    <h3>Messy processes</h3>
-    <p>...that lead to beautiful results</p>
+    <h3 x-text="translation[$store.global.language]['processes']"></h3>
+    <p x-text="translation[$store.global.language]['processesSubtitle']"></p>
     <picture>
       <source srcset="./images/project/branding/6.webp" type="image/webp" />
       <source srcset="./images/project/branding/6.png" type="image/png" />
@@ -148,9 +150,10 @@
       />
     </picture>
 
-    <h4>Email template as a order confirmation</h4>
-
     <picture>
+      <figcaption
+        x-text="translation[$store.global.language]['emailTemplate']"
+      ></figcaption>
       <source
         srcset="./images/project/branding/retech-email-template.webp"
         type="image/webp"
@@ -173,7 +176,7 @@
     <a
       x-bind:href="window.router.getPath('overview')"
       data-navigo
-      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-200"
+      class="flex flex-row items-center py-2 px-3 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-yellow-400"
     >
       <i
         class="transition duration-200 ease-out transform gg-chevron-left text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:-translate-x-0.5 flex-shrink-0"
