@@ -1,5 +1,5 @@
 /**
- * @popperjs/core v2.8.6 - MIT License
+ * @popperjs/core v2.9.0 - MIT License
  */
 
 (function (global, factory) {
@@ -22,9 +22,6 @@
     };
   }
 
-  /*:: import type { Window } from '../types'; */
-
-  /*:: declare function getWindow(node: Node | Window): Window; */
   function getWindow(node) {
     if (node == null) {
       return window;
@@ -48,24 +45,15 @@
     };
   }
 
-  /*:: declare function isElement(node: mixed): boolean %checks(node instanceof
-    Element); */
-
   function isElement(node) {
     var OwnElement = getWindow(node).Element;
     return node instanceof OwnElement || node instanceof Element;
   }
-  /*:: declare function isHTMLElement(node: mixed): boolean %checks(node instanceof
-    HTMLElement); */
-
 
   function isHTMLElement(node) {
     var OwnElement = getWindow(node).HTMLElement;
     return node instanceof OwnElement || node instanceof HTMLElement;
   }
-  /*:: declare function isShadowRoot(node: mixed): boolean %checks(node instanceof
-    ShadowRoot); */
-
 
   function isShadowRoot(node) {
     // IE 11 has no ShadowRoot
@@ -178,11 +166,11 @@
     var width = element.offsetWidth;
     var height = element.offsetHeight;
 
-    if (Math.abs(clientRect.width - width) <= 0.5) {
+    if (Math.abs(clientRect.width - width) <= 1) {
       width = clientRect.width;
     }
 
-    if (Math.abs(clientRect.height - height) <= 0.5) {
+    if (Math.abs(clientRect.height - height) <= 1) {
       height = clientRect.height;
     }
 
@@ -1180,8 +1168,8 @@
         }
       } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
 
-      /*:: offsetParent = (offsetParent: Element); */
 
+      offsetParent = offsetParent;
 
       if (placement === top) {
         sideY = bottom; // $FlowFixMe[prop-missing]
@@ -1427,9 +1415,6 @@
     });
   }
 
-  /*:: type OverflowsMap = { [ComputedPlacement]: number }; */
-
-  /*;; type OverflowsMap = { [key in ComputedPlacement]: number }; */
   function computeAutoPlacement(state, options) {
     if (options === void 0) {
       options = {};
@@ -1884,10 +1869,18 @@
     fn: hide
   };
 
+  /*:: export type * from './types'; */
+
+  /*;; export * from './types'; */
+
   var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1];
   var createPopper = /*#__PURE__*/popperGenerator({
     defaultModifiers: defaultModifiers
   }); // eslint-disable-next-line import/no-unused-modules
+
+  /*:: export type * from './types'; */
+
+  /*;; export * from './types'; */
 
   var defaultModifiers$1 = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
   var createPopper$1 = /*#__PURE__*/popperGenerator({

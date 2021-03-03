@@ -11,13 +11,15 @@ permalink: /sections/how-much.html
 	},
 	fixedBased: 'Fixed-based',
 	hourlyBased: 'Hourly-based',
-	pricingInfo1: `<li>Fixed amount might not accurately represent the value/work/time.</li>
-				<li>Hourly rate has usually no boundaries, and therefore may go outside client's budget.</li>`,
+	pricingInfo1: `
+	<li>Fixed amount might not accurately represent the value/work/time.</li>
+	<li>Hourly rate has usually no boundaries, and therefore may go outside client's budget.</li>`,
 	pricingInfo2: `Hence, our favourite pricing method is using an
-					<strong>hourly-based pricing with a minimum and maximum time range</strong> for each milestone.`,
-	pricingInfo3: `<li>Time range caps the maximum so client knows exactly what the highest cost might be</li>
-					<li>It's difficult to know how much time each task will actually take due to unforeseen circumstances or other project nuances</li>
-					<li>This methods takes into account any bugs, fixes or tweaks that may occur in the development process</li>`,
+	<strong>hourly-based pricing with a minimum and maximum time range</strong> for each milestone.`,
+	pricingInfo3: `
+	<li>Time range caps the maximum so client knows exactly what the highest cost might be</li>
+	<li>It's difficult to know how much time each task will actually take due to unforeseen circumstances or other project nuances</li>
+	<li>This methods takes into account any bugs, fixes or tweaks that may occur in the development process</li>`,
 	proposalInfo: 'Our typical proposal looks like this.',
 	proposalButton: 'Open a proposal example'
 	},
@@ -28,11 +30,13 @@ permalink: /sections/how-much.html
 	},
 	fixedBased: 'Hodinově',
 	hourlyBased: 'Fixně',
-	pricingInfo1: `<li>Fixní částka nemusí přesně odpovídat skutečné (odvedené) hodnotě/práci/času.</li>
+	pricingInfo1: `
+	<li>Fixní částka nemusí přesně odpovídat skutečné (odvedené) hodnotě/práci/času.</li>
 	<li>Hodinová sazba obvykle nemá vymezené hranice, a proto může přesáhnout rozpočet klienta.</li>`,
 	pricingInfo2: `Proto je naše oblíbená metoda
 	<strong>hodinové cenění s minimálním a maximálním časovým rozsahem</strong> pro každý daný milník.`,
-	pricingInfo3: `<li>Časový rozsah je omezen nejvyším možným počtem hodin, aby klient přesně věděl, jaké mohou být nejvyšší náklady</li>
+	pricingInfo3: `
+	<li>Časový rozsah je omezen nejvyším možným počtem hodin, aby klient přesně věděl, jaké mohou být nejvyšší náklady</li>
 	<li>Je obtížné zjistit, kolik času bude každý úkol ve skutečnosti trvat kvůli nepředvídatelným okolnostem nebo jiným nuancím projektu</li>
 	<li>Tato metoda zohledňuje všechny chyby, opravy nebo vylepšení, které se mohou vyskytnout v procesu vývoje</li>`,
 	proposalInfo: 'Náš typický návrh vypadá takto.',
@@ -55,17 +59,17 @@ permalink: /sections/how-much.html
 
 		{{ sectionTitle(section='sectionHowMuch', name='first', icon='bank.svg') }}
 
-		<div class="flex flex-row px-28 mt-48 space-x-40 w-full">
-			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-white border-2 border-blue-gray-300">
-				<h3 class="text-3xl text-blue-gray-700 font-dm-mono" x-text="$store['translation.sectionHowMuch'].return('fixedBased')"></h3>
+		<div class="flex flex-col items-center mt-12 space-y-12 w-full md:px-16 md:space-y-0 md:flex-row lg:px-28 md:mt-48 md:space-x-40">
+			<div class="flex relative items-center justify-center md:justify-end md:items-end py-16 px-12 md:pl-0 md:pt-24 md:pr-12 md:pb-8 w-full sm:w-2/3 md:w-1/2 bg-white border-2 border-blue-gray-300">
+				<h3 class="text-2xl md:text-3xl text-blue-gray-700 font-dm-mono" x-text="$store['translation.sectionHowMuch'].return('fixedBased')"></h3>
 				<picture>
 					<source srcset="./images/pricing/coins.webp" type="image/webp">
 					<source srcset="./images/pricing/coins.png" type="image/png">
 					<img src="./images/pricing/coins.png" class="hidden absolute top-0 left-0 h-60 transform -translate-x-1/2 -translate-y-1/2 md:block" media="(min-width: 960px)" loading="lazy">
 				</picture>
 			</div>
-			<div class="flex relative justify-end items-end pt-24 pr-12 pb-8 w-1/2 bg-white border-2 border-blue-gray-300">
-				<h3 class="text-3xl text-blue-gray-700 font-dm-mono" x-text="$store['translation.sectionHowMuch'].return('hourlyBased')"></h3>
+			<div class="flex relative items-center justify-center md:justify-end md:items-end py-16 px-12 md:pl-0 md:pt-24 md:pr-12 md:pb-8 w-full sm:w-2/3 md:w-1/2 bg-white border-2 border-blue-gray-300">
+				<h3 class="text-2xl md:text-3xl text-blue-gray-700 font-dm-mono" x-text="$store['translation.sectionHowMuch'].return('hourlyBased')"></h3>
 				<picture>
 					<source srcset="./images/pricing/hourglass.webp" type="image/webp">
 					<source srcset="./images/pricing/hourglass.png" type="image/png">
@@ -73,12 +77,12 @@ permalink: /sections/how-much.html
 				</picture>
 			</div>
 		</div>
-		<hr class="mt-20 h-40 border-t-0 border-l border-cool-gray-400 md:h-32">
-		<ul class="mt-16 text-lg font-medium leading-loose text-center text-cool-gray-800" x-html="$store['translation.sectionHowMuch'].return('pricingInfo1')"></ul>
-		<hr class="mt-16 h-40 border-t-0 border-l border-cool-gray-400 md:h-32">
+		<hr class="mt-10 md:mt-20 h-24 border-t-0 border-l border-cool-gray-400 md:h-32">
+		<ul class="mt-8 md:mt-16 text-lg font-medium leading-loose text-center text-cool-gray-800" x-html="$store['translation.sectionHowMuch'].return('pricingInfo1')"></ul>
+		<hr class="mt-8 md:mt-16 h-24 border-t-0 border-l border-cool-gray-400 md:h-32">
 		<div class="flex flex-col mt-16 mb-8 space-y-4 w-full text-left text-white text-cool-gray-800 md:w-1/2">
-			<p class="mb-6 text-2xl leading-relaxed text-center" x-html="$store['translation.sectionHowMuch'].return('pricingInfo2')"></p>
-			<ul class="space-y-4 text-lg leading-relaxed list-disc text-cool-gray-700" x-html="$store['translation.sectionHowMuch'].return('pricingInfo3')"></ul>
+			<p class="mb-6 text-xl md:text-2xl leading-relaxed text-center" x-html="$store['translation.sectionHowMuch'].return('pricingInfo2')"></p>
+			<ul class="space-y-4 md:text-lg leading-relaxed list-disc text-cool-gray-700 px-6" x-html="$store['translation.sectionHowMuch'].return('pricingInfo3')"></ul>
 		</div>
 		{# <hr class="mt-8 mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48"> #}
 		<p class="mt-12 mb-4 font-medium text-center text-cool-gray-700 sm:font-normal" x-text="$store['translation.sectionHowMuch'].return('proposalInfo')"></p>
