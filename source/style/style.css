@@ -53,7 +53,7 @@
     border-collapse: separate;
 
     tbody tr.phase td {
-        @apply py-4 px-6 whitespace-nowrap bg-blue-600 font-medium text-white text-base border-none
+        @apply py-4 px-6 whitespace-nowrap bg-blue-gray-300 font-medium text-blue-gray-800 text-base border-none
     }
 
     tbody tr.phase + tr td {
@@ -61,15 +61,15 @@
     }
 
     tbody tr:not(.phase) td {
-        @apply border-t border-cool-gray-400
+        @apply border-t border-blue-gray-400
     }
 
     tbody tr:not(.phase) td:first-child {
-        @apply px-6 pt-3 text-sm font-medium text-cool-gray-700 whitespace-nowrap
+        @apply px-6 pt-3 text-sm font-medium text-blue-gray-700 whitespace-nowrap
     }
 
     tbody tr:not(.phase) td:nth-child(2) {
-        @apply px-6 pt-3 text-xs text-cool-gray-500
+        @apply px-6 pt-3 text-xs text-blue-gray-500
     }
 
     tbody tr:not(.phase) td:nth-child(2) ul {
@@ -77,7 +77,7 @@
     }
 
     tbody tr:not(.phase) td:nth-child(3) {
-        @apply px-6 pt-3 text-sm font-medium text-cool-gray-600 whitespace-nowrap
+        @apply px-6 pt-3 text-sm font-medium text-blue-gray-600 whitespace-nowrap
     }
 }
 
