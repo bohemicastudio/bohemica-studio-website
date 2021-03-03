@@ -12,7 +12,7 @@
 
 <p align="left">
 <a href="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" target="_blank"><img src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website/badge.svg?targetFile=package.json" alt="Known vulnerabilities" data-canonical-src="https://snyk.io/test/github/bohemicastudio/bohemica-studio-website?targetFile=package.json" style="max-width:100%;"></a>
-<a href="https://bohemicastudio.github.io/bohemica-studio-website/images/lighthouse/bohemicastudio_github_io_bohemica_studio_website_.html" target="_blank"><img src="./source/images/lighthouse/lighthouse.svg" alt="Lighthouse report" style="max-width:100%;"></a>
+<a href="https://bohemicastudio.github.io/bohemica-studio-website/images/lighthouse/bohemica_studio.html" target="_blank"><img src="./source/images/lighthouse/lighthouse.svg" alt="Lighthouse report" style="max-width:100%;"></a>
 </p>
 
 ---
