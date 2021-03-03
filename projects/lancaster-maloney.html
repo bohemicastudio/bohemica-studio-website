@@ -97,10 +97,23 @@
 
   <div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl">
     <div class="flex flex-grow items-center">
-      <img
-        x-bind:class="`h-${$store['translation.projects'].return(`list['lancaster-maloney'].logoHeight`)}`"
-        x-bind:src="`./images/project/lancaster-maloney/${$store['translation.projects'].return(`list['lancaster-maloney'].logo`)}`"
-      />
+      <picture>
+        <source
+          x-bind:class="`h-${$store['translation.projects'].return(`list['lancaster-maloney'].logoHeight`)}`"
+          x-bind:src="`./images/project/lancaster-maloney/${$store['translation.projects'].return(`list['lancaster-maloney'].logowebp`)}`"
+          type="image/webp"
+        />
+        <source
+          x-bind:class="`h-${$store['translation.projects'].return(`list['lancaster-maloney'].logoHeight`)}`"
+          x-bind:srcset="`./images/project/lancaster-maloney/${$store['translation.projects'].return(`list['lancaster-maloney'].logo`)}`"
+          type="image/png"
+        />
+        <img
+          loading="lazy"
+          x-bind:class="`h-${$store['translation.projects'].return(`list['lancaster-maloney'].logoHeight`)}`"
+          x-bind:src="`./images/project/lancaster-maloney/${$store['translation.projects'].return(`list['lancaster-maloney'].logo`)}`"
+        />
+      </picture>
     </div>
 
     <div
