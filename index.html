@@ -51,25 +51,25 @@
     <!-- Sentry Lazy Load -->
 
     <!-- CSS style & fonts -->
-    <link rel="stylesheet" href="./style.css?v=1614898436137" />
+    <link rel="stylesheet" href="./style.css?v=1614901840600" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1614898436137"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1614898436137"></script>
-    <script src="./script/alpine-toggle.js?v=1614898436137"></script>
+    <script src="./script/helpers.js?v=1614901840600"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1614901840600"></script>
+    <script src="./script/alpine-toggle.js?v=1614901840600"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1614898436137" defer></script>
-    <script src="./script/arrive.js?v=1614898436137"></script>
-    <script src="./script/anime.js?v=1614898436137"></script>
-    <script src="./script/spruce.js?v=1614898436137"></script>
-    <script src="./script/navigo.js?v=1614898436137"></script>
-    <script src="./script/popper.js?v=1614898436137"></script>
-    <script src="./script/tippy.js?v=1614898436137"></script>
-    <script src="./script/medium-zoom.js?v=1614898436137"></script>
-    <script src="./script/dayjs.js?v=1614898436137"></script>
+    <script src="./script/alpine.js?v=1614901840600" defer></script>
+    <script src="./script/arrive.js?v=1614901840600"></script>
+    <script src="./script/anime.js?v=1614901840600"></script>
+    <script src="./script/spruce.js?v=1614901840600"></script>
+    <script src="./script/navigo.js?v=1614901840600"></script>
+    <script src="./script/popper.js?v=1614901840600"></script>
+    <script src="./script/tippy.js?v=1614901840600"></script>
+    <script src="./script/medium-zoom.js?v=1614901840600"></script>
+    <script src="./script/dayjs.js?v=1614901840600"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1614898436137"></script>
-    <script src="./script/store.js?v=1614898436137"></script>
-    <script src="./script/router.js?v=1614898436137"></script>
+    <script src="./script/animation.js?v=1614901840600"></script>
+    <script src="./script/store.js?v=1614901840600"></script>
+    <script src="./script/router.js?v=1614901840600"></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -327,7 +327,7 @@
       <div class="h-screen">
         <div class="flex absolute inset-0 flex-col">
           <div
-            class="container flex flex-row justify-between items-center pt-4 space-x-2 relative z-40"
+            class="container flex relative z-40 flex-row justify-between items-center pt-4 space-x-2"
           >
             <img
               class="w-auto h-full opacity-0 cursor-pointer"
@@ -474,7 +474,7 @@
               </div>
 
               <div
-                class="flex flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12 relative z-40"
+                class="flex relative z-40 flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12"
               >
                 <h1
                   class="text-5xl tracking-tight leading-none text-blue-gray-700 sm:text-6xl md:text-7xl"
@@ -598,7 +598,7 @@
               src="./images/hand/blue.png"
               id="blueHand"
               class="absolute bottom-0 origin-bottom-left"
-              style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); transform: translateY(17.5vh); translateX(-50%); opacity: 0"
+              style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); max-height: 900px; transform: translateY(17.5vh); translateX(-50%); opacity: 0"
               onload="
 						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
 						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })"
@@ -612,7 +612,7 @@
               src="./images/hand/green.png"
               id="greenHand"
               class="absolute bottom-0 origin-bottom-right"
-              style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
+              style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0"
               onload="
 						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })"
@@ -626,7 +626,7 @@
               src="./images/hand/purple.png"
               id="purpleHand"
               class="absolute bottom-0 origin-bottom-left"
-              style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); transform: translateY(12.5vh); translateX(-50%); opacity: 0"
+              style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0"
               onload="
 						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })"
@@ -639,7 +639,7 @@
             <img
               src="./images/hand/yellow.png"
               class="absolute bottom-0 origin-bottom-right"
-              style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); transform: translateY(8.5vh); translateX(-50%); opacity: 0"
+              style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); max-height: 775px; transform: translateY(8.5vh); translateX(-50%); opacity: 0"
               id="yellowHand"
               onload="
 						anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
@@ -747,8 +747,8 @@
           </picture>
         </div>
 
-        <div class="flex absolute z-30 items-end h-screen">
-          <div class="container flex">
+        <div class="flex absolute inset-0 z-30 items-end h-screen">
+          <div class="container xl: flex">
             <a
               x-bind:href="window.router.getPath('overview')"
               data-navigo
@@ -1804,9 +1804,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1614898436150" defer></script>
-    <script src="./script/parallax.js?v=1614898436150" defer></script>
-    <script src="./script/main.js?v=1614898436150" defer></script>
+    <script src="./script/tooltip.js?v=1614901840610" defer></script>
+    <script src="./script/parallax.js?v=1614901840610" defer></script>
+    <script src="./script/main.js?v=1614901840610" defer></script>
     <!-- Hotjar -->
     <script async defer>
       (function (h, o, t, j, a, r) {
