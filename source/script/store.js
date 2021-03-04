@@ -94,7 +94,7 @@ Spruce.store('global', {
 			},
 			head: {
 				title: 'Zdravíme!',
-				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních technologií'
+				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních nástrojů'
 			},
 			tooltip: {
 				scheduleCall: 'Zarezervovat online schůzku',

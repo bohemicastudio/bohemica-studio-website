@@ -52,7 +52,7 @@ permalink: /sections/where.html
 				<p class="text-2xl leading-loose" x-text="$store['translation.sectionWhere'].return('subtitle')"></p>
 			</div>
 
-			<div class="overflow-hidden relative mt-32 mb-40">
+			<div class="hidden overflow-hidden relative mt-32 mb-40 sm:block">
 				<div class="absolute inset-y-0 left-0 z-10 w-1/4 bg-gradient-to-r from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
 				<div class="absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
 				<div class="absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-cool-gray-500 md:h-1/2" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
@@ -67,8 +67,17 @@ permalink: /sections/where.html
 				<picture>
 					<source srcset="./images/hand/phone.webp" type="image/webp">
 					<source srcset="./images/hand/phone.png" type="image/png">
-					<img src="./images/hand/phone.png" loading="lazy" class="w-full transform origin-top scale-150 md:scale-125 lg:scale-100">
+					<img src="./images/hand/phone.png" class="w-full transform origin-top scale-150 md:scale-125 lg:scale-100" media="(min-width: 640px)" loading="lazy">
 				</picture>
+			</div>
+
+			<div class="flex flex-col items-center sm:hidden mt-24 mb-32">
+				<div class="flex flex-col items-center pl-6 space-y-3 md:pl-12 md:space-y-4">
+					<svg class="w-auto h-7 text-white" width="38" height="32" viewBox="0 0 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.7778 26.6667C17.7778 19.7867 23.3422 14.2222 30.2222 14.2222C32.1422 14.2222 33.9378 14.6667 35.5556 15.4311V0H0V28.4444H17.92C17.8311 27.8578 17.7778 27.2711 17.7778 26.6667ZM3.55556 3.55556L17.7778 12.4444L32 3.55556V7.11111L17.7778 16L3.55556 7.11111V3.55556ZM27.2711 32L20.9778 25.7067L23.4844 23.2L27.2533 26.9689L34.7911 19.4311L37.3333 21.9378L27.2711 32Z"/>
+					</svg>
+					<span class="text-2xl text-white text-bold">team@bohemicastudio.com</span>
+				</div>
 			</div>
 		</div>
 	</div>

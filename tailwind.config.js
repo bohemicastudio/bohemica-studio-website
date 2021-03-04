@@ -26,7 +26,8 @@ const screens = {
 module.exports = {
 	purge: [
 		'./build/*.html',
-		'./build/**/*.html'
+		'./build/**/*.html',
+		'./build/script/*.js'
 	],
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
