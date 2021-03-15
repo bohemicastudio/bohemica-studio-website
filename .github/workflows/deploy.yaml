@@ -13,7 +13,6 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: whoami
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          host: 37.46.85.14
+          username: bookstack
+          password: ${{ secrets.PASSWORD }}
