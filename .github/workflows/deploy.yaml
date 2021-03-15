@@ -1,0 +1,22 @@
+name: Deploy to Bookstack
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: bash test.sh
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
+#        env:
+#          CI: true
