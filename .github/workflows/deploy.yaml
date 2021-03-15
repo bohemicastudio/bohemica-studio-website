@@ -1,20 +1,19 @@
-name: Deploy to Bookstack
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy:
+--- 
+jobs: 
+  deploy: 
     runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy script
+    steps: 
+      - 
+        name: "Deploy script"
         uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: bash test.sh
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+        with: 
+          command: "bash test.sh"
+          host: "${{ secrets.HOST }}"
+          password: "${{ secrets.PASSPHRASE }}"
+          privateKey: "${{ secrets.PRIVATE_KEY}}"
+          username: "${{ secrets.USERNAME }}"
+name: "Deploy to Bookstack"
+true: 
+  push: 
+    branches: 
+      - master
