@@ -16,4 +16,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: bash test.sh
+          script: bash deploy.sh
