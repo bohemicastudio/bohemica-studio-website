@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy
+      - name: Deploy script
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: bash test.sh
