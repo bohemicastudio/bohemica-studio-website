@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Deploy script yey
-        uses: garygrossgarten/github-action-ssh@release
+        uses: appleboy/ssh-action@master
         with:
-          command: bash test.sh
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          passphrase: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.PRIVATE_KEY }}
+#          port: ${{ secrets.PORT }}
+          script: whoami
