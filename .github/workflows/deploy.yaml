@@ -1,4 +1,4 @@
-name: "Deploy to Bookstack"
+name: Deploy to Bookstack
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps: 
-      - name: "Deploy script"
+      - name: Deploy script
         uses: garygrossgarten/github-action-ssh@release
           with:
             command: whoami
