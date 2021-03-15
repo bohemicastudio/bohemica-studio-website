@@ -5,13 +5,13 @@ jobs:
     steps: 
       - 
         name: "Deploy script"
-        uses: garygrossgarten/github-action-ssh@release
-        with: 
-          command: "bash test.sh"
-          host: "${{ secrets.HOST }}"
-          password: "${{ secrets.PASSPHRASE }}"
-          privateKey: "${{ secrets.PRIVATE_KEY}}"
-          username: "${{ secrets.USERNAME }}"
+        uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
 name: "Deploy to Bookstack"
 true: 
   push: 
