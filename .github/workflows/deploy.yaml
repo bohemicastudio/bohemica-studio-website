@@ -9,7 +9,7 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps: 
-      - name: Deploy script
+      - name: Deploy script yey
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: whoami
