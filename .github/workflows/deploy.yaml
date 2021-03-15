@@ -9,10 +9,11 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps: 
-      - name: Deploy script
+      - name: Deploy script yey
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: whoami
-          host: 37.46.85.14
-          username: bookstack
-          password: ${{ secrets.PASSWORD }}
+          command: bash test.sh
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          passphrase: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.PRIVATE_KEY }}
