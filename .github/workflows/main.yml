@@ -36,3 +36,24 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
+
+      # - name: Deploy on bookstack
+      #   uses: nogsantos/scp-deploy@master
+      #   with:
+      #     src: ./build/*
+      #     host: ${{ secrets.SSH_HOST }}
+      #     remote: ${{ secrets.SSH_DIR }}
+      #     port: ${{ secrets.SSH_PORT }}
+      #     user: ${{ secrets.SSH_USER }}
+      #     key: ${{ secrets.SSH_KEY }}
+      
+      - name: Rsync deploy
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete-before
+          path: ./build/
+          remote_path: ${{ secrets.SSH_DIR }}
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_port: ${{ secrets.SSH_PORT }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
