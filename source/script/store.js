@@ -208,11 +208,11 @@ Spruce.store('activity', {
 	activities: [
 		{
 			en: {
-				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Website project for MMT company completed in Q3/2020</span><img alt="Finished!" class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
 				url: '/project/mmt',
 			},
 			cs: {
-				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
+				content: '<span class="mt-0.5">Web pro společnost MMT s.r.o. dokončen na podzim roku 2020</span><img alt="Finished!" class="max-w-none" src="./images/activity/checkmark-emoji.svg">',
 				url: '/projekt/mmt'
 			},
 		},
