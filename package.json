@@ -22,6 +22,7 @@
     "copy:popper": "copyfiles --flat node_modules/@popperjs/core/dist/umd/popper.js source/script/libs",
     "copy:spruce": "copyfiles --flat node_modules/@ryangjchandler/spruce/dist/spruce.umd.js source/script/libs",
     "copy:tippy": "copyfiles --flat node_modules/tippy.js/dist/tippy-bundle.umd.js source/script/libs",
+    "copy:emailsign": "copyfiles -f source/email/* build/email/",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "deploy:gh-pages": "gh-pages -d build",
     "deploy": "cross-env NODE_ENV=deploy run-s build deploy:gh-pages",
