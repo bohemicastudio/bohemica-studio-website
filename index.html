@@ -51,25 +51,25 @@
     <!-- Sentry Lazy Load -->
 
     <!-- CSS style & fonts -->
-    <link rel="stylesheet" href="./style.css?v=1615912011437" />
+    <link rel="stylesheet" href="./style.css?v=1615928032332" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1615912011437"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1615912011437"></script>
-    <script src="./script/alpine-toggle.js?v=1615912011437"></script>
+    <script src="./script/helpers.js?v=1615928032332"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1615928032332"></script>
+    <script src="./script/alpine-toggle.js?v=1615928032332"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1615912011437" defer></script>
-    <script src="./script/arrive.js?v=1615912011437"></script>
-    <script src="./script/anime.js?v=1615912011437"></script>
-    <script src="./script/spruce.js?v=1615912011437"></script>
-    <script src="./script/navigo.js?v=1615912011437"></script>
-    <script src="./script/popper.js?v=1615912011437"></script>
-    <script src="./script/tippy.js?v=1615912011438"></script>
-    <script src="./script/medium-zoom.js?v=1615912011438"></script>
-    <script src="./script/dayjs.js?v=1615912011438"></script>
+    <script src="./script/alpine.js?v=1615928032332" defer></script>
+    <script src="./script/arrive.js?v=1615928032332"></script>
+    <script src="./script/anime.js?v=1615928032332"></script>
+    <script src="./script/spruce.js?v=1615928032333"></script>
+    <script src="./script/navigo.js?v=1615928032333"></script>
+    <script src="./script/popper.js?v=1615928032333"></script>
+    <script src="./script/tippy.js?v=1615928032333"></script>
+    <script src="./script/medium-zoom.js?v=1615928032333"></script>
+    <script src="./script/dayjs.js?v=1615928032333"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1615912011438"></script>
-    <script src="./script/store.js?v=1615912011438"></script>
-    <script src="./script/router.js?v=1615912011438"></script>
+    <script src="./script/animation.js?v=1615928032333"></script>
+    <script src="./script/store.js?v=1615928032333"></script>
+    <script src="./script/router.js?v=1615928032333"></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -330,6 +330,7 @@
             class="container flex relative z-40 flex-row justify-between items-center pt-4 space-x-2"
           >
             <img
+              alt="Open projects"
               class="w-auto h-full opacity-0 cursor-pointer"
               x-on:click="window.router.getPath('brand')"
               oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))"
@@ -541,6 +542,7 @@
                 x-init="() => { anime({ targets: $el, duration: 200, delay: 2600, opacity: 1, easing: 'linear'}) }"
               >
                 <a
+                  rel="noreferrer"
                   href="https://twitter.com/BohemicaStudio"
                   target="_blank"
                   x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.twitter&#39;)"
@@ -563,6 +565,7 @@
                 </a>
 
                 <a
+                  rel="noreferrer"
                   href="https://linkedin.com/company/bohemicastudio"
                   target="_blank"
                   x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.linkedin&#39;)"
@@ -595,6 +598,7 @@
             <source srcset="./images/hand/blue.webp" type="image/webp" />
             <source srcset="./images/hand/blue.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/blue.png"
               id="blueHand"
               class="absolute bottom-0 origin-bottom-left"
@@ -609,6 +613,7 @@
             <source srcset="./images/hand/green.webp" type="image/webp" />
             <source srcset="./images/hand/green.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/green.png"
               id="greenHand"
               class="absolute bottom-0 origin-bottom-right"
@@ -623,6 +628,7 @@
             <source srcset="./images/hand/purple.webp" type="image/webp" />
             <source srcset="./images/hand/purple.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/purple.png"
               id="purpleHand"
               class="absolute bottom-0 origin-bottom-left"
@@ -637,6 +643,7 @@
             <source srcset="./images/hand/yellow.webp" type="image/webp" />
             <source srcset="./images/hand/yellow.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/yellow.png"
               class="absolute bottom-0 origin-bottom-right"
               style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); max-height: 775px; transform: translateY(8.5vh); translateX(-50%); opacity: 0"
@@ -655,6 +662,7 @@
             <source srcset="./images/hand/blue.webp" type="image/webp" />
             <source srcset="./images/hand/blue.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/blue.png"
               id="blueHandTablet"
               class="absolute bottom-0 origin-bottom-left"
@@ -669,6 +677,7 @@
             <source srcset="./images/hand/green.webp" type="image/webp" />
             <source srcset="./images/hand/green.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/green.png"
               id="greenHandTablet"
               class="absolute bottom-0 origin-bottom-right"
@@ -683,6 +692,7 @@
             <source srcset="./images/hand/purple.webp" type="image/webp" />
             <source srcset="./images/hand/purple.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/purple.png"
               id="purpleHandTablet"
               class="absolute bottom-0 origin-bottom-left"
@@ -701,6 +711,7 @@
             <source srcset="./images/hand/green.webp" type="image/webp" />
             <source srcset="./images/hand/green.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/green.png"
               id="greenHandMobile"
               class="absolute bottom-0 origin-bottom-right"
@@ -720,6 +731,7 @@
             <source srcset="./images/hand/purple.webp" type="image/webp" />
             <source srcset="./images/hand/purple.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/hand/purple.png"
               id="purpleHandMobile"
               class="absolute bottom-0 origin-bottom-left"
@@ -741,6 +753,7 @@
             <source srcset="./images/warp-background.webp" type="image/webp" />
             <source srcset="./images/warp-background.png" type="image/png" />
             <img
+              alt="Background"
               src="./images/warp-background.png"
               class="object-cover top-0 left-0 z-0 h-full"
             />
@@ -1514,6 +1527,7 @@
           </div>
           <div class="flex flex-col space-y-2">
             <a
+              rel="noreferrer"
               href="https://twitter.com/BohemicaStudio"
               target="_blank"
               class="p-3.5 text-cool-gray-400 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-cool-gray-500 hover:text-cool-gray-100"
@@ -1535,6 +1549,7 @@
             </a>
 
             <a
+              rel="noreferrer"
               href="https://linkedin.com/company/bohemicastudio"
               target="_blank"
               class="p-3.5 text-cool-gray-400 rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-cool-gray-500 hover:text-cool-gray-100"
@@ -1749,6 +1764,7 @@
           </div>
           <div class="grid grid-flow-col gap-2 mx-auto">
             <a
+              rel="noreferrer"
               href="https://twitter.com/BohemicaStudio"
               target="_blank"
               x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.twitter&#39;)"
@@ -1771,6 +1787,7 @@
             </a>
 
             <a
+              rel="noreferrer"
               href="https://linkedin.com/company/bohemicastudio"
               target="_blank"
               x-bind:data-tippy-content="$store[&#39;global&#39;].return(&#39;tooltip.linkedin&#39;)"
@@ -1804,9 +1821,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1615912011451" defer></script>
-    <script src="./script/parallax.js?v=1615912011451" defer></script>
-    <script src="./script/main.js?v=1615912011451" defer></script>
+    <script src="./script/tooltip.js?v=1615928032344" defer></script>
+    <script src="./script/parallax.js?v=1615928032344" defer></script>
+    <script src="./script/main.js?v=1615928032344" defer></script>
     <!-- Hotjar -->
     <script async defer>
       (function (h, o, t, j, a, r) {
