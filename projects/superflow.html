@@ -35,6 +35,7 @@
   >
     <div class="flex flex-grow items-center">
       <img
+        alt="Image graphics"
         x-bind:class="`h-${$store['translation.projects'].return(`list['superflow'].logoHeight`)}`"
         x-bind:src="`./images/project/superflow/${$store['translation.projects'].return(`list['superflow'].logo`)}`"
       />
@@ -108,16 +109,19 @@
     <h4 x-text="translation[$store.global.language]['prototypeScreens']"></h4>
     <div class="grid grid-cols-3 gap-x-8 my-8">
       <img
+        alt="Image graphics"
         src="./images/project/superflow/1.svg"
         class="w-full rounded-lg border border-gray-300"
         loading="lazy"
       />
       <img
+        alt="Image graphics"
         src="./images/project/superflow/2.svg"
         class="w-full rounded-lg border border-gray-300"
         loading="lazy"
       />
       <img
+        alt="Image graphics"
         src="./images/project/superflow/3.svg"
         class="w-full rounded-lg border border-gray-300"
         loading="lazy"
