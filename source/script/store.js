@@ -218,24 +218,24 @@ Spruce.store('activity', {
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img alt="Logo apostrophe" class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			},
 			cs: {
-				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">Jsme oficiálními partnery ApostropheCMS</span><img alt="Logo apostrophe" class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			}
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
+				content: '<span class="mt-0.5">We open-sourced our website on GitHub</span><img alt="Logo image" class="max-w-none" src="./images/activity/github-logo.svg">',
 				url: 'https://github.com/bohemicastudio/bohemica-studio-website',
 				target: '_blank'
 			},
 			cs: {
-				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img class="max-w-none" src="./images/activity/github-logo.svg">',
+				content: '<span class="mt-0.5">Vypustili jsme kód našeho webu GitHub komunitě</span><img alt="Logo image" class="max-w-none" src="./images/activity/github-logo.svg">',
 				url: 'https://github.com/bohemicastudio/bohemica-studio-website',
 				target: '_blank'
 			}
