@@ -2,7 +2,7 @@
 
 {% macro specialisation(name, image, color, order='00') %}
 
-	<img class="transform origin-bottom-left scale-75 md:scale-100" src="./images/specialisation/{{ image }}">
+	<img alt="Specialisation" class="transform origin-bottom-left scale-75 md:scale-100" src="./images/specialisation/{{ image }}">
 	<h3 class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-{{ color }}-200" x-text="'{{ order }} // ' + $store['translation.specialisation'].return('{{ name }}.title')"></h3>
 	<h4 class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl" x-text="$store['translation.specialisation'].return('{{ name }}.subtitle')"></h4>
 

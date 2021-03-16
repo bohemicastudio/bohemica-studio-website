@@ -5,12 +5,12 @@
 			<picture>
 				<source srcset="./images/step/{{ imageTop }}.webp" type="image/webp">
 				<source srcset="./images/step/{{ imageTop }}.png" type="image/png">
-				<img src="./images/step/{{ imageTop }}.png" class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
+				<img alt="Our process" src="./images/step/{{ imageTop }}.png" class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
 			</picture>
 			<picture>
 				<source srcset="./images/step/{{ imageBottom }}.webp" type="image/webp">
 				<source srcset="./images/step/{{ imageBottom }}.png" type="image/png">
-				<img src="./images/step/{{ imageBottom }}.png" class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
+				<img alt="Our process" src="./images/step/{{ imageBottom }}.png" class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
 			</picture>
 			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase" x-text="$store['translation.processSteps'].return('step') + ' {{ step }}'"></span>
 			<h3 class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>

@@ -16,7 +16,7 @@
 
 			<div class="flex absolute inset-0 flex-col">
 				<div class="container flex relative z-40 flex-row justify-between items-center pt-4 space-x-2">
-					<img class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="./images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
+					<img alt="Open projects" class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="./images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, easing: 'linear'})">
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
 						<a rel="noopener" href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl  text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank" x-text="$store['global'].return('available')"></a>
 						<div class="hidden items-center space-x-2 md:flex">
@@ -114,7 +114,7 @@
 				<picture>
 					<source srcset="./images/hand/blue.webp" type="image/webp">
 					<source srcset="./images/hand/blue.png" type="image/png">
-					<img src="./images/hand/blue.png" id="blueHand" class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); max-height: 900px; transform: translateY(17.5vh); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/blue.png" id="blueHand" class="absolute bottom-0 origin-bottom-left" style="left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); max-height: 900px; transform: translateY(17.5vh); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
 						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
 				</picture>
@@ -122,7 +122,7 @@
 				<picture>
 					<source srcset="./images/hand/green.webp" type="image/webp">
 					<source srcset="./images/hand/green.png" type="image/png">
-					<img src="./images/hand/green.png" id="greenHand" class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/green.png" id="greenHand" class="absolute bottom-0 origin-bottom-right" style="left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
 				</picture>
@@ -130,7 +130,7 @@
 				<picture>
 					<source srcset="./images/hand/purple.webp" type="image/webp">
 					<source srcset="./images/hand/purple.png" type="image/png">
-					<img src="./images/hand/purple.png" id="purpleHand" class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/purple.png" id="purpleHand" class="absolute bottom-0 origin-bottom-left" style="left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); max-height: 700px; transform: translateY(12.5vh); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
 				</picture>
@@ -138,7 +138,7 @@
 				<picture>
 					<source srcset="./images/hand/yellow.webp" type="image/webp">
 					<source srcset="./images/hand/yellow.png" type="image/png">
-					<img src="./images/hand/yellow.png" class="absolute bottom-0 origin-bottom-right" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); max-height: 775px; transform: translateY(8.5vh); translateX(-50%); opacity: 0" id="yellowHand" onload="
+					<img alt="Background" src="./images/hand/yellow.png" class="absolute bottom-0 origin-bottom-right" style="right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); max-height: 775px; transform: translateY(8.5vh); translateX(-50%); opacity: 0" id="yellowHand" onload="
 						anime({ targets: this, duration: 400, delay: 2000, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 2400, delay: 2000, rotate: [8, -4], easing: 'easeOutQuart', })">
 				</picture>
@@ -150,7 +150,7 @@
 				<picture>
 					<source srcset="./images/hand/blue.webp" type="image/webp">
 					<source srcset="./images/hand/blue.png" type="image/png">
-					<img src="./images/hand/blue.png" id="blueHandTablet" class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/blue.png" id="blueHandTablet" class="absolute bottom-0 origin-bottom-left" style="left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5); transform: translateY(17.5%); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 1600, opacity: 1, easing: 'linear'})
 						anime({ targets: this, duration: 2600, delay: 1600, rotate: [-4, 12], easing: 'easeOutQuart' })">
 				</picture>
@@ -158,7 +158,7 @@
 				<picture>
 					<source srcset="./images/hand/green.webp" type="image/webp">
 					<source srcset="./images/hand/green.png" type="image/png">
-					<img src="./images/hand/green.png" id="greenHandTablet" class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/green.png" id="greenHandTablet" class="absolute bottom-0 origin-bottom-right" style="left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -6], easing: 'easeOutQuart', })">
 				</picture>
@@ -166,7 +166,7 @@
 				<picture>
 					<source srcset="./images/hand/purple.webp" type="image/webp">
 					<source srcset="./images/hand/purple.png" type="image/png">
-					<img src="./images/hand/purple.png" id="purpleHandTablet" class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/purple.png" id="purpleHandTablet" class="absolute bottom-0 origin-bottom-left" style="right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5); transform: translateY(12.5%); translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, -18], easing: 'easeOutQuart', })">
 				</picture>
@@ -178,7 +178,7 @@
 				<picture>
 					<source srcset="./images/hand/green.webp" type="image/webp">
 					<source srcset="./images/hand/green.png" type="image/png">
-					<img src="./images/hand/green.png" id="greenHandMobile" class="absolute bottom-0 origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/green.png" id="greenHandMobile" class="absolute bottom-0 origin-bottom-right" style="left: 40%; height: 57.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 400, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1200, delay: 400, rotate: [4, -12], easing: 'easeOutQuart', })">
 				</picture>
@@ -186,7 +186,7 @@
 				<picture>
 					<source srcset="./images/hand/purple.webp" type="image/webp">
 					<source srcset="./images/hand/purple.png" type="image/png">
-					<img src="./images/hand/purple.png" id="purpleHandMobile" class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
+					<img alt="Background" src="./images/hand/purple.png" id="purpleHandMobile" class="absolute bottom-0 origin-bottom-left" style="left: 52.5%; height: 52.5vh; transform: translateY(27.5vh) translateX(-50%); opacity: 0" onload="
 						anime({ targets: this, duration: 400, delay: 1000, opacity: 1, easing: 'linear', })
 						anime({ targets: this, duration: 1400, delay: 1000, rotate: [6, 18], easing: 'easeOutQuart', })">
 				</picture>
@@ -198,7 +198,7 @@
 				<picture>
 					<source srcset="./images/warp-background.webp" type="image/webp">
 					<source srcset="./images/warp-background.png" type="image/png">
-					<img src="./images/warp-background.png" class="object-cover top-0 left-0 z-0 h-full">
+					<img alt="Background" src="./images/warp-background.png" class="object-cover top-0 left-0 z-0 h-full">
 				</picture>
 				{# <img class="object-cover top-0 left-0 z-0 h-full opacity-0" src="./images/warp-background.svg" onload="anime({targets: this, duration: 100, delay: 100, opacity: 1, easing: 'linear'})"> #}
 			</div>
