@@ -53,7 +53,7 @@
     border-collapse: separate;
 
     tbody tr.phase td {
-        @apply py-4 px-6 whitespace-nowrap bg-blue-gray-300 font-medium text-blue-gray-800 text-base border-none rounded-lg
+        @apply py-4 px-6 whitespace-nowrap bg-blue-gray-300 font-medium text-blue-gray-800 text-base border-none
     }
 
     tbody tr.phase + tr td {

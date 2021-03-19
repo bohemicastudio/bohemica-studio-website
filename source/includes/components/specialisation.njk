@@ -8,7 +8,7 @@
 
 	<div class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3">
 		<template x-for="(item, index) in $store['translation.specialisation'].return('{{ name }}.keywords')">
-			<span class="select-none text-white bg-{{ color }}-700 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap" x-text="item"></span>
+			<span class="select-none text-white bg-{{ color }}-700 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="item"></span>
 		</template>
 	</div>
 

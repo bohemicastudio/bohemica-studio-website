@@ -57,7 +57,8 @@ Spruce.store('global', {
 			backToTop: 'Back to top',
 			backToProjectOverview: 'Back to the project overview',
 			openProjectLibrary: 'Open a project library',
-			available: 'Available for new projects'
+			available: 'Available for new projects',
+			scheduleCall: 'Schedule a call',
 		},
 		cs: {
 			sections: {
@@ -97,7 +98,7 @@ Spruce.store('global', {
 				subtitle: 'Jsme přátelský tým kvalifikovaných programátorů a designerů informačních nástrojů'
 			},
 			tooltip: {
-				scheduleCall: 'Zarezervovat online schůzku',
+				scheduleCall: 'Zabukovat online schůzku',
 				changeLanguage: 'Změnit jazyk',
 				twitter: 'Koukni, co máme na srdci na Twitteru',
 				linkedin: 'Spoj se s námi na síti LinkedIn'
@@ -108,7 +109,8 @@ Spruce.store('global', {
 			backToTop: 'Zpět nahoru',
 			backToProjectOverview: 'Zpět na přehled projektů',
 			openProjectLibrary: 'Otevřít knihovnu projektů',
-			available: 'Jsme otevřeni novým projektům'
+			available: 'Jsme otevřeni novým projektům',
+			scheduleCall: 'Zabukovat online schůzku',
 		}
 	},
 	return: function (data) {

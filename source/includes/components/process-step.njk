@@ -14,6 +14,9 @@
 			</picture>
 			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase" x-text="$store['translation.processSteps'].return('step') + ' {{ step }}'"></span>
 			<h3 class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>
+			{% if step === '1' %}
+				{% include "components/button-call.njk" %}
+			{% endif %}
 			<div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
 				<ul class="space-y-12 text-base text-cool-gray-900 font-dm-mono">
 					<template x-for="row in $store['translation.processSteps'].return('{{ step }}.description')">
@@ -23,7 +26,7 @@
 			</div>
 			<div class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3">
 				<template x-for="keyword in $store['translation.processSteps'].return('{{ step }}.keywords')">
-					<span class="select-none text-white bg-{{ color }}-500 text-sm md:text-base px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full font-medium whitespace-nowrap" x-text="keyword"></span>
+					<span class="select-none text-white bg-{{ color }}-500 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="keyword"></span>
 				</template>
 			</div>
 		</div>
@@ -34,110 +37,110 @@
 
 
 {% macro processStepsTranslation() %}
-		Spruce.store('translation.processSteps', {
-			en: {
-				step: 'Step',
-				1: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief.',
-						'We talk through requirements and goals the project and come back with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy.',
-						'We let clients the options you have in terms of how we intend to approach the project.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				},
-				2: {
-					title: 'Design & Development',
-					description: [
-						`Let's get to work!This is when it all comes together.`,
-						'We design, code, and do everything in-between and beyond.',
-						'Client is regularly updated about the progress and further discussions take place.'
-					],
-					keywords: [
-						'Sketch',
-						'Wireframe',
-						'Mock-up',
-						'Guideline',
-						'Illustration',
-						'Website',
-						'Application',
-						'Copywriting'
-					]
-				},
-				3: {
-					title: 'Test & Launch',
-					description: [
-						'Hooray, it is done!',
-						`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
-					],
-					keywords: [
-						'Testing',
-						'Deployment',
-						'SEO',
-						'Analytics',
-					]
-				}
-			},
-			cs: {
-				step: 'Krok',
-				1: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief.',
-						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy.',
-						'We let you know the options you have in terms of how we intend to approach the project.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				},
-				2: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief.',
-						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy.',
-						'We let you know the options you have in terms of how we intend to approach the project.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				},
-				3: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief.',
-						'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy.',
-						'We let you know the options you have in terms of how we intend to approach the project.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				}
-			},
-			return: function (data) {
-				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
-			}
-		})
+	Spruce.store('translation.processSteps', {
+	en: {
+	step: 'Step',
+	1: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals the project and come back with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let clients the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	2: {
+	title: 'Design & Development',
+	description: [
+	`Let's get to work!This is when it all comes together.`,
+	'We design, code, and do everything in-between and beyond.',
+	'Client is regularly updated about the progress and further discussions take place.'
+	],
+	keywords: [
+	'Sketch',
+	'Wireframe',
+	'Mock-up',
+	'Guideline',
+	'Illustration',
+	'Website',
+	'Application',
+	'Copywriting'
+	]
+	},
+	3: {
+	title: 'Test & Launch',
+	description: [
+	'Hooray, it is done!',
+	`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
+	],
+	keywords: [
+	'Testing',
+	'Deployment',
+	'SEO',
+	'Analytics',
+	]
+	}
+	},
+	cs: {
+	step: 'Krok',
+	1: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	2: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	3: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief.',
+	'We talk through requirements and goals of your project and come back to you with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy.',
+	'We let you know the options you have in terms of how we intend to approach the project.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+	}
+	})
 {% endmacro %}
