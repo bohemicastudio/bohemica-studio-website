@@ -4,14 +4,16 @@
 })*/
 
 // check on load if tab is active, if not wait with animation
-if (document.hasFocus()) console.log('Tab is active')
+/*if (document.hasFocus()) console.log('Tab is active')*/
 
 // triggered when local storage changes - in a different window/tab
-window.addEventListener('storage',
+/*window.addEventListener('storage',
     function (event) {
         console.log('storage change', event)
-        /*Spruce.stores.global.language*/
-    })
+        /!*Spruce.stores.global.language*!/
+    })*/
+
+console.log("%c" + `Welcome to the Bohemica Studio's virtual home! 🌐`, "color:" + 'rgb(96, 165, 250)' + ";font-weight:bold;");
 
 // executed once page is loaded
 window.addEventListener('load',
@@ -21,11 +23,10 @@ window.addEventListener('load',
         window.Spruce.stores.global.loaded = true
 
         // Scroll to top of the document before page is unloaded
-        /* TODO Enable for production ??? */
-        /*window.addEventListener('beforeunload', function (event) {
+        window.addEventListener('beforeunload', function (event) {
             document.querySelector('body').classList.add('invisible')
             window.scrollTo(0, 0)
-        })*/
+        })
 
         // Initialise Tippy.js library
         window.initialiseTooltips()
@@ -47,7 +48,7 @@ window.addEventListener('load',
         }
 
         let inView = (entry) => {
-            console.log(entry[0].target.id)
+            /*console.log(entry[0].target.id)*/
             if (entry[0].target.id === 'intro') {
                 window.Spruce.stores.global.openSectionClue = false
             }
@@ -81,7 +82,7 @@ let updateNavigoLinks = debounce(() => {
 
 /* Update Navigo links when new [data-navigo] element is in the DOM */
 document.arrive("[data-navigo]", function () {
-    console.log('new [data-navigo] in the DOM')
+    /*console.log('new [data-navigo] in the DOM')*/
     window.router.updatePageLinks()
 })
 

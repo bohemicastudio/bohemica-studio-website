@@ -131,7 +131,6 @@ Spruce.store('global', {
 		this.language = language
 		localStorage.setItem('language', language)
 
-		console.log('router', router)
 		let url = router.current[0].url
 
 		if (url.includes('/')) {
@@ -171,7 +170,7 @@ Spruce.store('global', {
 				duration: 600,
 				easing: 'easeOutQuart',
 				begin: (() => {
-					console.log('opening mobileMenu')
+					/*console.log('opening mobileMenu')*/
 				}),
 				complete: (() => {
 					Spruce.stores.global.showWindowUnderlay = true
@@ -271,7 +270,7 @@ Spruce.store('activity', {
 })
 
 Spruce.starting(function () {
-	console.log('Spruce starting', Spruce.stores, Math.floor(Math.random() * Spruce.stores.activity.activities.length))
+	/*console.log('Spruce starting', Spruce.stores, Math.floor(Math.random() * Spruce.stores.activity.activities.length))*/
 	Spruce.stores.activity.random = Math.floor(Math.random() * Spruce.stores.activity.activities.length)
 })
 

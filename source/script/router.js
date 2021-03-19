@@ -1,5 +1,4 @@
 // initialise Navigo
-console.log('window.location', window.location, window.location.hostname === 'bohemicastudio.github.io')
 window.router = new Navigo(window.location.hostname === 'bohemicastudio.github.io' ? '/bohemica-studio-website' : '/', {
 	strategy: 'ONE',
 	hash: false,
@@ -15,7 +14,7 @@ localStorage.setItem('language', Spruce.stores.global.language)
 // check language setting before each load
 window.router.hooks({
 	before: function (done, match) {
-		console.log('before', match, router)
+		/*console.log('before', match, router)*/
 
 		done(false) // <-- this will make dirty=false and will allow the subsequent navigation
 
@@ -34,17 +33,16 @@ window.router.hooks({
 			done()
 		}
 		else {
-			console.log('NO PARAM')
+			/*console.log('NO PARAM')*/
 			window.router.navigate('en', { callHandler: false })
 		}
 	},
 	after: function (match) {
-		console.log('after', match, router)
-
-		console.log(match.route.name.substr(0, match.route.name.lastIndexOf('-')))
+		/*console.log('after', match, router)*/
+		/*console.log(match.route.name.substr(0, match.route.name.lastIndexOf('-')))*/
 
 		if (router.paths.some(path => path.route === match.route.name.substr(0, match.route.name.lastIndexOf('-')))) {
-			console.log('matched')
+			/*console.log('matched')*/
 			/*router.current[0].file = */
 		}
 	}
@@ -149,7 +147,7 @@ window.router.getFile = function (path) {
 // routes
 window.router.on({
 	':language': function ({ data }) {
-		console.log('Root - has param;', 'params:', data)
+		/*console.log('Root - has param;', 'params:', data)*/
 
 		if (Spruce.stores.slideover.open === true) {
 			window.animation.slideoverClose.play()
@@ -174,34 +172,30 @@ window.router.on({
 	':language/projects/:name': {
 		as: 'project-en',
 		uses: ({ data }) => {
-			console.log('Project; en', 'params:', data)
-
+			/*console.log('Project; en', 'params:', data)*/
 			projectHandler(data.name)
 		}
 	},
 	':language/projekty/:name': {
 		as: 'project-cs',
 		uses: ({ data }) => {
-			console.log('Projekt; cs', 'params:', data)
-
+			/*console.log('Projekt; cs', 'params:', data)*/
 			projectHandler(data.name)
 		}
 	},
 	'*': function ({ data }) {
-		console.log('Root - no language;', 'data:', data, !data)
+		/*console.log('Root - no language;', 'data:', data, !data)*/
 
 		if (!data && Spruce.stores.global.language) {
-			console.log('redirecting with language from local storage')
+			/*console.log('redirecting with language from local storage')*/
 			window.router.navigate(Spruce.stores.global.language, { callHandler: false })
 		}
 		else {
-			console.log('redirecting without language from local storage')
+			/*console.log('redirecting without language from local storage')*/
 			window.router.navigate('en', { callHandler: false })
 		}
 	},
 }).resolve()
-
-console.log(window.router.match("/en/projects/overview"))
 
 // handler function for slideover router changes
 function projectHandler(name) {
