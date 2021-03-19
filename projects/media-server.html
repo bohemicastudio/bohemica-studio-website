@@ -15,8 +15,10 @@
             <li>Control panel: admin dashboard in a web browser</li>
             <li>Player: application controlling the displayed content</li>`,
                 client: `During the initial stage, a wireframe diagram was created to break down the project's complexity`,
-                client2: 'We designed a media upload approach',
-                client3: 'Final result'
+                client2: 'Low-fidelity wireframe for each section allowed us to get quickly started with coding the application',
+                client3: `Moodboard as a source of inspiration for the final UI/UX`,
+                client4: 'Final result',
+                client6: 'The system was tested, and is still in use, inside a showroom store'
             },
             cs: {
                 preHeading: `Z projektu jsme vyvinuli vlastní Saas produkt - Bohemica Signage <a rel=follow href='https://bohemicasignage.com' target='_blank'>bohemicasignage.com</a>`,
@@ -28,8 +30,10 @@
                 process2: 'Technické řešení sestává z několika aplikací:',
                 process3: `<li>Serverová část: databáze a API, zpracování požadavků, ukládání dat a zálohy</li><li>Uživatelská část: administrace médií přímo v prohlížeči</li><li>Přehrávací část: program pro přehrávání přímo na displeji</li>`,
                 client: 'Na začátku jsme vytvořili schéma zapojení všech částí pro následovný rychlejší a jasnější vývoj',
-                client2: 'Navrhli jsme způsob nahrávání médií',
-                client3: 'Výsledek'
+                client2: 'Skica uživatelského prostředí pro každou sekci nám umožnila rychle začít s kódováním aplikace',
+                client3: `Moodboard pro konečný vzhled a fuknci uživatelského rozhraní aplikace`,
+                client4: 'Výsledek',
+                client6: 'Systém byl testován, a stále se používá, v showroom prodejně'
             }
         }
     }
@@ -56,7 +60,7 @@
   <div
     class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none"
   >
-    <div class="flex items-center flex-grow">
+    <div class="flex flex-grow items-center">
       <img
         alt="Image graphics"
         x-bind:class="`h-${$store['translation.projects'].return(`list['media-server'].logoHeight`)}`"
@@ -65,7 +69,7 @@
     </div>
 
     <div
-      class="grid font-medium gap-y-2 gap-x-5"
+      class="grid gap-y-2 gap-x-5 font-medium"
       style="grid-template-columns: min-content auto"
     >
       <span
@@ -154,7 +158,7 @@
         <img
           alt="Image graphics"
           src="./images/project/media-server/1.png"
-          class="w-full border border-gray-300 rounded-lg"
+          class="w-full rounded-lg border border-gray-300"
           media="(min-width: 960px)"
           loading="lazy"
         />
@@ -174,7 +178,7 @@
         <img
           alt="Image graphics"
           src="./images/project/media-server/2.png"
-          class="w-full border border-gray-300 rounded-lg"
+          class="w-full rounded-lg border border-gray-300"
           media="(min-width: 960px)"
           loading="lazy"
         />
@@ -183,35 +187,75 @@
 
     <figure>
       <figcaption
-        x-html="translation[$store.global.language]['client2']"
+        x-html="translation[$store.global.language]['client3']"
       ></figcaption>
       <picture>
         <source
           srcset="./images/project/media-server/3.webp"
           type="image/webp"
         />
+        <source srcset="./images/project/media-server/3.jpg" type="image/png" />
+        <img
+          alt="Image graphics"
+          src="./images/project/media-server/3.jpg"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <figure>
+      <figcaption
+        x-html="translation[$store.global.language]['client4']"
+      ></figcaption>
+      <picture>
         <source
-          srcset="./images/project/media-server/3.jpg"
+          srcset="./images/project/media-server/4.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="./images/project/media-server/4.jpg"
           type="image/jpeg"
         />
         <img
           alt="Image graphics"
-          src="./images/project/media-server/3.jpg"
-          class="w-full border border-gray-300 rounded-lg"
+          src="./images/project/media-server/4.jpg"
+          class="w-full rounded-lg border border-gray-300"
           media="(min-width: 960px)"
           loading="lazy"
         />
       </picture>
       <picture>
         <source
-          srcset="./images/project/media-server/4.webp"
+          srcset="./images/project/media-server/5.webp"
           type="image/webp"
         />
-        <source srcset="./images/project/media-server/4.png" type="image/png" />
+        <source srcset="./images/project/media-server/5.png" type="image/png" />
         <img
           alt="Image graphics"
-          src="./images/project/media-server/4.jpg"
-          class="w-full border border-gray-300 rounded-lg"
+          src="./images/project/media-server/5.jpg"
+          class="w-full rounded-lg border border-gray-300"
+          media="(min-width: 960px)"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <figure>
+      <figcaption
+        x-html="translation[$store.global.language]['client6']"
+      ></figcaption>
+      <picture>
+        <source
+          srcset="./images/project/media-server/6.webp"
+          type="image/webp"
+        />
+        <source srcset="./images/project/media-server/6.png" type="image/png" />
+        <img
+          alt="Image graphics"
+          src="./images/project/media-server/6.jpg"
+          class="w-full rounded-lg border border-gray-300"
           media="(min-width: 960px)"
           loading="lazy"
         />
