@@ -9,6 +9,7 @@
 		window.animation.showWindowUnderlay = anime({
 			targets: '#windowUnderlay',
 			opacity: [0, 1],
+			translateZ: 0,
 			duration: 200,
 			easing: 'linear',
 			autoplay: false
@@ -17,15 +18,16 @@
 		window.animation.slideoverClose = anime({
 			targets: '#slideover',
 			translateY: ['0%', '100%'],
+			translateZ: 0,
 			duration: 400,
 			easing: 'easeInQuart',
 			autoplay: false
 		})
 
-		/* TODO Set the function without immediate execution? */
 		window.animation.slideoverOpen = anime({
 			targets: '#slideover',
 			translateY: ['100%', '0%'],
+			translateZ: 0,
 			duration: 600,
 			easing: 'easeOutQuart',
 			autoplay: false
@@ -35,6 +37,7 @@
 			{ targets: '#slideoverContent', autoplay: false })
 			.add({
 				translateY: ['0rem', '2rem'],
+				translateZ: 0,
 				duration: 400,
 				easing: 'easeInQuart',
 			}).add({
@@ -47,6 +50,7 @@
 			{ targets: '#slideoverContent', autoplay: false })
 			.add({
 				translateY: ['-2rem', '0rem'],
+				translateZ: 0,
 				duration: 400,
 				easing: 'easeOutQuart',
 			}).add({

@@ -5,6 +5,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#blueHand',
 			translateY: ['17.5', '22.5vh'],
+			translateZ: 0,
 			rotate: [12, 0],
 			autoplay: false,
 			easing: 'linear',
@@ -16,6 +17,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#greenHand',
 			translateY: ['12.5vh', '17.5vh'],
+			translateZ: 0,
 			rotate: [-12, -24],
 			autoplay: false,
 			easing: 'linear'
@@ -27,6 +29,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#purpleHand',
 			translateY: ['12.5vh', '17.5vh'],
+			translateZ: 0,
 			rotate: [18, 32],
 			autoplay: false,
 			easing: 'linear'
@@ -38,6 +41,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#yellowHand',
 			translateY: ['8.5vh', '13.5vh'],
+			translateZ: 0,
 			rotate: [-4, 8],
 			autoplay: false,
 			easing: 'linear'
@@ -50,6 +54,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#blueHandTablet',
 			translateY: ['17.5%', '22.5%'],
+			translateZ: 0,
 			rotate: [12, 0],
 			autoplay: false,
 			easing: 'linear',
@@ -61,6 +66,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#greenHandTablet',
 			translateY: ['12.5%', '17.5%'],
+			translateZ: 0,
 			rotate: [-6, -18],
 			autoplay: false,
 			easing: 'linear'
@@ -72,6 +78,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#purpleHandTablet',
 			translateY: ['12.5%', '17.5%'],
+			translateZ: 0,
 			rotate: [-18, -6],
 			autoplay: false,
 			easing: 'linear'
@@ -84,6 +91,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#greenHandMobile',
 			translateY: ['27.5vh', '32.5vh'],
+			translateZ: 0,
 			rotate: [-12, -18],
 			autoplay: false,
 			easing: 'linear'
@@ -95,6 +103,7 @@ const parallaxAnimations = [
 		anime: anime({
 			targets: '#purpleHandMobile',
 			translateY: ['27.5vh', '32.5vh'],
+			translateZ: 0,
 			rotate: [18, 26],
 			autoplay: false,
 			easing: 'linear'
@@ -134,7 +143,7 @@ const scrollHandler = function () {
 				parallaxAnimation.raf = requestAnimationFrame(updateAnimation)
 			}
 			else if (parallaxAnimation.raf) {
-				console.log('cancelling animation')
+				/*console.log('Cancelling parallax hand animation')*/
 				cancelAnimationFrame(parallaxAnimation.raf)
 				parallaxAnimation.raf = null
 			}

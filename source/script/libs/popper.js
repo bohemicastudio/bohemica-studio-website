@@ -1,5 +1,5 @@
 /**
- * @popperjs/core v2.9.0 - MIT License
+ * @popperjs/core v2.9.1 - MIT License
  */
 
 (function (global, factory) {
@@ -251,7 +251,7 @@
 
 
   function getContainingBlock(element) {
-    var isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+    var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1;
     var currentNode = getParentNode(element);
 
     while (isHTMLElement(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
@@ -259,7 +259,7 @@
       // create a containing block.
       // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
 
-      if (css.transform !== 'none' || css.perspective !== 'none' || css.contain === 'paint' || ['transform', 'perspective'].includes(css.willChange) || isFirefox && css.willChange === 'filter' || isFirefox && css.filter && css.filter !== 'none') {
+      if (css.transform !== 'none' || css.perspective !== 'none' || css.contain === 'paint' || ['transform', 'perspective'].indexOf(css.willChange) !== -1 || isFirefox && css.willChange === 'filter' || isFirefox && css.filter && css.filter !== 'none') {
         return currentNode;
       } else {
         currentNode = currentNode.parentNode;
@@ -1042,7 +1042,7 @@
     passive: true
   };
 
-  function effect(_ref) {
+  function effect$2(_ref) {
     var state = _ref.state,
         instance = _ref.instance,
         options = _ref.options;
@@ -1082,7 +1082,7 @@
     enabled: true,
     phase: 'write',
     fn: function fn() {},
-    effect: effect,
+    effect: effect$2,
     data: {}
   };
 
@@ -1393,7 +1393,7 @@
     fn: offset
   };
 
-  var hash = {
+  var hash$1 = {
     left: 'right',
     right: 'left',
     bottom: 'top',
@@ -1401,17 +1401,17 @@
   };
   function getOppositePlacement(placement) {
     return placement.replace(/left|right|bottom|top/g, function (matched) {
-      return hash[matched];
+      return hash$1[matched];
     });
   }
 
-  var hash$1 = {
+  var hash = {
     start: 'end',
     end: 'start'
   };
   function getOppositeVariationPlacement(placement) {
     return placement.replace(/start|end/g, function (matched) {
-      return hash$1[matched];
+      return hash[matched];
     });
   }
 
@@ -1763,7 +1763,7 @@
     state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
   }
 
-  function effect$2(_ref2) {
+  function effect(_ref2) {
     var state = _ref2.state,
         options = _ref2.options;
     var _options$element = options.element,
@@ -1805,7 +1805,7 @@
     enabled: true,
     phase: 'main',
     fn: arrow,
-    effect: effect$2,
+    effect: effect,
     requires: ['popperOffsets'],
     requiresIfExists: ['preventOverflow']
   };
@@ -1869,30 +1869,22 @@
     fn: hide
   };
 
-  /*:: export type * from './types'; */
-
-  /*;; export * from './types'; */
-
-  var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1];
-  var createPopper = /*#__PURE__*/popperGenerator({
-    defaultModifiers: defaultModifiers
-  }); // eslint-disable-next-line import/no-unused-modules
-
-  /*:: export type * from './types'; */
-
-  /*;; export * from './types'; */
-
-  var defaultModifiers$1 = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
+  var defaultModifiers$1 = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1];
   var createPopper$1 = /*#__PURE__*/popperGenerator({
     defaultModifiers: defaultModifiers$1
+  }); // eslint-disable-next-line import/no-unused-modules
+
+  var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
+  var createPopper = /*#__PURE__*/popperGenerator({
+    defaultModifiers: defaultModifiers
   }); // eslint-disable-next-line import/no-unused-modules
 
   exports.applyStyles = applyStyles$1;
   exports.arrow = arrow$1;
   exports.computeStyles = computeStyles$1;
-  exports.createPopper = createPopper$1;
-  exports.createPopperLite = createPopper;
-  exports.defaultModifiers = defaultModifiers$1;
+  exports.createPopper = createPopper;
+  exports.createPopperLite = createPopper$1;
+  exports.defaultModifiers = defaultModifiers;
   exports.detectOverflow = detectOverflow;
   exports.eventListeners = eventListeners;
   exports.flip = flip$1;

@@ -165,6 +165,7 @@ Spruce.store('global', {
 			anime({
 				targets: '#mobileMenu',
 				translateY: '0%',
+				translateZ: 0,
 				duration: 600,
 				easing: 'easeOutQuart',
 				begin: (() => {
@@ -184,6 +185,7 @@ Spruce.store('global', {
 		anime({
 			targets: '#mobileMenu',
 			translateY: '-100%',
+			translateZ: 0,
 			duration: 400,
 			easing: 'easeInQuart',
 			complete: (() => {
