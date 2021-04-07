@@ -13,7 +13,7 @@
         /!*Spruce.stores.global.language*!/
     })*/
 
-console.log("%c" + `Welcome to the Bohemica Studio's virtual home! 🌐`, "color:" + 'rgb(96, 165, 250)' + ";font-weight:bold;");
+console.log("%c" + `Welcome to the virtual home of Bohemica Studio's team! 🌐`, "color:" + 'rgb(96, 165, 250)' + ";font-weight:bold;");
 
 // executed once page is loaded
 window.addEventListener('load',

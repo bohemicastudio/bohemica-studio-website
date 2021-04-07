@@ -251,14 +251,38 @@
 
 	</div>
 
-	<div class="fixed top-2.5 right-2.5 z-40 py-1 px-3 text-lg font-medium text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5" x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"
-	     x-cloak x-show="$store.global.openSectionClue"
+	<div class="fixed cursor-pointer top-2.5 right-2.5 z-40 text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5"
+	     x-cloak x-show="$store.global.openSectionClue" x-data="{ open: false }" x-on:click="open = !open" :class="{ 'zoom-0' : open }"
 	     x-transition:enter="transition ease-out duration-150"
 	     x-transition:enter-start="opacity-0 transform scale-75"
 	     x-transition:enter-end="opacity-100 transform scale-100"
 	     x-transition:leave="transition ease-in duration-100"
 	     x-transition:leave-start="opacity-100 transform scale-100"
 	     x-transition:leave-end="opacity-0 transform scale-75">
+
+		<div class="relative">
+
+			<button class="flex flex-row justify-between items-center py-1 pr-1 pl-3 group focus:outline-none">
+
+				<span class="text-lg font-medium leading-none text-cool-gray-100" x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"></span>
+
+				<span class="text-cool-gray-100 bg-cool-gray-600 rounded-lg ml-1.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500"><i class="gg-chevron-down"></i></span>
+			</button>
+
+			<div class="absolute left-0 top-full z-40 p-1 mt-3 bg-cool-gray-500 rounded-lg origin-left"
+			     :class="open ? 'opacity-1' : 'opacity-0'"
+			     :style="(open ? 'transform: scale(1) translateY(0rem); visibility: visible; transition: 200ms opacity linear 100ms, 200ms transform ease-out 100ms, 0ms visibility linear 0ms, 0ms overflow linear 0ms;' : 'transform: scale(0.85) translateY(-.75rem); visibility: hidden !important; transition: 200ms opacity linear 0ms, 200ms transform ease-out 0ms, 0ms visibility linear 200ms, 0ms overflow linear 150ms;') + ''">
+				<div class="grid gap-2">
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'what' }" x-text="$store['global'].return('sections.what.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how' }" x-text="$store['global'].return('sections.how.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how-much' }" x-text="$store['global'].return(`sections['how-much'].name`)" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'why' }" x-text="$store['global'].return('sections.why.name')" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'who' }" x-text="$store['global'].return('sections.who.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'where' }" x-text="$store['global'].return('sections.where.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 	{# Section Why #1 #}

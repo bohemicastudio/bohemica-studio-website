@@ -221,7 +221,7 @@ Spruce.store('activity', {
 		},
 		{
 			en: {
-				content: '<span class="mt-0.5">We are an official partner of ApostrophCMS</span><img alt="Logo apostrophe" class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
+				content: '<span class="mt-0.5">We are an official partner of ApostropheCMS</span><img alt="Logo apostrophe" class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
 			},
