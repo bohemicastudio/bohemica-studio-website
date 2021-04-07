@@ -252,7 +252,7 @@
 	</div>
 
 	<div class="fixed cursor-pointer top-2.5 right-2.5 z-40 text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5"
-	     x-cloak x-show="$store.global.openSectionClue" x-data="{ open: false }" x-on:click="open = !open" :class="{ 'zoom-0' : open }"
+	     x-cloak x-show="$store.global.openSectionClue" x-data="{ open: false }" x-on:click="open = !open" x-on:click.away="open = false" :class="{ 'zoom-0' : open }"
 	     x-transition:enter="transition ease-out duration-150"
 	     x-transition:enter-start="opacity-0 transform scale-75"
 	     x-transition:enter-end="opacity-100 transform scale-100"
