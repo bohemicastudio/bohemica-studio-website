@@ -206,7 +206,7 @@
 			<div class="flex absolute inset-0 z-30 items-end h-screen">
 				<div class="container flex xl:">
 					<a x-bind:href="window.router.getPath('overview')" data-navigo
-					   class="transform flex flex-row items-center -translate-y-full py-2.5 pl-3.5 pr-2.5 space-x-1 opacity-0 bg-blue-gray-500 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-blue-gray-100 focus:ring-blue-gray-500"
+					   class="umami--click--projects-herobutton transform flex flex-row items-center -translate-y-full py-2.5 pl-3.5 pr-2.5 space-x-1 opacity-0 bg-blue-gray-500 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-blue-gray-100 focus:ring-blue-gray-500"
 					   x-init="() => { anime({ targets: $el, duration: 200, delay: 3200, opacity: 1, easing: 'linear'}) }" x-data>
 						<span class="leading-none text-white whitespace-nowrap" x-text="$store['global'].return('openProjectLibrary')"></span>
 						<i class="transition duration-200 ease-out transform gg-chevron-right text-white group-hover:translate-x-0.5 flex-shrink-0"></i>
