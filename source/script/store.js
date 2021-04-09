@@ -128,15 +128,11 @@ Spruce.store('global', {
 	],
 	async switchTranslation(language) {
 		// set language for the store and local storage
-		console.log('language', language)
-		console.log('router', router)
 
 		this.language = language
 		localStorage.setItem('language', language)
 
 		let url = router?.current?.[0]?.url
-
-		console.log('url', url)
 
 		if (url?.includes('/')) {
 			url = url.split('/').reduce((accumulator, currentValue, index) => {

@@ -42,7 +42,7 @@ window.router.hooks({
 				.then(response => {
 					console.log("You are in:", response.country, response.countryCode);
 
-					if (response.countryCode === 'CS') {
+					if (response.countryCode === 'CZ') {
 						geolocationLanguage = 'cs'
 					}
 					else {
