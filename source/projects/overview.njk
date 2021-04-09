@@ -4,7 +4,7 @@ permalink: /projects/overview.html
 
 <h3 class="pb-8 mb-16 text-3xl font-bold text-gray-900 border-b border-gray-600" x-text="$store['translation.projects'].return('projectLibrary')"></h3>
 
-<div class="grid grid-cols-2 auto-rows-fr gap-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 auto-rows-fr gap-6">
 	<template x-for="(entry, index) in Object.entries($store['translation.projects'].return('list'))" :key="entry[0]">
 		<a x-bind:href="window.router.getPath(entry[0])" data-navigo class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"> {# bg-gray-100 rounded-3xl border border-gray-300 hover:border-gray-500 #}
 			<div class="flex flex-grow items-center">

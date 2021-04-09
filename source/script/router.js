@@ -242,11 +242,8 @@ function projectHandler(name) {
 					// Re-initialise Navigo links after new content is loaded
 					window.router.updatePageLinks()
 
-					window.mediumZoom = mediumZoom('[data-zoom]', {
-						margin: 24,
-						background: 'rgba(0, 0, 0, 0.75)',
-						scrollOffset: 0
-					})
+					window.mediumZoom.detach()
+					window.mediumZoom.attach(document.querySelectorAll('[data-zoom]'))
 				})
 			}, 50)
 		})
@@ -270,11 +267,8 @@ function projectHandler(name) {
 							// Re-initialise Navigo links after new content is loaded
 							window.router.updatePageLinks()
 
-							window.mediumZoom = mediumZoom('[data-zoom]', {
-								margin: 24,
-								background: 'rgba(0, 0, 0, 0.75)',
-								scrollOffset: 0
-							})
+							window.mediumZoom.detach()
+							window.mediumZoom.attach(document.querySelectorAll('[data-zoom]'))
 						})
 					}, 50)
 				})
