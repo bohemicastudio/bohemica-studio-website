@@ -79,6 +79,14 @@ window.router.paths = [
 		route: 'project'
 	},
 	{
+		file: 'brand',
+		path: {
+			en: 'bohemica-brand',
+			cs: 'bohemica-brand'
+		},
+		route: 'project'
+	},
+	{
 		file: 'media-server',
 		path: {
 			en: 't-mobile',
@@ -233,6 +241,12 @@ function projectHandler(name) {
 					window.animation.slideoverFadeInContent.play()
 					// Re-initialise Navigo links after new content is loaded
 					window.router.updatePageLinks()
+
+					window.mediumZoom = mediumZoom('[data-zoom]', {
+						margin: 24,
+						background: 'rgba(0, 0, 0, 0.75)',
+						scrollOffset: 0
+					})
 				})
 			}, 50)
 		})
@@ -255,6 +269,12 @@ function projectHandler(name) {
 							window.animation.slideoverFadeInContent.play()
 							// Re-initialise Navigo links after new content is loaded
 							window.router.updatePageLinks()
+
+							window.mediumZoom = mediumZoom('[data-zoom]', {
+								margin: 24,
+								background: 'rgba(0, 0, 0, 0.75)',
+								scrollOffset: 0
+							})
 						})
 					}, 50)
 				})

@@ -16,7 +16,7 @@
 
 			<div class="flex absolute inset-0 flex-col">
 				<div class="container flex relative z-40 flex-row justify-between items-center pt-4 space-x-2">
-					<img alt="Open projects" class="w-auto h-full opacity-0 cursor-pointer" x-on:click="window.router.getPath('brand')" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))" src="./images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, translateZ: 0, easing: 'linear'})">
+					<img alt="Open projects" class="w-auto h-full opacity-0 cursor-pointer" x-on:click="router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))" src="./images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, translateZ: 0, easing: 'linear'})">
 					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white space-x-3.5 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu">
 						<a rel="noopener" href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank" x-text="$store['global'].return('available')"></a>
 						<div class="hidden items-center space-x-2 md:flex">
@@ -263,9 +263,7 @@
 		<div class="relative">
 
 			<button class="flex flex-row justify-between items-center py-1 pr-1 pl-3 group focus:outline-none">
-
-				<span class="text-lg font-medium leading-none text-cool-gray-100" x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"></span>
-
+				<span class="text-lg font-medium leading-none text-cool-gray-100" x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')">Section name</span>
 				<span class="text-cool-gray-100 bg-cool-gray-600 rounded-lg ml-1.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500"><i class="gg-chevron-down"></i></span>
 			</button>
 
@@ -394,7 +392,7 @@
 
 	<div id="slideover" x-show="$store.slideover.open" class="flex fixed inset-0 z-50 flex-col justify-end" style="transform: translateY(100%)">
 		<div class="flex justify-center py-2.5">
-			<a x-bind:href="$store.global.language" data-navigo class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800">
+			<a title="Close projects" x-bind:href="$store.global.language" data-navigo class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800">
 				<i class="gg-close"></i>
 			</a>
 		</div>
@@ -422,7 +420,7 @@
 			</div>
 		</div>
 		<div class="flex justify-center py-2.5 flex-shrink-0">
-			<button class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
+			<button title="Close menu" class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800" x-on:click="$store.global.closeMobileMenu()">
 				<i class="gg-close"></i>
 			</button>
 		</div>

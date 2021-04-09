@@ -33,7 +33,12 @@
 
 /* MediumZoom.js related styles */
 .medium-zoom-image--opened {
-    @apply rounded-sm
+    @apply rounded-sm border-0
+}
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
 }
 
 /* Github cards */
