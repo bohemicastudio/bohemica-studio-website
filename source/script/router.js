@@ -6,7 +6,7 @@ window.router = new Navigo(window.location.hostname === 'bohemicastudio.github.i
 })
 
 // set language in Spruce for global use
-Spruce.stores.global.language = typeof localStorage.language === 'undefined' || localStorage.language === null || !Spruce.stores.global.languages.some(language => language.code === localStorage.language) ? 'en' : localStorage.language
+Spruce.stores.global.language = typeof localStorage.language === 'undefined' || localStorage.language === null || Spruce.stores.global.languages.some(language => language.code === localStorage.language) ? localStorage.language : 'en'
 
 // set language in the local storage
 localStorage.setItem('language', Spruce.stores.global.language)
@@ -34,7 +34,28 @@ window.router.hooks({
 		}
 		else {
 			/*console.log('NO PARAM')*/
-			window.router.navigate('en', { callHandler: false })
+			/*window.router.navigate('en', { callHandler: false })*/
+
+			/* Change language according to the user's location */
+			let geolocationLanguage
+			fetch('https://extreme-ip-lookup.com/json/').then(response => response.json())
+				.then(response => {
+					console.log("You are in:", response.country, response.countryCode);
+
+					if (response.countryCode === 'CS') {
+						geolocationLanguage = 'cs'
+					}
+					else {
+						geolocationLanguage = 'en'
+					}
+				})
+				.catch((data, status) => {
+					/*console.error('Request failed', data, status);*/
+					geolocationLanguage = 'en'
+				})
+				.finally(() => {
+					Spruce.stores.global.switchTranslation(geolocationLanguage)
+				})
 		}
 	},
 	after: function (match) {
