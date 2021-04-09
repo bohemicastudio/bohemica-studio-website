@@ -27,7 +27,7 @@
 							<button class="top-menu__button hover:bg-emerald-200 focus:ring-emerald-400" x-text="$store['global'].return('sections.who.name')" x-bind:data-tippy-content="$store['global'].return('sections.who.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" x-text="$store['global'].return('sections.where.name')" x-bind:data-tippy-content="$store['global'].return('sections.where.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 						</div>
-						<button x-on:click="$store.global.openMobileMenu()" class="flex p-1.5 md:hidden top-menu__button hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-md cursor-pointer">
+						<button title="Open mobile menu" x-on:click="$store.global.openMobileMenu()" class="flex p-1.5 md:hidden top-menu__button hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-md cursor-pointer">
 							<span class="flex justify-center items-center w-5 h-5 text-blue-gray-800">
 								<i class="gg-menu"></i>
 							</span>
