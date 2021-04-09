@@ -56,25 +56,25 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=1617980640034" />
+    <link rel="stylesheet" href="./style.css?v=1617989109124" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1617980640035"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1617980640035"></script>
-    <script src="./script/alpine-toggle.js?v=1617980640035"></script>
+    <script src="./script/helpers.js?v=1617989109124"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1617989109124"></script>
+    <script src="./script/alpine-toggle.js?v=1617989109124"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1617980640035" defer></script>
-    <script src="./script/arrive.js?v=1617980640035"></script>
-    <script src="./script/anime.js?v=1617980640035"></script>
-    <script src="./script/spruce.js?v=1617980640035"></script>
-    <script src="./script/navigo.js?v=1617980640035"></script>
-    <script src="./script/popper.js?v=1617980640035"></script>
-    <script src="./script/tippy.js?v=1617980640035"></script>
-    <script src="./script/medium-zoom.js?v=1617980640035"></script>
-    <script src="./script/dayjs.js?v=1617980640035"></script>
+    <script src="./script/alpine.js?v=1617989109124" defer></script>
+    <script src="./script/arrive.js?v=1617989109124"></script>
+    <script src="./script/anime.js?v=1617989109124"></script>
+    <script src="./script/spruce.js?v=1617989109124"></script>
+    <script src="./script/navigo.js?v=1617989109124"></script>
+    <script src="./script/popper.js?v=1617989109124"></script>
+    <script src="./script/tippy.js?v=1617989109124"></script>
+    <script src="./script/medium-zoom.js?v=1617989109124"></script>
+    <script src="./script/dayjs.js?v=1617989109124"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1617980640035"></script>
-    <script src="./script/store.js?v=1617980640035"></script>
-    <script src="./script/router.js?v=1617980640035"></script>
+    <script src="./script/animation.js?v=1617989109124"></script>
+    <script src="./script/store.js?v=1617989109124"></script>
+    <script src="./script/router.js?v=1617989109124"></script>
     <script
       async
       defer
@@ -343,8 +343,8 @@
             <img
               alt="Open projects"
               class="w-auto h-full opacity-0 cursor-pointer"
-              x-on:click="window.router.getPath('brand')"
-              oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'brand'} ))"
+              x-on:click="router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))"
+              oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))"
               src="./images/logomark.svg"
               onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, translateZ: 0, easing: 'linear'})"
             />
@@ -840,8 +840,8 @@
           <span
             class="text-lg font-medium leading-none text-cool-gray-100"
             x-text="$store['global'].return('sections.' + $store.global.sectionInView + '.title')"
-          ></span>
-
+            >Section name</span
+          >
           <span
             class="text-cool-gray-100 bg-cool-gray-600 rounded-lg ml-1.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500"
             ><i class="gg-chevron-down"></i
@@ -1781,6 +1781,7 @@
     >
       <div class="flex justify-center py-2.5">
         <a
+          title="Close projects"
           x-bind:href="$store.global.language"
           data-navigo
           class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear focus:ring-2 focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800"
@@ -1901,6 +1902,7 @@
       </div>
       <div class="flex justify-center py-2.5 flex-shrink-0">
         <button
+          title="Close menu"
           class="flex justify-center items-center w-10 h-10 text-blue-gray-600 bg-white rounded-full transition duration-100 ease-linear focus:outline-none hover:bg-blue-gray-200 hover:text-blue-gray-800"
           x-on:click="$store.global.closeMobileMenu()"
         >
@@ -1909,9 +1911,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1617980640048" defer></script>
-    <script src="./script/parallax.js?v=1617980640048" defer></script>
-    <script src="./script/main.js?v=1617980640048" defer></script>
+    <script src="./script/tooltip.js?v=1617989109139" defer></script>
+    <script src="./script/parallax.js?v=1617989109139" defer></script>
+    <script src="./script/main.js?v=1617989109139" defer></script>
     <!-- Hotjar -->
     <script async defer>
       (function (h, o, t, j, a, r) {
