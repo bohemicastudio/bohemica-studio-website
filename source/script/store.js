@@ -152,10 +152,9 @@ Spruce.store('global', {
 
 		// Re-create the Tippy.js instances on language change
 		window?.tooltips?.forEach(instance => {
-			instance.forEach(element => {
-				element.destroy()
-			})
+			instance.destroy()
 		})
+		window.tooltips.length = 0
 		window.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
