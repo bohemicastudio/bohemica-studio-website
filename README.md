@@ -64,7 +64,7 @@ Just a bit on the UI/UX: the page is fairly long in order to fit necessary infor
 
 ## Commands
 
-Disclaimer: we are using [pnpm](https://github.com/pnpm/pnpm) instead of npm or yarn (shhh.. it saves space).
+Disclaimer: we are using [pnpm](https://github.com/pnpm/pnpm) instead of npm or yarn (psst.. it saves space).
 
 ### Install dependencies
 
