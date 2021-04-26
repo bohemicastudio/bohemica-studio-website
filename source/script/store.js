@@ -154,7 +154,9 @@ Spruce.store('global', {
 		window?.tooltips?.forEach(instance => {
 			instance.destroy()
 		})
-		window.tooltips.length = 0
+		if (window.tooltips) {
+			window.tooltips.length = 0
+		}
 		window.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
