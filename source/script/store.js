@@ -157,7 +157,7 @@ Spruce.store('global', {
 		if (window.tooltips) {
 			window.tooltips.length = 0
 		}
-		window.initialiseTooltips()
+		window?.initialiseTooltips()
 
 		router.navigate(url, { callHandler: false })
 	},
