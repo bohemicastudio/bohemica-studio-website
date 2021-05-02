@@ -8,7 +8,7 @@
 	<meta name="description" content="We are Bohemica Studio — a friendly team of qualified full-stack programmers and visual designers.">
 	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 	<meta name="viewport" content="width=400, shrink-to-fit=yes, viewport-fit=cover, user-scalable=yes, initial-scale=0.8, minimum-scale=0.8, maximum-scale=2.0"/>
-	{#<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.hotjar.com *.hotjar.io *.sentry-cdn.com *.sentry.io *.splitbee.io *.small.chat fonts.googleapis.com *.githubusercontent.com *.github.com extreme-ip-lookup.com *.devb.space; font-src 'self' data: fonts.gstatic.com;" />#}
+	{# <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.hotjar.com *.hotjar.io *.sentry-cdn.com *.sentry.io *.splitbee.io *.small.chat fonts.googleapis.com *.githubusercontent.com *.github.com extreme-ip-lookup.com *.devb.space; font-src 'self' data: fonts.gstatic.com;" /> #}
 	{% if environment.node === "deploy" %}
 		<base href="
 	/bohemica-studio-website/"/>
@@ -118,6 +118,21 @@
 		integrations: [new Sentry.Integrations.BrowserTracing()/*, new Sentry.Integrations.CaptureConsole({ levels: ['error', 'warn']})*/],
 		tracesSampleRate: 1.0,
 	})
+</script>
+<!-- Browser Update -->
+<script async defer>
+	var $buoop = { required: { e: -4, f: -3, o: -3, s: -1, c: -3 }, insecure: true, unsupported: true, api: 2021.05 };
+
+	function $buo_f() {
+		var e = document.createElement("script");
+		e.src = "//browser-update.org/update.min.js";
+		document.body.appendChild(e);
+	};
+	try {
+		document.addEventListener("DOMContentLoaded", $buo_f, false)
+	} catch (e) {
+		window.attachEvent("onload", $buo_f)
+	}
 </script>
 </body>
 </html>
