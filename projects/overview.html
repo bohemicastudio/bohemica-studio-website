@@ -11,7 +11,22 @@
     <a
       x-bind:href="window.router.getPath(entry[0])"
       data-navigo
-      class="flex flex-col col-span-1 justify-between items-start p-6 space-y-12 border-b-2 border-gray-500 transition duration-100 ease-linear hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+      class="
+        flex flex-col
+        col-span-1
+        justify-between
+        items-start
+        p-6
+        space-y-12
+        border-b-2 border-gray-500
+        transition
+        duration-100
+        ease-linear
+        hover:border-gray-800
+        hover:bg-gray-200
+        focus:outline-none
+        focus:bg-gray-200
+      "
     >
       <div class="flex flex-grow items-center">
         <img
@@ -28,7 +43,17 @@
         <div class="flex flex-wrap space-x-1 space-x-reverse">
           <template x-for="(category, index) in entry[1].categories">
             <span
-              class="select-none text-white bg-gray-600 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap"
+              class="
+                select-none
+                text-white
+                bg-gray-600
+                text-sm
+                px-2.5
+                py-1
+                rounded-full
+                font-medium
+                whitespace-nowrap
+              "
               x-text="category"
             ></span>
           </template>

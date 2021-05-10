@@ -1,9 +1,25 @@
 <div
   id="who-intro"
-  class="relative mx-auto w-full transform -translate-y-1/3 md:-translate-y-1/2 md:w-8/12 md:container-screen"
+  class="
+    relative
+    mx-auto
+    w-full
+    transform
+    -translate-y-1/3
+    md:-translate-y-1/2
+    md:w-8/12
+    md:container-screen
+  "
 >
   <div
-    class="flex flex-col justify-center items-center text-center bg-gray-legacy-600 rounded-4xl"
+    class="
+      flex flex-col
+      justify-center
+      items-center
+      text-center
+      bg-gray-legacy-600
+      rounded-4xl
+    "
   >
     <div
       class="px-6 pt-10 pb-6 space-y-4 md:px-16 md:pt-16 md:pb-12 md:space-y-8"
@@ -109,18 +125,40 @@
  })()"
   >
     <div
-      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-2/3"
+      class="
+        flex flex-col
+        items-center
+        mx-auto
+        w-full
+        text-center
+        md:w-8/12
+        lg:w-2/3
+      "
     >
       <img alt="Icon" class="h-full" src="./images/icon/stars.svg" />
 
       <h3
-        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        class="
+          mt-6
+          text-2.25xl
+          md:text-3xl
+          lg:text-4xl
+          font-medium
+          lg:leading-normal
+          text-cool-gray-800
+        "
         x-text="$store['translation.sectionWho'].return('second.title')"
       ></h3>
     </div>
 
     <hr
-      class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24"
+      class="
+        mt-12
+        h-20
+        border-t-0 border-l border-cool-gray-400
+        md:mt-16
+        md:h-24
+      "
     />
     <div class="grid bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px">
       <div class="p-8 bg-white lg:p-16">
@@ -134,11 +172,31 @@
           </div>
           <div class="relative mt-12 mb-10">
             <p
-              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:leading-relaxed md:font-normal sm:text-lg md:text-xl font-dm-mono"
+              class="
+                relative
+                z-10
+                text-base
+                font-medium
+                leading-relaxed
+                text-cool-gray-800
+                md:leading-relaxed
+                md:font-normal
+                sm:text-lg
+                md:text-xl
+                font-dm-mono
+              "
               x-text="$store['translation.sectionWho'].return(`testimonials['mmt'].review`)"
             ></p>
             <svg
-              class="absolute top-0 right-0 z-0 text-blue-300 transform -translate-y-1/2"
+              class="
+                absolute
+                top-0
+                right-0
+                z-0
+                text-blue-300
+                transform
+                -translate-y-1/2
+              "
               width="77"
               height="48"
               viewBox="0 0 77 48"
@@ -178,15 +236,45 @@
           <div class="mt-12">
             <a
               x-bind:href="window.router.getPath('mmt')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
+              class="
+                flex flex-row
+                items-center
+                py-2
+                px-3.5
+                space-x-1
+                font-medium
+                bg-emerald-400
+                rounded-lg
+                ring-offset-2
+                transition
+                duration-100
+                ease-linear
+                focus:ring-2
+                group
+                focus:ring-offset-white focus:ring-emerald-600
+              "
               data-navigo
             >
               <span
-                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                class="
+                  leading-none
+                  text-cool-gray-800
+                  whitespace-nowrap
+                  group-hover:text-cool-gray-900
+                "
                 >See the project</span
               >
               <i
-                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                class="
+                  transition
+                  duration-200
+                  ease-out
+                  transform
+                  gg-chevron-right
+                  text-cool-gray-800
+                  group-hover:text-cool-gray-900 group-hover:translate-x-0.5
+                  flex-shrink-0
+                "
               ></i>
             </a>
           </div>
@@ -203,11 +291,31 @@
           </div>
           <div class="relative mt-12 mb-10">
             <p
-              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:leading-relaxed md:font-normal sm:text-lg md:text-xl font-dm-mono"
+              class="
+                relative
+                z-10
+                text-base
+                font-medium
+                leading-relaxed
+                text-cool-gray-800
+                md:leading-relaxed
+                md:font-normal
+                sm:text-lg
+                md:text-xl
+                font-dm-mono
+              "
               x-text="$store['translation.sectionWho'].return(`testimonials['lancaster-maloney'].review`)"
             ></p>
             <svg
-              class="absolute top-0 right-0 z-0 text-amber-300 transform -translate-y-1/2"
+              class="
+                absolute
+                top-0
+                right-0
+                z-0
+                text-amber-300
+                transform
+                -translate-y-1/2
+              "
               width="77"
               height="48"
               viewBox="0 0 77 48"
@@ -247,15 +355,45 @@
           <div class="mt-12">
             <a
               x-bind:href="window.router.getPath('lancaster-maloney')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
+              class="
+                flex flex-row
+                items-center
+                py-2
+                px-3.5
+                space-x-1
+                font-medium
+                bg-emerald-400
+                rounded-lg
+                ring-offset-2
+                transition
+                duration-100
+                ease-linear
+                focus:ring-2
+                group
+                focus:ring-offset-white focus:ring-emerald-600
+              "
               data-navigo
             >
               <span
-                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                class="
+                  leading-none
+                  text-cool-gray-800
+                  whitespace-nowrap
+                  group-hover:text-cool-gray-900
+                "
                 >See the project</span
               >
               <i
-                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                class="
+                  transition
+                  duration-200
+                  ease-out
+                  transform
+                  gg-chevron-right
+                  text-cool-gray-800
+                  group-hover:text-cool-gray-900 group-hover:translate-x-0.5
+                  flex-shrink-0
+                "
               ></i>
             </a>
           </div>
@@ -272,11 +410,31 @@
           </div>
           <div class="relative mt-12 mb-10">
             <p
-              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:leading-relaxed md:font-normal sm:text-lg md:text-xl font-dm-mono"
+              class="
+                relative
+                z-10
+                text-base
+                font-medium
+                leading-relaxed
+                text-cool-gray-800
+                md:leading-relaxed
+                md:font-normal
+                sm:text-lg
+                md:text-xl
+                font-dm-mono
+              "
               x-text="$store['translation.sectionWho'].return(`testimonials['media-server'].review`)"
             ></p>
             <svg
-              class="absolute top-0 right-0 z-0 text-yellow-300 transform -translate-y-1/2"
+              class="
+                absolute
+                top-0
+                right-0
+                z-0
+                text-yellow-300
+                transform
+                -translate-y-1/2
+              "
               width="77"
               height="48"
               viewBox="0 0 77 48"
@@ -316,15 +474,45 @@
           <div class="mt-12">
             <a
               x-bind:href="window.router.getPath('media-server')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
+              class="
+                flex flex-row
+                items-center
+                py-2
+                px-3.5
+                space-x-1
+                font-medium
+                bg-emerald-400
+                rounded-lg
+                ring-offset-2
+                transition
+                duration-100
+                ease-linear
+                focus:ring-2
+                group
+                focus:ring-offset-white focus:ring-emerald-600
+              "
               data-navigo
             >
               <span
-                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                class="
+                  leading-none
+                  text-cool-gray-800
+                  whitespace-nowrap
+                  group-hover:text-cool-gray-900
+                "
                 >See the project</span
               >
               <i
-                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                class="
+                  transition
+                  duration-200
+                  ease-out
+                  transform
+                  gg-chevron-right
+                  text-cool-gray-800
+                  group-hover:text-cool-gray-900 group-hover:translate-x-0.5
+                  flex-shrink-0
+                "
               ></i>
             </a>
           </div>
@@ -341,11 +529,31 @@
           </div>
           <div class="relative mt-12 mb-10">
             <p
-              class="relative z-10 text-base font-medium leading-relaxed text-cool-gray-800 md:leading-relaxed md:font-normal sm:text-lg md:text-xl font-dm-mono"
+              class="
+                relative
+                z-10
+                text-base
+                font-medium
+                leading-relaxed
+                text-cool-gray-800
+                md:leading-relaxed
+                md:font-normal
+                sm:text-lg
+                md:text-xl
+                font-dm-mono
+              "
               x-text="$store['translation.sectionWho'].return(`testimonials['subtitle-editor'].review`)"
             ></p>
             <svg
-              class="absolute top-0 right-0 z-0 text-rose-300 transform -translate-y-1/2"
+              class="
+                absolute
+                top-0
+                right-0
+                z-0
+                text-rose-300
+                transform
+                -translate-y-1/2
+              "
               width="77"
               height="48"
               viewBox="0 0 77 48"
@@ -385,15 +593,45 @@
           <div class="mt-12">
             <a
               x-bind:href="window.router.getPath('subtitle-editor')"
-              class="flex flex-row items-center py-2 px-3.5 space-x-1 font-medium bg-emerald-400 rounded-lg ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-white focus:ring-emerald-600"
+              class="
+                flex flex-row
+                items-center
+                py-2
+                px-3.5
+                space-x-1
+                font-medium
+                bg-emerald-400
+                rounded-lg
+                ring-offset-2
+                transition
+                duration-100
+                ease-linear
+                focus:ring-2
+                group
+                focus:ring-offset-white focus:ring-emerald-600
+              "
               data-navigo
             >
               <span
-                class="leading-none text-cool-gray-800 whitespace-nowrap group-hover:text-cool-gray-900"
+                class="
+                  leading-none
+                  text-cool-gray-800
+                  whitespace-nowrap
+                  group-hover:text-cool-gray-900
+                "
                 >See the project</span
               >
               <i
-                class="transition duration-200 ease-out transform gg-chevron-right text-cool-gray-800 group-hover:text-cool-gray-900 group-hover:translate-x-0.5 flex-shrink-0"
+                class="
+                  transition
+                  duration-200
+                  ease-out
+                  transform
+                  gg-chevron-right
+                  text-cool-gray-800
+                  group-hover:text-cool-gray-900 group-hover:translate-x-0.5
+                  flex-shrink-0
+                "
               ></i>
             </a>
           </div>
@@ -401,16 +639,38 @@
       </div>
     </div>
     <hr
-      class="mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48"
+      class="
+        mb-12
+        h-40
+        border-t-0 border-l border-cool-gray-400
+        md:mb-16
+        md:h-48
+      "
     />
 
     <div
-      class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-2/3"
+      class="
+        flex flex-col
+        items-center
+        mx-auto
+        w-full
+        text-center
+        md:w-8/12
+        lg:w-2/3
+      "
     >
       <img alt="Icon" class="h-full" src="./images/icon/globe.svg" />
 
       <h3
-        class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal text-cool-gray-800"
+        class="
+          mt-6
+          text-2.25xl
+          md:text-3xl
+          lg:text-4xl
+          font-medium
+          lg:leading-normal
+          text-cool-gray-800
+        "
         x-text="$store['translation.sectionWho'].return('first.title')"
       ></h3>
     </div>
@@ -441,19 +701,59 @@
       x-text="$store['translation.sectionWho'].return('buttonTitle')"
     ></p>
     <div
-      class="flex justify-center items-center py-16 w-full md:w-auto md:px-32 rounded-4xl bg-teal-legacy-400"
+      class="
+        flex
+        justify-center
+        items-center
+        py-16
+        w-full
+        md:w-auto
+        md:px-32
+        rounded-4xl
+        bg-teal-legacy-400
+      "
     >
       <a
         x-bind:href="window.router.getPath('overview')"
         data-navigo
-        class="flex flex-row items-center py-3 px-5 space-x-1 font-medium bg-yellow-400 rounded-xl ring-offset-2 transition duration-100 ease-linear focus:ring-2 group focus:ring-offset-teal-legacy-400 focus:ring-yellow-400"
+        class="
+          flex flex-row
+          items-center
+          py-3
+          px-5
+          space-x-1
+          font-medium
+          bg-yellow-400
+          rounded-xl
+          ring-offset-2
+          transition
+          duration-100
+          ease-linear
+          focus:ring-2
+          group
+          focus:ring-offset-teal-legacy-400 focus:ring-yellow-400
+        "
       >
         <span
-          class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900"
+          class="
+            leading-none
+            whitespace-nowrap
+            text-gray-legacy-800
+            group-hover:text-gray-legacy-900
+          "
           x-text="$store['global'].return('openProjectLibrary')"
         ></span>
         <i
-          class="transition duration-200 ease-out transform gg-chevron-right text-gray-legacy-800 group-hover:text-gray-legacy-900 group-hover:translate-x-0.5 flex-shrink-0"
+          class="
+            transition
+            duration-200
+            ease-out
+            transform
+            gg-chevron-right
+            text-gray-legacy-800
+            group-hover:text-gray-legacy-900 group-hover:translate-x-0.5
+            flex-shrink-0
+          "
         ></i>
       </a>
     </div>
