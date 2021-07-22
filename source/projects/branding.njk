@@ -28,7 +28,7 @@ permalink: /projects/branding.html
 		{{ buttonBackLibrary() }}
 	</div>
 
-	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
+	<div class="mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
 
 		<div class="flex flex-grow items-center">
 			<img alt="Logo image" x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
@@ -87,7 +87,7 @@ permalink: /projects/branding.html
 		</picture>
 
 		<picture>
-			<figcaption x-text="translation[$store.global.language]['emailTemplate']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['emailTemplate']"></strong></figcaption>
 			<source srcset="./images/project/{{ project }}/retech-email-template.webp" type="image/webp">
 			<source srcset="./images/project/{{ project }}/retech-email-template.png" type="image/png">
 			<img alt="Image graphics" src="./images/project/{{ project }}/retech-email-template.png" class="rounded-lg border border-gray-300" data-zoom loading="lazy">

@@ -88,12 +88,12 @@ permalink: /projects/lancaster-maloney.html
 		{{ buttonBackLibrary() }}
 	</div>
 
-	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
+	<div class="mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
 
 		<div class="flex flex-grow items-center">
 			<picture>
-				<source  x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logowebp`)}`" type="image/webp">
-				<source  x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:srcset="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`" type="image/png">
+				<source x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logowebp`)}`" type="image/webp">
+				<source x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:srcset="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`" type="image/png">
 				<img alt="Image graphics" data-zoom loading="lazy" x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
 
 			</picture>
@@ -119,7 +119,7 @@ permalink: /projects/lancaster-maloney.html
 		<h3 x-text="translation[$store.global.language]['descriptionTitle']"></h3>
 		<div x-html="translation[$store.global.language]['description']"></div>
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption1']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption1']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/1.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/1.png" type="image/png">
@@ -127,7 +127,7 @@ permalink: /projects/lancaster-maloney.html
 			</picture>
 		</figure>
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption2']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption2']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/2.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/2.png" type="image/png">
@@ -137,7 +137,7 @@ permalink: /projects/lancaster-maloney.html
 		<h3 x-text="translation[$store.global.language]['processTitle']"></h3>
 		<p x-text="translation[$store.global.language]['processDescription']"></p>
 		<figure>
-			<figcaption x-html="translation[$store.global.language]['imageCaption3']"></figcaption>
+			<figcaption><strong x-html="translation[$store.global.language]['imageCaption3']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/3.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/3.png" type="image/png">
@@ -145,7 +145,7 @@ permalink: /projects/lancaster-maloney.html
 			</picture>
 		</figure>
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption4']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption4']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/4.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/4.png" type="image/png">
@@ -154,7 +154,7 @@ permalink: /projects/lancaster-maloney.html
 		</figure>
 		<div x-html="translation[$store.global.language]['datasets']"></div>
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption5']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption5']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/5.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/5.png" type="image/png">
@@ -163,7 +163,7 @@ permalink: /projects/lancaster-maloney.html
 		</figure>
 		<div x-html="translation[$store.global.language]['jobs']"></div>
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption6']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption6']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/6.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/6.png" type="image/png">
@@ -172,7 +172,7 @@ permalink: /projects/lancaster-maloney.html
 		</figure>
 
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['imageCaption7']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['imageCaption7']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/{{ project }}/7.webp" type="image/webp">
 				<source srcset="./images/project/{{ project }}/7.png" type="image/png">

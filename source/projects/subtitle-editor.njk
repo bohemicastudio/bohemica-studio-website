@@ -46,7 +46,7 @@ permalink: /projects/subtitle-editor.html
 		{{ buttonBackLibrary() }}
 	</div>
 
-	<div class="mx-auto prose prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
+	<div class="mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
 
 		<div class="flex flex-grow items-center">
 			<img alt="Image graphics" x-bind:class="`h-${$store['translation.projects'].return(`list['{{ project }}'].logoHeight`)}`" x-bind:src="`./images/project/{{ project }}/${$store['translation.projects'].return(`list['{{ project }}'].logo`)}`">
@@ -79,7 +79,7 @@ permalink: /projects/subtitle-editor.html
 		<ol x-html="translation[$store.global.language]['process2']"></ol>
 
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['image1']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['image1']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/subtitle-editor/2.webp" type="image/webp">
 				<source srcset="./images/project/subtitle-editor/2.png" type="image/png">
@@ -88,7 +88,7 @@ permalink: /projects/subtitle-editor.html
 		</figure>
 
 		<figure>
-			<figcaption x-text="translation[$store.global.language]['image2']"></figcaption>
+			<figcaption><strong x-text="translation[$store.global.language]['image2']"></strong></figcaption>
 			<picture>
 				<source srcset="./images/project/subtitle-editor/1.webp" type="image/webp">
 				<source srcset="./images/project/subtitle-editor/1.png" type="image/png">

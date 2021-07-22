@@ -43,4 +43,25 @@
     .container-screen {
         @apply mx-auto xs:max-w-screen-xs sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl
     }
+
+    /* Adjust margin for image when Tailwind CSS Typography classes are used */
+    .prose-sm figure img {
+        @apply mt-1
+    }
+
+    .prose figure img {
+        @apply mt-1.5
+    }
+
+    .prose-md figure img {
+        @apply mt-2
+    }
+
+    .prose-lg figure img {
+        @apply mt-3
+    }
+
+    .prose-xl figure img {
+        @apply mt-4
+    }
 }
