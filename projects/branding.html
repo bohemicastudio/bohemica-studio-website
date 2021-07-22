@@ -65,16 +65,7 @@
     </a>
   </div>
 
-  <div
-    class="
-      mx-auto
-      prose prose-sm
-      sm:prose
-      md:prose-lg
-      lg:prose-xl
-      xl:max-w-none
-    "
-  >
+  <div class="mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
     <div class="flex flex-grow items-center">
       <img
         alt="Logo image"
@@ -205,9 +196,11 @@
     </picture>
 
     <picture>
-      <figcaption
-        x-text="translation[$store.global.language]['emailTemplate']"
-      ></figcaption>
+      <figcaption>
+        <strong
+          x-text="translation[$store.global.language]['emailTemplate']"
+        ></strong>
+      </figcaption>
       <source
         srcset="./images/project/branding/retech-email-template.webp"
         type="image/webp"

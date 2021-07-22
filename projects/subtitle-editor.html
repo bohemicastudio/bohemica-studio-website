@@ -83,16 +83,7 @@
     </a>
   </div>
 
-  <div
-    class="
-      mx-auto
-      prose prose-sm
-      sm:prose
-      md:prose-lg
-      lg:prose-xl
-      xl:max-w-none
-    "
-  >
+  <div class="mx-auto prose-sm sm:prose md:prose-lg lg:prose-xl xl:max-w-none">
     <div class="flex flex-grow items-center">
       <img
         alt="Image graphics"
@@ -167,9 +158,9 @@
     <ol x-html="translation[$store.global.language]['process2']"></ol>
 
     <figure>
-      <figcaption
-        x-text="translation[$store.global.language]['image1']"
-      ></figcaption>
+      <figcaption>
+        <strong x-text="translation[$store.global.language]['image1']"></strong>
+      </figcaption>
       <picture>
         <source
           srcset="./images/project/subtitle-editor/2.webp"
@@ -191,9 +182,9 @@
     </figure>
 
     <figure>
-      <figcaption
-        x-text="translation[$store.global.language]['image2']"
-      ></figcaption>
+      <figcaption>
+        <strong x-text="translation[$store.global.language]['image2']"></strong>
+      </figcaption>
       <picture>
         <source
           srcset="./images/project/subtitle-editor/1.webp"
