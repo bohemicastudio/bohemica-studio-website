@@ -56,25 +56,25 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=1620639847432" />
+    <link rel="stylesheet" href="./style.css?v=1626940694614" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1620639847432"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1620639847432"></script>
-    <script src="./script/alpine-toggle.js?v=1620639847432"></script>
+    <script src="./script/helpers.js?v=1626940694614"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1626940694614"></script>
+    <script src="./script/alpine-toggle.js?v=1626940694614"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1620639847432" defer></script>
-    <script src="./script/arrive.js?v=1620639847432"></script>
-    <script src="./script/anime.js?v=1620639847432"></script>
-    <script src="./script/spruce.js?v=1620639847432"></script>
-    <script src="./script/navigo.js?v=1620639847432"></script>
-    <script src="./script/popper.js?v=1620639847432"></script>
-    <script src="./script/tippy.js?v=1620639847432"></script>
-    <script src="./script/medium-zoom.js?v=1620639847432"></script>
-    <script src="./script/dayjs.js?v=1620639847432"></script>
+    <script src="./script/alpine.js?v=1626940694614" defer></script>
+    <script src="./script/arrive.js?v=1626940694614"></script>
+    <script src="./script/anime.js?v=1626940694614"></script>
+    <script src="./script/spruce.js?v=1626940694614"></script>
+    <script src="./script/navigo.js?v=1626940694614"></script>
+    <script src="./script/popper.js?v=1626940694614"></script>
+    <script src="./script/tippy.js?v=1626940694614"></script>
+    <script src="./script/medium-zoom.js?v=1626940694614"></script>
+    <script src="./script/dayjs.js?v=1626940694614"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1620639847432"></script>
-    <script src="./script/store.js?v=1620639847432"></script>
-    <script src="./script/router.js?v=1620639847432"></script>
+    <script src="./script/animation.js?v=1626940694614"></script>
+    <script src="./script/store.js?v=1626940694614"></script>
+    <script src="./script/router.js?v=1626940694614"></script>
     <script
       async
       defer
@@ -326,8 +326,8 @@
       });
     </script>
 
-    <div class="overflow-hidden relative bg-blue-gray-100" id="intro">
-      <div class="h-screen">
+    <div class="block overflow-hidden relative bg-blue-gray-100" id="intro">
+      <div class="min-h-screen">
         <div class="flex absolute inset-0 flex-col">
           <div
             class="
@@ -354,10 +354,8 @@
               class="
                 flex
                 p-2.5
-                md:py-2.5
-                md:px-3.5
+                md:py-2.5 md:px-3.5
                 bg-white
-                space-x-3.5
                 opacity-0
                 rounded-xl
                 md:rounded-2.5xl
@@ -366,7 +364,7 @@
                 top-menu
               "
               x-data
-              x-init="() => { anime({ targets: $el, duration: 200, delay: 400, opacity: 1, translateZ: 0, easing: 'linear'}) }"
+              x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 400, opacity: 1, translateZ: 0, easing: 'linear'}) })"
             >
               <div class="hidden items-center space-x-2 md:flex">
                 <button
@@ -434,6 +432,7 @@
                   focus:ring-blue-gray-400
                   rounded-md
                   cursor-pointer
+                  md:ml-3.5
                 "
               >
                 <span
@@ -452,7 +451,10 @@
             </div>
           </div>
 
-          <div class="container pt-6 h-8/12 sm:h-1/2 hero">
+          <div
+            class="container pt-6 min-h-8/12 sm:min-h-1/2 hero"
+            style="min-height: 50%"
+          >
             <div
               class="flex relative justify-center items-center w-full h-full"
             >
@@ -460,7 +462,7 @@
                 class="absolute top-0 left-0 z-40 opacity-0 sm:mt-4"
                 x-on:click.away="open = false"
                 x-data="{ open: false }"
-                x-init="() => { anime({ targets: $el, duration: 200, delay: 2800, opacity: 1, translateZ: 0, easing: 'linear'}) }"
+                x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 2800, opacity: 1, translateZ: 0, easing: 'linear'}) })"
               >
                 <div class="relative">
                   <button
@@ -477,8 +479,7 @@
                       bg-blue-gray-700
                       rounded-xl
                       group
-                      focus:outline-none
-                      focus:ring-2
+                      focus:outline-none focus:ring-2
                       ring-offset-2 ring-blue-gray-700
                       transition
                       duration-100
@@ -566,8 +567,7 @@
                             duration-75
                             ease-linear
                             cursor-pointer
-                            focus:bg-blue-gray-800
-                            focus:outline-none
+                            focus:bg-blue-gray-800 focus:outline-none
                             hover:bg-blue-gray-700
                           "
                         >
@@ -625,8 +625,7 @@
                     font-medium
                     tracking-tight
                     text-blue-gray-700
-                    md:leading-relaxed
-                    md:font-normal
+                    md:leading-relaxed md:font-normal
                     xs:text-xl
                     sm:text-2xl
                     md:text-3xl
@@ -636,8 +635,9 @@
                 ></span>
                 <div
                   class="flex flex-col items-center space-y-2.5 opacity-0"
-                  x-data
-                  x-init="() => { anime({ targets: $el, duration: 200, delay: 2400, opacity: 1, translateZ: 0, easing: 'linear'}) }"
+                  x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits', data: '' }"
+                  x-init="$fetch(url).then(response => data = response).finally(() => { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }) })"
+                  x-cloak
                 >
                   <div
                     class="
@@ -654,9 +654,7 @@
                       transition
                       duration-100
                       ease-linear
-                      md:flex
-                      md:space-y-0
-                      md:flex-row
+                      md:flex md:space-y-0 md:flex-row
                       border-teal-legacy-400
                       hover:border-teal-legacy-500
                     "
@@ -748,8 +746,6 @@
                       rel="noopener"
                       href="https://github.com/bohemicastudio/bohemica-studio-website"
                       target="_blank"
-                      x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits', data: '' }"
-                      x-init="$fetch(url).then(response => data = response)"
                       x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')"
                       >00.00.0000</a
                     >
@@ -770,7 +766,7 @@
                   z-40
                 "
                 x-data
-                x-init="() => { anime({ targets: $el, duration: 200, delay: 2600, opacity: 1, translateZ: 0, easing: 'linear'}) }"
+                x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 2600, opacity: 1, translateZ: 0, easing: 'linear'}) })"
               >
                 <a
                   rel="noreferrer"
@@ -785,8 +781,7 @@
                     duration-100
                     ease-linear
                     cursor-pointer
-                    hover:bg-blue-gray-300
-                    hover:text-blue-gray-700
+                    hover:bg-blue-gray-300 hover:text-blue-gray-700
                   "
                 >
                   <div class="flex justify-center items-center w-7 h-7">
@@ -820,8 +815,7 @@
                     duration-100
                     ease-linear
                     cursor-pointer
-                    hover:bg-blue-gray-300
-                    hover:text-blue-gray-700
+                    hover:bg-blue-gray-300 hover:text-blue-gray-700
                   "
                 >
                   <div class="flex justify-center items-center w-7 h-7">
@@ -1035,7 +1029,11 @@
           </picture>
         </div>
 
-        <div class="absolute inset-0">
+        <div
+          class="absolute inset-0 opacity-0"
+          x-data
+          x-init="$nextTick(() => { anime({ targets: $el, duration: 600, delay: 2000, opacity: 1, translateZ: 0, easing: 'linear'}) })"
+        >
           <picture>
             <source srcset="./images/warp-background.webp" type="image/webp" />
             <source srcset="./images/warp-background.png" type="image/png" />
@@ -1048,7 +1046,7 @@
         </div>
 
         <div class="flex absolute inset-0 z-30 items-end h-screen">
-          <div class="container flex xl:">
+          <div class="container flex">
             <a
               x-bind:href="window.router.getPath('overview')"
               data-navigo
@@ -1073,7 +1071,7 @@
                 group
                 focus:ring-offset-blue-gray-100 focus:ring-blue-gray-500
               "
-              x-init="() => { anime({ targets: $el, duration: 200, delay: 3200, opacity: 1, easing: 'linear'}) }"
+              x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 3200, opacity: 1, easing: 'linear'}) })"
               x-data
             >
               <span
@@ -1145,8 +1143,7 @@
         bg-cool-gray-600
         rounded-lg
         select-none
-        md:top-5
-        md:right-5
+        md:top-5 md:right-5
       "
       x-cloak
       x-show="$store.global.openSectionClue"
@@ -1193,7 +1190,8 @@
               ease-linear
               items-center
               justify-center
-              group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500
+              group-hover:bg-cool-gray-500
+              group-focus:bg-cool-gray-500
             "
             ><i class="gg-chevron-down"></i
           ></span>
@@ -1367,8 +1365,7 @@
                     tracking-wide
                     md:w-10/12
                     mx-auto
-                    md:mt-14
-                    md:mb-20
+                    md:mt-14 md:mb-20
                   "
                   x-html="$store['translation.why'].return('one')"
                 ></p>
@@ -1545,8 +1542,7 @@
                     tracking-wide
                     md:w-10/12
                     mx-auto
-                    md:mt-14
-                    md:mb-20
+                    md:mt-14 md:mb-20
                   "
                   x-html="$store['translation.why'].return('two')"
                 ></p>
@@ -1749,8 +1745,7 @@
                     tracking-wide
                     md:w-10/12
                     mx-auto
-                    md:mt-14
-                    md:mb-20
+                    md:mt-14 md:mb-20
                   "
                   x-html="$store['translation.why'].return('three')"
                 ></p>
@@ -1930,8 +1925,7 @@
                     tracking-wide
                     md:w-10/12
                     mx-auto
-                    md:mt-14
-                    md:mb-20
+                    md:mt-14 md:mb-20
                   "
                   x-html="$store['translation.why'].return('four')"
                 ></p>
@@ -2106,8 +2100,7 @@
                     tracking-wide
                     md:w-10/12
                     mx-auto
-                    md:mt-14
-                    md:mb-20
+                    md:mt-14 md:mb-20
                   "
                   x-html="$store['translation.why'].return('five')"
                 ></p>
@@ -2174,10 +2167,7 @@
               flex flex-col
               items-start
               space-y-4
-              md:space-y-0
-              md:items-center
-              md:flex-row
-              md:space-x-4
+              md:space-y-0 md:items-center md:flex-row md:space-x-4
             "
           >
             <button
@@ -2224,8 +2214,7 @@
                 duration-100
                 ease-linear
                 cursor-pointer
-                hover:bg-cool-gray-500
-                hover:text-cool-gray-100
+                hover:bg-cool-gray-500 hover:text-cool-gray-100
               "
             >
               <div class="flex justify-center items-center w-7 h-7">
@@ -2258,8 +2247,7 @@
                 duration-100
                 ease-linear
                 cursor-pointer
-                hover:bg-cool-gray-500
-                hover:text-cool-gray-100
+                hover:bg-cool-gray-500 hover:text-cool-gray-100
               "
             >
               <div class="flex justify-center items-center w-7 h-7">
@@ -2304,10 +2292,7 @@
             items-start
             mt-16
             space-y-12
-            md:items-end
-            md:mt-24
-            md:space-y-0
-            md:flex-row
+            md:items-end md:mt-24 md:space-y-0 md:flex-row
           "
         >
           <svg
@@ -2372,8 +2357,7 @@
               px-5
               rounded-xl
               border border-cool-gray-600
-              md:py-4
-              md:px-8
+              md:py-4 md:px-8
             "
           >
             <svg
@@ -2450,10 +2434,8 @@
             transition
             duration-100
             ease-linear
-            focus:ring-2
-            focus:outline-none
-            hover:bg-blue-gray-200
-            hover:text-blue-gray-800
+            focus:ring-2 focus:outline-none
+            hover:bg-blue-gray-200 hover:text-blue-gray-800
           "
         >
           <i class="gg-close"></i>
@@ -2564,8 +2546,7 @@
                 duration-100
                 ease-linear
                 cursor-pointer
-                hover:bg-blue-gray-300
-                hover:text-blue-gray-700
+                hover:bg-blue-gray-300 hover:text-blue-gray-700
               "
             >
               <div class="flex justify-center items-center w-7 h-7">
@@ -2599,8 +2580,7 @@
                 duration-100
                 ease-linear
                 cursor-pointer
-                hover:bg-blue-gray-300
-                hover:text-blue-gray-700
+                hover:bg-blue-gray-300 hover:text-blue-gray-700
               "
             >
               <div class="flex justify-center items-center w-7 h-7">
@@ -2639,8 +2619,7 @@
             duration-100
             ease-linear
             focus:outline-none
-            hover:bg-blue-gray-200
-            hover:text-blue-gray-800
+            hover:bg-blue-gray-200 hover:text-blue-gray-800
           "
           x-on:click="$store.global.closeMobileMenu()"
         >
@@ -2649,9 +2628,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1620639847444" defer></script>
-    <script src="./script/parallax.js?v=1620639847444" defer></script>
-    <script src="./script/main.js?v=1620639847444" defer></script>
+    <script src="./script/tooltip.js?v=1626940694625" defer></script>
+    <script src="./script/parallax.js?v=1626940694625" defer></script>
+    <script src="./script/main.js?v=1626940694625" defer></script>
     <!-- Hotjar -->
     <script async defer>
       (function (h, o, t, j, a, r) {
