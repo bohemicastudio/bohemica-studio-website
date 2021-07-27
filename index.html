@@ -51,30 +51,31 @@
     <!-- Sentry Lazy Load -->
 
     <!-- CSS style & fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=1626945217223" />
+    <link rel="stylesheet" href="./style.css?v=1627423180005" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1626945217223"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1626945217223"></script>
-    <script src="./script/alpine-toggle.js?v=1626945217223"></script>
+    <script src="./script/helpers.js?v=1627423180005"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1627423180005"></script>
+    <script src="./script/alpine-toggle.js?v=1627423180005"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1626945217223" defer></script>
-    <script src="./script/arrive.js?v=1626945217223"></script>
-    <script src="./script/anime.js?v=1626945217223"></script>
-    <script src="./script/spruce.js?v=1626945217223"></script>
-    <script src="./script/navigo.js?v=1626945217223"></script>
-    <script src="./script/popper.js?v=1626945217223"></script>
-    <script src="./script/tippy.js?v=1626945217223"></script>
-    <script src="./script/medium-zoom.js?v=1626945217223"></script>
-    <script src="./script/dayjs.js?v=1626945217223"></script>
+    <script src="./script/alpine.js?v=1627423180005" defer></script>
+    <script src="./script/arrive.js?v=1627423180005"></script>
+    <script src="./script/anime.js?v=1627423180005"></script>
+    <script src="./script/spruce.js?v=1627423180005"></script>
+    <script src="./script/navigo.js?v=1627423180005"></script>
+    <script src="./script/popper.js?v=1627423180005"></script>
+    <script src="./script/tippy.js?v=1627423180005"></script>
+    <script src="./script/medium-zoom.js?v=1627423180005"></script>
+    <script src="./script/dayjs.js?v=1627423180005"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1626945217223"></script>
-    <script src="./script/store.js?v=1626945217223"></script>
-    <script src="./script/router.js?v=1626945217223"></script>
+    <script src="./script/animation.js?v=1627423180005"></script>
+    <script src="./script/store.js?v=1627423180005"></script>
+    <script src="./script/router.js?v=1627423180005"></script>
     <script
       async
       defer
@@ -353,7 +354,7 @@
             <div
               class="
                 flex
-                p-2.5
+                p-1.5
                 md:py-2.5 md:px-3.5
                 bg-white
                 opacity-0
@@ -424,13 +425,19 @@
                 title="Open mobile menu"
                 x-on:click="$store.global.openMobileMenu()"
                 class="
+                  p-2
                   flex
-                  p-1.5
                   md:hidden
-                  top-menu__button
+                  text-gray-700 text-lg
+                  font-medium
+                  transition
+                  duration-100
+                  ease-linear
+                  whitespace-nowrap
+                  focus:ring-2 focus:ring-offset-white focus:outline-none
                   hover:bg-blue-gray-200
                   focus:ring-blue-gray-400
-                  rounded-md
+                  rounded-lg
                   cursor-pointer
                   md:ml-3.5
                 "
@@ -440,8 +447,8 @@
                     flex
                     justify-center
                     items-center
-                    w-5
-                    h-5
+                    w-6
+                    h-6
                     text-blue-gray-800
                   "
                 >
@@ -635,8 +642,8 @@
                 ></span>
                 <div
                   class="flex flex-col items-center space-y-2.5 opacity-0"
-                  x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits', data: '' }"
-                  x-init="$fetch(url).then(response => data = response).finally(() => { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }) })"
+                  x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits/master', date: null }"
+                  x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json() } catch { date = null } } })()"
                   x-cloak
                 >
                   <div
@@ -726,30 +733,32 @@
                       ></i>
                     </a>
                   </div>
-                  <div
-                    class="
-                      hidden
-                      md:flex
-                      flex-row
-                      uppercase
-                      space-x-1.5
-                      text-xs
-                      font-bold
-                      tracking-wider
-                      text-blue-gray-500
-                    "
-                  >
-                    <span
-                      x-text="$store['global'].return('lastUpdated') + ':'"
-                    ></span>
-                    <a
-                      rel="noopener"
-                      href="https://github.com/bohemicastudio/bohemica-studio-website"
-                      target="_blank"
-                      x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')"
-                      >00.00.0000</a
+                  <template x-if="date !== null">
+                    <div
+                      class="
+                        hidden
+                        md:flex
+                        flex-row
+                        uppercase
+                        space-x-1.5
+                        text-xs
+                        font-bold
+                        tracking-wider
+                        text-blue-gray-500
+                      "
                     >
-                  </div>
+                      <span
+                        x-text="$store['global'].return('lastUpdated') + ':'"
+                      ></span>
+                      <a
+                        rel="noopener"
+                        href="https://github.com/bohemicastudio/bohemica-studio-website"
+                        target="_blank"
+                        x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')"
+                        >00.00.0000</a
+                      >
+                    </div>
+                  </template>
                 </div>
               </div>
 
@@ -2628,9 +2637,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1626945217233" defer></script>
-    <script src="./script/parallax.js?v=1626945217233" defer></script>
-    <script src="./script/main.js?v=1626945217233" defer></script>
+    <script src="./script/tooltip.js?v=1627423180016" defer></script>
+    <script src="./script/parallax.js?v=1627423180016" defer></script>
+    <script src="./script/main.js?v=1627423180016" defer></script>
     <!-- Hotjar -->
     <script async defer>
       (function (h, o, t, j, a, r) {
