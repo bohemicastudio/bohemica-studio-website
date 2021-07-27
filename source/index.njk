@@ -17,7 +17,7 @@
 			<div class="flex absolute inset-0 flex-col">
 				<div class="container flex relative z-40 flex-row justify-between items-center pt-4 space-x-2">
 					<img alt="Open projects" class="w-auto h-full opacity-0 cursor-pointer" x-on:click="router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))" oncontextmenu="event.preventDefault(); console.log('right click', window.router.generate('project-' + Spruce.stores.global.language)); router.navigate(window.router.generate('project-' + Spruce.stores.global.language, { language: Spruce.stores.global.language, name: 'bohemica-brand'} ))" src="./images/logomark.svg" onload="anime({ targets: this, duration: 200, delay: 600, opacity: 1, translateZ: 0, easing: 'linear'})">
-					<div class="flex p-2.5 md:py-2.5 md:px-3.5 bg-white opacity-0 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu" x-data x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 400, opacity: 1, translateZ: 0, easing: 'linear'}) })">
+					<div class="flex p-1.5 md:py-2.5 md:px-3.5 bg-white opacity-0 rounded-xl md:rounded-2.5xl border border-blue-gray-300 items-center top-menu" x-data x-init="$nextTick(() => { anime({ targets: $el, duration: 200, delay: 400, opacity: 1, translateZ: 0, easing: 'linear'}) })">
 						{# <a rel="noopener" href="https://cal.mixmax.com/bohemicastudio/" class="py-2.5 px-3 text-sm font-medium leading-none text-warm-gray-800 bg-yellow-400 rounded-md md:rounded-xl text-center" x-bind:data-tippy-content="$store['global'].return('tooltip.scheduleCall')" target="_blank" x-text="$store['global'].return('available')"></a> #}
 						<div class="hidden items-center space-x-2 md:flex">
 							<button class="top-menu__button hover:bg-blue-200 focus:ring-blue-400" x-text="$store['global'].return('sections.what.name')" x-bind:data-tippy-content="$store['global'].return('sections.what.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
@@ -27,8 +27,8 @@
 							<button class="top-menu__button hover:bg-emerald-200 focus:ring-emerald-400" x-text="$store['global'].return('sections.who.name')" x-bind:data-tippy-content="$store['global'].return('sections.who.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 							<button class="top-menu__button hover:bg-red-200 focus:ring-red-400" x-text="$store['global'].return('sections.where.name')" x-bind:data-tippy-content="$store['global'].return('sections.where.title')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 						</div>
-						<button title="Open mobile menu" x-on:click="$store.global.openMobileMenu()" class="flex p-1.5 md:hidden top-menu__button hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-md cursor-pointer md:ml-3.5">
-							<span class="flex justify-center items-center w-5 h-5 text-blue-gray-800">
+						<button title="Open mobile menu" x-on:click="$store.global.openMobileMenu()" class="p-2 flex md:hidden text-gray-700 text-lg font-medium transition duration-100 ease-linear whitespace-nowrap focus:ring-2 focus:ring-offset-white focus:outline-none hover:bg-blue-gray-200 focus:ring-blue-gray-400 rounded-lg cursor-pointer md:ml-3.5">
+							<span class="flex justify-center items-center w-6 h-6 text-blue-gray-800">
 								<i class="gg-menu"></i>
 							</span>
 						</button>
@@ -82,7 +82,7 @@
 						<div class="flex relative z-40 flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12">
 							<h1 class="text-5xl tracking-tight leading-none text-blue-gray-700 sm:text-6xl md:text-7xl" x-text="$store['global'].return('head.title')"></h1>
 							<span class="text-xl font-medium tracking-tight text-blue-gray-700 md:leading-relaxed md:font-normal xs:text-xl sm:text-2xl md:text-3xl font-dm-mono" x-text="$store['global'].return('head.subtitle')"></span>
-							<div class="flex flex-col items-center space-y-2.5 opacity-0" x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits', data: '' }" x-init="$fetch(url).then(response => data = response).finally(() => { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }) })" x-cloak>
+							<div class="flex flex-col items-center space-y-2.5 opacity-0" x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits/master', date: null }" x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json() } catch { date = null } } })()" x-cloak>
 								<div class="hidden flex-col items-stretch p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 transition duration-100 ease-linear md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500">
 									<div class="flex items-center px-3 h-8 rounded-lg bg-teal-legacy-200">
 										<span class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left" x-text="$store['global'].return('recentActivity') + ':'"></span>
@@ -92,10 +92,12 @@
 										<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 flex-shrink-0"></i>
 									</a>
 								</div>
-								<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
-									<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
-									<a rel="noopener" href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" x-text="dayjs(data[0]?.commit?.author?.date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
-								</div>
+								<template x-if="date !== null">
+									<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
+										<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
+										<a rel="noopener" href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
+									</div>
+								</template>
 							</div>
 						</div>
 
