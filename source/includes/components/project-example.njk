@@ -92,12 +92,12 @@
 				<div class="grid gap-y-3 gap-x-5 font-medium" style="grid-template-columns: min-content auto">
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.client') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].client`)"></span>
-					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-show="$store['translation.projects'].return(`list['{{ project }}'].year`)" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
-					<span class="text-cool-gray-100" x-show="$store['translation.projects'].return(`list['{{ project }}'].year`)" x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
+					<span x-show="$store['translation.projects'].return(`list['{{ project }}'].year`)" class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.year') + ':'"></span>
+					<span x-show="$store['translation.projects'].return(`list['{{ project }}'].year`)" class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].year`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.type') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].type`)"></span>
-					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
-					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
+					<span x-show="$store['translation.projects'].return(`list['{{ project }}'].industry`)" class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.industry') + ':'"></span>
+					<span x-show="$store['translation.projects'].return(`list['{{ project }}'].industry`)" class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].industry`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.platforms') + ':'"></span>
 					<span class="text-cool-gray-100" x-text="$store['translation.projects'].return(`list['{{ project }}'].platforms`)"></span>
 					<span class="text-cool-gray-400 whitespace-nowrap font-dm-mono" x-text="$store['translation.projects'].return('labels.stack') + ':'"></span>

@@ -22,7 +22,7 @@
 
     /* Section clue - top right corner */
     .section-clue-menu__button {
-        @apply justify-center flex flex-row items-center py-2.5 px-2 space-x-4 rounded-md transition duration-75 ease-linear cursor-pointer focus:bg-cool-gray-800 focus:outline-none hover:bg-cool-gray-700 font-medium leading-none text-cool-gray-100 whitespace-nowrap
+        @apply justify-center flex flex-row items-center py-2.5 px-2 space-x-4 rounded-md transition duration-75 ease-linear cursor-pointer focus:bg-cool-gray-700 focus:outline-none hover:bg-cool-gray-600 font-medium leading-none text-cool-gray-100 whitespace-nowrap
     }
 
     /* Mobile menu */

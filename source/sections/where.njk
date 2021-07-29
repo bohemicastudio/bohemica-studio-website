@@ -5,13 +5,13 @@ permalink: /sections/where.html
 {% macro sectionWhereTranslation() %}
 	Spruce.store('translation.sectionWhere', {
 	en: {
-	czech: 'Czech Republic,<br>Prague',
+	czech: 'Czech Republic,<br>Liberec',
 	britain: 'United Kingdom,<br>Cheltenham',
 	title: 'That’s all folks!',
 	subtitle: 'Just click that button in the right bottom corner to talk to us about your project or to ask any question. You can also schedule a call with one of our project managers.'
 	},
 	cs: {
-	czech: 'Česká Republika,<br>Praha',
+	czech: 'Česká Republika,<br>Liberec',
 	britain: 'Británie,<br>Cheltenham',
 	title: 'Toť vše z naší strany',
 	subtitle: 'Rádi zodpovíme jakékoli otázky či nejasnosti. Stačí kliknout na tlačítko v pravém dolním rohu. Lze si také zabukovat hovor s jedním z našich vedoucích projektů.'
@@ -23,6 +23,7 @@ permalink: /sections/where.html
 {% endmacro %}
 
 {% from "components/section-intro.njk" import sectionIntro %}
+{% from "components/button-call.njk" import buttonCall %}
 
 <div class="bg-cool-gray-500" x-data x-init="(function () { {{ sectionWhereTranslation() }} })()">
 
@@ -34,27 +35,27 @@ permalink: /sections/where.html
 				<h3 class="text-3xl font-medium leading-tight text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight" x-html="$store['translation.sectionWhere'].return('czech')"></h3>
 				<picture>
 					<source srcset="./images/icon/prague.svg" type="image/svg">
-					<img alt="Find us in Prague" src="./images/icon/prague.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
+					<img alt="Find us in Czech Republic" src="./images/icon/prague.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
 				</picture>
 			</div>
 			<div class="flex flex-col justify-center items-center space-y-8 md:justify-between md:items-start md:space-y-12">
 				<h3 class="text-3xl font-medium leading-tight text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight" x-html="$store['translation.sectionWhere'].return('britain')"></h3>
 				<picture>
 					<source srcset="./images/icon/london.svg" type="image/svg">
-					<img alt="Find us in the UK" src="./images/icon/london.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
+					<img alt="Find us in Britain" src="./images/icon/london.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
 				</picture>
 			</div>
 		</div>
-		<hr class="mt-24 mb-48 border-t-2 border-cool-gray-300">
+		<hr class="mt-12 mb-24 border-t-2 border-cool-gray-300 md:mt-24 md:mb-48">
 		<div class="flex flex-col items-center mx-auto">
 			<div class="flex flex-col items-center space-y-8 w-full text-center text-white md:w-2/3">
-				<span class="text-3xl font-medium md:text-5xl font-dm-mono" x-text="$store['translation.sectionWhere'].return('title')"></span>
-				<p class="text-2xl xl:text-3xl leading-loose xl:leading-relaxed" x-text="$store['translation.sectionWhere'].return('subtitle')"></p>
+				<span class="text-4xl font-medium sm:text-5xl md:text-6xl" x-text="$store['translation.sectionWhere'].return('title')"></span>
+				<p class="text-lg leading-relaxed-more sm:leading-relaxed-more lg:leading-relaxed-more sm:text-xl lg:text-2xl" x-text="$store['translation.sectionWhere'].return('subtitle')"></p>
 			</div>
 
-			{% include "components/button-call.njk" %}
+			{{ buttonCall(ringColor='yellow-300', offsetColor='cool-gray-500', textColor='cool-gray') }}
 
-			<div class="hidden overflow-hidden relative mt-32 mb-40 sm:block">
+			<div class="hidden overflow-hidden relative mt-32 mb-40 md:block">
 				<div class="absolute inset-y-0 left-0 z-10 w-1/4 bg-gradient-to-r from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
 				<div class="absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-cool-gray-500 md:w-1/3" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
 				<div class="absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-cool-gray-500 md:h-1/2" style="--tw-gradient-to: rgba(107, 114, 128, 0)"></div>
@@ -73,7 +74,7 @@ permalink: /sections/where.html
 				</picture>
 			</div>
 
-			<div class="flex flex-col items-center sm:hidden mt-24 mb-32">
+			<div class="flex flex-col items-center mt-24 mb-32 md:hidden">
 				<div class="flex flex-col items-center pl-6 space-y-3 md:pl-12 md:space-y-4">
 					<svg class="w-auto h-7 text-white" width="38" height="32" viewBox="0 0 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path d="M17.7778 26.6667C17.7778 19.7867 23.3422 14.2222 30.2222 14.2222C32.1422 14.2222 33.9378 14.6667 35.5556 15.4311V0H0V28.4444H17.92C17.8311 27.8578 17.7778 27.2711 17.7778 26.6667ZM3.55556 3.55556L17.7778 12.4444L32 3.55556V7.11111L17.7778 16L3.55556 7.11111V3.55556ZM27.2711 32L20.9778 25.7067L23.4844 23.2L27.2533 26.9689L34.7911 19.4311L37.3333 21.9378L27.2711 32Z"/>

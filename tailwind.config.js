@@ -36,7 +36,8 @@ module.exports = {
 	variants: {
 		extend: {
 			backgroundColor: ['group-focus'],
-			translate: ['group-hover'],
+			textColor: ['group-hover', 'group-focus'],
+			translate: ['group-hover', 'group-focus'],
 			width: ['responsive'],
 			maxWidth: ['responsive'],
 			minHeight: ['responsive'],
@@ -265,6 +266,9 @@ module.exports = {
 				'9/12': '75%',
 				'10/12': '83.333333%',
 				'11/12': '91.666667%',
+			},
+			lineHeight: {
+				'relaxed-more': '1.75'
 			},
 			letterSpacing: {
 				'wide': '0.05em',

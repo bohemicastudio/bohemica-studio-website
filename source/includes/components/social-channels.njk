@@ -1,6 +1,6 @@
 {% macro socialChannels(tippy=true, backgroundColorHover='blue-gray-300', textColor='blue-gray-500', textColorHover='blue-gray-700') %}
 
-	<a rel="noreferrer" href="https://twitter.com/BohemicaStudio" target="_blank" {{ 'x-bind:data-tippy-content=$store[\'global\'].return(\'tooltip.twitter\')' if tippy }} class="p-3.5 text-{{ textColor }} rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-{{ backgroundColorHover }} hover:text-{{ textColorHover }}">
+	<a rel="noreferrer" href="https://twitter.com/BohemicaStudio" target="_blank" {{ 'x-bind:data-tippy-content=$store[\'global\'].return(\'tooltip.twitter\')' if tippy }} class="p-3.5 text-{{ textColor }} rounded-full transition duration-150 ease-linear cursor-pointer hover:bg-{{ backgroundColorHover }} hover:text-{{ textColorHover }}">
 		<div class="flex justify-center items-center w-7 h-7">
 			<svg role="img" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="28" height="23" fill="currentColor" viewBox="0 0 28 23">
 				<title>Our Twitter</title>
@@ -9,7 +9,7 @@
 		</div>
 	</a>
 
-	<a rel="noreferrer" href="https://linkedin.com/company/bohemicastudio" target="_blank" {{ 'x-bind:data-tippy-content=$store[\'global\'].return(\'tooltip.linkedin\')' if tippy }} class="p-3.5 text-{{ textColor }} rounded-full transition duration-100 ease-linear cursor-pointer hover:bg-{{ backgroundColorHover }} hover:text-{{ textColorHover }}">
+	<a rel="noreferrer" href="https://linkedin.com/company/bohemicastudio" target="_blank" {{ 'x-bind:data-tippy-content=$store[\'global\'].return(\'tooltip.linkedin\')' if tippy }} class="p-3.5 text-{{ textColor }} rounded-full transition duration-150 ease-linear cursor-pointer hover:bg-{{ backgroundColorHover }} hover:text-{{ textColorHover }}">
 		<div class="flex justify-center items-center w-7 h-7">
 			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 28 28" role="img">
 				<title>Our LinkedIn</title>

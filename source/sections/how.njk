@@ -11,32 +11,32 @@ permalink: /sections/how.html
 	},
 	tools: {
 	first: 'Coding',
-	second: 'Styling',
-	third: 'JavaScript',
-	fourth: 'Storing & managing',
-	fifth: 'Visualising & prototyping',
+	second: 'Styling & Interactivity',
+	third: 'JavaScript Frameworks',
+	fourth: 'Data Storage & Management',
+	fifth: 'Visualisation & Prototyping',
 	},
 	second: {
-		title: 'We speak many languages.',
-		subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
-		}
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
 	},
 	cs: {
 	first: {
 	title: 'Náš proces. Zjednodušený.',
-						subtitle: 'Níže se podívejte, co můžete očekávat.'
+	subtitle: 'Níže se podívejte, co můžete očekávat.'
 	},
 	tools: {
 	first: 'Kódování',
-	second: 'Stylování',
-	third: 'JavaScriptování',
-	fourth: 'Datování',
-	fifth: 'Prototypování',
+	second: 'Stylování a interakce',
+	third: 'JavaScriptové frameworky',
+	fourth: 'Ukládání a správa dat',
+	fifth: 'Vizualizace a prototypování',
 	},
 	second: {
-		title: 'Mluvíme mnoha jazyky.',
-			subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
-		}
+	title: 'Mluvíme mnoha jazyky.',
+	subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
+	}
 	},
 	return: function (data) {
 	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
@@ -83,6 +83,12 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
+						<img alt="Type of skill" src="./images/logo/typescript.svg" loading="lazy">
+					</div>
+					<span>TypeScript</span>
+				</li>
+				<li>
+					<div>
 						<img alt="Type of skill" src="./images/logo/php.svg" loading="lazy">
 					</div>
 					<span>PHP</span>
@@ -122,7 +128,7 @@ permalink: /sections/how.html
 		<div>
 			<h5 class="mb-6 text-2xl font-medium" x-text="$store['translation.sectionHow'].return('tools.second')"></h5>
 			<ul class="grid-how">
-				<li>
+				{# <li>
 					<div>
 						<img alt="Type of skill" src="./images/logo/html5.svg" loading="lazy">
 					</div>
@@ -133,7 +139,7 @@ permalink: /sections/how.html
 						<img alt="Type of skill" src="./images/logo/css3.svg" loading="lazy">
 					</div>
 					<span>CSS3</span>
-				</li>
+				</li> #}
 				<li>
 					<div>
 						<img alt="Type of skill" src="./images/logo/tailwindcss.svg" loading="lazy">
@@ -142,9 +148,33 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/bootstrap.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/alpine-3.svg" loading="lazy">
 					</div>
-					<span>Bootstrap</span>
+					<span>Alpine.js</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" src="./images/logo/animejs.svg" loading="lazy">
+					</div>
+					<span>Anime.js</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" src="./images/logo/gsap.svg" loading="lazy">
+					</div>
+					<span>GSAP</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" class="w-auto h-18" src="./images/logo/framer-motion.png" loading="lazy">
+					</div>
+					<span>Framer Motion</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" class="w-auto h-20" src="./images/logo/spline.png" loading="lazy">
+					</div>
+					<span>Spline</span>
 				</li>
 			</ul>
 		</div>
@@ -155,13 +185,19 @@ permalink: /sections/how.html
 					<div>
 						<img alt="Type of skill" src="./images/logo/vuejs.svg" loading="lazy">
 					</div>
-					<span>Vue.js</span>
+					<span>Vue</span>
 				</li>
 				<li>
 					<div>
 						<img alt="Type of skill" src="./images/logo/nuxtjs.svg" loading="lazy">
 					</div>
-					<span>Nuxt.js</span>
+					<span>Nuxt</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" src="./images/logo/electron.svg" loading="lazy">
+					</div>
+					<span>Electron</span>
 				</li>
 				<li>
 					<div>
@@ -171,27 +207,27 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/gridsome.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/react.svg" loading="lazy">
 					</div>
-					<span>Gridsome</span>
+					<span>React</span>
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/alpinejs.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/nextjs.svg" loading="lazy">
 					</div>
-					<span>Alpine.js</span>
+					<span>Next.js</span>
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/jquery.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/ionic.svg" loading="lazy">
 					</div>
-					<span>jQuery</span>
+					<span>Ionic</span>
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/animejs.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/capacitor.svg" loading="lazy">
 					</div>
-					<span>Anime.js</span>
+					<span>Capacitor</span>
 				</li>
 			</ul>
 		</div>
@@ -203,9 +239,7 @@ permalink: /sections/how.html
 					<div>
 						<img alt="Type of skill" src="./images/logo/apostrophecms.svg" loading="lazy">
 					</div>
-					<span>
-							Apostrophe CMS
-						</span>
+					<span>Apostrophe CMS</span>
 				</li>
 				<li>
 					<div>
@@ -215,15 +249,15 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/wordpress.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/firebase.svg" loading="lazy">
 					</div>
-					<span>Wordpress</span>
+					<span>Firebase</span>
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" src="./images/logo/elementor.svg" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/wordpress.svg" loading="lazy">
 					</div>
-					<span>Elementor</span>
+					<span>Wordpress</span>
 				</li>
 			</ul>
 		</div>
@@ -250,9 +284,15 @@ permalink: /sections/how.html
 				</li>
 				<li>
 					<div>
-						<img alt="Type of skill" class="w-auto h-20" src="./images/logo/spline.png" loading="lazy">
+						<img alt="Type of skill" src="./images/logo/webflow.svg" loading="lazy">
 					</div>
-					<span>Spline</span>
+					<span>Webflow</span>
+				</li>
+				<li>
+					<div>
+						<img alt="Type of skill" src="./images/logo/elementor.svg" loading="lazy">
+					</div>
+					<span>Elementor</span>
 				</li>
 			</ul>
 		</div>

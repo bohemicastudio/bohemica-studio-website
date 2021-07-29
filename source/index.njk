@@ -82,22 +82,22 @@
 						<div class="flex relative z-40 flex-col justify-center items-center pt-2 space-y-6 w-full text-center md:w-8/12">
 							<h1 class="text-5xl tracking-tight leading-none text-blue-gray-700 sm:text-6xl md:text-7xl" x-text="$store['global'].return('head.title')"></h1>
 							<span class="text-xl font-medium tracking-tight text-blue-gray-700 md:leading-relaxed md:font-normal xs:text-xl sm:text-2xl md:text-3xl font-dm-mono" x-text="$store['global'].return('head.subtitle')"></span>
-							<div class="flex flex-col items-center space-y-2.5 opacity-0" x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits/master', date: null }" x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json() } catch { date = null } } })()" x-cloak>
-								<div class="hidden flex-col items-stretch p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 transition duration-100 ease-linear md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500">
+							<div class="flex flex-col items-center space-y-2.5 opacity-0" x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits/master', date: null }" x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json(); date = data.commit.author.date } catch { date = null } } })()" x-cloak>
+								<div class="hidden flex-col items-center p-1 space-y-1 font-medium leading-none bg-teal-50 rounded-xl border-2 transition duration-100 ease-linear md:flex md:space-y-0 md:flex-row border-teal-legacy-400 hover:border-teal-legacy-500 focus:border-teal-legacy-500">
 									<div class="flex items-center px-3 h-8 rounded-lg bg-teal-legacy-200">
 										<span class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left" x-text="$store['global'].return('recentActivity') + ':'"></span>
 									</div>
 									<a rel="noopener" class="flex flex-row items-center py-1 select-none group md:py-0" x-bind:href="$store.activity.getUrl" x-bind:data-navigo="!$store.activity.getUrl?.includes('://')" x-bind:target="$store.activity.getUrl?.includes('://') ? '_blank' : '_self'">
-										<span class="flex items-center pr-1 pl-2.5 md:pl-3 space-x-2 leading-snug md:leading-none text-teal-legacy-700 group-hover:text-teal-legacy-800 md:whitespace-nowrap" x-html="$store.activity.getContent"></span>
-										<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 flex-shrink-0"></i>
+										<span class="flex items-center pr-1 pl-2.5 md:pl-3 space-x-2 leading-snug md:leading-none text-teal-legacy-700 group-hover:text-teal-legacy-800 group-focus:text-teal-legacy-800 md:whitespace-nowrap" x-html="$store.activity.getContent"></span>
+										<i class="mr-1.5 transition duration-200 ease-out transform gg-chevron-right text-teal-legacy-600 group-hover:text-teal-legacy-800 group-hover:translate-x-0.5 group-focus:translate-x-0.5 group-focus:text-teal-legacy-800 flex-shrink-0"></i>
 									</a>
 								</div>
-								<template x-if="date !== null">
-									<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500">
-										<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
-										<a rel="noopener" href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
-									</div>
-								</template>
+								{# <template x-if="date !== null"> #}
+								<div class="hidden md:flex flex-row uppercase space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500 transition ease-linear duration-300" x-bind:class="date === null ? 'opacity-0' : 'opacity-1'">
+									<span x-text="$store['global'].return('lastUpdated') + ':'"></span>
+									<a rel="noopener" href="https://github.com/bohemicastudio/bohemica-studio-website" target="_blank" x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')">00.00.0000</a>
+								</div>
+								{# </template> #}
 							</div>
 						</div>
 
@@ -235,7 +235,7 @@
 
 	</div>
 
-	<div class="fixed cursor-pointer top-2.5 right-2.5 z-40 text-white bg-cool-gray-600 rounded-lg select-none md:top-5 md:right-5"
+	<div class="fixed cursor-pointer top-2.5 right-2.5 z-40 text-white bg-cool-gray-600 border-2 border-cool-gray-500 rounded-lg select-none md:top-5 md:right-5"
 	     x-cloak x-show="$store.global.openSectionClue" x-data="{ open: false }" x-on:click="open = !open" x-on:click.away="open = false" :class="{ 'zoom-0' : open }"
 	     x-transition:enter="transition ease-out duration-150"
 	     x-transition:enter-start="opacity-0 transform scale-75"
@@ -251,16 +251,16 @@
 				<span class="text-cool-gray-100 bg-cool-gray-600 rounded-lg ml-1.5 w-8 h-8 flex transition duration-100 ease-linear items-center justify-center group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500"><i class="gg-chevron-down"></i></span>
 			</button>
 
-			<div class="absolute left-0 top-full z-40 p-1 mt-3 bg-cool-gray-500 rounded-lg origin-left"
+			<div class="absolute left-0 top-full z-40 p-1.5 mt-3 bg-cool-gray-500 border-2 border-cool-gray-400 rounded-lg origin-left"
 			     :class="open ? 'opacity-1' : 'opacity-0'"
 			     :style="(open ? 'transform: scale(1) translateY(0rem); visibility: visible; transition: 200ms opacity linear 100ms, 200ms transform ease-out 100ms, 0ms visibility linear 0ms, 0ms overflow linear 0ms;' : 'transform: scale(0.85) translateY(-.75rem); visibility: hidden !important; transition: 200ms opacity linear 0ms, 200ms transform ease-out 0ms, 0ms visibility linear 200ms, 0ms overflow linear 150ms;') + ''">
 				<div class="grid gap-2">
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'what' }" x-text="$store['global'].return('sections.what.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how' }" x-text="$store['global'].return('sections.how.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how-much' }" x-text="$store['global'].return(`sections['how-much'].name`)" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'why' }" x-text="$store['global'].return('sections.why.name')" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'who' }" x-text="$store['global'].return('sections.who.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
-					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'where' }" x-text="$store['global'].return('sections.where.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'what' }" x-text="$store['global'].return('sections.what.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'how' }" x-text="$store['global'].return('sections.how.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'how-much' }" x-text="$store['global'].return(`sections['how-much'].name`)" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'why' }" x-text="$store['global'].return('sections.why.name')" x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'who' }" x-text="$store['global'].return('sections.who.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
+					<button class="section-clue-menu__button" :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'where' }" x-text="$store['global'].return('sections.where.name')" x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"></button>
 				</div>
 			</div>
 

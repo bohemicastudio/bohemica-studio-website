@@ -223,6 +223,16 @@ Spruce.store('activity', {
 		},*/
 		{
 			en: {
+				content: '<span class="mt-0.5">Check out our most recent project - Digital signage application (T-Mobile)</span><img alt="Fresh project" class="w-6 h-auto" src="./images/activity/sparkles.png">',
+				project: 't-mobile',
+			},
+			cs: {
+				content: '<span class="mt-0.5">Podívejte se na náš nejnovější projekt - pokročilý přehrávač mediálního obsahu (T-Mobile)</span><img alt="Fresh project" class="w-6 h-auto" src="./images/activity/sparkles.png">',
+				project: 't-mobile'
+			},
+		},
+		{
+			en: {
 				content: '<span class="mt-0.5">We are an official partner of ApostropheCMS</span><img alt="Logo apostrophe" class="max-w-none" src="./images/activity/apostrophecms-logo.svg">',
 				url: 'https://apostrophecms.com/',
 				target: '_blank'
@@ -253,9 +263,11 @@ Spruce.store('activity', {
 	},
 	get getUrl() {
 		if (!!Spruce.stores.global.language && (!this.random || this.random !== 0)) {
-			if (this.activities[this.random][Spruce.stores.global.language].url.includes('://')) {
+			// redirect to an URL
+			if (this.activities[this.random][Spruce.stores.global.language].url?.includes('://')) {
 				return this.activities[this.random][Spruce.stores.global.language].url
 			}
+			// redirect to a project page
 			else {
 				// LOG
 				/*console.log(window.router.generate('project-' + Spruce.stores.global.language, {
@@ -264,7 +276,7 @@ Spruce.store('activity', {
 				}))*/
 				return window.router.generate('project-' + Spruce.stores.global.language, {
 					language: Spruce.stores.global.language,
-					name: 'mmt'
+					name: this.activities[this.random][Spruce.stores.global.language].project
 				})
 			}
 		}

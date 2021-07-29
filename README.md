@@ -77,7 +77,7 @@ pnpm install
 Start a web server with hot-reloading and automatic compilation when a change is detected
 
 ```
-pnpm run serve
+pnpm run dev
 ```
 
 ### Creating a production build
