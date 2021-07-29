@@ -41,85 +41,85 @@
     class="container flex flex-col items-center"
     x-data
     x-init="(function () { 
-		Spruce.store('translation.sectionWho', {
-			en: {
-				first: {
-					title: 'Remote-first mindset allows us to work with clients from all around the globe.',
-					subtitle: false
-				},
-				second: {
-					title: 'This is what some of our clients have to say about us.',
-					subtitle: false
-				},
-				buttonTitle: 'You can read more about the various projects we have done.',
-				testimonials: {
-					mmt: {
-						company: 'MMT',
-						country: 'Czech Republic',
-						url: 'mmt.cz',
-						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
-					},
-					'lancaster-maloney': {
-						company: 'Lancaster Maloney',
-						country: 'United Kingdom',
-						url: 'lancastermaloney.co.uk',
-						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
-					},
-					'media-server': {
-						company: 'T-Mobile',
-						country: 'Czech Republic, Global',
-						url: 't&#8209;mobile.cz/microsites/magenta-experience',
-						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
-					},
-					'subtitle-editor': {
-						company: 'SlidesLive',
-						country: 'EU, Global',
-						url: 'slideslive.com',
-						review: 'Bohemica Studio impressed me on multiple levels. We would not be able to pull our Subtitle Editor without them. We continue to work with these folks on other projects.'
-					},
-				}
-			},
-			cs: {
-				first: {
-					title: 'Styl práce na dálku nám umožňuje pracovat s klienty z celého světa.',
-					subtitle: false
-				},
-				second: {
-					title: 'Co o nás říkají někteří z našich klientů.',
-					subtitle: false
-				},
-				buttonTitle: 'Více o úspěšně dokončených projektech.',
-				testimonials: {
-					mmt: {
-						company: 'MMT s.r.o.',
-						country: 'Česká Republika',
-						url: 'mmt.cz',
-						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
-					},
-					'lancaster-maloney': {
-						company: 'Lancaster Maloney',
-						country: 'Velká Británie',
-						url: 'lancastermaloney.co.uk',
-						review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
-					},
-					'media-server': {
-						company: 'T-Mobile (Magenta Experience Center)',
-						country: 'Česká Republika, Globálně',
-						url: 't&#8209;mobile.cz/microsites/magenta-experience',
-						review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
-					},
-					'subtitle-editor': {
-						company: 'SlidesLive',
-						country: 'EU, Globálně',
-						url: 'slideslive.com',
-						review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
-					}
-				}
-			},
-			return: function (data) {
-				return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
-			}
-		})
+	Spruce.store('translation.sectionWho', {
+	en: {
+	first: {
+	title: 'Remote-first mindset allows us to work with clients from all around the globe.',
+	subtitle: false
+	},
+	second: {
+	title: 'This is what some of our clients have to say about us.',
+	subtitle: false
+	},
+	buttonTitle: 'You can read more about the various projects we have done.',
+	testimonials: {
+	mmt: {
+	company: 'MMT',
+	country: 'Czech Republic',
+	url: 'mmt.cz',
+	review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+	},
+	'lancaster-maloney': {
+	company: 'Lancaster Maloney',
+	country: 'United Kingdom',
+	url: 'lancastermaloney.co.uk',
+	review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
+	},
+	'media-server': {
+	company: 'T-Mobile',
+	country: 'Czech Republic, Global',
+	url: 't&#8209;mobile.cz/microsites/magenta-experience',
+	review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
+	},
+	'subtitle-editor': {
+	company: 'SlidesLive',
+	country: 'EU, Global',
+	url: 'slideslive.com',
+	review: 'Bohemica Studio impressed me on multiple levels. We would not be able to pull our Subtitle Editor without them. We continue to work with these folks on other projects.'
+	},
+	}
+	},
+	cs: {
+	first: {
+	title: 'Styl práce na dálku nám umožňuje pracovat s klienty z celého světa.',
+	subtitle: false
+	},
+	second: {
+	title: 'Co o nás říkají někteří z našich klientů.',
+	subtitle: false
+	},
+	buttonTitle: 'Více o úspěšně dokončených projektech.',
+	testimonials: {
+	mmt: {
+	company: 'MMT s.r.o.',
+	country: 'Česká Republika',
+	url: 'mmt.cz',
+	review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+	},
+	'lancaster-maloney': {
+	company: 'Lancaster Maloney',
+	country: 'Velká Británie',
+	url: 'lancastermaloney.co.uk',
+	review: 'Great experience, job was finished quickly and everything we had asked for was completed on time.'
+	},
+	'media-server': {
+	company: 'T-Mobile (Magenta Experience Center)',
+	country: 'Česká Republika, Globálně',
+	url: 't&#8209;mobile.cz/microsites/magenta-experience',
+	review: 'Good work from a smart and responsive team. We already have other projects in the pipeline for them.'
+	},
+	'subtitle-editor': {
+	company: 'SlidesLive',
+	country: 'EU, Globálně',
+	url: 'slideslive.com',
+	review: 'Amazing work! We would recommend Bohemica Studio to anyone who is looking for creative web developers.'
+	}
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.sectionWho'], Spruce.stores.global.language + '.' + data)
+	}
+	})
  })()"
   >
     <div
@@ -157,7 +157,10 @@
         md:mt-16 md:h-24
       "
     />
-    <div class="grid bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px">
+    <div
+      class="grid overflow-hidden bg-cool-gray-400 md:grid-cols-2"
+      style="grid-gap: 1px"
+    >
       <div class="p-8 bg-white lg:p-16">
         <div class="flex flex-col items-start">
           <div class="h-16">
