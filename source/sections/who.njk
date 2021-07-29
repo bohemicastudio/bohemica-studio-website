@@ -95,17 +95,17 @@ permalink: /sections/who.html
 	<div class="container flex flex-col items-center" x-data x-init="(function () { {{ sectionWhoTranslation() }} })()">
 		{{ sectionTitle(section='sectionWho', name='second', icon='stars.svg', subtitle=false) }}
 		<hr class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24">
-		<div class="grid overflow-hidden bg-cool-gray-400 md:grid-cols-2" style="grid-gap: 1px;">
-			<div class="p-8 bg-white lg:p-16">
+		<div class="grid md:grid-cols-2">
+			<div class="p-8 lg:p-16">
 				{{ testimonial(project='mmt', logo='logo.svg', logoHeight='18', color='blue') }}
 			</div>
-			<div class="p-8 bg-white lg:p-16">
+			<div class="p-8 border-t border-cool-gray-400 md:border-t-0 md:border-l lg:p-16 md:-ml-px">
 				{{ testimonial(project='lancaster-maloney', logo='logo.png', logoHeight='12', color='amber') }}
 			</div>
-			<div class="p-8 bg-white lg:p-16">
+			<div class="p-8 border-t border-cool-gray-400 lg:p-16">
 				{{ testimonial(project='media-server', logo='logo.svg', logoHeight='10', color='yellow') }}
 			</div>
-			<div class="p-8 bg-white lg:p-16">
+			<div class="p-8 border-t border-cool-gray-400 md:border-l lg:p-16 md:-ml-px">
 				{{ testimonial(project='subtitle-editor', logo='logo.svg', logoHeight='11', color='rose') }}
 			</div>
 		</div>

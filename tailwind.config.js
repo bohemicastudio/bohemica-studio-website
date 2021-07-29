@@ -41,8 +41,9 @@ module.exports = {
 			width: ['responsive'],
 			maxWidth: ['responsive'],
 			minHeight: ['responsive'],
+			margin: ['responsive'],
 			padding: ['hover', 'focus'],
-			borderWidth: ['first'],
+			borderWidth: ['first', 'responsive'],
 			scale: ['responsive'],
 			fontWeight: ['responsive'],
 			lineHeight: ['responsive']
