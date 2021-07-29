@@ -252,7 +252,8 @@ module.exports = {
 				'screen-50': '50vh',
 				'screen-75': '75vh',
 				'screen-125': '125vh',
-				'18': '4.5rem'
+				'18': '4.5rem',
+				'22': '5.5rem'
 			},
 			minHeight: {
 				'1/12': '8.333333%',
