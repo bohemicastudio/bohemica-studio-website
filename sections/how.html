@@ -60,141 +60,141 @@
 	},
 	tools: {
 	first: 'Coding',
-	second: 'Styling',
-	third: 'JavaScript',
-	fourth: 'Storing & managing',
-	fifth: 'Visualising & prototyping',
+	second: 'Styling & Interactivity',
+	third: 'JavaScript Frameworks',
+	fourth: 'Data Storage & Management',
+	fifth: 'Visualisation & Prototyping',
 	},
 	second: {
-		title: 'We speak many languages.',
-		subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
-		}
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
 	},
 	cs: {
 	first: {
 	title: 'Náš proces. Zjednodušený.',
-						subtitle: 'Níže se podívejte, co můžete očekávat.'
+	subtitle: 'Níže se podívejte, co můžete očekávat.'
 	},
 	tools: {
 	first: 'Kódování',
-	second: 'Stylování',
-	third: 'JavaScriptování',
-	fourth: 'Datování',
-	fifth: 'Prototypování',
+	second: 'Stylování a interakce',
+	third: 'JavaScriptové frameworky',
+	fourth: 'Ukládání a správa dat',
+	fifth: 'Vizualizace a prototypování',
 	},
 	second: {
-		title: 'Mluvíme mnoha jazyky.',
-			subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
-		}
+	title: 'Mluvíme mnoha jazyky.',
+	subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
+	}
 	},
 	return: function (data) {
 	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
 	}
 	})
  
-		Spruce.store('translation.processSteps', {
-			en: {
-				step: 'Step',
-				1: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief. We talk through requirements and goals and come back with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy. We give variety of options and tips on how to approach the project most optimally.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				},
-				2: {
-					title: 'Design & Development',
-					description: [
-						`Let's get to work! This is when it all comes together.`,
-						'We design, code, and do everything in-between and beyond.',
-						'The client is regularly updated about the progress and further discussions take place.'
-					],
-					keywords: [
-						'Sketch',
-						'Wireframe',
-						'Mock-up',
-						'Guideline',
-						'Illustration',
-						'Website',
-						'Application',
-						'Copywriting'
-					]
-				},
-				3: {
-					title: 'Test & Launch',
-					description: [
-						`We conduct necessary quality assurance (QA) rounds to make sure the product meets set requirements and expectations.`,
-						`And hooray, it is done!`,
-						`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
-					],
-					keywords: [
-						'Testing',
-						'Deployment',
-						'SEO',
-						'Analytics',
-					]
-				}
-			},
-			cs: {
-				step: 'Krok',
-				1: {
-					title: 'Seznámení a plánovaní',
-					description: [
-						'Všechno to začíná s projektovým zadáním. Promluvíme si o požadavcích a cílech a vrátíme se s odhadem a časovou osou.',
-						'Náš tým dá hlavy dohromady, aby přišel s nejlepší strategií. Poskytneme různé alternativy a tipy, jak k projektu přistupovat co nejoptimálněji.'
-					],
-					keywords: [
-						'Komunikační kanál',
-						'Stručný projekt',
-						'Odhad',
-						'Milníky',
-						'Výstupy'
-					]
-				},
-				2: {
-					title: 'Design a vývoj',
-					description: [
-						`Vzhůru do práce! Tady se všechna příprava zmaterializuje.`,
-						'Navrhujeme, kódujeme a děláme vše mezi tím i mimo to.',
-						'Pravidelně informujeme klienta o pokroku a bereme v potaz jakoukoli zpětnou vazbu.'
-					],
-					keywords: [
-						'Skica',
-						'Drátový model',
-						'Mock-up',
-						'Průvodce stylem',
-						'Ilustrace',
-						'Webová stránka',
-						'Aplikace',
-						'Reklamní texty'
-					]
-				},
-				3: {
-					title: 'Testování a spuštění',
-					description: [
-						`Provádíme nezbytné testy pro zajištění kvality, abychom se ujistili, že produkt splňuje stanovené požadavky a očekávání.`,
-						`Hurá, a je hotovo!`,
-						`Jakmile jsou poskytnuty všechny dohodnuté materiály, je obvykle nezbytná další spolupráce a monitorování, aby se dosáhlo plného potenciálu projektu.`,
-					],
-					keywords: [
-						'Testování',
-						'Nasazení softwaru',
-						'SEO',
-						'Analytika',
-					]
-				}
-			},
-			return: function (data) {
-				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
-			}
-		})
+	Spruce.store('translation.processSteps', {
+	en: {
+	step: 'Step',
+	1: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief. We talk through requirements and goals and come back with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy. We give variety of options and tips on how to approach the project most optimally.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	2: {
+	title: 'Design & Development',
+	description: [
+	`Let's get to work! This is when it all comes together.`,
+	'We design, code, and do everything in-between and beyond.',
+	'The client is regularly updated about the progress and further discussions take place.'
+	],
+	keywords: [
+	'Sketch',
+	'Wireframe',
+	'Mock-up',
+	'Guideline',
+	'Illustration',
+	'Website',
+	'Application',
+	'Copywriting'
+	]
+	},
+	3: {
+	title: 'Test & Launch',
+	description: [
+	`We conduct necessary quality assurance (QA) rounds to make sure the product meets set requirements and expectations.`,
+	`And hooray, it is done!`,
+	`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
+	],
+	keywords: [
+	'Testing',
+	'Deployment',
+	'SEO',
+	'Analytics',
+	]
+	}
+	},
+	cs: {
+	step: 'Krok',
+	1: {
+	title: 'Seznámení a plánovaní',
+	description: [
+	'Všechno to začíná s projektovým zadáním. Promluvíme si o požadavcích a cílech a vrátíme se s odhadem a časovou osou.',
+	'Náš tým dá hlavy dohromady, aby přišel s nejlepší strategií. Poskytneme různé alternativy a tipy, jak k projektu přistupovat co nejoptimálněji.'
+	],
+	keywords: [
+	'Komunikační kanál',
+	'Stručný projekt',
+	'Odhad',
+	'Milníky',
+	'Výstupy'
+	]
+	},
+	2: {
+	title: 'Design a vývoj',
+	description: [
+	`Vzhůru do práce! Tady se všechna příprava zmaterializuje.`,
+	'Navrhujeme, kódujeme a děláme vše mezi tím i mimo to.',
+	'Pravidelně informujeme klienta o pokroku a bereme v potaz jakoukoli zpětnou vazbu.'
+	],
+	keywords: [
+	'Skica',
+	'Drátový model',
+	'Mock-up',
+	'Průvodce stylem',
+	'Ilustrace',
+	'Webová stránka',
+	'Aplikace',
+	'Reklamní texty'
+	]
+	},
+	3: {
+	title: 'Testování a spuštění',
+	description: [
+	`Provádíme nezbytné testy pro zajištění kvality, abychom se ujistili, že produkt splňuje stanovené požadavky a očekávání.`,
+	`Hurá, a je hotovo!`,
+	`Jakmile jsou poskytnuty všechny dohodnuté materiály, je obvykle nezbytná další spolupráce a monitorování, aby se dosáhlo plného potenciálu projektu.`,
+	],
+	keywords: [
+	'Testování',
+	'Nasazení softwaru',
+	'SEO',
+	'Analytika',
+	]
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+	}
+	})
  })()"
   >
     <div
@@ -300,21 +300,28 @@
             rel="noopener"
             href="https://cal.mixmax.com/bohemicastudio/"
             class="
+              inline-flex
+              flex-row
+              justify-center
+              items-center
               py-3
               px-4
               mt-8
+              space-x-2
               font-medium
               leading-none
-              text-warm-gray-800
+              text-center text-warm-gray-800
               bg-yellow-400
+              hover:bg-yellow-300
               rounded-md
+              ring-offset-2
+              transition
+              duration-100
+              ease-linear
               md:rounded-xl
-              text-center
-              inline-flex
-              flex-row
-              items-center
-              justify-center
-              space-x-2
+              focus:ring-2
+              group
+              focus:ring-offset-white focus:ring-yellow-400
             "
             target="_blank"
           >
@@ -607,141 +614,141 @@
 	},
 	tools: {
 	first: 'Coding',
-	second: 'Styling',
-	third: 'JavaScript',
-	fourth: 'Storing & managing',
-	fifth: 'Visualising & prototyping',
+	second: 'Styling & Interactivity',
+	third: 'JavaScript Frameworks',
+	fourth: 'Data Storage & Management',
+	fifth: 'Visualisation & Prototyping',
 	},
 	second: {
-		title: 'We speak many languages.',
-		subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
-		}
+	title: 'We speak many languages.',
+	subtitle: 'A list of most prominent languages, libraries and tools that we use to build awesome digital products and services.'
+	}
 	},
 	cs: {
 	first: {
 	title: 'Náš proces. Zjednodušený.',
-						subtitle: 'Níže se podívejte, co můžete očekávat.'
+	subtitle: 'Níže se podívejte, co můžete očekávat.'
 	},
 	tools: {
 	first: 'Kódování',
-	second: 'Stylování',
-	third: 'JavaScriptování',
-	fourth: 'Datování',
-	fifth: 'Prototypování',
+	second: 'Stylování a interakce',
+	third: 'JavaScriptové frameworky',
+	fourth: 'Ukládání a správa dat',
+	fifth: 'Vizualizace a prototypování',
 	},
 	second: {
-		title: 'Mluvíme mnoha jazyky.',
-			subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
-		}
+	title: 'Mluvíme mnoha jazyky.',
+	subtitle: 'Seznam předních programovacích jazyků, knihoven a nástrojů, které používáme k vytváření úžasných digitálních produktů a služeb.'
+	}
 	},
 	return: function (data) {
 	return Object.getProperty(Spruce.stores['translation.sectionHow'], Spruce.stores.global.language + '.' + data)
 	}
 	})
  
-		Spruce.store('translation.processSteps', {
-			en: {
-				step: 'Step',
-				1: {
-					title: 'Meet & Plan',
-					description: [
-						'It all starts with a project brief. We talk through requirements and goals and come back with an estimate and timeline.',
-						'Our team put heads together to come up with the best strategy. We give variety of options and tips on how to approach the project most optimally.'
-					],
-					keywords: [
-						'Communication channel',
-						'Project brief',
-						'Estimate',
-						'Milestones',
-						'Deliverables'
-					]
-				},
-				2: {
-					title: 'Design & Development',
-					description: [
-						`Let's get to work! This is when it all comes together.`,
-						'We design, code, and do everything in-between and beyond.',
-						'The client is regularly updated about the progress and further discussions take place.'
-					],
-					keywords: [
-						'Sketch',
-						'Wireframe',
-						'Mock-up',
-						'Guideline',
-						'Illustration',
-						'Website',
-						'Application',
-						'Copywriting'
-					]
-				},
-				3: {
-					title: 'Test & Launch',
-					description: [
-						`We conduct necessary quality assurance (QA) rounds to make sure the product meets set requirements and expectations.`,
-						`And hooray, it is done!`,
-						`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
-					],
-					keywords: [
-						'Testing',
-						'Deployment',
-						'SEO',
-						'Analytics',
-					]
-				}
-			},
-			cs: {
-				step: 'Krok',
-				1: {
-					title: 'Seznámení a plánovaní',
-					description: [
-						'Všechno to začíná s projektovým zadáním. Promluvíme si o požadavcích a cílech a vrátíme se s odhadem a časovou osou.',
-						'Náš tým dá hlavy dohromady, aby přišel s nejlepší strategií. Poskytneme různé alternativy a tipy, jak k projektu přistupovat co nejoptimálněji.'
-					],
-					keywords: [
-						'Komunikační kanál',
-						'Stručný projekt',
-						'Odhad',
-						'Milníky',
-						'Výstupy'
-					]
-				},
-				2: {
-					title: 'Design a vývoj',
-					description: [
-						`Vzhůru do práce! Tady se všechna příprava zmaterializuje.`,
-						'Navrhujeme, kódujeme a děláme vše mezi tím i mimo to.',
-						'Pravidelně informujeme klienta o pokroku a bereme v potaz jakoukoli zpětnou vazbu.'
-					],
-					keywords: [
-						'Skica',
-						'Drátový model',
-						'Mock-up',
-						'Průvodce stylem',
-						'Ilustrace',
-						'Webová stránka',
-						'Aplikace',
-						'Reklamní texty'
-					]
-				},
-				3: {
-					title: 'Testování a spuštění',
-					description: [
-						`Provádíme nezbytné testy pro zajištění kvality, abychom se ujistili, že produkt splňuje stanovené požadavky a očekávání.`,
-						`Hurá, a je hotovo!`,
-						`Jakmile jsou poskytnuty všechny dohodnuté materiály, je obvykle nezbytná další spolupráce a monitorování, aby se dosáhlo plného potenciálu projektu.`,
-					],
-					keywords: [
-						'Testování',
-						'Nasazení softwaru',
-						'SEO',
-						'Analytika',
-					]
-				}
-			},
-			return: function (data) {
-				return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
-			}
-		})
+	Spruce.store('translation.processSteps', {
+	en: {
+	step: 'Step',
+	1: {
+	title: 'Meet & Plan',
+	description: [
+	'It all starts with a project brief. We talk through requirements and goals and come back with an estimate and timeline.',
+	'Our team put heads together to come up with the best strategy. We give variety of options and tips on how to approach the project most optimally.'
+	],
+	keywords: [
+	'Communication channel',
+	'Project brief',
+	'Estimate',
+	'Milestones',
+	'Deliverables'
+	]
+	},
+	2: {
+	title: 'Design & Development',
+	description: [
+	`Let's get to work! This is when it all comes together.`,
+	'We design, code, and do everything in-between and beyond.',
+	'The client is regularly updated about the progress and further discussions take place.'
+	],
+	keywords: [
+	'Sketch',
+	'Wireframe',
+	'Mock-up',
+	'Guideline',
+	'Illustration',
+	'Website',
+	'Application',
+	'Copywriting'
+	]
+	},
+	3: {
+	title: 'Test & Launch',
+	description: [
+	`We conduct necessary quality assurance (QA) rounds to make sure the product meets set requirements and expectations.`,
+	`And hooray, it is done!`,
+	`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
+	],
+	keywords: [
+	'Testing',
+	'Deployment',
+	'SEO',
+	'Analytics',
+	]
+	}
+	},
+	cs: {
+	step: 'Krok',
+	1: {
+	title: 'Seznámení a plánovaní',
+	description: [
+	'Všechno to začíná s projektovým zadáním. Promluvíme si o požadavcích a cílech a vrátíme se s odhadem a časovou osou.',
+	'Náš tým dá hlavy dohromady, aby přišel s nejlepší strategií. Poskytneme různé alternativy a tipy, jak k projektu přistupovat co nejoptimálněji.'
+	],
+	keywords: [
+	'Komunikační kanál',
+	'Stručný projekt',
+	'Odhad',
+	'Milníky',
+	'Výstupy'
+	]
+	},
+	2: {
+	title: 'Design a vývoj',
+	description: [
+	`Vzhůru do práce! Tady se všechna příprava zmaterializuje.`,
+	'Navrhujeme, kódujeme a děláme vše mezi tím i mimo to.',
+	'Pravidelně informujeme klienta o pokroku a bereme v potaz jakoukoli zpětnou vazbu.'
+	],
+	keywords: [
+	'Skica',
+	'Drátový model',
+	'Mock-up',
+	'Průvodce stylem',
+	'Ilustrace',
+	'Webová stránka',
+	'Aplikace',
+	'Reklamní texty'
+	]
+	},
+	3: {
+	title: 'Testování a spuštění',
+	description: [
+	`Provádíme nezbytné testy pro zajištění kvality, abychom se ujistili, že produkt splňuje stanovené požadavky a očekávání.`,
+	`Hurá, a je hotovo!`,
+	`Jakmile jsou poskytnuty všechny dohodnuté materiály, je obvykle nezbytná další spolupráce a monitorování, aby se dosáhlo plného potenciálu projektu.`,
+	],
+	keywords: [
+	'Testování',
+	'Nasazení softwaru',
+	'SEO',
+	'Analytika',
+	]
+	}
+	},
+	return: function (data) {
+	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
+	}
+	})
  })()"
   >
     <div
@@ -791,6 +798,16 @@
             />
           </div>
           <span>JavaScript</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              src="./images/logo/typescript.svg"
+              loading="lazy"
+            />
+          </div>
+          <span>TypeScript</span>
         </li>
         <li>
           <div>
@@ -864,26 +881,6 @@
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/html5.svg"
-              loading="lazy"
-            />
-          </div>
-          <span>HTML5</span>
-        </li>
-        <li>
-          <div>
-            <img
-              alt="Type of skill"
-              src="./images/logo/css3.svg"
-              loading="lazy"
-            />
-          </div>
-          <span>CSS3</span>
-        </li>
-        <li>
-          <div>
-            <img
-              alt="Type of skill"
               src="./images/logo/tailwindcss.svg"
               loading="lazy"
             />
@@ -894,11 +891,53 @@
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/bootstrap.svg"
+              src="./images/logo/alpine-3.svg"
               loading="lazy"
             />
           </div>
-          <span>Bootstrap</span>
+          <span>Alpine.js</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              src="./images/logo/animejs.svg"
+              loading="lazy"
+            />
+          </div>
+          <span>Anime.js</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              src="./images/logo/gsap.svg"
+              loading="lazy"
+            />
+          </div>
+          <span>GSAP</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              class="w-auto h-18"
+              src="./images/logo/framer-motion.png"
+              loading="lazy"
+            />
+          </div>
+          <span>Framer Motion</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              class="w-auto h-20"
+              src="./images/logo/spline.png"
+              loading="lazy"
+            />
+          </div>
+          <span>Spline</span>
         </li>
       </ul>
     </div>
@@ -916,7 +955,7 @@
               loading="lazy"
             />
           </div>
-          <span>Vue.js</span>
+          <span>Vue</span>
         </li>
         <li>
           <div>
@@ -926,7 +965,17 @@
               loading="lazy"
             />
           </div>
-          <span>Nuxt.js</span>
+          <span>Nuxt</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              src="./images/logo/electron.svg"
+              loading="lazy"
+            />
+          </div>
+          <span>Electron</span>
         </li>
         <li>
           <div>
@@ -942,41 +991,41 @@
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/gridsome.svg"
+              src="./images/logo/react.svg"
               loading="lazy"
             />
           </div>
-          <span>Gridsome</span>
+          <span>React</span>
         </li>
         <li>
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/alpinejs.svg"
+              src="./images/logo/nextjs.svg"
               loading="lazy"
             />
           </div>
-          <span>Alpine.js</span>
+          <span>Next.js</span>
         </li>
         <li>
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/jquery.svg"
+              src="./images/logo/ionic.svg"
               loading="lazy"
             />
           </div>
-          <span>jQuery</span>
+          <span>Ionic</span>
         </li>
         <li>
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/animejs.svg"
+              src="./images/logo/capacitor.svg"
               loading="lazy"
             />
           </div>
-          <span>Anime.js</span>
+          <span>Capacitor</span>
         </li>
       </ul>
     </div>
@@ -1025,7 +1074,7 @@
               loading="lazy"
             />
           </div>
-          <span> Apostrophe CMS </span>
+          <span>Apostrophe CMS</span>
         </li>
         <li>
           <div>
@@ -1041,21 +1090,21 @@
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/wordpress.svg"
+              src="./images/logo/firebase.svg"
               loading="lazy"
             />
           </div>
-          <span>Wordpress</span>
+          <span>Firebase</span>
         </li>
         <li>
           <div>
             <img
               alt="Type of skill"
-              src="./images/logo/elementor.svg"
+              src="./images/logo/wordpress.svg"
               loading="lazy"
             />
           </div>
-          <span>Elementor</span>
+          <span>Wordpress</span>
         </li>
       </ul>
     </div>
@@ -1101,12 +1150,21 @@
           <div>
             <img
               alt="Type of skill"
-              class="w-auto h-20"
-              src="./images/logo/spline.png"
+              src="./images/logo/webflow.svg"
               loading="lazy"
             />
           </div>
-          <span>Spline</span>
+          <span>Webflow</span>
+        </li>
+        <li>
+          <div>
+            <img
+              alt="Type of skill"
+              src="./images/logo/elementor.svg"
+              loading="lazy"
+            />
+          </div>
+          <span>Elementor</span>
         </li>
       </ul>
     </div>

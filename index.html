@@ -57,31 +57,48 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=1627423180005" />
+    <link rel="stylesheet" href="./style.css?v=1627551673894" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1627423180005"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1627423180005"></script>
-    <script src="./script/alpine-toggle.js?v=1627423180005"></script>
+    <script src="./script/helpers.js?v=1627551673894"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1627551673894"></script>
+    <script src="./script/alpine-toggle.js?v=1627551673894"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1627423180005" defer></script>
-    <script src="./script/arrive.js?v=1627423180005"></script>
-    <script src="./script/anime.js?v=1627423180005"></script>
-    <script src="./script/spruce.js?v=1627423180005"></script>
-    <script src="./script/navigo.js?v=1627423180005"></script>
-    <script src="./script/popper.js?v=1627423180005"></script>
-    <script src="./script/tippy.js?v=1627423180005"></script>
-    <script src="./script/medium-zoom.js?v=1627423180005"></script>
-    <script src="./script/dayjs.js?v=1627423180005"></script>
+    <script src="./script/alpine.js?v=1627551673894" defer></script>
+    <script src="./script/arrive.js?v=1627551673894"></script>
+    <script src="./script/anime.js?v=1627551673894"></script>
+    <script src="./script/spruce.js?v=1627551673894"></script>
+    <script src="./script/navigo.js?v=1627551673894"></script>
+    <script src="./script/popper.js?v=1627551673894"></script>
+    <script src="./script/tippy.js?v=1627551673894"></script>
+    <script src="./script/medium-zoom.js?v=1627551673894"></script>
+    <script src="./script/dayjs.js?v=1627551673894"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1627423180005"></script>
-    <script src="./script/store.js?v=1627423180005"></script>
-    <script src="./script/router.js?v=1627423180005"></script>
+    <script src="./script/animation.js?v=1627551673894"></script>
+    <script src="./script/store.js?v=1627551673894"></script>
+    <script src="./script/router.js?v=1627551673894"></script>
     <script
       async
       defer
       data-website-id="97047e64-3936-4c04-8a23-687994de7f23"
       src="http://umami-test.nuxtjs.devb.space/umami.js"
     ></script>
+
+    <!-- Hotjar -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2238600, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -205,7 +222,7 @@
               logo: "logo.svg",
               logoHeight: "12",
               year: 2021,
-              type: "Pokročilý systém a přehrávač mediálního obsahu",
+              type: "Pokročilý systém správy a přehrávání mediálního obsahu",
               categories: ["Webové stránky", "UI/UX", "CMS"],
               stack: "Electron.js, Strapi, Tailwind CSS, Vue.js, MySQL, ...",
               industry: "Chytrá organizace video-ploch",
@@ -643,14 +660,14 @@
                 <div
                   class="flex flex-col items-center space-y-2.5 opacity-0"
                   x-data="{ url: 'https://api.github.com/repos/bohemicastudio/bohemica-studio-website/commits/master', date: null }"
-                  x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json() } catch { date = null } } })()"
+                  x-init="(async () => { let response; try { response = await fetch(url) } catch(error) { /*console.error('fetching data from GitHub failed:', error)*/ } finally { $nextTick(() => { anime({ targets: $el, duration: 600, delay: 1200, opacity: 1, translateZ: 0, easing: 'linear'}) }); let data; try { data = await response.json(); date = data.commit.author.date } catch { date = null } } })()"
                   x-cloak
                 >
                   <div
                     class="
                       hidden
                       flex-col
-                      items-stretch
+                      items-center
                       p-1
                       space-y-1
                       font-medium
@@ -664,6 +681,7 @@
                       md:flex md:space-y-0 md:flex-row
                       border-teal-legacy-400
                       hover:border-teal-legacy-500
+                      focus:border-teal-legacy-500
                     "
                   >
                     <div
@@ -713,6 +731,7 @@
                           md:leading-none
                           text-teal-legacy-700
                           group-hover:text-teal-legacy-800
+                          group-focus:text-teal-legacy-800
                           md:whitespace-nowrap
                         "
                         x-html="$store.activity.getContent"
@@ -728,37 +747,42 @@
                           text-teal-legacy-600
                           group-hover:text-teal-legacy-800
                           group-hover:translate-x-0.5
+                          group-focus:translate-x-0.5
+                          group-focus:text-teal-legacy-800
                           flex-shrink-0
                         "
                       ></i>
                     </a>
                   </div>
-                  <template x-if="date !== null">
-                    <div
-                      class="
-                        hidden
-                        md:flex
-                        flex-row
-                        uppercase
-                        space-x-1.5
-                        text-xs
-                        font-bold
-                        tracking-wider
-                        text-blue-gray-500
-                      "
+
+                  <div
+                    class="
+                      hidden
+                      md:flex
+                      flex-row
+                      uppercase
+                      space-x-1.5
+                      text-xs
+                      font-bold
+                      tracking-wider
+                      text-blue-gray-500
+                      transition
+                      ease-linear
+                      duration-300
+                    "
+                    x-bind:class="date === null ? 'opacity-0' : 'opacity-1'"
+                  >
+                    <span
+                      x-text="$store['global'].return('lastUpdated') + ':'"
+                    ></span>
+                    <a
+                      rel="noopener"
+                      href="https://github.com/bohemicastudio/bohemica-studio-website"
+                      target="_blank"
+                      x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')"
+                      >00.00.0000</a
                     >
-                      <span
-                        x-text="$store['global'].return('lastUpdated') + ':'"
-                      ></span>
-                      <a
-                        rel="noopener"
-                        href="https://github.com/bohemicastudio/bohemica-studio-website"
-                        target="_blank"
-                        x-text="dayjs(date).format('YYYY-MM-DD HH:mm:ss')"
-                        >00.00.0000</a
-                      >
-                    </div>
-                  </template>
+                  </div>
                 </div>
               </div>
 
@@ -787,7 +811,7 @@
                     text-blue-gray-500
                     rounded-full
                     transition
-                    duration-100
+                    duration-150
                     ease-linear
                     cursor-pointer
                     hover:bg-blue-gray-300 hover:text-blue-gray-700
@@ -821,7 +845,7 @@
                     text-blue-gray-500
                     rounded-full
                     transition
-                    duration-100
+                    duration-150
                     ease-linear
                     cursor-pointer
                     hover:bg-blue-gray-300 hover:text-blue-gray-700
@@ -1150,6 +1174,7 @@
         z-40
         text-white
         bg-cool-gray-600
+        border-2 border-cool-gray-500
         rounded-lg
         select-none
         md:top-5 md:right-5
@@ -1212,9 +1237,10 @@
             left-0
             top-full
             z-40
-            p-1
+            p-1.5
             mt-3
             bg-cool-gray-500
+            border-2 border-cool-gray-400
             rounded-lg
             origin-left
           "
@@ -1224,37 +1250,37 @@
           <div class="grid gap-2">
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'what' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'what' }"
               x-text="$store['global'].return('sections.what.name')"
               x-on:click="$store.global.onlyWhySection = false; document.querySelector('#what-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'how' }"
               x-text="$store['global'].return('sections.how.name')"
               x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'how-much' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'how-much' }"
               x-text="$store['global'].return(`sections['how-much'].name`)"
               x-on:click="$store.global.onlyWhySection = false; document.querySelector('#how-much-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'why' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'why' }"
               x-text="$store['global'].return('sections.why.name')"
               x-on:click="$store.global.onlyWhySection = true; document.querySelector('#why-one').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'who' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'who' }"
               x-text="$store['global'].return('sections.who.name')"
               x-on:click="$store.global.onlyWhySection = false; document.querySelector('#who-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
             <button
               class="section-clue-menu__button"
-              :class="{ 'bg-cool-gray-700' : $store.global.sectionInView === 'where' }"
+              :class="{ 'bg-cool-gray-600' : $store.global.sectionInView === 'where' }"
               x-text="$store['global'].return('sections.where.name')"
               x-on:click="$store.global.onlyWhySection = false; document.querySelector('#where-intro').scrollIntoView({behavior: 'smooth', block: 'center'})"
             ></button>
@@ -2220,7 +2246,7 @@
                 text-cool-gray-400
                 rounded-full
                 transition
-                duration-100
+                duration-150
                 ease-linear
                 cursor-pointer
                 hover:bg-cool-gray-500 hover:text-cool-gray-100
@@ -2253,7 +2279,7 @@
                 text-cool-gray-400
                 rounded-full
                 transition
-                duration-100
+                duration-150
                 ease-linear
                 cursor-pointer
                 hover:bg-cool-gray-500 hover:text-cool-gray-100
@@ -2552,7 +2578,7 @@
                 text-blue-gray-500
                 rounded-full
                 transition
-                duration-100
+                duration-150
                 ease-linear
                 cursor-pointer
                 hover:bg-blue-gray-300 hover:text-blue-gray-700
@@ -2586,7 +2612,7 @@
                 text-blue-gray-500
                 rounded-full
                 transition
-                duration-100
+                duration-150
                 ease-linear
                 cursor-pointer
                 hover:bg-blue-gray-300 hover:text-blue-gray-700
@@ -2637,25 +2663,9 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1627423180016" defer></script>
-    <script src="./script/parallax.js?v=1627423180016" defer></script>
-    <script src="./script/main.js?v=1627423180016" defer></script>
-    <!-- Hotjar -->
-    <script async defer>
-      (function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 2238600, hjsv: 6 };
-        a = o.getElementsByTagName("head")[0];
-        r = o.createElement("script");
-        r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-    </script>
+    <script src="./script/tooltip.js?v=1627551673903" defer></script>
+    <script src="./script/parallax.js?v=1627551673903" defer></script>
+    <script src="./script/main.js?v=1627551673903" defer></script>
     <!-- Splitbee -->
     <script src="https://cdn.splitbee.io/sb.js" async defer></script>
     <!-- Smallchat -->

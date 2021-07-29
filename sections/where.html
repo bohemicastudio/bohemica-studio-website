@@ -4,13 +4,13 @@
   x-init="(function () { 
 	Spruce.store('translation.sectionWhere', {
 	en: {
-	czech: 'Czech Republic,<br>Prague',
+	czech: 'Czech Republic,<br>Liberec',
 	britain: 'United Kingdom,<br>Cheltenham',
 	title: 'That’s all folks!',
 	subtitle: 'Just click that button in the right bottom corner to talk to us about your project or to ask any question. You can also schedule a call with one of our project managers.'
 	},
 	cs: {
-	czech: 'Česká Republika,<br>Praha',
+	czech: 'Česká Republika,<br>Liberec',
 	britain: 'Británie,<br>Cheltenham',
 	title: 'Toť vše z naší strany',
 	subtitle: 'Rádi zodpovíme jakékoli otázky či nejasnosti. Stačí kliknout na tlačítko v pravém dolním rohu. Lze si také zabukovat hovor s jedním z našich vedoucích projektů.'
@@ -95,7 +95,7 @@
         <picture>
           <source srcset="./images/icon/prague.svg" type="image/svg" />
           <img
-            alt="Find us in Prague"
+            alt="Find us in Czech Republic"
             src="./images/icon/prague.svg"
             class="h-48 sm:h-80 md:h-auto"
             loading="lazy"
@@ -125,7 +125,7 @@
         <picture>
           <source srcset="./images/icon/london.svg" type="image/svg" />
           <img
-            alt="Find us in the UK"
+            alt="Find us in Britain"
             src="./images/icon/london.svg"
             class="h-48 sm:h-80 md:h-auto"
             loading="lazy"
@@ -133,7 +133,7 @@
         </picture>
       </div>
     </div>
-    <hr class="mt-24 mb-48 border-t-2 border-cool-gray-300" />
+    <hr class="mt-12 mb-24 border-t-2 border-cool-gray-300 md:mt-24 md:mb-48" />
     <div class="flex flex-col items-center mx-auto">
       <div
         class="
@@ -146,11 +146,18 @@
         "
       >
         <span
-          class="text-3xl font-medium md:text-5xl font-dm-mono"
+          class="text-4xl font-medium sm:text-5xl md:text-6xl"
           x-text="$store['translation.sectionWhere'].return('title')"
         ></span>
         <p
-          class="text-2xl xl:text-3xl leading-loose xl:leading-relaxed"
+          class="
+            text-lg
+            leading-relaxed-more
+            sm:leading-relaxed-more
+            lg:leading-relaxed-more
+            sm:text-xl
+            lg:text-2xl
+          "
           x-text="$store['translation.sectionWhere'].return('subtitle')"
         ></p>
       </div>
@@ -159,21 +166,28 @@
         rel="noopener"
         href="https://cal.mixmax.com/bohemicastudio/"
         class="
+          inline-flex
+          flex-row
+          justify-center
+          items-center
           py-3
           px-4
           mt-8
+          space-x-2
           font-medium
           leading-none
-          text-warm-gray-800
+          text-center text-cool-gray-800
           bg-yellow-400
+          hover:bg-yellow-300
           rounded-md
+          ring-offset-2
+          transition
+          duration-100
+          ease-linear
           md:rounded-xl
-          text-center
-          inline-flex
-          flex-row
-          items-center
-          justify-center
-          space-x-2
+          focus:ring-2
+          group
+          focus:ring-offset-cool-gray-500 focus:ring-yellow-300
         "
         target="_blank"
       >
@@ -191,7 +205,7 @@
         <span x-text="$store['global'].return('scheduleCall')"></span>
       </a>
 
-      <div class="hidden overflow-hidden relative mt-32 mb-40 sm:block">
+      <div class="hidden overflow-hidden relative mt-32 mb-40 md:block">
         <div
           class="
             absolute
@@ -291,7 +305,7 @@
         </picture>
       </div>
 
-      <div class="flex flex-col items-center sm:hidden mt-24 mb-32">
+      <div class="flex flex-col items-center mt-24 mb-32 md:hidden">
         <div
           class="
             flex flex-col

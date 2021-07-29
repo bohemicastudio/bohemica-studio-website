@@ -244,13 +244,13 @@
                   x-text="$store['translation.projects'].return(`list['subtitle-editor'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['subtitle-editor'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['subtitle-editor'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['subtitle-editor'].year`)"
                 ></span>
                 <span
@@ -262,10 +262,12 @@
                   x-text="$store['translation.projects'].return(`list['subtitle-editor'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['subtitle-editor'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['subtitle-editor'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['subtitle-editor'].industry`)"
                 ></span>
@@ -297,6 +299,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -304,7 +307,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -393,13 +396,13 @@
                   x-text="$store['translation.projects'].return(`list['lancaster-maloney'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['lancaster-maloney'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['lancaster-maloney'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['lancaster-maloney'].year`)"
                 ></span>
                 <span
@@ -411,10 +414,12 @@
                   x-text="$store['translation.projects'].return(`list['lancaster-maloney'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['lancaster-maloney'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['lancaster-maloney'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['lancaster-maloney'].industry`)"
                 ></span>
@@ -446,6 +451,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -453,7 +459,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -535,13 +541,13 @@
                   x-text="$store['translation.projects'].return(`list['mmt'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['mmt'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['mmt'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['mmt'].year`)"
                 ></span>
                 <span
@@ -553,10 +559,12 @@
                   x-text="$store['translation.projects'].return(`list['mmt'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['mmt'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['mmt'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['mmt'].industry`)"
                 ></span>
@@ -588,6 +596,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -595,7 +604,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -797,13 +806,13 @@
                   x-text="$store['translation.projects'].return(`list['media-server'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['media-server'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['media-server'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['media-server'].year`)"
                 ></span>
                 <span
@@ -815,10 +824,12 @@
                   x-text="$store['translation.projects'].return(`list['media-server'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['media-server'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['media-server'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['media-server'].industry`)"
                 ></span>
@@ -850,6 +861,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -857,7 +869,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -999,13 +1011,13 @@
                   x-text="$store['translation.projects'].return(`list['superflow'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['superflow'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['superflow'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['superflow'].year`)"
                 ></span>
                 <span
@@ -1017,10 +1029,12 @@
                   x-text="$store['translation.projects'].return(`list['superflow'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['superflow'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['superflow'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['superflow'].industry`)"
                 ></span>
@@ -1052,6 +1066,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -1059,7 +1074,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -1201,13 +1216,13 @@
                   x-text="$store['translation.projects'].return(`list['branding'].client`)"
                 ></span>
                 <span
-                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-show="$store['translation.projects'].return(`list['branding'].year`)"
+                  class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.year') + ':'"
                 ></span>
                 <span
-                  class="text-cool-gray-100"
                   x-show="$store['translation.projects'].return(`list['branding'].year`)"
+                  class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['branding'].year`)"
                 ></span>
                 <span
@@ -1219,10 +1234,12 @@
                   x-text="$store['translation.projects'].return(`list['branding'].type`)"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['branding'].industry`)"
                   class="text-cool-gray-400 whitespace-nowrap font-dm-mono"
                   x-text="$store['translation.projects'].return('labels.industry') + ':'"
                 ></span>
                 <span
+                  x-show="$store['translation.projects'].return(`list['branding'].industry`)"
                   class="text-cool-gray-100"
                   x-text="$store['translation.projects'].return(`list['branding'].industry`)"
                 ></span>
@@ -1254,6 +1271,7 @@
                   space-x-1
                   font-medium
                   bg-emerald-400
+                  hover:bg-emerald-300
                   rounded-lg
                   ring-offset-2
                   transition
@@ -1261,7 +1279,7 @@
                   ease-linear
                   focus:ring-2
                   group
-                  focus:ring-offset-black focus:ring-emerald-200
+                  focus:ring-offset-black focus:ring-emerald-500
                 "
                 data-navigo
               >
@@ -1319,6 +1337,7 @@
           space-x-1
           font-medium
           bg-yellow-400
+          hover:bg-yellow-300
           rounded-xl
           ring-offset-2
           transition
@@ -1326,7 +1345,7 @@
           ease-linear
           focus:ring-2
           group
-          focus:ring-offset-gray-legacy-800 focus:ring-yellow-400
+          focus:ring-offset-gray-legacy-800 focus:ring-yellow-300
         "
       >
         <span
