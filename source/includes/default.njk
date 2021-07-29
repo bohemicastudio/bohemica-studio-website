@@ -81,20 +81,6 @@
 	<script src="./script/router.js?v={% version %}"></script>
 	<script async defer data-website-id="97047e64-3936-4c04-8a23-687994de7f23" src="http://umami-test.nuxtjs.devb.space/umami.js"></script>
 	{% block head %}{% endblock %}
-	<!-- Hotjar -->
-	<script>
-		(function (h, o, t, j, a, r) {
-			h.hj = h.hj || function () {
-				(h.hj.q = h.hj.q || []).push(arguments)
-			};
-			h._hjSettings = { hjid: 2238600, hjsv: 6 };
-			a = o.getElementsByTagName('head')[0];
-			r = o.createElement('script');
-			r.async = 1;
-			r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-			a.appendChild(r);
-		})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-	</script>
 </head>
 <body class="relative min-h-screen font-dm-sans" style="min-width: 400px !important;" x-bind:class="$store.global.loaded ? (($store.slideover.open || $store.global.mobileMenuOpen) ? 'overflow-hidden' : '') : 'loading'" x-data>
 {% block content %}
@@ -103,8 +89,22 @@
 <script src="./script/tooltip.js?v={% version %}" defer></script>
 <script src="./script/parallax.js?v={% version %}" defer></script>
 <script src="./script/main.js?v={% version %}" defer></script>
-<!-- Splitbee -->
-<script src="https://cdn.splitbee.io/sb.js" async defer></script>
+{#<!-- Hotjar -->#}
+{#<script async defer>
+	(function (h, o, t, j, a, r) {
+		h.hj = h.hj || function () {
+			(h.hj.q = h.hj.q || []).push(arguments)
+		};
+		h._hjSettings = { hjid: 2238600, hjsv: 6 };
+		a = o.getElementsByTagName('head')[0];
+		r = o.createElement('script');
+		r.async = 1;
+		r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+		a.appendChild(r);
+	})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>#}
+{#<!-- Splitbee -->#}
+{#<script src="https://cdn.splitbee.io/sb.js" async defer></script>#}
 <!-- Smallchat -->
 <script src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js" async defer></script>
 <!-- Sentry with Integrations -->
