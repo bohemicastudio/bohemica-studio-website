@@ -48,8 +48,6 @@
       content="./images/favicon/browserconfig.xml"
     />
     <meta name="theme-color" content="#ffffff" />
-    <!-- Sentry Lazy Load -->
-
     <!-- CSS style & fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,31 +55,25 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=1627563583026" />
+    <link rel="stylesheet" href="./style.css?v=1627935944818" />
     <!-- Helper JS functions -->
-    <script src="./script/helpers.js?v=1627563583026"></script>
-    <script src="./script/alpine-magic-helpers.js?v=1627563583026"></script>
-    <script src="./script/alpine-toggle.js?v=1627563583026"></script>
+    <script src="./script/helpers.js?v=1627935944818"></script>
+    <script src="./script/alpine-magic-helpers.js?v=1627935944818"></script>
+    <script src="./script/alpine-toggle.js?v=1627935944818"></script>
     <!-- External JS libraries -->
-    <script src="./script/alpine.js?v=1627563583026" defer></script>
-    <script src="./script/arrive.js?v=1627563583026"></script>
-    <script src="./script/anime.js?v=1627563583026"></script>
-    <script src="./script/spruce.js?v=1627563583026"></script>
-    <script src="./script/navigo.js?v=1627563583026"></script>
-    <script src="./script/popper.js?v=1627563583026"></script>
-    <script src="./script/tippy.js?v=1627563583026"></script>
-    <script src="./script/medium-zoom.js?v=1627563583027"></script>
-    <script src="./script/dayjs.js?v=1627563583027"></script>
+    <script src="./script/alpine.js?v=1627935944818" defer></script>
+    <script src="./script/arrive.js?v=1627935944818"></script>
+    <script src="./script/anime.js?v=1627935944818"></script>
+    <script src="./script/spruce.js?v=1627935944818"></script>
+    <script src="./script/navigo.js?v=1627935944818"></script>
+    <script src="./script/popper.js?v=1627935944818"></script>
+    <script src="./script/tippy.js?v=1627935944818"></script>
+    <script src="./script/medium-zoom.js?v=1627935944818"></script>
+    <script src="./script/dayjs.js?v=1627935944818"></script>
     <!-- Internal JS scripts -->
-    <script src="./script/animation.js?v=1627563583027"></script>
-    <script src="./script/store.js?v=1627563583027"></script>
-    <script src="./script/router.js?v=1627563583027"></script>
-    <script
-      async
-      defer
-      data-website-id="97047e64-3936-4c04-8a23-687994de7f23"
-      src="http://umami-test.nuxtjs.devb.space/umami.js"
-    ></script>
+    <script src="./script/animation.js?v=1627935944818"></script>
+    <script src="./script/store.js?v=1627935944818"></script>
+    <script src="./script/router.js?v=1627935944818"></script>
   </head>
   <body
     class="relative min-h-screen font-dm-sans"
@@ -2646,31 +2638,22 @@
       </div>
     </div>
 
-    <script src="./script/tooltip.js?v=1627563583037" defer></script>
-    <script src="./script/parallax.js?v=1627563583037" defer></script>
-    <script src="./script/main.js?v=1627563583037" defer></script>
-
+    <script src="./script/tooltip.js?v=1627935944828" defer></script>
+    <script src="./script/parallax.js?v=1627935944828" defer></script>
+    <script src="./script/main.js?v=1627935944828" defer></script>
     <!-- Smallchat -->
     <script
       src="https://embed.small.chat/THACGK2VBC01JQPUSBG9.js"
       async
       defer
     ></script>
-    <!-- Sentry with Integrations -->
+    <!-- Umami Analytics -->
     <script
-      src="https://browser.sentry-cdn.com/6.1.0/bundle.tracing.min.js"
-      integrity="sha384-zKY6TGhvvk56kzNuSSpDCYYF5IU+xaSN4YmCDBCq/l98ITbn+9I+2/LZ2clNwe80"
-      crossorigin="anonymous"
+      data-website-id="97047e64-3936-4c04-8a23-687994de7f23"
+      src="http://umami-test.nuxtjs.devb.space/umami.js"
+      async
+      defer
     ></script>
-    <script>
-      Sentry.init({
-        dsn: "https://8c54f29f7c2a4828bbdf7e23519c491d@o522246.ingest.sentry.io/5633405",
-        integrations: [
-          new Sentry.Integrations.BrowserTracing() /*, new Sentry.Integrations.CaptureConsole({ levels: ['error', 'warn']})*/,
-        ],
-        tracesSampleRate: 1.0,
-      });
-    </script>
     <!-- Browser Update -->
     <script async defer>
       var $buoop = {
