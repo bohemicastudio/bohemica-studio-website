@@ -3,12 +3,12 @@
 	{% if link === false %}
 		<div class="inline-flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none">
 			<img alt="Badge" src="./images/badge/{{ icon }}" style="margin:0!important;">
-			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans" x-text="$store['translation.badge'].return('{{ name }}')"></span>
+			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans whitespace-nowrap" x-text="$store['translation.badge'].return('{{ name }}')"></span>
 		</div>
 	{% else %}
 		<a rel="noreferrer" href="{{ link }}" target="_blank" class="inline-flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl">
 			<img alt="Badge" src="./images/badge/{{ icon }}" style="margin:0!important;">
-			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans" x-text="$store['translation.badge'].return('{{ name }}')"></span>
+			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans whitespace-nowrap" x-text="$store['translation.badge'].return('{{ name }}')"></span>
 		</a>
 	{% endif %}
 
