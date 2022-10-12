@@ -11,20 +11,7 @@
     <a
       x-bind:href="window.router.getPath(entry[0])"
       data-navigo
-      class="
-        flex flex-col
-        col-span-1
-        justify-between
-        items-start
-        py-10
-        px-4
-        space-y-12
-        border-b-2 border-gray-500
-        outline-none
-        lg:pl-0 lg:pr-6 lg:hover:pl-6 lg:focus:pl-6
-        hover:border-gray-800 hover:bg-gray-200
-        focus:outline-none focus:bg-gray-200
-      "
+      class="flex flex-col col-span-1 justify-between items-start py-10 px-4 space-y-12 border-b-2 border-gray-500 outline-none lg:pl-0 lg:pr-6 lg:hover:pl-6 lg:focus:pl-6 hover:border-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
       style="
         transition: padding 200ms ease-in-out,
           background-color 100ms linear 50ms;
@@ -50,18 +37,7 @@
         <div class="flex flex-wrap space-x-1 space-x-reverse">
           <template x-for="(category, index) in entry[1].categories">
             <span
-              class="
-                select-none
-                text-white
-                bg-gray-600
-                text-sm
-                px-2.5
-                py-1
-                rounded-full
-                font-medium
-                whitespace-nowrap
-                mb-1
-              "
+              class="select-none text-white bg-gray-600 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap mb-1"
               x-text="category"
             ></span>
           </template>
