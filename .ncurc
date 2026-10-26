@@ -1,6 +1,0 @@
-{
-  "reject": [
-    "alpinejs",
-    "@ryangjchandler/spruce"
-  ]
-}

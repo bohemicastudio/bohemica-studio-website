@@ -1,0 +1,18 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, figure, proseClass with context %}
+{% set p = t.projectPages['subtitle-editor'] %}
+{% set dir = '/images/project/subtitle-editor/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('subtitle-editor') }}
+	<p>{{ p.intro }}</p>
+	<h3>{{ p.descriptionTitle }}</h3>
+	<p>{{ p.description1 | safe }}</p>
+	<ul>{% for item in p.description2 %}<li>{{ item }}</li>{% endfor %}</ul>
+	<h3>{{ p.processTitle }}</h3>
+	<p>{{ p.process1 }}</p>
+	<ol>{% for item in p.process2 %}<li>{{ item }}</li>{% endfor %}</ol>
+	{{ figure(dir + '2.png', p.image1) }}
+	{{ figure(dir + '1.png', p.image2) }}
+</article>
+{{ backBar('bottom') }}

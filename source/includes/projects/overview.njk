@@ -1,0 +1,29 @@
+{# Project library: list of all case studies #}
+<h1 class="border-b border-gray-600 pb-8 text-3xl font-bold text-gray-900">{{ t.projects.projectLibrary }}</h1>
+<ul class="grid auto-rows-fr grid-cols-1">
+	{% for project in projects %}
+		{% set meta = t.projects.list[project.key] %}
+		<li class="col-span-1">
+			<a href="{{ routes.project(project.key, lang) }}" data-project class="flex h-full flex-col items-start justify-between space-y-12 border-b-2 border-gray-500 px-4 py-10 outline-hidden hover:border-gray-800 hover:bg-gray-200 focus:bg-gray-200 focus:outline-hidden lg:pr-6 lg:pl-0 lg:hover:pl-6 lg:focus:pl-6" style="transition: padding 200ms ease-in-out, background-color 100ms linear 50ms">
+				<span class="flex grow items-center">
+					<img alt="" style="height: {{ project.logoHeight / 4 }}rem" src="/images/project/{{ project.key }}/{{ project.logo }}" eleventy:widths="320,640" sizes="320px">
+				</span>
+				<span class="flex flex-col space-y-6">
+					<span class="text-xl text-gray-900 md:text-2xl lg:text-3xl">
+						<span>{{ meta.client }}</span>
+						{% if project.year %}
+							<span> | </span>
+							<span class="font-semibold">{{ project.year }}</span>
+						{% endif %}
+						<span class="sr-only"> – {{ meta.type }}</span>
+					</span>
+					<span class="flex flex-wrap gap-1">
+						{% for category in meta.categories %}
+							<span class="rounded-full bg-gray-600 px-2.5 py-1 text-sm font-medium whitespace-nowrap text-white select-none">{{ category }}</span>
+						{% endfor %}
+					</span>
+				</span>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

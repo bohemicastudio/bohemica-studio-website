@@ -1,0 +1,21 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, screenshot, proseClass with context %}
+{% set p = t.projectPages['landing-pages'] %}
+{% set dir = '/images/project/landing-pages/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('landing-pages') }}
+	{{ screenshot(dir + '1.png', t.projects.list['landing-pages'].type + ' 1') }}
+	{{ screenshot(dir + '2.png', t.projects.list['landing-pages'].type + ' 2') }}
+</article>
+<div class="my-8 grid grid-cols-2 gap-x-8">
+	<div class="flex flex-col space-y-4">
+		<span class="text-xl font-medium text-gray-600">{{ p.old }}</span>
+		{{ screenshot(dir + '3a.png', p.old) }}
+	</div>
+	<div class="flex flex-col space-y-4">
+		<span class="text-xl font-medium text-gray-600">{{ p.new }}</span>
+		{{ screenshot(dir + '3b.png', p.new) }}
+	</div>
+</div>
+{{ backBar('bottom') }}

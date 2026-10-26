@@ -1,0 +1,19 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, figure, proseClass with context %}
+{% set p = t.projectPages.mmt %}
+{% set dir = '/images/project/mmt/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('mmt') }}
+	<p>{{ p.tldr | safe }}</p>
+	<h3>{{ p.descriptionTitle }}</h3>
+	{{ p.description | safe }}
+	<h3>{{ p.processTitle }}</h3>
+	{{ p.process | safe }}
+	{{ figure(dir + '1.png', p.image1) }}
+	{{ figure(dir + '2.png', p.image2) }}
+	{{ figure(dir + '3.png', p.image3) }}
+	{{ figure(dir + '4.png', p.finalResult) }}
+	<p>{{ p.liveWebsite | safe }}</p>
+</article>
+{{ backBar('bottom') }}

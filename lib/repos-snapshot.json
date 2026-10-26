@@ -1,0 +1,68 @@
+[
+	{
+		"id": "11ty/eleventy",
+		"name": "buildawesome",
+		"owner": "11ty",
+		"avatar": "https://avatars.githubusercontent.com/u/35147177?v=4&s=128",
+		"url": "https://github.com/11ty/buildawesome",
+		"description": "A simpler site generator. Transforms a directory of templates (of varying types) into HTML.",
+		"language": "JavaScript",
+		"stars": 19992,
+		"forks": 592
+	},
+	{
+		"id": "alpinejs/alpine",
+		"name": "alpine",
+		"owner": "alpinejs",
+		"avatar": "https://avatars.githubusercontent.com/u/59030169?v=4&s=128",
+		"url": "https://github.com/alpinejs/alpine",
+		"description": "A rugged, minimal framework for composing JavaScript behavior in your markup. ",
+		"language": "HTML",
+		"stars": 31996,
+		"forks": 1392
+	},
+	{
+		"id": "tailwindlabs/tailwindcss",
+		"name": "tailwindcss",
+		"owner": "tailwindlabs",
+		"avatar": "https://avatars.githubusercontent.com/u/67109815?v=4&s=128",
+		"url": "https://github.com/tailwindlabs/tailwindcss",
+		"description": "A utility-first CSS framework for rapid UI development.",
+		"language": "TypeScript",
+		"stars": 98123,
+		"forks": 7653
+	},
+	{
+		"id": "11ty/eleventy-img",
+		"name": "image",
+		"owner": "11ty",
+		"avatar": "https://avatars.githubusercontent.com/u/35147177?v=4&s=128",
+		"url": "https://github.com/11ty/image",
+		"description": "Utility to perform build-time image transformations.",
+		"language": "JavaScript",
+		"stars": 470,
+		"forks": 66
+	},
+	{
+		"id": "francoischalifour/medium-zoom",
+		"name": "medium-zoom",
+		"owner": "francoischalifour",
+		"avatar": "https://avatars.githubusercontent.com/u/6137112?v=4&s=128",
+		"url": "https://github.com/francoischalifour/medium-zoom",
+		"description": "🔎🖼 A JavaScript library for zooming images like Medium. Works with React and any web framework.",
+		"language": "TypeScript",
+		"stars": 3941,
+		"forks": 168
+	},
+	{
+		"id": "evanw/esbuild",
+		"name": "esbuild",
+		"owner": "evanw",
+		"avatar": "https://avatars.githubusercontent.com/u/406394?v=4&s=128",
+		"url": "https://github.com/evanw/esbuild",
+		"description": "An extremely fast bundler for the web",
+		"language": "Go",
+		"stars": 40109,
+		"forks": 1364
+	}
+]

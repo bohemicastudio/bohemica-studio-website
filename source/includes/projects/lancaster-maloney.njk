@@ -1,0 +1,23 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, figure, proseClass with context %}
+{% set p = t.projectPages['lancaster-maloney'] %}
+{% set dir = '/images/project/lancaster-maloney/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('lancaster-maloney') }}
+	<h3>{{ p.descriptionTitle }}</h3>
+	{{ p.description | safe }}
+	{{ figure(dir + '1.png', p.imageCaption1) }}
+	{{ figure(dir + '2.png', p.imageCaption2) }}
+	<h3>{{ p.processTitle }}</h3>
+	<p>{{ p.processDescription }}</p>
+	{{ figure(dir + '3.png', p.imageCaption3) }}
+	{{ figure(dir + '4.png', p.imageCaption4) }}
+	{{ p.datasets | safe }}
+	{{ figure(dir + '5.png', p.imageCaption5) }}
+	{{ p.jobs | safe }}
+	{{ figure(dir + '6.png', p.imageCaption6) }}
+	{{ figure(dir + '7.png', p.imageCaption7) }}
+	{{ p.users | safe }}
+</article>
+{{ backBar('bottom') }}

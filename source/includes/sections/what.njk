@@ -1,0 +1,43 @@
+{% from "components/section-intro.njk" import sectionIntro with context %}
+{% from "components/specialisation.njk" import specialisation with context %}
+{% from "components/project-example.njk" import projectExample with context %}
+{% from "components/buttons.njk" import buttonLibrary with context %}
+
+<section id="what" class="bg-black" x-show="!$store.ui.onlyWhy">
+	{{ sectionIntro('what') }}
+	<div class="site-container">
+		<div class="flex flex-col divide-y divide-gray-legacy-500">
+			<div class="pb-8 md:pb-16">
+				{{ specialisation('code', 'code.svg', order='01', titleClass='text-orange-200', chipClass='bg-orange-700') }}
+			</div>
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample('subtitle-editor', imageSize='40', badges=[{name: 'sourceCode', icon: 'source-code.svg', link: false}]) }}
+				{{ projectExample('lancaster-maloney', imageSize='50', reverse=true) }}
+				{{ projectExample('mmt', imageSize='45') }}
+			</div>
+			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
+				{{ specialisation('iot', 'iot.svg', order='02', titleClass='text-indigo-200', chipClass='bg-indigo-700') }}
+			</div>
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample('media-server', imageSize='50', badges=[{name: 'saasProduct', icon: 'saas-product.svg', link: site.signageUrl}]) }}
+			</div>
+			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
+				{{ specialisation('uiux', 'uiux.svg', order='03', titleClass='text-green-200', chipClass='bg-green-700') }}
+			</div>
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample('superflow', imageSize='40') }}
+			</div>
+			<div class="pt-16 pb-8 md:pt-40 md:pb-16">
+				{{ specialisation('branding', 'branding.svg', order='04', titleClass='text-amber-200', chipClass='bg-amber-700') }}
+			</div>
+			<div class="divide-y divide-gray-legacy-500">
+				{{ projectExample('branding', imageSize='45') }}
+			</div>
+		</div>
+	</div>
+	<div class="site-container">
+		<div class="mt-24 flex items-center justify-center rounded-t-3xl bg-gray-legacy-800 py-8 md:mt-48 md:rounded-t-7xl md:py-16">
+			{{ buttonLibrary() }}
+		</div>
+	</div>
+</section>

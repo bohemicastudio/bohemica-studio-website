@@ -1,0 +1,18 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, proseClass with context %}
+{% set p = t.projectPages.superflow %}
+{% set dir = '/images/project/superflow/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('superflow') }}
+	<p>{{ p.description | safe }}</p>
+	<h4>{{ p.prototypeVideo }}</h4>
+	<video src="{{ dir }}prototype.mp4" poster="{{ dir }}prototype-poster.jpg" controls muted playsinline preload="none" width="320" class="mx-auto mt-4 w-80 rounded-lg border border-gray-300 outline-hidden focus:outline-hidden"></video>
+	<h4>{{ p.prototypeScreens }}</h4>
+	<div class="mt-4 grid grid-cols-3 gap-x-8">
+		{% for screen in [1, 2, 3] %}
+			<img alt="{{ p.prototypeScreens | replace(':', '') }} {{ screen }}" src="{{ dir }}{{ screen }}.svg" class="w-full rounded-lg border border-gray-300" data-zoom loading="lazy">
+		{% endfor %}
+	</div>
+</article>
+{{ backBar('bottom') }}

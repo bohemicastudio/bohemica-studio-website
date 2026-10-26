@@ -1,67 +1,10 @@
-{% from "components/project-badge-group.njk" import projectBadgeGroup %}
-
-{% macro specialisation(name, image, color, order='00') %}
-
-	<img alt="Specialisation" class="transform origin-bottom-left scale-75 md:scale-100" src="./images/specialisation/{{ image }}">
-	<h3 class="mt-4 md:mt-6 tracking-widest uppercase font-bold text-sm md:text-base text-{{ color }}-200" x-text="'{{ order }} // ' + $store['translation.specialisation'].return('{{ name }}.title')"></h3>
-	<h4 class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl" x-text="$store['translation.specialisation'].return('{{ name }}.subtitle')"></h4>
-
-	<div class="flex flex-wrap space-y-2 space-y-reverse space-x-2 space-x-reverse md:space-x-reverse md:space-x-3">
-		<template x-for="(item, index) in $store['translation.specialisation'].return('{{ name }}.keywords')">
-			<span class="select-none text-white bg-{{ color }}-700 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="item"></span>
-		</template>
-	</div>
-
-{% endmacro %}
-
-{% macro specialisationsTranslation() %}
-		Spruce.store('translation.specialisation', {
-			en: {
-				code: {
-					title: 'Software development',
-					subtitle: 'Web, mobile, desktop applications – done well. From the start to the end.',
-					keywords: ['Landing page', 'Dashboard', 'CMS', 'API', 'iOS', 'Android', 'SEO', 'Hosting', 'CI/CD', 'Unit testing']
-				},
-				iot: {
-					title: 'IoT solutions',
-					subtitle: 'Hardware and software solutions. Automated and scalable.',
-					keywords: ['Arduino', 'Raspberry Pi', 'SocketIO']
-				},
-				uiux: {
-					title: 'Visual design & interface interaction',
-					subtitle: 'Intuitive interfaces that bring delight and joy. Stress-free experience.',
-					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-				},
-				branding: {
-					title: 'Branding & illustration',
-					subtitle: 'Get the right message across. In style.',
-					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
-				}
-			},
-			cs: {
-				code: {
-					title: 'Vývoj webů a aplikací',
-					subtitle: 'Webové, mobilní a desktopové aplikace ušité na míru.',
-					keywords: ['Webová stránka', 'Dashboard', 'CMS', 'iOS app']
-				},
-				iot: {
-					title: 'Internet of things (IoT)',
-					subtitle: 'Hardwarová a softwarová řešení. Automatizované a škálovatelné.',
-					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-				},
-				uiux: {
-					title: 'Vizuální design a interakce s rozhraním',
-					subtitle: 'Intuitivní a funkční rozhraní, která přinášejí radost a potěšení.',
-					keywords: ['Landing page', 'Dashboard', 'CMS', 'iOS app']
-				},
-				branding: {
-					title: 'Branding a ilustrace',
-					subtitle: 'Pošlete tu správnou zprávu do světa. Ve stylu.',
-					keywords: ['Styleguide', 'Logo', 'Icons', 'Data visualisation']
-				}
-			},
-			return: function (data) {
-				return Object.getProperty(Spruce.stores['translation.specialisation'], Spruce.stores.global.language + '.' + data)
-			}
-		})
+{% macro specialisation(name, image, order='00', titleClass='text-orange-200', chipClass='bg-orange-700') %}
+	<img alt="" class="origin-bottom-left scale-75 md:scale-100" src="/images/specialisation/{{ image }}" loading="lazy">
+	<h3 class="mt-4 text-sm font-bold tracking-widest uppercase md:mt-6 md:text-base {{ titleClass }}">{{ order }} // {{ t.specialisation[name].title }}</h3>
+	<p class="mt-4 mb-4 text-2xl font-medium text-white md:mt-10 md:mb-6 md:text-4xl">{{ t.specialisation[name].subtitle }}</p>
+	<ul class="flex flex-wrap gap-2 md:gap-x-3">
+		{% for keyword in t.specialisation[name].keywords %}
+			<li class="rounded-full px-2.5 py-1 text-sm font-medium whitespace-nowrap text-white select-none {{ chipClass }}">{{ keyword }}</li>
+		{% endfor %}
+	</ul>
 {% endmacro %}

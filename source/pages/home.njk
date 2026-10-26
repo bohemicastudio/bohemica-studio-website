@@ -1,0 +1,27 @@
+---
+pagination:
+  data: homePages
+  size: 1
+  alias: entry
+permalink: "{{ entry.url }}"
+---
+{% from "sections/why.njk" import sectionWhy with context %}
+
+{% include "sections/hero.njk" %}
+
+<main>
+	{{ sectionWhy('one', 'I', bgClass='bg-blue-400', iconClass='text-blue-400') }}
+	{% include "sections/what.njk" %}
+	{{ sectionWhy('two', 'II', bgClass='bg-yellow-400', iconClass='text-yellow-400', outline='black') }}
+	{% include "sections/how.njk" %}
+	{% include "sections/repos.njk" %}
+	{{ sectionWhy('three', 'III', bgClass='bg-indigo-500', iconClass='text-indigo-500') }}
+	{% include "sections/how-much.njk" %}
+	{{ sectionWhy('four', 'IV', bgClass='bg-emerald-500', iconClass='text-emerald-500') }}
+	{% include "sections/who.njk" %}
+	{{ sectionWhy('five', 'V', bgClass='bg-red-500', iconClass='text-red-500') }}
+	{% include "sections/where.njk" %}
+</main>
+
+{% include "sections/footer.njk" %}
+{% include "sections/overlays.njk" %}

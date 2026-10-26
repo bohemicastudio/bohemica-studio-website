@@ -1,13 +1,10 @@
-{% macro sectionTitle(section='sectionHow', name='first', icon='process.svg', subtitle=true, customIcon=false, color='dark') %}
-	<div class="flex flex-col items-center mx-auto w-full text-center md:w-8/12 lg:w-2/3">
-		{% if customIcon === false %}
-			<img alt="Icon" class="h-full" src="./images/icon/{{ icon }}">
-		{% else %}
-			{{ customIcon }}
-		{% endif %}
-		<h3 class="mt-6 text-2.25xl md:text-3xl lg:text-4xl font-medium lg:leading-normal {{ 'text-cool-gray-800' if color === 'dark' else 'text-cool-gray-200' }}" x-text="$store['translation.{{ section }}'].return('{{ name }}.title')"></h3>
+{# Icon + title (+ subtitle) block inside a section #}
+{% macro sectionTitle(title, subtitle='', icon='process.svg', dark=true) %}
+	<div class="mx-auto flex w-full flex-col items-center text-center md:w-8/12 lg:w-2/3">
+		<img alt="" class="h-full" src="/images/icon/{{ icon }}" loading="lazy">
+		<h3 class="mt-6 text-2.25xl font-medium md:text-3xl lg:text-4xl lg:leading-normal {{ 'text-cool-gray-800' if dark else 'text-cool-gray-200' }}">{{ title }}</h3>
 		{% if subtitle %}
-			<h4 class="mt-6 md:text-lg leading-relaxed font-dm-mono {{ 'text-cool-gray-700' if color === 'dark' else 'text-cool-gray-300' }}" x-text="$store['translation.{{ section }}'].return('{{ name }}.subtitle')"></h4>
+			<p class="mt-6 font-dm-mono leading-relaxed md:text-lg {{ 'text-cool-gray-700' if dark else 'text-cool-gray-300' }}">{{ subtitle }}</p>
 		{% endif %}
 	</div>
 {% endmacro %}

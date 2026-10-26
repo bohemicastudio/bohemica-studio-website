@@ -1,0 +1,21 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, screenshot, proseClass with context %}
+{% set p = t.projectPages.branding %}
+{% set dir = '/images/project/branding/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('branding') }}
+	<h3>{{ p.logos }}</h3>
+	{% for image in ['1', '2', '3', '4', '5'] %}
+		{{ screenshot(dir + image + '.png', p.logos + ' ' + image) }}
+	{% endfor %}
+	<h3>{{ p.processes }}</h3>
+	{% if p.processesSubtitle %}<p>{{ p.processesSubtitle }}</p>{% endif %}
+	{{ screenshot(dir + '6.png', p.processes + ' 1') }}
+	{{ screenshot(dir + '7.png', p.processes + ' 2') }}
+	<figure>
+		<figcaption><strong>{{ p.emailTemplate }}</strong></figcaption>
+		{{ screenshot(dir + 'retech-email-template.png', p.emailTemplate, 'm-auto max-w-md rounded-lg border border-gray-300') }}
+	</figure>
+</article>
+{{ backBar('bottom') }}

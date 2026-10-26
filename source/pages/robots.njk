@@ -1,0 +1,29 @@
+---
+permalink: /robots.txt
+layout: false
+eleventyExcludeFromCollections: true
+---
+# Bohemica Studio – {{ site.url }}
+# Everything is public. AI search engines and assistants are welcome to read and cite this site.
+
+User-agent: *
+Allow: /
+
+# AI search / assistants (fetching pages on behalf of users)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# AI model training
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absoluteUrl(site.url) }}

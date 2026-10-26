@@ -1,15 +1,10 @@
-{% macro badgeFeature(name='Undefined', icon='official-partner.svg', link=false) %}
-
-	{% if link === false %}
-		<div class="inline-flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl select-none">
-			<img alt="Badge" src="./images/badge/{{ icon }}" style="margin:0!important;">
-			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans whitespace-nowrap" x-text="$store['translation.badge'].return('{{ name }}')"></span>
-		</div>
+{% macro badgeFeature(name, icon='official-partner.svg', link=false) %}
+	{% if link %}
+		<a rel="noopener" href="{{ link }}" target="_blank" class="not-prose inline-flex flex-row space-x-2 rounded-xl bg-amber-400 px-3.5 py-1.5">
 	{% else %}
-		<a rel="noreferrer" href="{{ link }}" target="_blank" class="inline-flex flex-row py-1.5 px-3.5 space-x-2 bg-amber-400 rounded-xl">
-			<img alt="Badge" src="./images/badge/{{ icon }}" style="margin:0!important;">
-			<span class="text-sm font-medium tracking-normal text-warm-gray-700 font-dm-sans whitespace-nowrap" x-text="$store['translation.badge'].return('{{ name }}')"></span>
-		</a>
+		<div class="not-prose inline-flex flex-row space-x-2 rounded-xl bg-amber-400 px-3.5 py-1.5 select-none">
 	{% endif %}
-
+		<img alt="" src="/images/badge/{{ icon }}" width="20" height="20">
+		<span class="font-dm-sans text-sm font-medium tracking-normal whitespace-nowrap text-warm-gray-700">{{ t.badge[name] }}</span>
+	{% if link %}</a>{% else %}</div>{% endif %}
 {% endmacro %}

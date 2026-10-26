@@ -1,0 +1,152 @@
+{% from "sections/navigation.njk" import navLink, navItems with context %}
+{% from "components/social-channels.njk" import socialChannels with context %}
+{% from "components/buttons.njk" import buttonProject with context %}
+
+{#
+	Hands decorating the hero. Every breakpoint has its own set; only the displayed set loads (lazy) and animates in.
+	enter = delay, duration, rotate from, rotate to; parallax = translateY from/to, rotate from/to while scrolling.
+#}
+{% set handSets = [
+	{ class: 'hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-[1280px] xl:max-h-[1600px] container-screen lg:flex', hands: [
+		{ color: 'blue', origin: 'origin-bottom-left', style: 'left: 0; height: calc((1vw + 1vh + 0.5vmin) * 24.5); max-height: 900px', enter: '1600,2600,-4,12', parallax: '17.5vh,22.5vh,12,0' },
+		{ color: 'green', origin: 'origin-bottom-right', style: 'left: 37.5%; height: calc((1vw + 1vh + 0.5vmin) * 20.5); max-height: 700px', enter: '400,1200,4,-12', parallax: '12.5vh,17.5vh,-12,-24' },
+		{ color: 'purple', origin: 'origin-bottom-left', style: 'left: 47.5%; height: calc((1vw + 1vh + 0.5vmin) * 19.5); max-height: 700px', enter: '1000,1400,6,18', parallax: '12.5vh,17.5vh,18,32' },
+		{ color: 'yellow', origin: 'origin-bottom-right', style: 'right: 0; height: calc((1vw + 1vh + 0.5vmin) * 21); max-height: 775px', enter: '2000,2400,8,-4', parallax: '8.5vh,13.5vh,-4,8' }
+	] },
+	{ class: 'hidden absolute inset-x-0 bottom-0 z-10 h-full max-h-[960px] lg:max-h-[1280px] container-screen md:flex lg:hidden', hands: [
+		{ color: 'blue', origin: 'origin-bottom-left', style: 'left: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 22.5)', enter: '1600,2600,-4,12', parallax: '17.5%,22.5%,12,0' },
+		{ color: 'green', origin: 'origin-bottom-right', style: 'left: 45%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 17.5)', enter: '400,1200,4,-6', parallax: '12.5%,17.5%,-6,-18' },
+		{ color: 'purple', origin: 'origin-bottom-left', style: 'right: 2.5%; height: calc((1% + 0.5vw + 0.25vh + 0.75vmin) * 19.5)', enter: '1000,1400,6,-18', parallax: '12.5%,17.5%,-18,-6' }
+	] },
+	{ class: 'flex absolute inset-0 z-10 -translate-y-20 container-screen md:hidden', hands: [
+		{ color: 'green', origin: 'origin-bottom-right', style: 'left: 40%; height: 57.5vh', enter: '400,1200,4,-12', parallax: '27.5vh,32.5vh,-12,-18', x: '-50%' },
+		{ color: 'purple', origin: 'origin-bottom-left', style: 'left: 52.5%; height: 52.5vh', enter: '1000,1400,6,18', parallax: '27.5vh,32.5vh,18,26', x: '-50%' }
+	] }
+] %}
+
+<header id="intro" class="relative overflow-hidden bg-blue-gray-100">
+	<div class="min-h-screen">
+		<div class="absolute inset-0 flex flex-col">
+			<div class="site-container relative z-40 flex flex-row items-center justify-between space-x-2 pt-4">
+				<a href="{{ routes.project('brand', lang) }}" data-project class="fade-in h-full" style="--fade-delay: 600ms">
+					<img alt="{{ t.ui.home }}" class="h-full w-auto" src="/images/logomark.svg" width="48" height="48" loading="eager">
+				</a>
+				<nav class="fade-in flex items-center rounded-xl border border-blue-gray-300 bg-white p-1.5 md:rounded-2.5xl md:px-3.5 md:py-2.5" style="--fade-delay: 400ms" aria-label="{{ t.sections.what.name }}, {{ t.sections.how.name }}, …">
+					<div class="hidden items-center space-x-2 md:flex">
+						{% for item in navItems %}
+							{{ navLink(item, 'top-menu-button ' + item.topClass, tooltip=true) }}
+						{% endfor %}
+					</div>
+					<button type="button" aria-label="{{ t.ui.openMenu }}" @click="$store.ui.openMobileMenu()" class="flex cursor-pointer rounded-lg p-2 text-lg font-medium whitespace-nowrap text-gray-700 transition duration-100 ease-linear hover:bg-blue-gray-200 focus:ring-2 focus:ring-blue-gray-400 focus:ring-offset-white focus:outline-hidden md:ml-3.5 md:hidden">
+						<span class="flex h-6 w-6 items-center justify-center text-blue-gray-800">
+							<i class="gg-menu"></i>
+						</span>
+					</button>
+				</nav>
+			</div>
+
+			<div class="site-container min-h-8/12 pt-6 sm:min-h-1/2" style="min-height: 50%">
+				<div class="relative flex h-full w-full items-center justify-center">
+
+					{# Language switcher #}
+					<div class="fade-in absolute top-0 left-0 z-40 sm:mt-4" style="--fade-delay: 2800ms" x-data="{ open: false }" @click.outside="open = false" @keydown.escape="open = false">
+						<div class="relative">
+							<button type="button" @click="open = !open" :aria-expanded="open" aria-haspopup="true" class="group relative flex overflow-hidden rounded-xl bg-blue-gray-700 py-1.5 pr-1.5 pl-3.5 text-gray-800 ring-blue-gray-700 ring-offset-2 transition duration-100 ease-linear focus:ring-2 focus:outline-hidden">
+								<span class="flex flex-row items-center justify-between">
+									<svg class="mr-2.5 h-6 w-6 shrink-0 text-blue-gray-100" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{% include "icons/translate.svg" %}</svg>
+									<span class="text-lg leading-none font-normal text-blue-gray-100">{{ language.name }}<span class="sr-only"> – {{ t.tooltip.changeLanguage }}</span></span>
+									<span class="ml-3.5 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-gray-700 text-blue-gray-100 transition duration-100 ease-linear group-hover:bg-blue-gray-500 group-focus:bg-blue-gray-500"><i class="gg-chevron-down"></i></span>
+								</span>
+							</button>
+							<div class="absolute top-full left-0 z-40 mt-3 origin-left rounded-lg bg-blue-gray-500 p-1" x-cloak
+							     :class="open ? 'opacity-100' : 'opacity-0'"
+							     :style="open ? 'transform: scale(1) translateY(0rem); visibility: visible; transition: 200ms opacity linear 100ms, 200ms transform ease-out 100ms, 0ms visibility linear 0ms;' : 'transform: scale(0.85) translateY(-.75rem); visibility: hidden; transition: 200ms opacity linear 0ms, 200ms transform ease-out 0ms, 0ms visibility linear 200ms;'">
+								<ul class="grid gap-2">
+									{% for item in site.languages %}
+										<li>
+											<a href="{{ (alternates | findBy('hreflang', item.hreflang)).url }}" hreflang="{{ item.hreflang }}" lang="{{ item.code }}" data-language="{{ item.code }}"{% if item.code == lang %} aria-current="true"{% endif %} class="flex cursor-pointer flex-row items-center space-x-4 rounded-md px-3 py-2 transition duration-75 ease-linear hover:bg-blue-gray-700 focus:bg-blue-gray-800 focus:outline-hidden">
+												<span class="h-auto w-7">
+													<img alt="" src="/images/language/{{ item.code }}.svg" width="28" height="20" loading="lazy">
+												</span>
+												<span class="leading-none font-medium whitespace-nowrap text-blue-gray-100">{{ item.name }}</span>
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative z-40 flex w-full flex-col items-center justify-center space-y-6 pt-2 text-center md:w-8/12">
+						<h1 class="flex flex-col items-center space-y-6">
+							<span class="text-5xl leading-none tracking-tight text-blue-gray-700 sm:text-6xl md:text-7xl">{{ t.head.title }}</span>
+							<span class="font-dm-mono text-xl font-medium tracking-tight text-blue-gray-700 xs:text-xl sm:text-2xl md:text-3xl md:leading-relaxed md:font-normal">{{ t.head.subtitle }}</span>
+						</h1>
+						<div class="fade-in flex flex-col items-center space-y-2.5" style="--fade-delay: 1200ms; --fade-duration: 600ms">
+							{# One of the activities is picked at random #}
+							<div class="hidden flex-col items-center space-y-1 rounded-xl border-2 border-teal-legacy-400 bg-teal-50 p-1 leading-none font-medium transition duration-100 ease-linear hover:border-teal-legacy-500 focus-within:border-teal-legacy-500 md:flex md:flex-row md:space-y-0" x-data="{ active: Math.floor(Math.random() * {{ t.activities | length }}) }">
+								<div class="flex h-8 items-center rounded-lg bg-teal-legacy-200 px-3">
+									<span class="w-full text-center whitespace-nowrap text-teal-legacy-800 md:text-left">{{ t.recentActivity }}:</span>
+								</div>
+								{% for activity in t.activities %}
+									<a {% if activity.project %}href="{{ routes.project(activity.project, lang) }}" data-project{% else %}href="{{ activity.url }}" target="_blank" rel="noopener"{% endif %} class="group flex flex-row items-center py-1 select-none md:py-0" x-show="active === {{ loop.index0 }}"{% if not loop.first %} x-cloak{% endif %}>
+										<span class="flex items-center space-x-2 pr-1 pl-2.5 leading-snug text-teal-legacy-700 group-hover:text-teal-legacy-800 group-focus:text-teal-legacy-800 md:pl-3 md:leading-none md:whitespace-nowrap">
+											<span class="mt-0.5">{{ activity.text }}</span>
+											{% if activity.image.endsWith('.png') %}
+												<img alt="{{ activity.imageAlt }}" class="h-auto w-6" src="{{ activity.image }}" eleventy:widths="48" sizes="24px">
+											{% else %}
+												<img alt="{{ activity.imageAlt }}" class="max-w-none {{ 'h-5 w-auto' if activity.wordmark else 'h-7 w-auto' }}" src="{{ activity.image }}">
+											{% endif %}
+										</span>
+										<i class="gg-chevron-right mr-1.5 shrink-0 text-teal-legacy-600 transition duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-teal-legacy-800 group-focus:translate-x-0.5 group-focus:text-teal-legacy-800"></i>
+									</a>
+								{% endfor %}
+							</div>
+							<p class="hidden flex-row space-x-1.5 text-xs font-bold tracking-wider text-blue-gray-500 uppercase md:flex">
+								<span>{{ t.lastUpdated }}:</span>
+								<a rel="noopener" href="{{ site.repository }}" target="_blank"><time datetime="{{ site.updated }}">{{ site.updatedLabel }}</time></a>
+							</p>
+						</div>
+					</div>
+
+					<div class="fade-in absolute right-0 bottom-0 z-40 hidden flex-col space-y-1.5 md:flex" style="--fade-delay: 2600ms">
+						{{ socialChannels(tooltips=true, tooltipPosition='left') }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Hands #}
+		{% for set in handSets %}
+			<div class="{{ set.class }}" aria-hidden="true">
+				{% for hand in set.hands %}
+					<img alt="" src="/images/hand/{{ hand.color }}.png" data-hand data-enter="{{ hand.enter }}" data-parallax="{{ hand.parallax }}"{% if hand.x %} data-x="{{ hand.x }}"{% endif %} class="absolute bottom-0 {{ hand.origin }}" style="{{ hand.style }}; opacity: 0" eleventy:widths="auto">
+				{% endfor %}
+			</div>
+		{% endfor %}
+
+		{# Warp background #}
+		<div class="fade-in absolute inset-0" style="--fade-duration: 300ms">
+			<img alt="" src="/images/warp-background.png" class="top-0 left-0 z-0 h-full object-cover" loading="eager" fetchpriority="high" eleventy:widths="960,1440,1920,2881" sizes="100vw">
+		</div>
+
+		{# Project library button #}
+		<div class="absolute inset-0 z-30 flex h-screen items-end">
+			<div class="site-container flex">
+				<a href="{{ routes.project('overview', lang) }}" data-project class="fade-in group flex -translate-y-full flex-row items-center space-x-1 rounded-xl bg-blue-gray-500 py-2.5 pr-2.5 pl-3.5 ring-offset-2 transition duration-100 ease-linear focus:ring-2 focus:ring-blue-gray-500 focus:ring-offset-blue-gray-100" style="--fade-delay: 3200ms">
+					<span class="leading-none whitespace-nowrap text-white">{{ t.openProjectLibrary }}</span>
+					<i class="gg-chevron-right shrink-0 text-white transition duration-200 ease-out group-hover:translate-x-0.5"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	{# Company name #}
+	<div class="relative container-screen">
+		<div class="relative z-30 flex justify-center">
+			<svg class="-mb-0.5 hidden h-full w-full text-blue-400 sm:block md:-mb-1.5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1240 128" role="img" aria-label="{{ site.name }}">{% include "icons/wordmark.svg" %}</svg>
+		</div>
+	</div>
+
+	<div class="absolute inset-x-0 bottom-0 z-20 h-4/6 bg-linear-to-t from-blue-gray-100 to-blue-gray-100/0"></div>
+</header>

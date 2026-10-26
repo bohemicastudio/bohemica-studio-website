@@ -1,0 +1,67 @@
+{% from "sections/navigation.njk" import navLink, navItems with context %}
+{% from "components/social-channels.njk" import socialChannels with context %}
+
+{# Floating "current section" menu (top right) #}
+<div class="fixed top-2.5 right-2.5 z-40 cursor-pointer rounded-lg border-2 border-cool-gray-500 bg-cool-gray-600 text-white select-none md:top-5 md:right-5"
+     x-cloak x-show="$store.ui.sectionClue" x-data="{ open: false, titles: { {% for item in navItems %}{{ item.id | json }}: {{ t.sections[item.id].title | json }}{% if not loop.last %}, {% endif %}{% endfor %} } }" @click.outside="open = false" @keydown.escape="open = false"
+     x-transition:enter="transition ease-out duration-150"
+     x-transition:enter-start="opacity-0 scale-75"
+     x-transition:enter-end="opacity-100 scale-100"
+     x-transition:leave="transition ease-in duration-100"
+     x-transition:leave-start="opacity-100 scale-100"
+     x-transition:leave-end="opacity-0 scale-75">
+	<div class="relative">
+		<button type="button" class="group flex flex-row items-center justify-between py-1 pr-1 pl-3 focus:outline-hidden" @click="open = !open" :aria-expanded="open" aria-label="{{ t.ui.currentSection }}">
+			<span class="text-lg leading-none font-medium text-cool-gray-100" x-text="titles[$store.ui.sectionInView]"></span>
+			<span class="ml-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-cool-gray-600 text-cool-gray-100 transition duration-100 ease-linear group-hover:bg-cool-gray-500 group-focus:bg-cool-gray-500"><i class="gg-chevron-down"></i></span>
+		</button>
+		<div class="absolute top-full left-0 z-40 mt-3 origin-left rounded-lg border-2 border-cool-gray-400 bg-cool-gray-500 p-1.5"
+		     :class="open ? 'opacity-100' : 'opacity-0'"
+		     :style="open ? 'transform: scale(1) translateY(0rem); visibility: visible; transition: 200ms opacity linear 100ms, 200ms transform ease-out 100ms, 0ms visibility linear 0ms;' : 'transform: scale(0.85) translateY(-.75rem); visibility: hidden; transition: 200ms opacity linear 0ms, 200ms transform ease-out 0ms, 0ms visibility linear 200ms;'"
+		     style="visibility: hidden">
+			<div class="grid gap-2" @click="open = false">
+				{% for item in navItems %}
+					<a href="#{{ item.target }}" data-scroll-to{% if item.onlyWhy %} data-only-why{% endif %} class="section-clue-button" :class="$store.ui.sectionInView === '{{ item.id }}' && 'bg-cool-gray-600'">{{ t.sections[item.id].name }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{# Dimmed background behind the slide-over and mobile menu #}
+<div id="window-underlay" x-cloak x-show="$store.ui.underlay" class="fixed inset-0 z-40 bg-black/50" style="opacity: 0"></div>
+
+{# Slide-over showing project pages without leaving the homepage #}
+<div id="slideover" x-cloak x-show="$store.ui.slideover" class="fixed inset-0 z-50 flex flex-col justify-end" style="transform: translateY(100%)" data-home-url="{{ routes.home(lang) }}" role="dialog" aria-modal="true" aria-label="{{ t.projects.projectLibrary }}">
+	<div class="flex justify-center py-2.5">
+		<a href="{{ routes.home(lang) }}" data-slideover-close aria-label="{{ t.ui.closeProjects }}" class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-gray-600 ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear hover:bg-blue-gray-200 hover:text-blue-gray-800 focus:ring-2 focus:outline-hidden">
+			<i class="gg-close"></i>
+		</a>
+	</div>
+	<div id="slideover-scroller" class="relative h-full w-full overflow-y-scroll rounded-t-3xl bg-white focus:outline-hidden md:rounded-t-7xl" tabindex="-1">
+		<div class="site-container relative z-10 my-8 sm:my-16 md:my-24">
+			<div id="slideover-content" class="py-4" style="transform: translateY(-2rem); opacity: 0" aria-live="polite"></div>
+		</div>
+	</div>
+</div>
+
+{# Mobile menu #}
+<div id="mobile-menu" x-cloak x-show="$store.ui.mobileMenu" class="fixed inset-0 z-50 flex flex-col justify-end" style="transform: translateY(-100%)" role="dialog" aria-modal="true" aria-label="Menu">
+	<div class="flex h-full w-full overflow-y-auto rounded-b-3xl bg-white focus:outline-hidden">
+		<div class="site-container z-10 my-auto grid grid-flow-row gap-4 pt-2 pb-6">
+			<nav class="grid grid-flow-row items-center gap-2">
+				{% for item in navItems %}
+					{{ navLink(item, 'mobile-menu-button ' + item.topClass) }}
+				{% endfor %}
+			</nav>
+			<div class="mx-auto grid grid-flow-col gap-2">
+				{{ socialChannels() }}
+			</div>
+		</div>
+	</div>
+	<div class="flex shrink-0 justify-center py-2.5">
+		<button type="button" aria-label="{{ t.ui.closeMenu }}" class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-gray-600 transition duration-100 ease-linear hover:bg-blue-gray-200 hover:text-blue-gray-800 focus:outline-hidden" @click="$store.ui.closeMobileMenu()">
+			<i class="gg-close"></i>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+{# Posts straight to Formspark, so it works without JavaScript (Formspark then redirects to /thanks/).
+   With JavaScript (contact-form.js) it is sent in the background and the result is shown in place. #}
+{% set form = t.contactForm %}
+{% set inputClass = 'block w-full rounded-xl border-0 bg-white px-4 py-3 text-lg text-cool-gray-800 placeholder-cool-gray-400 focus:ring-2 focus:ring-yellow-300 focus:outline-none' %}
+{% set labelClass = 'mb-2 block font-medium text-cool-gray-100' %}
+<div id="contact" class="mt-16 w-full scroll-mt-8 focus:outline-none md:w-2/3">
+	{# toolname/tooldescription: WebMCP, lets browser agents use the form as a "send message" tool #}
+	<form action="{{ site.contactFormUrl }}" method="POST" aria-label="{{ form.title }}" toolname="send_message_to_bohemica_studio" tooldescription="Send a message or a project enquiry to Bohemica Studio. They reply by email." data-contact-form>
+		<input type="hidden" name="_redirect" value="/thanks/">
+		<input type="hidden" name="_append" value="false">
+		<input type="hidden" name="_email.subject" value="{{ form.emailSubject }}">
+		<input type="hidden" name="_email.from" value="{{ site.name }} website">
+		<input type="hidden" name="language" value="{{ lang }}">
+		<input type="checkbox" name="_honeypot" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+		<div class="grid gap-6 sm:grid-cols-2">
+			<div>
+				<label for="contact-name" class="{{ labelClass }}">{{ form.name }}</label>
+				<input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="200" class="{{ inputClass }}">
+			</div>
+			<div>
+				<label for="contact-email" class="{{ labelClass }}">{{ form.email }}</label>
+				<input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="200" class="{{ inputClass }}">
+			</div>
+			<div class="sm:col-span-2">
+				<label for="contact-message" class="{{ labelClass }}">{{ form.message }}</label>
+				<textarea id="contact-message" name="message" rows="6" required maxlength="10000" placeholder="{{ form.messagePlaceholder }}" class="{{ inputClass }} resize-y"></textarea>
+			</div>
+		</div>
+		<p class="mt-6 rounded-xl bg-red-100 px-4 py-3 text-red-800" role="alert" hidden data-contact-error>
+			{{ form.error }} <a href="mailto:{{ site.email }}" class="font-medium underline">{{ site.email }}</a>.
+		</p>
+		<div class="mt-8 flex flex-col-reverse items-center gap-6 sm:flex-row sm:justify-between">
+			<p class="text-center text-cool-gray-200 sm:text-left">{{ form.note }} <a href="{{ routes.privacy(lang) }}" class="underline hover:text-white">{{ form.privacyLink }}</a></p>
+			<button type="submit" data-sending="{{ form.sending }}" class="shrink-0 rounded-md bg-yellow-400 px-6 py-3 leading-none font-medium text-cool-gray-800 ring-offset-2 ring-offset-cool-gray-500 transition duration-100 ease-linear hover:bg-yellow-300 focus:ring-2 focus:ring-yellow-300 focus:outline-none disabled:cursor-wait disabled:opacity-75 md:rounded-xl">{{ form.submit }}</button>
+		</div>
+	</form>
+	<div class="rounded-4xl bg-cool-gray-600 px-8 py-12 text-center text-white focus:outline-none" role="status" tabindex="-1" hidden data-contact-success>
+		<p class="text-2xl font-medium sm:text-3xl">{{ form.successTitle }}</p>
+		<p class="mt-4 text-lg text-cool-gray-200">{{ form.successText }}</p>
+	</div>
+</div>

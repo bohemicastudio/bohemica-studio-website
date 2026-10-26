@@ -1,0 +1,23 @@
+---
+pagination:
+  data: privacyPages
+  size: 1
+  alias: entry
+permalink: "{{ entry.url }}"
+bodyClass: bg-blue-gray-600
+---
+{% set policy = privacyPolicy[lang] %}
+<div class="flex min-h-screen flex-col">
+	<div class="flex justify-center py-2.5">
+		<a href="{{ routes.home(lang) }}" aria-label="{{ t.privacy.back }}" class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-gray-600 ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear hover:bg-blue-gray-200 hover:text-blue-gray-800 focus:ring-2 focus:outline-hidden">
+			<i class="gg-close"></i>
+		</a>
+	</div>
+	<main class="relative w-full grow rounded-t-3xl bg-white md:rounded-t-7xl">
+		<article class="site-container prose prose-sm my-8 sm:prose-base sm:my-16 md:my-24 md:prose-lg">
+			<h1>{{ t.privacy.title }}</h1>
+			<p class="text-gray-500">{{ t.privacy.updated }}: {{ policy.updated }}</p>
+			{{ policy.body | safe }}
+		</article>
+	</main>
+</div>

@@ -1,0 +1,27 @@
+{% from "components/section-title.njk" import sectionTitle %}
+{% from "components/git-card.njk" import gitCard %}
+
+<section id="repos" class="bg-blue-gray-800" x-show="!$store.ui.onlyWhy">
+	<div class="m-auto h-20 md:h-28"></div>
+	<div class="site-container py-24">
+		<div class="mb-16">
+			{{ sectionTitle(t.sectionRepos.info.title, t.sectionRepos.info.subtitle, icon='open-source.svg', dark=false) }}
+		</div>
+		{% if repos | length %}
+			<div class="mb-12 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{% for repo in repos %}
+					{{ gitCard(repo) }}
+				{% endfor %}
+			</div>
+			<p class="mb-16 text-center text-2xl text-cool-gray-200">{{ t.sectionRepos.manyMore }}</p>
+		{% endif %}
+		<div class="flex flex-col items-center">
+			<p class="mb-4 text-center font-medium text-cool-gray-300 sm:font-normal">{{ t.sectionRepos.buttonTitle }}</p>
+			<div class="flex w-full items-center justify-center rounded-4xl bg-blue-gray-700 py-16 md:w-auto md:px-32">
+				<a rel="noopener" href="{{ site.repository }}" target="_blank" class="group flex flex-row items-center space-x-1 rounded-xl bg-blue-gray-300 px-5 py-3 font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-blue-gray-100 focus:ring-2 focus:ring-blue-gray-200 focus:ring-offset-blue-gray-700">
+					<span class="leading-none whitespace-nowrap text-blue-gray-800 transition duration-100 ease-linear group-hover:text-blue-gray-900">{{ t.sectionRepos.buttonText }}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

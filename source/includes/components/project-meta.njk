@@ -1,0 +1,19 @@
+{# Client / year / type / ... definition list for a project. `dark` is used on the black "What" section. #}
+{% macro projectMeta(key, dark=false) %}
+	{% set meta = t.projects.list[key] %}
+	{% set project = projects | findBy("key", key) %}
+	{% set rows = [
+		["client", meta.client],
+		["year", project.year],
+		["type", meta.type],
+		["industry", meta.industry],
+		["platforms", meta.platforms],
+		["stack", meta.stack]
+	] %}
+	<dl class="not-prose grid font-medium {{ 'gap-x-5 gap-y-3' if dark else 'gap-x-5 gap-y-2' }}" style="grid-template-columns: min-content auto">
+		{% for row in rows %}{% if row[1] %}
+			<dt class="font-dm-mono whitespace-nowrap {{ 'text-cool-gray-400' if dark else 'text-gray-500' }}">{{ t.projects.labels[row[0]] }}:</dt>
+			<dd class="{{ 'text-cool-gray-100' if dark else 'text-gray-800' }}">{{ row[1] }}</dd>
+		{% endif %}{% endfor %}
+	</dl>
+{% endmacro %}

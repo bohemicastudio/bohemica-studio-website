@@ -1,144 +1,28 @@
-{% from "components/button-call.njk" import buttonCall %}
+{% from "components/buttons.njk" import buttonCall with context %}
 
-{% macro processStep(step='0', color='gray', imageTop='bubble', imageBottom='coffee') %}
-
-	<div class="flex flex-col p-5 w-full bg-white sm:py-8 sm:px-10 md:py-20 md:pl-14 md:w-10/12">
+{% macro processStep(step, chipClass='bg-cyan-500', imageTop='bubble', imageBottom='coffee') %}
+	{% set data = t.processSteps[step] %}
+	<div class="flex w-full flex-col bg-white p-5 sm:px-10 sm:py-8 md:w-10/12 md:py-20 md:pl-14">
 		<div class="relative">
-			<picture>
-				<source srcset="./images/step/{{ imageTop }}.webp" type="image/webp">
-				<source srcset="./images/step/{{ imageTop }}.png" type="image/png">
-				<img alt="Our process" src="./images/step/{{ imageTop }}.png" class="hidden absolute top-0 right-0 h-64 transform translate-x-1/2 translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
-			</picture>
-			<picture>
-				<source srcset="./images/step/{{ imageBottom }}.webp" type="image/webp">
-				<source srcset="./images/step/{{ imageBottom }}.png" type="image/png">
-				<img alt="Our process" src="./images/step/{{ imageBottom }}.png" class="hidden absolute right-0 bottom-0 h-40 transform translate-x-full translate-y-6 md:block" media="(min-width: 960px)" loading="lazy">
-			</picture>
-			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase" x-text="$store['translation.processSteps'].return('step') + ' {{ step }}'"></span>
-			<h3 class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl" x-text="$store['translation.processSteps'].return('{{ step }}.title')"></h3>
-			{% if step === '1' %}
-				{{ buttonCall(ringColor='yellow-400', offsetColor='white', textColor='warm-gray') }}
+			<img alt="" src="/images/step/{{ imageTop }}.png" class="absolute top-0 right-0 hidden h-64 translate-x-1/2 translate-y-6 md:block" eleventy:widths="256,512" sizes="256px">
+			<img alt="" src="/images/step/{{ imageBottom }}.png" class="absolute right-0 bottom-0 hidden h-40 translate-x-full translate-y-6 md:block" eleventy:widths="160,320" sizes="160px">
+			<span class="text-sm font-bold tracking-wider text-cool-gray-900 uppercase">{{ t.processSteps.step }} {{ step }}</span>
+			<h4 class="mt-4 text-4xl text-cool-gray-700 sm:text-5xl md:text-7xl">{{ data.title }}</h4>
+			{% if step == 1 %}
+				{{ buttonCall(classes='text-warm-gray-800 focus:ring-offset-white focus:ring-yellow-400') }}
 			{% endif %}
-			<div class="mt-10 w-full md:mt-16 md:w-9/12 prose">
-				<ul class="space-y-12 text-base text-cool-gray-900 font-dm-mono">
-					<template x-for="row in $store['translation.processSteps'].return('{{ step }}.description')">
-						<li x-text="row"></li>
-					</template>
+			<div class="prose mt-10 w-full md:mt-16 md:w-9/12">
+				<ul class="font-dm-mono text-base text-cool-gray-900 [&>li+li]:mt-12">
+					{% for row in data.description %}
+						<li>{{ row }}</li>
+					{% endfor %}
 				</ul>
 			</div>
-			<div class="flex flex-wrap mt-12 space-y-2 space-y-reverse space-x-2 space-x-reverse md:mt-24 md:space-x-reverse md:space-x-3">
-				<template x-for="keyword in $store['translation.processSteps'].return('{{ step }}.keywords')">
-					<span class="select-none text-white bg-{{ color }}-500 text-sm px-2.5 py-1 rounded-full font-medium whitespace-nowrap" x-text="keyword"></span>
-				</template>
-			</div>
+			<ul class="mt-12 flex flex-wrap gap-2 md:mt-24 md:gap-x-3">
+				{% for keyword in data.keywords %}
+					<li class="rounded-full px-2.5 py-1 text-sm font-medium whitespace-nowrap text-white select-none {{ chipClass }}">{{ keyword }}</li>
+				{% endfor %}
+			</ul>
 		</div>
 	</div>
-
-{% endmacro %}
-
-
-{% macro processStepsTranslation() %}
-	Spruce.store('translation.processSteps', {
-	en: {
-	step: 'Step',
-	1: {
-	title: 'Meet & Plan',
-	description: [
-	'It all starts with a project brief. We talk through requirements and goals and come back with an estimate and timeline.',
-	'Our team put heads together to come up with the best strategy. We give variety of options and tips on how to approach the project most optimally.'
-	],
-	keywords: [
-	'Communication channel',
-	'Project brief',
-	'Estimate',
-	'Milestones',
-	'Deliverables'
-	]
-	},
-	2: {
-	title: 'Design & Development',
-	description: [
-	`Let's get to work! This is when it all comes together.`,
-	'We design, code, and do everything in-between and beyond.',
-	'The client is regularly updated about the progress and further discussions take place.'
-	],
-	keywords: [
-	'Sketch',
-	'Wireframe',
-	'Mock-up',
-	'Guideline',
-	'Illustration',
-	'Website',
-	'Application',
-	'Copywriting'
-	]
-	},
-	3: {
-	title: 'Test & Launch',
-	description: [
-	`We conduct necessary quality assurance (QA) rounds to make sure the product meets set requirements and expectations.`,
-	`And hooray, it is done!`,
-	`Once the main deliverables are provided, further collaboration and monitoring is usually a necessity in order to fulfil project's potential.`,
-	],
-	keywords: [
-	'Testing',
-	'Deployment',
-	'SEO',
-	'Analytics',
-	]
-	}
-	},
-	cs: {
-	step: 'Krok',
-	1: {
-	title: 'Seznámení a plánovaní',
-	description: [
-	'Všechno to začíná s projektovým zadáním. Promluvíme si o požadavcích a cílech a vrátíme se s odhadem a časovou osou.',
-	'Náš tým dá hlavy dohromady, aby přišel s nejlepší strategií. Poskytneme různé alternativy a tipy, jak k projektu přistupovat co nejoptimálněji.'
-	],
-	keywords: [
-	'Komunikační kanál',
-	'Stručný projekt',
-	'Odhad',
-	'Milníky',
-	'Výstupy'
-	]
-	},
-	2: {
-	title: 'Design a vývoj',
-	description: [
-	`Vzhůru do práce! Tady se všechna příprava zmaterializuje.`,
-	'Navrhujeme, kódujeme a děláme vše mezi tím i mimo to.',
-	'Pravidelně informujeme klienta o pokroku a bereme v potaz jakoukoli zpětnou vazbu.'
-	],
-	keywords: [
-	'Skica',
-	'Drátový model',
-	'Mock-up',
-	'Průvodce stylem',
-	'Ilustrace',
-	'Webová stránka',
-	'Aplikace',
-	'Reklamní texty'
-	]
-	},
-	3: {
-	title: 'Testování a spuštění',
-	description: [
-	`Provádíme nezbytné testy pro zajištění kvality, abychom se ujistili, že produkt splňuje stanovené požadavky a očekávání.`,
-	`Hurá, a je hotovo!`,
-	`Jakmile jsou poskytnuty všechny dohodnuté materiály, je obvykle nezbytná další spolupráce a monitorování, aby se dosáhlo plného potenciálu projektu.`,
-	],
-	keywords: [
-	'Testování',
-	'Nasazení softwaru',
-	'SEO',
-	'Analytika',
-	]
-	}
-	},
-	return: function (data) {
-	return Object.getProperty(Spruce.stores['translation.processSteps'], Spruce.stores.global.language + '.' + data)
-	}
-	})
 {% endmacro %}

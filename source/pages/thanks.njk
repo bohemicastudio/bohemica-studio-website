@@ -1,0 +1,25 @@
+---
+permalink: /thanks/
+lang: en
+eleventyExcludeFromCollections: true
+pageTitle: Thank you | Bohemica Studio
+pageDescription: Your message has been sent.
+canonicalPath: /thanks/
+bodyClass: bg-blue-gray-100
+noindex: true
+---
+{# Where Formspark sends visitors who submitted the contact form without JavaScript #}
+<main class="site-container flex min-h-screen flex-col items-center justify-center space-y-8 py-24 text-center">
+	<img src="/images/logomark.svg" alt="{{ site.name }}" width="48" height="48" loading="eager">
+	{% for code in ['en', 'cs'] %}
+		{% set copy = i18n[code].contactForm %}
+		<div lang="{{ code }}" class="space-y-4">
+			<p class="text-2xl font-medium text-blue-gray-700">{{ copy.successTitle }}</p>
+			<p class="font-dm-mono text-blue-gray-600">{{ copy.successText }}</p>
+			<a href="{{ routes.home(code) }}" class="inline-flex items-center space-x-1 rounded-xl bg-blue-gray-500 py-2.5 pr-2.5 pl-3.5 leading-none text-white transition duration-100 ease-linear hover:bg-blue-gray-600">
+				<span>{{ copy.backButton }}</span>
+				<i class="gg-chevron-right shrink-0"></i>
+			</a>
+		</div>
+	{% endfor %}
+</main>

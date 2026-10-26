@@ -1,0 +1,54 @@
+{% from "components/section-intro.njk" import sectionIntro with context %}
+{% from "components/buttons.njk" import buttonCall with context %}
+
+{% set copy = t.sectionWhere %}
+<section id="where" class="bg-cool-gray-500" x-show="!$store.ui.onlyWhy">
+	{{ sectionIntro('where', titleClass='text-red-400', subtitleClass='text-red-200') }}
+	<div class="site-container">
+		<figure class="mx-auto mb-20 md:mb-32 md:w-8/12">
+			<img alt="{{ copy.teamAlt }}" src="/images/team/team.jpg" class="w-full rounded-4xl grayscale transition duration-500 ease-out hover:grayscale-0" eleventy:widths="640,960,1440,2000" sizes="(min-width: 768px) 66vw, 100vw">
+		</figure>
+		<div class="grid gap-y-16 md:grid-cols-2 md:gap-0">
+			<address class="flex flex-col items-center justify-center space-y-8 not-italic md:items-start md:justify-between md:space-y-12">
+				<h3 class="text-3xl leading-tight font-medium text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">{{ copy.czech | safe }}</h3>
+				<img alt="{{ copy.czechAlt }}" src="/images/icon/prague.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
+			</address>
+			<address class="flex flex-col items-center justify-center space-y-8 not-italic md:items-start md:justify-between md:space-y-12">
+				<h3 class="text-3xl leading-tight font-medium text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">{{ copy.britain | safe }}</h3>
+				<img alt="{{ copy.britainAlt }}" src="/images/icon/london.svg" class="h-48 sm:h-80 md:h-auto" loading="lazy">
+			</address>
+		</div>
+		<hr class="mt-12 mb-24 border-t-2 border-cool-gray-300 md:mt-24 md:mb-48">
+		<div class="mx-auto flex flex-col items-center">
+			<div class="flex w-full flex-col items-center space-y-8 text-center text-white md:w-2/3">
+				<p class="text-4xl font-medium sm:text-5xl md:text-6xl">{{ copy.title }}</p>
+				<p class="text-lg leading-relaxed-more sm:text-xl lg:text-2xl">{{ copy.subtitle }}</p>
+			</div>
+			{% include "components/contact-form.njk" %}
+			<p class="mt-20 text-xl font-medium text-white md:mt-24 md:text-2xl">{{ copy.callTitle }}</p>
+			<div class="mt-6 flex items-center gap-4">
+				<img alt="" src="/images/team/jakub-mirejovsky.webp" class="size-16 shrink-0 rounded-full ring-4 ring-cool-gray-400" eleventy:widths="128,192" sizes="64px">
+				<p class="max-w-56 text-left text-lg leading-snug text-cool-gray-100">{{ copy.callText }}</p>
+			</div>
+			{{ buttonCall(classes='text-cool-gray-800 focus:ring-offset-cool-gray-500 focus:ring-yellow-300') }}
+			<div class="relative mt-32 mb-40 hidden overflow-hidden md:block">
+				<div class="absolute inset-y-0 left-0 z-10 w-1/4 bg-linear-to-r from-cool-gray-500 to-cool-gray-500/0 md:w-1/3"></div>
+				<div class="absolute inset-y-0 right-0 z-10 w-1/4 bg-linear-to-l from-cool-gray-500 to-cool-gray-500/0 md:w-1/3"></div>
+				<div class="absolute inset-x-0 bottom-0 z-10 h-1/3 bg-linear-to-t from-cool-gray-500 to-cool-gray-500/0 md:h-1/2"></div>
+				<div class="absolute inset-x-0 top-16 z-20 flex flex-col items-center md:top-24 lg:top-28 xl:top-36">
+					<a href="mailto:{{ site.email }}" class="flex flex-col items-center space-y-2 pl-6 text-cool-gray-700 hover:text-cool-gray-900 md:space-y-4 md:pl-12">
+						<svg class="h-8 w-auto text-cool-gray-800 md:h-full" width="38" height="32" viewBox="0 0 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{% include "icons/email.svg" %}</svg>
+						<span class="text-xl md:text-3xl">{{ site.email }}</span>
+					</a>
+				</div>
+				<img alt="" src="/images/hand/phone.png" class="w-full origin-top scale-150 md:scale-125 lg:scale-100" eleventy:widths="960,1440,2000" sizes="100vw">
+			</div>
+			<div class="mt-24 mb-32 flex flex-col items-center md:hidden">
+				<a href="mailto:{{ site.email }}" class="flex flex-col items-center space-y-3 pl-6 text-white md:space-y-4 md:pl-12">
+					<svg class="h-7 w-auto text-white" width="38" height="32" viewBox="0 0 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{% include "icons/email.svg" %}</svg>
+					<span class="text-2xl">{{ site.email }}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

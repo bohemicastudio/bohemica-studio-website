@@ -1,0 +1,26 @@
+---
+pagination:
+  data: projectPages
+  size: 1
+  alias: entry
+permalink: "{{ entry.url }}"
+bodyClass: bg-blue-gray-600
+---
+{#
+	Standalone project page, styled like the open slide-over on the homepage.
+	The homepage fetches this page and shows the #project-content element in its slide-over.
+#}
+<div class="flex min-h-screen flex-col">
+	<div class="flex justify-center py-2.5">
+		<a href="{{ routes.home(lang) }}" aria-label="{{ t.ui.closeProjects }}" class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-gray-600 ring-white ring-offset-2 ring-offset-blue-gray-600 transition duration-100 ease-linear hover:bg-blue-gray-200 hover:text-blue-gray-800 focus:ring-2 focus:outline-hidden">
+			<i class="gg-close"></i>
+		</a>
+	</div>
+	<main class="relative w-full grow rounded-t-3xl bg-white md:rounded-t-7xl">
+		<div class="site-container relative z-10 my-8 sm:my-16 md:my-24">
+			<div id="project-content" class="py-4">
+				{% include "projects/" + entry.key + ".njk" %}
+			</div>
+		</div>
+	</main>
+</div>

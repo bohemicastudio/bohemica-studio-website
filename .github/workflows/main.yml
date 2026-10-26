@@ -1,59 +1,49 @@
-# This GitHub Action will automatically deploy your project to GitHub Pages. It can be configured to push your production-ready code into any branch you'd like, including gh-pages and docs. It can also handle cross repository deployments too.
-# https://github.com/marketplace/actions/deploy-to-github-pages
+# Checks that the site builds. Deployment is done by Render, which builds master on every push.
 
-name: Build and Deploy
+name: Build
 
-# Controls when the action will run.
 on:
   push:
     branches:
       - master
+  pull_request:
+  workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  # This workflow contains a single job called "build-and-deploy"
-  build-and-deploy:
-    # The type of runner that the job will run on
+  build:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+      - name: Checkout
+        uses: actions/checkout@v7
 
-      - name: PNPM
-        uses: pnpm/action-setup@v1.2.1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
         with:
-          version: 5.17.2
+          node-version-file: .node-version
+          cache: pnpm
 
-      # Runs a set of commands using the runners shell
-      - name: Install and Build 🔧 # This example project is built using pnpm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          pnpm install
-          pnpm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.0.0
+      # Processed images and fetched API responses are reused between builds
+      - name: Cache images and fetched data
+        uses: actions/cache@v6
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          path: |
+            build/img
+            build/og
+            .cache
+          key: build-cache-${{ hashFiles('source/images/**', 'lib/og-images.js') }}
+          restore-keys: build-cache-
 
-      # - name: Deploy on bookstack
-      #   uses: nogsantos/scp-deploy@master
-      #   with:
-      #     src: ./build/*
-      #     host: ${{ secrets.SSH_HOST }}
-      #     remote: ${{ secrets.SSH_DIR }}
-      #     port: ${{ secrets.SSH_PORT }}
-      #     user: ${{ secrets.SSH_USER }}
-      #     key: ${{ secrets.SSH_KEY }}
-      
-      - name: Rsync deploy
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr --delete-before
-          path: ./build/
-          remote_path: ${{ secrets.SSH_DIR }}
-          remote_host: ${{ secrets.SSH_HOST }}
-          remote_port: ${{ secrets.SSH_PORT }}
-          remote_user: ${{ secrets.SSH_USER }}
-          remote_key: ${{ secrets.SSH_KEY }}
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

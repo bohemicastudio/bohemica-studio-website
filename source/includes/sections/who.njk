@@ -1,0 +1,36 @@
+{% from "components/section-intro.njk" import sectionIntro with context %}
+{% from "components/section-title.njk" import sectionTitle %}
+{% from "components/testimonial.njk" import testimonial with context %}
+{% from "components/buttons.njk" import buttonLibrary with context %}
+
+<section id="who" x-show="!$store.ui.onlyWhy">
+	{{ sectionIntro('who', boxClass='bg-gray-legacy-600', titleClass='text-emerald-400', subtitleClass='text-emerald-200', lineClass='border-gray-legacy-400', subtitle=false) }}
+	<div class="bg-white pt-12 pb-24">
+		<div class="site-container flex flex-col items-center">
+			{{ sectionTitle(t.sectionWho.second.title, icon='stars.svg') }}
+			<hr class="mt-12 h-20 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-24">
+			<div class="grid md:grid-cols-2">
+				<div class="p-8 lg:p-16">
+					{{ testimonial('toyota', logo='client/toyota.svg', logoHeight=14, quoteClass='text-blue-300', link=site.signageUrl) }}
+				</div>
+				<div class="border-t border-cool-gray-400 p-8 md:-ml-px md:border-t-0 md:border-l lg:p-16">
+					{{ testimonial('zabka', logo='project/zabka/logo.svg', logoHeight=14, quoteClass='text-amber-300', project='zabka') }}
+				</div>
+				<div class="border-t border-cool-gray-400 p-8 lg:p-16">
+					{{ testimonial('media-server', logo='project/media-server/logo.svg', logoHeight=10, quoteClass='text-yellow-300', project='media-server') }}
+				</div>
+				<div class="border-t border-cool-gray-400 p-8 md:-ml-px md:border-l lg:p-16">
+					{{ testimonial('subtitle-editor', logo='project/subtitle-editor/logo.svg', logoHeight=11, quoteClass='text-rose-300', project='subtitle-editor') }}
+				</div>
+			</div>
+			<hr class="mb-12 h-40 border-t-0 border-l border-cool-gray-400 md:mb-16 md:h-48">
+			{{ sectionTitle(t.sectionWho.first.title, icon='globe.svg') }}
+			<img alt="" src="/images/map.png" class="my-20 hidden h-auto w-full max-w-full md:block lg:px-12 xl:px-28" eleventy:widths="960,1600,2400" sizes="100vw">
+			<img alt="" src="/images/map-mobile.svg" class="my-16 block w-10 md:hidden" loading="lazy">
+			<p class="mb-4 text-center font-medium text-cool-gray-700 sm:font-normal">{{ t.sectionWho.buttonTitle }}</p>
+			<div class="flex w-full items-center justify-center rounded-4xl bg-teal-legacy-400 py-16 md:w-auto md:px-32">
+				{{ buttonLibrary(offsetClass='focus:ring-offset-teal-legacy-400') }}
+			</div>
+		</div>
+	</div>
+</section>

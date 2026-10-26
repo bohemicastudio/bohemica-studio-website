@@ -1,0 +1,42 @@
+{% from "components/section-intro.njk" import sectionIntro with context %}
+{% from "components/section-title.njk" import sectionTitle %}
+
+{% set copy = t.sectionHowMuch %}
+<section id="how-much" class="bg-blue-gray-100" x-show="!$store.ui.onlyWhy">
+	{{ sectionIntro('how-much', boxClass='bg-gray-legacy-700', titleClass='text-blue-400', subtitleClass='text-blue-200', lineClass='border-gray-legacy-400') }}
+	<div class="site-container flex flex-col items-center pb-24">
+		{{ sectionTitle(copy.first.title, copy.first.subtitle, icon='bank.svg') }}
+		<div class="mt-12 flex w-full flex-col items-center space-y-12 md:mt-48 md:flex-row md:space-y-0 md:space-x-40 md:px-16 lg:px-28">
+			<div class="relative flex w-full items-center justify-center border-2 border-blue-gray-300 bg-white px-12 py-16 sm:w-2/3 md:w-1/2 md:items-end md:justify-end md:pt-24 md:pr-12 md:pb-8 md:pl-0">
+				<h3 class="font-dm-mono text-2xl text-blue-gray-700 md:text-3xl">{{ copy.fixedBased }}</h3>
+				<img alt="" src="/images/pricing/coins.png" class="absolute top-0 left-0 hidden h-60 -translate-x-1/2 -translate-y-1/2 md:block" eleventy:widths="240,480" sizes="240px">
+			</div>
+			<div class="relative flex w-full items-center justify-center border-2 border-blue-gray-300 bg-white px-12 py-16 sm:w-2/3 md:w-1/2 md:items-end md:justify-end md:pt-24 md:pr-12 md:pb-8 md:pl-0">
+				<h3 class="font-dm-mono text-2xl text-blue-gray-700 md:text-3xl">{{ copy.hourlyBased }}</h3>
+				<img alt="" src="/images/pricing/hourglass.png" class="absolute top-0 left-0 hidden h-60 -translate-x-1/2 -translate-y-1/2 md:block" eleventy:widths="240,480" sizes="240px">
+			</div>
+		</div>
+		<hr class="mt-10 h-24 border-t-0 border-l border-cool-gray-400 md:mt-20 md:h-32">
+		<ul class="mt-8 text-center text-lg leading-loose font-medium text-cool-gray-800 md:mt-16">
+			{% for item in copy.pricingInfo1 %}
+				<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+		<hr class="mt-8 h-24 border-t-0 border-l border-cool-gray-400 md:mt-16 md:h-32">
+		<div class="mt-16 mb-8 flex w-full flex-col space-y-4 text-left text-cool-gray-800 md:w-1/2">
+			<p class="mb-6 text-center text-xl leading-relaxed md:text-2xl">{{ copy.pricingInfo2 | safe }}</p>
+			<ul class="list-disc space-y-4 px-6 leading-relaxed text-cool-gray-700 md:text-lg">
+				{% for item in copy.pricingInfo3 %}
+					<li>{{ item }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<p class="mt-12 mb-4 text-center font-medium text-cool-gray-700 sm:font-normal">{{ copy.proposalInfo }}</p>
+		<div class="flex w-full items-center justify-center rounded-4xl bg-blue-400 py-16 md:w-auto md:px-32">
+			<a href="{{ routes.project('project-proposal', lang) }}" data-project class="group flex flex-row items-center space-x-1 rounded-xl bg-yellow-400 px-5 py-3 font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-yellow-300 focus:ring-2 focus:ring-yellow-200 focus:ring-offset-blue-400">
+				<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">{{ copy.proposalButton }}</span>
+				<i class="gg-chevron-right shrink-0 text-gray-legacy-800 transition duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-gray-legacy-900"></i>
+			</a>
+		</div>
+	</div>
+</section>

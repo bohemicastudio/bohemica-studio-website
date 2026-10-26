@@ -1,0 +1,37 @@
+{% from "components/buttons.njk" import buttonBackLibrary with context %}
+{% from "components/project-meta.njk" import projectMeta with context %}
+
+{# Shared building blocks of the project pages (see includes/projects/*.njk) #}
+
+{% set proseClass = 'prose prose-sm mx-auto sm:prose-base md:prose-lg lg:prose-xl xl:max-w-none' %}
+
+{% macro backBar(position='top') %}
+	{% if position == 'top' %}
+		<div class="flex flex-row items-center space-x-6 border-b border-gray-400 pb-8">{{ buttonBackLibrary() }}</div>
+	{% else %}
+		<div class="mt-16 flex flex-row items-center space-x-6 border-t border-gray-400 pt-8">{{ buttonBackLibrary() }}</div>
+	{% endif %}
+{% endmacro %}
+
+{# Hidden page heading + logo + facts #}
+{% macro projectHeader(key) %}
+	{% set project = projects | findBy("key", key) %}
+	<h1 class="sr-only">{{ t.projects.list[key].client }} – {{ t.projects.list[key].type }}</h1>
+	<div class="not-prose my-8 flex grow items-center">
+		<img alt="{{ t.projects.list[key].client }}" style="height: {{ project.logoHeight / 4 }}rem" src="/images/project/{{ key }}/{{ project.logo }}" loading="eager" eleventy:widths="320,640" sizes="320px">
+	</div>
+	{{ projectMeta(key) }}
+	<hr class="border-gray-500">
+{% endmacro %}
+
+{# Screenshot with an optional caption; opens in the zoom view #}
+{% macro figure(src, caption='', alt='', class='w-full rounded-lg border border-gray-300') %}
+	<figure>
+		{% if caption %}<figcaption><strong>{{ caption | safe }}</strong></figcaption>{% endif %}
+		<img alt="{{ alt or (caption | striptags) }}" src="{{ src }}" class="{{ class }}" data-zoom eleventy:widths="800,1600" sizes="(min-width: 1600px) 1200px, 95vw">
+	</figure>
+{% endmacro %}
+
+{% macro screenshot(src, alt='', class='w-full rounded-lg border border-gray-300') %}
+	<img alt="{{ alt }}" src="{{ src }}" class="{{ class }}" data-zoom eleventy:widths="800,1600" sizes="(min-width: 1600px) 1200px, 95vw">
+{% endmacro %}

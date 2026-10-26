@@ -1,0 +1,13 @@
+{# Section links shared by the top menu, mobile menu, footer and the floating section menu #}
+{% set navItems = [
+	{ id: 'what', target: 'what-intro', topClass: 'hover:bg-blue-200 focus:ring-blue-400' },
+	{ id: 'how', target: 'how-intro', topClass: 'hover:bg-yellow-200 focus:ring-yellow-400' },
+	{ id: 'how-much', target: 'how-much-intro', topClass: 'hover:bg-indigo-200 focus:ring-indigo-400' },
+	{ id: 'why', target: 'why-one', topClass: 'hover:bg-cool-gray-200 focus:ring-cool-gray-400', onlyWhy: true },
+	{ id: 'who', target: 'who-intro', topClass: 'hover:bg-emerald-200 focus:ring-emerald-400' },
+	{ id: 'where', target: 'where-intro', topClass: 'hover:bg-red-200 focus:ring-red-400' }
+] %}
+
+{% macro navLink(item, class, tooltip=false) %}
+	<a href="#{{ item.target }}" data-scroll-to{% if item.onlyWhy %} data-only-why{% endif %} class="{{ class }}"{% if tooltip %} data-tooltip="{{ t.sections[item.id].title }}" style="--tooltip-offset: 16px"{% endif %}>{{ t.sections[item.id].name }}</a>
+{% endmacro %}

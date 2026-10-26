@@ -1,0 +1,355 @@
+@import "tailwindcss" source(none);
+@import "./fonts.css";
+@import "./palette.css";
+@import "./icons.css";
+
+@source "../../includes";
+@source "../../pages";
+@source "../scripts";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--breakpoint-*: initial;
+	--breakpoint-xs: 400px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 960px;
+	--breakpoint-lg: 1280px;
+	--breakpoint-xl: 1600px;
+
+	--font-dm-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-dm-mono: "DM Mono", ui-monospace, monospace;
+	--font-optician-sans: "Optician Sans", ui-sans-serif, system-ui, sans-serif;
+
+	--text-2\.25xl: 1.625rem;
+	--text-2\.25xl--line-height: 2.125rem;
+	--text-2\.5xl: 1.75rem;
+	--text-2\.5xl--line-height: 2.25rem;
+	--text-10xl: 10rem;
+	--text-10xl--line-height: 1;
+	--text-11xl: 15rem;
+	--text-11xl--line-height: 1;
+
+	--radius-2\.5xl: 1.25rem;
+	--radius-4xl: 3rem;
+	--radius-5xl: 4rem;
+	--radius-6xl: 5rem;
+	--radius-7xl: 6rem;
+
+	--tracking-wide: 0.05em;
+	--tracking-wider: 0.15em;
+	--tracking-widest: 0.25em;
+	--leading-relaxed-more: 1.75;
+}
+
+/* Tailwind 2 compatible defaults */
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
+
+	button:not(:disabled),
+	[role="button"]:not(:disabled) {
+		cursor: pointer;
+	}
+
+	/* width/height attributes (added by eleventy-img) only reserve space - sizing stays with CSS classes */
+	img {
+		width: auto;
+	}
+}
+
+/* Layout */
+@utility site-container {
+	width: 100%;
+	margin-inline: auto;
+	max-width: var(--breakpoint-xl);
+	padding-inline: 1rem;
+
+	@variant sm {
+		padding-inline: 2rem;
+	}
+	@variant md {
+		padding-inline: 4rem;
+	}
+	@variant xl {
+		padding-inline: 0;
+	}
+}
+
+@utility container-screen {
+	margin-inline: auto;
+
+	@variant xs {
+		max-width: var(--breakpoint-xs);
+	}
+	@variant sm {
+		max-width: var(--breakpoint-sm);
+	}
+	@variant md {
+		max-width: var(--breakpoint-md);
+	}
+	@variant lg {
+		max-width: var(--breakpoint-lg);
+	}
+	@variant xl {
+		max-width: var(--breakpoint-xl);
+	}
+}
+
+@utility h-screen-50 {
+	height: 50vh;
+}
+
+@utility h-screen-125 {
+	height: 125vh;
+}
+
+/* Menus */
+@utility top-menu-button {
+	@apply rounded-lg border border-white px-3 py-1 text-lg font-medium whitespace-nowrap text-gray-700 transition duration-100 ease-linear focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-hidden;
+}
+
+@utility bottom-menu-button {
+	@apply rounded-lg border border-cool-gray-800 bg-cool-gray-700 px-3 py-1 text-lg font-normal whitespace-nowrap text-gray-300 transition duration-100 ease-linear hover:bg-cool-gray-500 hover:text-white focus:ring-2 focus:ring-cool-gray-400 focus:ring-offset-2 focus:ring-offset-cool-gray-800 focus:outline-hidden;
+}
+
+@utility section-clue-button {
+	@apply flex cursor-pointer flex-row items-center justify-center rounded-md px-2 py-2.5 leading-none font-medium whitespace-nowrap text-cool-gray-100 transition duration-75 ease-linear hover:bg-cool-gray-600 focus:bg-cool-gray-700 focus:outline-hidden;
+}
+
+@utility mobile-menu-button {
+	@apply mx-auto rounded-lg border border-white px-4 py-2 text-xl font-medium whitespace-nowrap text-gray-800 transition duration-100 ease-linear focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-hidden;
+}
+
+/* Entrance animations (replace the former anime.js fade-ins) */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+.fade-in {
+	animation: fade-in var(--fade-duration, 200ms) linear var(--fade-delay, 0ms) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fade-in {
+		animation: none;
+	}
+}
+
+[x-cloak] {
+	display: none !important;
+}
+
+/* Typography plugin tweaks */
+.prose {
+	--tw-prose-hr: #a1a1aa;
+	--tw-prose-bullets: var(--color-cool-gray-400);
+
+	:where(strong) {
+		font-weight: 800;
+	}
+}
+
+/* Tooltips (replace Tippy.js) - only on devices that can hover */
+@media (hover: hover) {
+	[data-tooltip] {
+		position: relative;
+	}
+
+	[data-tooltip]::after {
+		content: attr(data-tooltip);
+		position: absolute;
+		top: calc(100% + var(--tooltip-offset, 12px));
+		left: 50%;
+		z-index: 60;
+		translate: -50% -0.25rem;
+		padding: 0.125rem 0.25rem;
+		border: 1px solid var(--color-blue-gray-50);
+		border-radius: var(--radius-md);
+		box-shadow: 0 0 0 1px var(--color-blue-gray-500);
+		background: var(--color-blue-gray-200);
+		color: var(--color-blue-gray-800);
+		font: 500 0.875rem/1.4 var(--font-dm-sans);
+		letter-spacing: normal;
+		text-transform: none;
+		white-space: nowrap;
+		opacity: 0;
+		pointer-events: none;
+		transition:
+			opacity 150ms linear,
+			translate 150ms ease-out;
+	}
+
+	[data-tooltip-position="left"]::after {
+		top: 50%;
+		left: auto;
+		right: calc(100% + var(--tooltip-offset, 12px));
+		translate: 0.25rem -50%;
+	}
+
+	[data-tooltip]:hover::after,
+	[data-tooltip]:focus-visible::after {
+		opacity: 1;
+		translate: -50% 0;
+	}
+
+	[data-tooltip-position="left"]:hover::after,
+	[data-tooltip-position="left"]:focus-visible::after {
+		translate: 0 -50%;
+	}
+}
+
+/* Slide-over */
+#slideover-scroller::-webkit-scrollbar-track {
+	margin-top: 6rem;
+	margin-bottom: 2rem;
+}
+
+/* medium-zoom */
+.medium-zoom-image--opened {
+	border-radius: var(--radius-xs);
+	border: 0;
+}
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+	z-index: 999;
+}
+
+/* Proposal table */
+.proposal-table {
+	border-spacing: 0 0.75rem;
+	border-collapse: separate;
+
+	tbody tr.phase td {
+		@apply border-none bg-blue-gray-300 px-6 py-4 text-base font-medium whitespace-nowrap text-blue-gray-800;
+	}
+
+	tbody tr.phase + tr td {
+		@apply border-none! pt-0!;
+	}
+
+	tbody tr:not(.phase) td {
+		@apply border-t border-blue-gray-400;
+	}
+
+	tbody tr:not(.phase) td:first-child {
+		@apply px-6 pt-3 text-sm font-medium whitespace-nowrap text-blue-gray-700;
+	}
+
+	tbody tr:not(.phase) td:nth-child(2) {
+		@apply px-6 pt-3 text-xs text-blue-gray-500;
+	}
+
+	tbody tr:not(.phase) td:nth-child(2) ul {
+		@apply list-inside list-disc;
+	}
+
+	tbody tr:not(.phase) td:nth-child(3) {
+		@apply px-6 pt-3 text-sm font-medium whitespace-nowrap text-blue-gray-600;
+	}
+}
+
+/* Technology grid in the "How" section, with cross markers on the cell corners.
+   The selectors mirror the original grid-styled-{2,3,4} rules for each column count. */
+ul.grid-how {
+	@apply grid auto-rows-fr grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+
+	li {
+		@apply relative flex flex-col items-center justify-between space-y-4 border-cool-gray-400 pt-10 pb-8;
+	}
+
+	li::before {
+		z-index: 10;
+	}
+
+	li > div {
+		@apply flex grow items-center justify-center;
+	}
+
+	li > div > img {
+		@apply scale-75 md:scale-100;
+	}
+
+	li > span {
+		@apply text-center font-optician-sans leading-none tracking-wide text-cool-gray-700;
+	}
+}
+
+@utility grid-cross-4 {
+	position: absolute;
+	inset: 0;
+	margin: -7px;
+	pointer-events: none;
+	content: "";
+	background-repeat: no-repeat;
+	background-position: top right, bottom right, bottom left, top left;
+	background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+}
+
+@utility grid-cross-2 {
+	position: absolute;
+	inset: 0;
+	margin: -7px;
+	pointer-events: none;
+	content: "";
+	background-repeat: no-repeat;
+	background-image: url("/images/grid-cross.svg"), url("/images/grid-cross.svg");
+}
+
+@utility grid-cross-1 {
+	position: absolute;
+	inset: 0;
+	margin: -7px;
+	pointer-events: none;
+	content: "";
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-image: url("/images/grid-cross.svg");
+}
+
+@media (max-width: 959.98px) {
+	ul.grid-how {
+		li:first-child { border-width: 1px !important; }
+		li:first-child::before { @apply grid-cross-4; }
+		li:nth-child(n + 2):nth-child(-n + 3) { border-width: 1px 1px 1px 0; }
+		li:nth-child(n + 2):nth-child(-n + 3)::before { @apply grid-cross-2; background-position: top right, bottom right; }
+		li:nth-child(2n + 1):not(:first-child) { border-width: 0 1px 1px 1px !important; }
+		li:nth-child(2n + 1):not(:first-child)::before { @apply grid-cross-2; background-position: bottom left, bottom right; }
+		li:nth-child(n + 2) { border-width: 0 1px 1px 0; }
+		li:nth-child(n + 2)::before { @apply grid-cross-1; }
+	}
+}
+
+@media (min-width: 960px) and (max-width: 1279.98px) {
+	ul.grid-how {
+		li:first-child { border-width: 1px !important; }
+		li:first-child::before { @apply grid-cross-4; }
+		li:nth-child(n + 2):nth-child(-n + 4) { border-width: 1px 1px 1px 0; }
+		li:nth-child(n + 2):nth-child(-n + 4)::before { @apply grid-cross-2; background-position: top right, bottom right; }
+		li:nth-child(3n + 1):not(:first-child) { border-width: 0 1px 1px 1px !important; }
+		li:nth-child(3n + 1):not(:first-child)::before { @apply grid-cross-2; background-position: bottom left, bottom right; }
+		li:nth-child(n + 4) { border-width: 0 1px 1px 0; }
+		li:nth-child(n + 4)::before { @apply grid-cross-1; }
+	}
+}
+
+@media (min-width: 1280px) {
+	ul.grid-how {
+		li:first-child { border-width: 1px !important; }
+		li:first-child::before { @apply grid-cross-4; }
+		li:nth-child(n + 2):nth-child(-n + 5) { border-width: 1px 1px 1px 0; }
+		li:nth-child(n + 2):nth-child(-n + 5)::before { @apply grid-cross-2; background-position: top right, bottom right; }
+		li:nth-child(4n + 1):not(:first-child) { border-width: 0 1px 1px 1px !important; }
+		li:nth-child(4n + 1):not(:first-child)::before { @apply grid-cross-2; background-position: bottom left, bottom right; }
+		li:nth-child(n + 5) { border-width: 0 1px 1px 0; }
+		li:nth-child(n + 5)::before { @apply grid-cross-1; }
+	}
+}

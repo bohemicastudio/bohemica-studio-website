@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>{{ pageTitle }}</title>
+	<meta name="description" content="{{ pageDescription }}">
+	{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+	{% if redirectByLanguage %}
+	{# "/" serves the English page; returning Czech visitors (or Czech/Slovak browsers) go to /cs/ #}
+	<script>try{var l=localStorage.getItem("language");if(l==="cs"||(!l&&/^(cs|sk)\b/i.test(navigator.language)))location.replace("/cs/")}catch(e){}</script>
+	{% endif %}
+	<link rel="canonical" href="{{ canonicalPath | absoluteUrl(site.url) }}">
+	{% for alternate in alternates %}
+	<link rel="alternate" hreflang="{{ alternate.hreflang }}" href="{{ alternate.url | absoluteUrl(site.url) }}">
+	{% endfor %}
+	<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="{% asset 'main.css' %}">
+	<script type="module" src="{% asset 'main.js' %}"></script>
+	<!-- 100% privacy-first analytics -->
+	<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
+	{# Social previews #}
+	<meta property="og:type" content="{{ ogType or 'website' }}">
+	<meta property="og:site_name" content="{{ site.name }}">
+	<meta property="og:title" content="{{ pageTitle }}">
+	<meta property="og:description" content="{{ pageDescription }}">
+	<meta property="og:url" content="{{ canonicalPath | absoluteUrl(site.url) }}">
+	<meta property="og:image" content="{{ (ogImage or '/og/home.png') | absoluteUrl(site.url) }}">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:locale" content="{{ language.ogLocale }}">
+	{% for other in site.languages %}{% if other.code != lang %}
+	<meta property="og:locale:alternate" content="{{ other.ogLocale }}">
+	{% endif %}{% endfor %}
+	<meta name="twitter:card" content="summary_large_image">
+
+	{# Icons - generated via https://realfavicongenerator.net/ #}
+	<link rel="icon" href="/images/favicon/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+	<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#f1f5f9">
+
+	{% if structuredData %}
+	<script type="application/ld+json">{{ structuredData | json | safe }}</script>
+	{% endif %}
+</head>
+<body class="relative min-h-screen font-dm-sans {{ bodyClass or 'bg-white' }}" x-data :class="($store.ui.slideover || $store.ui.mobileMenu) && 'overflow-hidden'">
+{{ content | safe }}
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" eleventy:ignore></noscript>
+</body>
+</html>

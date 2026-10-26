@@ -1,0 +1,66 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, figure, proseClass with context %}
+{% from "components/badge-feature.njk" import badgeFeature with context %}
+{% set p = t.projectPages.zabka %}
+
+{% macro sections(list) %}
+	{% for section in list %}
+		<h3>{{ section.heading }}</h3>
+		{% for paragraph in section.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+		{% if section.tip %}
+			<aside class="not-prose my-8 rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 px-6 py-5 md:text-lg">
+				<p class="font-semibold text-gray-900">{{ section.tip.title }}</p>
+				<p class="mt-2 text-gray-700">{{ section.tip.body }}</p>
+			</aside>
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('zabka') }}
+	{{ badgeFeature(name='saasProduct', icon='saas-product.svg', link=site.signageUrl) }}
+	<h2>{{ p.title }}</h2>
+	<p>{{ p.intro }}</p>
+	<dl class="not-prose my-10 grid gap-4 sm:grid-cols-3">
+		{% for result in p.results %}
+			<div class="flex flex-col-reverse rounded-2xl bg-gray-100 px-6 py-5">
+				<dt class="mt-1 text-gray-600">{{ result.label }}</dt>
+				<dd class="text-3xl font-bold text-gray-900 md:text-4xl">{{ result.value }}</dd>
+			</div>
+		{% endfor %}
+	</dl>
+	{{ figure('/images/project/zabka/cover.webp', alt=p.coverAlt) }}
+
+	<h3>{{ p.timelineHeading }}</h3>
+	<ol>
+		{% for step in p.timeline %}
+			<li><strong>{{ step.date }} – {{ step.title }}.</strong> {{ step.body }}</li>
+		{% endfor %}
+	</ol>
+
+	{{ sections(p.sections) }}
+
+	<figure>
+		<blockquote>
+			<p>{{ t.sectionWho.testimonials.zabka.review }}</p>
+		</blockquote>
+		<figcaption>{{ p.quoteAuthor }}{% if p.quoteNote %} ({{ p.quoteNote }}){% endif %}</figcaption>
+	</figure>
+
+	{{ sections(p.sectionsAfter) }}
+
+	<h3>{{ p.featuresHeading }}</h3>
+	<ul>
+		{% for feature in p.features %}
+			<li><strong>{{ feature.title }}</strong> – {{ feature.text }}</li>
+		{% endfor %}
+	</ul>
+
+	<h3>{{ p.ctaHeading }}</h3>
+	<p>{{ p.ctaText }}</p>
+	<p class="not-prose flex flex-wrap gap-4">
+		<a href="{{ routes.home(lang) }}#contact" data-slideover-close class="rounded-xl bg-yellow-400 px-5 py-3 leading-none font-medium text-gray-900 ring-offset-2 transition duration-100 ease-linear hover:bg-yellow-300 focus:ring-2 focus:ring-yellow-500">{{ p.ctaContact }}</a>
+		<a href="{{ site.signageUrl }}" target="_blank" rel="noopener" class="rounded-xl border border-gray-400 px-5 py-3 leading-none font-medium text-gray-800 transition duration-100 ease-linear hover:border-gray-800 hover:bg-gray-100">{{ p.ctaSignage }}</a>
+	</p>
+</article>
+{{ backBar('bottom') }}

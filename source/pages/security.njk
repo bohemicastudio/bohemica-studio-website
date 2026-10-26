@@ -1,0 +1,16 @@
+---
+pagination:
+  data: securityTxtPaths
+  size: 1
+  alias: path
+permalink: "{{ path }}"
+layout: false
+eleventyExcludeFromCollections: true
+securityTxtPaths:
+  - /.well-known/security.txt
+  - /security.txt
+---
+Contact: mailto:jakub@bohemicastudio.com
+Expires: {{ site.securityTxtExpires }}
+Preferred-Languages: en, cs
+Canonical: {{ '/.well-known/security.txt' | absoluteUrl(site.url) }}

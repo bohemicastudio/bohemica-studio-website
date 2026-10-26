@@ -1,0 +1,99 @@
+{% from "components/section-intro.njk" import sectionIntro with context %}
+{% from "components/section-title.njk" import sectionTitle %}
+{% from "components/process-step.njk" import processStep with context %}
+{% from "components/badge-feature.njk" import badgeFeature with context %}
+
+{% set toolGroups = [
+	{ name: 'first', tools: [
+		{ name: 'JavaScript', logo: 'javascript.svg' },
+		{ name: 'TypeScript', logo: 'typescript.svg' },
+		{ name: 'PHP', logo: 'php.svg' },
+		{ name: 'Laravel', logo: 'laravel.svg' },
+		{ name: 'C#', logo: 'csharp.svg' },
+		{ name: 'Swift', logo: 'swift.svg' },
+		{ name: 'SwiftUI', logo: 'swiftui.svg' },
+		{ name: 'Kotlin', logo: 'kotlin.svg' }
+	] },
+	{ name: 'second', tools: [
+		{ name: 'Tailwind CSS', logo: 'tailwindcss.svg' },
+		{ name: 'Alpine.js', logo: 'alpine-3.svg' },
+		{ name: 'Anime.js', logo: 'animejs.svg' },
+		{ name: 'GSAP', logo: 'gsap.svg' },
+		{ name: 'Barba.js', logo: 'barbajs.svg' },
+		{ name: 'Locomotive Scroll', logo: 'locomotive.png', class: 'h-22', height: 88 },
+		{ name: 'Framer Motion', logo: 'framer-motion.png', class: 'h-18', height: 72 },
+		{ name: 'Spline', logo: 'spline.png', class: 'h-20', height: 80 }
+	] },
+	{ name: 'third', tools: [
+		{ name: 'Vue', logo: 'vuejs.svg' },
+		{ name: 'Nuxt', logo: 'nuxtjs.svg' },
+		{ name: 'Electron', logo: 'electron.svg' },
+		{ name: 'Node.js', logo: 'nodejs.svg' },
+		{ name: 'React', logo: 'react.svg' },
+		{ name: 'Next.js', logo: 'nextjs.svg' },
+		{ name: 'Ionic', logo: 'ionic.svg' },
+		{ name: 'Capacitor', logo: 'capacitor.svg' }
+	] },
+	{ name: 'fourth', listClass: 'mt-12', tools: [
+		{ name: 'Apostrophe CMS', logo: 'apostrophecms.svg', partner: true },
+		{ name: 'Strapi', logo: 'strapi.svg' },
+		{ name: 'Firebase', logo: 'firebase.svg' },
+		{ name: 'Wordpress', logo: 'wordpress.svg' }
+	] },
+	{ name: 'fifth', listClass: 'mt-12', tools: [
+		{ name: 'Figma', logo: 'figma.svg' },
+		{ name: 'Drama', logo: 'drama.png', class: 'h-20', height: 80, easterEgg: true },
+		{ name: 'Framer', logo: 'framer.svg' },
+		{ name: 'Webflow', logo: 'webflow.svg' },
+		{ name: 'Elementor', logo: 'elementor.svg' },
+		{ name: 'Crocoblock', logo: 'crocoblock.svg' }
+	] }
+] %}
+
+<section id="how" x-show="!$store.ui.onlyWhy">
+	<div class="bg-cool-gray-300">
+		{{ sectionIntro('how', boxClass='bg-gray-legacy-600', titleClass='text-yellow-400', subtitleClass='text-yellow-200', lineClass='border-gray-legacy-400') }}
+		<div class="site-container">
+			{{ sectionTitle(t.sectionHow.first.title, t.sectionHow.first.subtitle, icon='process.svg') }}
+			<div class="mt-12 mb-16 space-y-12 md:mt-24 md:mb-32 md:space-y-40">
+				{{ processStep(1, chipClass='bg-cyan-500', imageTop='bubble', imageBottom='coffee') }}
+				{{ processStep(2, chipClass='bg-teal-500', imageTop='notebook', imageBottom='pencil') }}
+				{{ processStep(3, chipClass='bg-emerald-500', imageTop='rocket', imageBottom='shield') }}
+			</div>
+		</div>
+		<div class="relative mx-auto flex h-20 w-full grow justify-center md:h-28">
+			<hr class="border-t-0 border-l border-cool-gray-400" style="bottom: -100%; height: 200%">
+		</div>
+	</div>
+	<div class="bg-cool-gray-100">
+		<div class="m-auto h-20 md:h-28"></div>
+		<div class="site-container mt-12 space-y-24 pb-16 md:mt-32 md:pb-32">
+			{{ sectionTitle(t.sectionHow.second.title, t.sectionHow.second.subtitle, icon='code.svg') }}
+			{% for group in toolGroups %}
+				<div>
+					<h4 class="mb-6 text-2xl font-medium">{{ t.sectionHow.tools[group.name] }}</h4>
+					<ul class="grid-how {{ group.listClass }}">
+						{% for tool in group.tools %}
+							<li>
+								{% if tool.partner %}
+									{{ badgeFeature(name='officialPartner', icon='official-partner.svg', link='https://apostrophecms.com/') }}
+								{% endif %}
+								<div>
+									<img alt="" src="/images/logo/{{ tool.logo }}"{% if tool.class %} class="w-auto {{ tool.class }}" eleventy:widths="{{ tool.height * 2 }}" sizes="{{ tool.height }}px"{% endif %}{% if tool.easterEgg %} title="Click drama to add drama"{% endif %} loading="lazy">
+								</div>
+								{% if tool.easterEgg %}
+									<span data-easter-egg class="cursor-pointer">{{ tool.name }}</span>
+								{% else %}
+									<span>{{ tool.name }}</span>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="relative mx-auto flex h-20 w-full grow justify-center md:h-28">
+			<hr class="border-t-0 border-l border-cool-gray-400" style="bottom: -100%; height: 200%">
+		</div>
+	</div>
+</section>

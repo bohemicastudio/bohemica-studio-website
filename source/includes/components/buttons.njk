@@ -1,0 +1,37 @@
+{# Links that open project pages carry data-project, so the homepage can show them in the slide-over #}
+
+{% macro buttonProject(key, offsetClass='focus:ring-offset-black') %}
+	<a href="{{ routes.project(key, lang) }}" data-project class="group flex flex-row items-center space-x-1 rounded-lg bg-emerald-400 px-3.5 py-2 font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-emerald-300 focus:ring-2 focus:ring-emerald-500 {{ offsetClass }}">
+		<span class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900">{{ t.ui.seeProject }}</span>
+		<i class="gg-chevron-right shrink-0 text-cool-gray-800 transition duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-cool-gray-900"></i>
+	</a>
+{% endmacro %}
+
+{# Same look as buttonProject, for links to other websites #}
+{% macro buttonLink(href, label, offsetClass='focus:ring-offset-black') %}
+	<a href="{{ href }}" target="_blank" rel="noopener" class="group flex flex-row items-center space-x-1 rounded-lg bg-emerald-400 px-3.5 py-2 font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-emerald-300 focus:ring-2 focus:ring-emerald-500 {{ offsetClass }}">
+		<span class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900">{{ label }}</span>
+		<i class="gg-chevron-right shrink-0 text-cool-gray-800 transition duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-cool-gray-900"></i>
+	</a>
+{% endmacro %}
+
+{% macro buttonLibrary(offsetClass='focus:ring-offset-gray-legacy-800') %}
+	<a href="{{ routes.project('overview', lang) }}" data-project class="group flex flex-row items-center space-x-1 rounded-xl bg-yellow-400 px-5 py-3 font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-yellow-300 focus:ring-2 focus:ring-yellow-300 {{ offsetClass }}">
+		<span class="leading-none whitespace-nowrap text-gray-legacy-800 group-hover:text-gray-legacy-900">{{ t.openProjectLibrary }}</span>
+		<i class="gg-chevron-right shrink-0 text-gray-legacy-800 transition duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-gray-legacy-900"></i>
+	</a>
+{% endmacro %}
+
+{% macro buttonBackLibrary() %}
+	<a href="{{ routes.project('overview', lang) }}" data-project class="group not-prose flex flex-row items-center space-x-1 rounded-xl bg-yellow-400 px-3 py-2 font-medium ring-offset-2 transition duration-100 ease-linear focus:ring-2 focus:ring-yellow-500 focus:ring-offset-white">
+		<i class="gg-chevron-left shrink-0 text-cool-gray-800 transition duration-200 ease-out group-hover:-translate-x-0.5 group-hover:text-cool-gray-900"></i>
+		<span class="leading-none whitespace-nowrap text-cool-gray-800 group-hover:text-cool-gray-900">{{ t.backToProjectOverview }}</span>
+	</a>
+{% endmacro %}
+
+{% macro buttonCall(classes='text-warm-gray-800 focus:ring-offset-warm-gray-500 focus:ring-yellow-500') %}
+	<a rel="noopener" href="{{ site.scheduleCallUrl }}" target="_blank" class="group mt-8 inline-flex flex-row items-center justify-center space-x-2 rounded-md bg-yellow-400 px-4 py-3 text-center leading-none font-medium ring-offset-2 transition duration-100 ease-linear hover:bg-yellow-300 focus:ring-2 md:rounded-xl {{ classes }}">
+		<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true">{% include "icons/phone.svg" %}</svg>
+		<span>{{ t.scheduleCall }}</span>
+	</a>
+{% endmacro %}

@@ -1,0 +1,31 @@
+{% from "projects/_layout.njk" import backBar, projectHeader, figure, screenshot, proseClass with context %}
+{% from "components/badge-feature.njk" import badgeFeature with context %}
+{% set p = t.projectPages['media-server'] %}
+{% set dir = '/images/project/media-server/' %}
+
+{{ backBar() }}
+<article class="{{ proseClass }}">
+	{{ projectHeader('media-server') }}
+	{{ badgeFeature(name='saasProduct', icon='saas-product.svg', link=site.signageUrl) }}
+	<p>{{ p.preHeading | safe }}</p>
+	<h3>{{ p.projectDescHeading }}</h3>
+	<p>{{ p.projectDesc1 | safe }}</p>
+	<p>{{ p.projectDesc2 }}</p>
+	<ul>{% for item in p.projectDesc3 %}<li>{{ item }}</li>{% endfor %}</ul>
+	<h3>{{ p.process }}</h3>
+	<p>{{ p.process2 }}</p>
+	<ol>{% for item in p.process3 %}<li>{{ item }}</li>{% endfor %}</ol>
+	{{ figure(dir + '1.png', p.client) }}
+	{{ figure(dir + '2.png', p.client2) }}
+	{{ figure(dir + '3.jpg', p.client3) }}
+	<figure>
+		<figcaption><strong>{{ p.client4 }}</strong></figcaption>
+		{{ screenshot(dir + '4.png', p.client4) }}
+		{{ screenshot(dir + '5.png', p.client4) }}
+		{{ screenshot(dir + '6.png', p.client4, 'max-h-80 w-auto rounded-lg border border-gray-300') }}
+		{{ screenshot(dir + '7.png', p.client4) }}
+		{{ screenshot(dir + '8.png', p.client4) }}
+	</figure>
+	{{ figure(dir + '9.jpg', p.client6) }}
+</article>
+{{ backBar('bottom') }}

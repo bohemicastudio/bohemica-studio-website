@@ -1,0 +1,32 @@
+{% from "sections/navigation.njk" import navLink, navItems with context %}
+{% from "components/social-channels.njk" import socialChannels with context %}
+
+<footer id="bottom" class="bg-cool-gray-800">
+	<div class="site-container pt-16 pb-16 md:pb-24">
+		<div class="mb-16 flex flex-row items-start justify-between md:mb-24">
+			<nav class="flex flex-col items-start space-y-4 md:flex-row md:items-center md:space-y-0 md:space-x-4">
+				{% for item in navItems %}
+					{{ navLink(item, 'bottom-menu-button') }}
+				{% endfor %}
+			</nav>
+			<div class="flex flex-col space-y-2">
+				{{ socialChannels(classes='text-cool-gray-400 hover:bg-cool-gray-500 hover:text-cool-gray-100') }}
+			</div>
+		</div>
+		<hr class="mb-6 border-cool-gray-600">
+		<span class="pointer-events-none font-dm-mono text-9xl leading-none font-medium tracking-tighter text-cool-gray-700 select-none md:text-11xl" aria-hidden="true">{{ site.year }}</span>
+		<hr class="mt-4 border-cool-gray-600">
+		<div class="mt-16 flex flex-col items-start justify-between space-y-12 md:mt-24 md:flex-row md:items-end md:space-y-0">
+			<svg class="h-11 w-auto text-cool-gray-300 md:h-full" width="350" height="48" viewBox="0 0 350 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{{ site.name }}">{% include "icons/logo-horizontal.svg" %}</svg>
+			<div class="rounded-xl border border-cool-gray-600 px-5 py-3 md:px-8 md:py-4">
+				<svg class="h-7 w-auto text-cool-gray-300 md:h-full" width="228" height="36" viewBox="0 0 228 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{% include "icons/badge-icons.svg" %}</svg>
+			</div>
+		</div>
+		<p class="mt-12 text-sm text-cool-gray-400">
+			© {{ site.year }} {{ site.name }} · <a href="mailto:{{ site.email }}" class="hover:text-cool-gray-100">{{ site.email }}</a> · <a href="{{ routes.privacy(lang) }}" class="hover:text-cool-gray-100">{{ t.privacy.title }}</a>
+		</p>
+		<p class="mt-2 text-sm text-cool-gray-400">
+			{{ t.legal.brandOf }} {{ site.company.name }}, {{ t.legal.companyId }} {{ site.company.idFormatted }}, {{ t.legal.vatId }} {{ site.company.vatId }}, {{ site.company.street }}, {{ site.company.postalCode }} {{ site.company.locality }}.
+		</p>
+	</div>
+</footer>
