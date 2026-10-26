@@ -3,6 +3,7 @@ import { minify } from "html-minifier-terser";
 
 import { buildAssets, assetPath } from "./lib/assets.js";
 import { buildOgImages } from "./lib/og-images.js";
+import { tagProductLinks } from "./lib/product-links.js";
 
 const isProduction = process.env.ELEVENTY_RUN_MODE === "build";
 
@@ -54,6 +55,10 @@ export default function (config) {
 		new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(value),
 	);
 	config.addFilter("absoluteUrl", (path, base) => new URL(path, base).href);
+
+	config.addTransform("product-links", function (content) {
+		return (this.page.outputPath || "").endsWith(".html") ? tagProductLinks(content) : content;
+	});
 
 	// Minify HTML in production builds
 	if (isProduction) {
