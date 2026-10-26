@@ -10,7 +10,7 @@ services:
     runtime: static
     name: Bohemica Studio Website
     branch: master
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    buildCommand: COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm install --frozen-lockfile && corepack pnpm build
     staticPublishPath: ./build
     envVars:
       # Render would otherwise install dependencies itself, with its own package manager

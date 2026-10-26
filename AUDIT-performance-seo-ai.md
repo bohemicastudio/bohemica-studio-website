@@ -26,7 +26,7 @@ Lighthouse mobile, run against the new build served locally:
 
 **Needs action on Render or by the team:**
 - **§6 and §10:** delete the `/* → /index.html` rewrite rule in the Render dashboard. Unknown URLs then get `404.html` with a real 404 status. Apply the headers and redirects from `render.yaml`, either by linking it as a Blueprint or by entering them in the dashboard.
-- **Render build settings:** build command `corepack enable && pnpm install --frozen-lockfile && pnpm build`, publish directory `build`, env `SKIP_INSTALL_DEPS=true`. A `GITHUB_TOKEN` env var is optional.
+- **Render build settings:** build command `COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack pnpm install --frozen-lockfile && corepack pnpm build`, publish directory `build`, env `SKIP_INSTALL_DEPS=true`. A `GITHUB_TOKEN` env var is optional.
 - **Disable the GitHub Pages mirror:** the old `gh-pages` branch is a duplicate copy of the site.
 - **Colour contrast:** white text on the blue/cyan/teal chips and the first "Why" panel is a design decision.
 - **§A4:** an FAQ section is still open.
