@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@botpoison/browser':
+        specifier: ^1.1.0
+        version: 1.1.0
       alpinejs:
         specifier: ^3.17.5
         version: 3.17.5
@@ -122,6 +125,10 @@ packages:
   '@alloc/quick-lru@5.3.0':
     resolution: {integrity: sha512-U4+70Pc5ZS9osnCBCE5Jha/ciHM+Yp+CNMNC/7HvYbNRk1Ldd+f7qO65W5qfhu/TCv+/ozljlXXe9Nj8419DMA==}
     engines: {node: '>=10'}
+
+  '@botpoison/browser@1.1.0':
+    resolution: {integrity: sha512-tKzwOLu+lWe07zkmjEL/9+85xRs8tnlAwQwY/JVX7bWExne5MO3JaARwou6EvTDn2S5oKq7OMRsozbJxj2AEWQ==}
+    engines: {node: '>=18'}
 
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
@@ -1339,6 +1346,8 @@ snapshots:
       slash: 3.0.0
 
   '@alloc/quick-lru@5.3.0': {}
+
+  '@botpoison/browser@1.1.0': {}
 
   '@emnapi/runtime@1.11.3':
     dependencies:

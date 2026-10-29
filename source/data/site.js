@@ -32,6 +32,8 @@ export default {
 	callHost: { name: "Jakub Miřejovský", jobTitle: "Co-founder" },
 	// Formspark endpoint of the contact form
 	contactFormUrl: "https://submit-form.com/GH6F1WYC5",
+	// Botpoison public key, the spam protection Formspark checks on the contact form
+	botpoisonPublicKey: "pk_d861614c-5514-4cc4-835e-6fa7888c652c",
 	signageUrl: "https://www.bohemicasignage.com/",
 	social: {
 		linkedin: "https://linkedin.com/company/bohemicastudio",
